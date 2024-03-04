@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1 {
+    font-family: 'Indie Flower', cursive;
+    color: #4CAF50;
+}
+
+#clue-container, #input-container, #message, #clue-list {
+    margin-bottom: 20px;
+}
+
+input[type="text"], button {
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 20px;
+    border: 2px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, button:hover {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px #4CAF50;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#help-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    padding: 5px 10px;
+    font-size: 24px;
+    background-color: #007bff;
+    color: #ffffff;
+    border-radius: 50%;
+}
+
+@media (max-width: 600px) {
+    .container, #input-container {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    #guess-input {
+        margin: 10px 0;
+    }
+}

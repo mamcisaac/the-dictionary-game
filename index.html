@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dictionary Game</h1>
+        </header>
+        <main>
+            <div id="clue-container">
+                <p id="primary-definition" style="font-weight: bold;"></p>
+                <ul id="message"></ul> 
+                <ul id="clue-list"></ul>
+            </div>
+            <div id="input-container">
+                <input type="text" id="guess-input" placeholder="Enter your guess">
+                <button id="guess-button">Guess</button>
+                <button id="clue-button">Next Clue</button>
+                <button id="give-up-button">Give Up</button>
+            </div>
+            <button id="start-game-button">New Game</button>
+            <button id="help-button" aria-label="Help">?</button>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
