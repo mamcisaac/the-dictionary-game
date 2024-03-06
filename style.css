@@ -91,8 +91,8 @@ button:not(:disabled):hover {
     position: absolute;
     background-color: #2a9d8f;
     color: #ffffff;
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -141,7 +141,6 @@ ul#clue-list li, ul#message li {
 #help-button {
     background-color: #2a9d8f; /* Dark background for the button */
     color: #ffffff; /* Light text for contrast */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: none;
 }
 
@@ -202,7 +201,6 @@ button:hover:not(:disabled) {
     }
         /* Adjustments for smaller screens */
     #help-button {
-        padding: 0.8em 1.2em; /* Decreased padding for smaller button */
         font-size: 1.2em; /* Decreased font size for smaller button */
         top: 10px; /* Adjusted position for smaller screens */
         right: 10px; /* Adjusted position for smaller screens */
