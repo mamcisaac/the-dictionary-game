@@ -25,8 +25,6 @@ def get_dictionary_data(word):
         return None
 
 # Function to clean and filter data
-import re
-
 def clean_and_filter_data(data, word):
     # Initialize containers for the filtered data
     filtered_definitions = []
@@ -39,7 +37,7 @@ def clean_and_filter_data(data, word):
         entry = data[0]  # The dictionary API returns a list of entries; we take the first
         meanings = entry.get("meanings", [])
 
-        non_regular_char_pattern = re.compile(r'[^\w\s]', re.UNICODE)
+        non_regular_char_pattern = re.compile(r'[^\w\s.,;!?()]', re.UNICODE)
         word_root_pattern = re.compile(r'\b' + re.escape(word[:4]), re.I)
         word_variation_pattern = re.compile(r'\b' + re.escape(word), re.I)
 

@@ -97,7 +97,7 @@ button:not(:disabled):hover {
     top: 20px; /* Pinning to the top */
     right: 20px; /* Adjusted position */
     z-index: 1000;
-        font-size: 1.5em; /* Increased font size */
+    font-size: 1.5em; /* Increased font size */
     line-height: 1.5em; /* Adjust line height for vertical centering */
 }
 
@@ -196,5 +196,12 @@ button:hover:not(:disabled) {
 
     #guess-input {
         margin: 10px 0;
+    }
+        /* Adjustments for smaller screens */
+    #help-button {
+        padding: 0.8em 1.2em; /* Decreased padding for smaller button */
+        font-size: 1.2em; /* Decreased font size for smaller button */
+        top: 10px; /* Adjusted position for smaller screens */
+        right: 10px; /* Adjusted position for smaller screens */
     }
 }
