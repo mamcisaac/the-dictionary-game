@@ -88,17 +88,20 @@ button:not(:disabled):hover {
 
 /* Help button styling */
 #help-button {
+    position: absolute;
     background-color: #2a9d8f;
     color: #ffffff;
-    font-weight: bold;
-    padding: 1em 1.5em; /* Increased padding for a bigger button */
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    position: fixed;
-    top: 20px; /* Pinning to the top */
-    right: 20px; /* Adjusted position */
-    z-index: 1000;
-    font-size: 1.5em; /* Increased font size */
-    line-height: 1.5em; /* Adjust line height for vertical centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Adjust top and left properties to position it correctly */
+    top: 5px;
+    left:25px;
+    font-size: 24px;
+        font-weight: bold;
 }
 
 /* Additional styles for clues and messages */
