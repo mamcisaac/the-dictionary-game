@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dictionary Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -13,16 +13,18 @@
         </header>
         <main>
             <div id="clue-container">
-                <p id="primary-definition" style="font-weight: bold;"></p>
+                <p>I am thinking of a word.<br>Can you guess what it is?</p>
+                <p id="my-word" style="display: none;">My word begins with the letter <span id="first-letter" class="highlight"></span>.<br>
+                My word is defined as: <span id="primary-definition" class="highlight"></span>.</p>
                 <ul id="message"></ul> 
                 <ul id="clue-list"></ul>
             </div>
             <div id="input-container">
-                <input type="text" id="guess-input" placeholder="Enter your guess">
+                <input type="text" id="guess-input" placeholder="Enter your guess" aria-label="Enter your guess here"><br>
                 <button id="guess-button">Guess</button>
                 <button id="clue-button">Next Clue</button>
                 <button id="give-up-button">Give Up</button>
-            </div>
+            </div> <br>
             <button id="start-game-button">New Game</button>
             <button id="help-button" aria-label="Help">?</button>
         </main>

@@ -1,5 +1,4 @@
 import requests
-import random
 import json
 import re
 
@@ -9,13 +8,14 @@ from nltk.stem import WordNetLemmatizer
 # Initialize the WordNet Lemmatizer
 lemmatizer = WordNetLemmatizer()
 
-# Function to get a random word from the file
-def get_random_words(filename, n):
+# Function to get all words from the file
+def get_all_words(filename):
     with open(filename, "r") as file:
         words = [word.strip() for word in file.readlines() if len(word.strip()) >= 4]
-    return random.sample(words, min(n, len(words)))
+    return words
 
-# Function to call the dictionary API and fetch data
+# Function to call the dictionary API and fetch data 
+
 def get_dictionary_data(word):
     url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
     response = requests.get(url)
@@ -24,7 +24,9 @@ def get_dictionary_data(word):
     else:
         return None
 
-# Function to clean and filter the data fetched from the API
+# Function to clean and filter data
+import re
+
 def clean_and_filter_data(data, word):
     # Initialize containers for the filtered data
     filtered_definitions = []
@@ -32,56 +34,62 @@ def clean_and_filter_data(data, word):
     antonyms = set()
     examples = []
 
-    # Compile a regex pattern to match non-regular characters and the word or its root
-    non_regular_char_pattern = re.compile(r'', re.UNICODE)
-    word_root_pattern = re.compile(r'\b' + re.escape(word[:4]), re.I)
+    # Assuming data is a list of dictionary entries, and you're interested in the first one
+    if isinstance(data, list) and len(data) > 0:
+        entry = data[0]  # The dictionary API returns a list of entries; we take the first
+        meanings = entry.get("meanings", [])
 
-    # Go through each meaning and its definitions
-    for meaning in data[0]["meanings"]:
-        for definition in meaning["definitions"]:
-            clean_definition = non_regular_char_pattern.sub('', definition["definition"])
-            if not word_root_pattern.search(clean_definition):
-                filtered_definitions.append(clean_definition)
-                if "synonyms" in definition:
-                    synonyms.update(definition["synonyms"])
+        non_regular_char_pattern = re.compile(r'[^\w\s]', re.UNICODE)
+        word_root_pattern = re.compile(r'\b' + re.escape(word[:4]), re.I)
+        word_variation_pattern = re.compile(r'\b' + re.escape(word), re.I)
+
+        for meaning in meanings:
+            for definition in meaning.get("definitions", []):
+                clean_definition = non_regular_char_pattern.sub('', definition.get("definition", ""))
+                
+                # Process synonyms, antonyms, and examples regardless of word_root_pattern
+                # Filter out synonyms that are variations of the word
+                definition_synonyms = [syn for syn in definition.get("synonyms", []) if not word_variation_pattern.search(syn)]
+                synonyms.update(definition_synonyms)
+
                 if "antonyms" in definition:
                     antonyms.update(definition["antonyms"])
+                
                 if "example" in definition:
                     clean_example = non_regular_char_pattern.sub('', definition["example"])
-                    # Tokenize the example sentence
-                    tokens = word_tokenize(clean_example)
-
-                    # Lemmatize each word and replace occurrences of the lemma
-                    for i, token in enumerate(tokens):
-                        lemma = lemmatizer.lemmatize(token.lower())  # Use lower() for case-insensitive matching
-                        if lemma == word.lower():  # Check if lemma matches the target word
-                            tokens[i] = '[blank]'  # Replace with '[blank]'
-
-                    # Join the tokens back into a sentence
-                    replaced_example = ' '.join(tokens)
-
+                    pattern = re.compile(r'(\w*)' + re.escape(word) + r'(\w*)', re.IGNORECASE)
+                    replaced_example = pattern.sub(lambda match: match.group(1) + "[blank]" + match.group(2), clean_example)
                     examples.append(replaced_example)
+                
+                # Append definitions only if they pass the word_root_pattern.search test
+                if not word_root_pattern.search(clean_definition):
+                    filtered_definitions.append(clean_definition)
 
     # Convert sets to lists for JSON serialization
     synonyms = list(synonyms)
     antonyms = list(antonyms)
 
+    # Ensure a tuple is returned even if no data was processed
     return filtered_definitions, synonyms, antonyms, examples
 
 # Function to create a puzzle for a given word
+
 def create_puzzle_for_word(word):
     data = get_dictionary_data(word)
     if data:
-        definitions, synonyms, antonyms, examples = clean_and_filter_data(data, word)
-        if len(definitions) >= 2:
-            return {
-                "word": word,
-                "definitions": definitions,
-                "synonyms": synonyms,
-                "antonyms": antonyms,
-                "examples": examples
-            }
+        # Ensure data is not None and is a list (API returns a list of dictionary entries)
+        if isinstance(data, list) and len(data) > 0:
+            definitions, synonyms, antonyms, examples = clean_and_filter_data(data, word)  # Assuming you want the first entry
+            if len(definitions) > 2:
+                return {
+                    "word": word,
+                    "definitions": definitions,
+                    "synonyms": synonyms,
+                    "antonyms": antonyms,
+                    "examples": examples
+                }
     return None
+
 
 # Function to append a puzzle to a JSON file
 def append_puzzle_to_file(puzzle, filename):
@@ -108,9 +116,9 @@ def append_puzzle_to_file(puzzle, filename):
         with open(filename, "w") as file:
             json.dump([puzzle], file, indent=4)
 
-# Main function to create puzzles for n words
-def create_puzzles(filename, n):
-    words = get_random_words(filename, n)
+# Updated main function to create puzzles for all words in the file
+def create_puzzles(filename):
+    words = get_all_words(filename)  # Get all words instead of a random sample
     for word in words:
         puzzle = create_puzzle_for_word(word)
         if puzzle:
@@ -118,5 +126,4 @@ def create_puzzles(filename, n):
 
 if __name__ == "__main__":
     word_list_filename = "word_list.txt"  # Ensure this file exists with a list of words
-    number_of_words = 500  # Specify the number of words you want to generate puzzles for
-    create_puzzles(word_list_filename, number_of_words)
+    create_puzzles(word_list_filename)  

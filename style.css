@@ -1,72 +1,197 @@
+/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
+/* General styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f0f0f0;
+    background-color: #eae7dc; /* Neutral off-white */
+    color: #3d405b; /* Darker contrasting color for text */
     margin: 0;
     padding: 20px;
 }
 
 .container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 40px auto;
     text-align: center;
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    padding: 40px;
+    border: 3px solid #f2cc8f; /* Soft border color */
 }
 
 h1 {
     font-family: 'Indie Flower', cursive;
-    color: #4CAF50;
+    color: #81b29a; /* Softer green */
+    margin-bottom: 30px;
 }
 
-#clue-container, #input-container, #message, #clue-list {
-    margin-bottom: 20px;
+/* Highlighting the first letter and the definition */
+#primary-definition {
+    font-weight: bold;
+    font-size: 1.25rem; /* Adjust as needed */
+    margin-bottom: 1rem;
 }
 
-input[type="text"], button {
-    font-family: 'Roboto', sans-serif;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 20px;
-    border: 2px solid #ddd;
-    transition: all 0.3s ease;
+
+
+/* Special styling for the word when revealed */
+.revealed-word {
+    color: #81b29a; /* Or any other color that makes the text stand out */
+    font-weight: bold;
+    font-size: 1.5rem; /* Make it larger to stand out */
+}
+
+/* Highlighting the first letter and the definition */
+#first-letter {
+    font-weight: bold;
+    font-size: 1.25rem; /* Adjust as needed */
+    margin-bottom: 1rem;
+}
+
+/* Bigger font in the text input for better visibility */
+input[type="text"] {
+    font-size: 1.1rem; /* Make the text bigger in the input */
+    width: 80%; /* Adjust the width as needed */
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
 }
 
 input[type="text"]:focus, button:hover {
-    border-color: #4CAF50;
-    box-shadow: 0 0 8px #4CAF50;
+    box-shadow: 0 0 12px #81b29a; /* Soft glow on focus/hover */
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #81b29a;
     color: white;
     cursor: pointer;
+    border: none;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    padding: 12px 24px; /* Adjust the padding to increase button size */
 }
 
-button:hover {
-    background-color: #45a049;
+
+button:disabled {
+    background-color: #ccc;
+    cursor: default;
 }
 
+button:not(:disabled):hover {
+    background-color: #9d8df1; /* Change color on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Help button styling */
 #help-button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-    padding: 5px 10px;
-    font-size: 24px;
-    background-color: #007bff;
+    background-color: #2a9d8f;
     color: #ffffff;
+    font-weight: bold;
+    padding: 1em 1.5em; /* Increased padding for a bigger button */
     border-radius: 50%;
+    position: fixed;
+    top: 20px; /* Pinning to the top */
+    right: 20px; /* Adjusted position */
+    z-index: 1000;
+        font-size: 1.5em; /* Increased font size */
+    line-height: 1.5em; /* Adjust line height for vertical centering */
 }
 
+/* Additional styles for clues and messages */
+ul#clue-list, ul#message {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul#clue-list li, ul#message li {
+    background-color: #f4f1de;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-left: 5px solid #81b29a;
+    text-align: left;
+}
+
+/* Message display for feedback */
+#message {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 5px;
+    transition: transform 0.3s, color 0.3s;
+}
+
+/* When showing a success message */
+.success-message {
+    color: #81b29a;
+}
+
+/* When showing an error message */
+.error-message {
+    color: #e07a5f;
+}
+
+/* Ensure the help button contrasts well and is always visible */
+#help-button {
+    background-color: #2a9d8f; /* Dark background for the button */
+    color: #ffffff; /* Light text for contrast */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+/* Button animations and interactivity */
+button {
+    outline: none; /* Remove outline when focused/clicked */
+}
+
+button:not(:disabled) {
+    cursor: pointer; /* Only show pointer cursor for active buttons */
+}
+
+button:disabled {
+    opacity: 0.5; /* Visually indicate button is disabled */
+}
+
+/* A little bounce to the buttons on hover */
+button:hover:not(:disabled) {
+    animation: bounce 0.2s;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Styling for correct and wrong guesses */
+.correct-guess {
+    background-color: #81b29a;
+}
+
+.wrong-guess {
+    background-color: #e07a5f;
+}
+
+/* Transition for clue and message reveals */
+#clue-list li, #message li, #message {
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Responsive design adjustments */
 @media (max-width: 600px) {
-    .container, #input-container {
-        flex-direction: column;
+    .container, #input-container, input[type="text"], button {
         width: 90%;
+    }
+
+    button {
+        width: 100%; /* Full width buttons on small screens */
+        margin: 10px 0; /* Space out buttons */
     }
 
     #guess-input {
