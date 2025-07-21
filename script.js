@@ -476,6 +476,29 @@ window.addEventListener("click", (event) => {
 loadSettings();
 loadStats();
 updateStatsDisplay();
+
+// Help modal event listeners
+helpButton.addEventListener("click", () => {
+    helpModal.style.display = "block";
+});
+
+closeHelpModal.addEventListener("click", () => {
+    helpModal.style.display = "none";
+});
+
+window.addEventListener("click", (event) => {
+    if (event.target === helpModal) {
+        helpModal.style.display = "none";
+    }
+    if (event.target === settingsModal) {
+        settingsModal.style.display = "none";
+    }
+});
+
+// Load settings and stats on page load
+loadSettings();
+loadStats();
+updateStatsDisplay();
 });
 
 
