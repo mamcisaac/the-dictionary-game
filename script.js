@@ -26,23 +26,35 @@ document.addEventListener("DOMContentLoaded", function() {
     const progressFill = document.getElementById("progress-fill");
     const clueCounter = document.getElementById("clue-counter");
     
-    // Calculate total available clues for current word
+    // Calculate total available clues for current word with reasonable caps
     function calculateAvailableClues() {
         if (!puzzleData) return 0;
         
         let totalClues = 0;
-        totalClues += puzzleData.definitions ? puzzleData.definitions.length : 0;
-        totalClues += puzzleData.examples ? Math.min(puzzleData.examples.length, 2) : 0; // Max 2 examples
-        totalClues += puzzleData.synonyms && puzzleData.synonyms.length > 0 ? 1 : 0; // Synonyms as one clue
-        totalClues += puzzleData.antonyms && puzzleData.antonyms.length > 0 ? 1 : 0; // Antonyms as one clue
-        totalClues += puzzleData.word ? puzzleData.word.length - 1 : 0; // Letter reveals (excluding first letter)
         
-        return totalClues;
+        // Cap definitions at 4 to avoid excessive primary clues
+        totalClues += puzzleData.definitions ? Math.min(puzzleData.definitions.length, 4) : 0;
+        
+        // Cap examples at 3 to prevent bloat
+        totalClues += puzzleData.examples ? Math.min(puzzleData.examples.length, 3) : 0;
+        
+        // Synonyms as one clue (if any exist)
+        totalClues += puzzleData.synonyms && puzzleData.synonyms.length > 0 ? 1 : 0;
+        
+        // Antonyms as one clue (if any exist)  
+        totalClues += puzzleData.antonyms && puzzleData.antonyms.length > 0 ? 1 : 0;
+        
+        // Letter reveals capped at 4 additional letters (max 5 total including first)
+        const maxLetterReveals = Math.min(puzzleData.word ? puzzleData.word.length - 1 : 0, 4);
+        totalClues += maxLetterReveals;
+        
+        // Cap total clues at 15 to maintain challenge
+        return Math.min(totalClues, 15);
     }
     
-    // Determine difficulty tier based on available clues
+    // Determine difficulty tier based on available clues (with new caps)
     function getDifficultyTier(availableClues) {
-        if (availableClues >= 15) return { name: 'Easy', color: '#81b29a', multiplier: 1.0 };
+        if (availableClues >= 12) return { name: 'Easy', color: '#81b29a', multiplier: 1.0 };
         if (availableClues >= 8) return { name: 'Medium', color: '#f2cc8f', multiplier: 1.2 };
         return { name: 'Hard', color: '#e07a5f', multiplier: 1.5 };
     }
@@ -219,27 +231,29 @@ function getNextClue() {
         clueButton.textContent = "All Clues Used";
     }
     
-    if (currentClueIndex >= puzzleData.definitions.length || currentClueIndex > 2) {
-        // Give an example sentence if not already given
+    if (currentClueIndex >= Math.min(puzzleData.definitions.length, 4) || currentClueIndex > 2) {
+        // Give up to 3 example sentences
         if (cluesGiven.includes('example') === false && puzzleData.examples.length > 0) {
             cluesGiven.push('example');
             return `Sample sentence: ${puzzleData.examples[0]}`;
-        // Give a second example sentence if the first has been given, and a second is available
         } else if (cluesGiven.includes('example') && puzzleData.examples.length > 1 && !cluesGiven.includes('example2')) {
-            cluesGiven.push('example2'); // Ensure the second example is uniquely identified
+            cluesGiven.push('example2');
             return `Another sample sentence: ${puzzleData.examples[1]}`;
-        // Give synonyms if not already given and available, limited to 5
+        } else if (cluesGiven.includes('example2') && puzzleData.examples.length > 2 && !cluesGiven.includes('example3')) {
+            cluesGiven.push('example3');
+            return `Third example: ${puzzleData.examples[2]}`;
+        // Give synonyms if not already given and available, limited to 4
         } else if (cluesGiven.includes('synonyms') === false && puzzleData.synonyms.length > 0) {
-            const synonyms = puzzleData.synonyms.slice(0, 5).join(', ');
+            const synonyms = puzzleData.synonyms.slice(0, 4).join(', ');
             cluesGiven.push('synonyms');
             return `Synonyms: ${synonyms}`;
-        // Give antonyms if not already given and available, limited to 5
+        // Give antonyms if not already given and available, limited to 3
         } else if (cluesGiven.includes('antonyms') === false && puzzleData.antonyms.length > 0) {
-            const antonyms = puzzleData.antonyms.slice(0, 5).join(', ');
+            const antonyms = puzzleData.antonyms.slice(0, 3).join(', ');
             cluesGiven.push('antonyms');
             return `Antonyms: ${antonyms}`;
-        // Reveal letters if other clues have been exhausted
-        } else if (lettersRevealed < puzzleData.word.length - 1) {
+        // Reveal letters if other clues have been exhausted (max 4 additional letters)
+        } else if (lettersRevealed < puzzleData.word.length - 1 && lettersRevealed < 5) {
             lettersRevealed++;
             cluesGiven.push(`letters${lettersRevealed}`); // Ensure unique entry for each state of letters revealed
             
