@@ -305,6 +305,13 @@ function handleGuess() {
     const guess = guessInput.value.trim().toLowerCase();
     const targetWord = puzzleData.word.toLowerCase();
     
+    // Check if guess is empty
+    if (!guess) {
+        messageDisplay.innerHTML = "Please enter a word to guess!";
+        messageDisplay.style.color = "#e07a5f";
+        return;
+    }
+    
     if (guess === targetWord) {
         messageDisplay.innerHTML = `Congratulations! The word was: ${puzzleData.word}. You scored ${currentScore} points!`;
         messageDisplay.style.color = "#81b29a"; // Success color
@@ -318,24 +325,39 @@ function handleGuess() {
         const similarity = calculateSimilarity(guess, targetWord);
         let feedback = "Not quite. Try again!";
         
-        if (similarity > 0.7) {
-            feedback = "Very close! You're almost there!";
-        } else if (similarity > 0.5) {
-            feedback = "Getting warmer! Keep trying!";
-        } else if (guess.startsWith(targetWord.charAt(0))) {
-            feedback = "Good start with the first letter! Keep going!";
-        } else if (targetWord.includes(guess.charAt(0))) {
-            feedback = "One of your letters is in the word!";
+        // Only provide detailed feedback for meaningful guesses (2+ characters)
+        if (guess.length >= 2) {
+            if (similarity > 0.7) {
+                feedback = "Very close! You're almost there!";
+            } else if (similarity > 0.5) {
+                feedback = "Getting warmer! Keep trying!";
+            } else if (guess.startsWith(targetWord.charAt(0))) {
+                feedback = "Good start with the first letter! Keep going!";
+            } else if (targetWord.includes(guess.charAt(0))) {
+                feedback = "One of your letters is in the word!";
+            }
+        } else if (guess.length === 1) {
+            // Special handling for single character guesses
+            if (guess === targetWord.charAt(0)) {
+                feedback = "That's the first letter! Now guess the full word.";
+            } else if (targetWord.includes(guess)) {
+                feedback = "That letter is in the word!";
+            } else {
+                feedback = "That letter is not in the word.";
+            }
         }
         
         messageDisplay.innerHTML = feedback;
         messageDisplay.style.color = "#e07a5f"; // Error color
 
-        const newClue = getNextClue();
-        if (newClue !== "No more clues available." || !cluesGiven.includes('no-more-clues')) {
-            updateClueDisplay(newClue);
-            if (newClue === "No more clues available.") {
-                cluesGiven.push('no-more-clues');
+        // Auto-reveal clue if setting is enabled and guess was substantial
+        if (gameSettings.autoClue && guess.length >= 2) {
+            const newClue = getNextClue();
+            if (newClue !== "No more clues available." || !cluesGiven.includes('no-more-clues')) {
+                updateClueDisplay(newClue);
+                if (newClue === "No more clues available.") {
+                    cluesGiven.push('no-more-clues');
+                }
             }
         }
     }
