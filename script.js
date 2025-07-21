@@ -62,14 +62,32 @@ document.addEventListener("DOMContentLoaded", function() {
         showWordLengthSetting.checked = gameSettings.showWordLength;
         autoClueSetting.checked = gameSettings.autoClue;
         
-        // Update word pattern display visibility if game is active
-        if (gameStarted) {
-            if (gameSettings.showWordLength) {
-                wordPatternElement.style.display = 'block';
-            } else {
-                wordPatternElement.style.display = 'none';
-            }
+        // Update word pattern display based on settings if game is active
+        if (gameStarted && puzzleData) {
+            updateWordPatternDisplay();
         }
+    }
+    
+    // Update word pattern display based on current settings
+    function updateWordPatternDisplay() {
+        if (!puzzleData) return;
+        
+        const firstLetter = puzzleData.word[0].toUpperCase();
+        
+        if (gameSettings.showWordLength) {
+            // Show full pattern: "P _ _ _ _ _ _"
+            const hiddenLetters = '_ '.repeat(puzzleData.word.length - lettersRevealed).trim();
+            const revealedPart = puzzleData.word.substring(0, lettersRevealed).toUpperCase();
+            const pattern = revealedPart + (hiddenLetters ? ' ' + hiddenLetters : '');
+            wordPatternElement.innerHTML = pattern;
+        } else {
+            // Show only the first letter: "P"
+            const revealedPart = puzzleData.word.substring(0, lettersRevealed).toUpperCase();
+            wordPatternElement.innerHTML = revealedPart;
+        }
+        
+        // Always show the element (don't hide it completely)
+        wordPatternElement.style.display = 'block';
     }
     
     // Load stats from localStorage
@@ -186,12 +204,10 @@ function getNextClue() {
             lettersRevealed++;
             cluesGiven.push(`letters${lettersRevealed}`); // Ensure unique entry for each state of letters revealed
             
-            // Update word pattern display
-            const revealedPart = puzzleData.word.substring(0, lettersRevealed);
-            const hiddenPart = '_ '.repeat(puzzleData.word.length - lettersRevealed).trim();
-            const pattern = revealedPart + (hiddenPart ? ' ' + hiddenPart : '');
-            wordPatternElement.innerHTML = pattern;
+            // Update word pattern display with new revealed letters
+            updateWordPatternDisplay();
             
+            const revealedPart = puzzleData.word.substring(0, lettersRevealed);
             return `The word starts with: ${revealedPart}`;
         }
     } else {
@@ -238,14 +254,8 @@ function startGame() {
     // Display the formatted message in the primary-definition element
     document.getElementById("primary-definition").innerHTML = `${definition}`;
         
-        // Show word pattern with first letter revealed
-        const firstLetter = puzzleData.word[0].toUpperCase();
-        const hiddenLetters = '_ '.repeat(puzzleData.word.length - 1).trim();
-        const wordPattern = firstLetter + (hiddenLetters ? ' ' + hiddenLetters : '');
-        wordPatternElement.innerHTML = wordPattern;
-        
-        // Ensure word pattern is visible based on settings
-        wordPatternElement.style.display = gameSettings.showWordLength ? 'block' : 'none';
+        // Initialize word pattern display
+        updateWordPatternDisplay();
 
     // Clear the clue list for any previous game clues and reset other UI elements as needed
     document.getElementById("clue-list").innerHTML = '';
