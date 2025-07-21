@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const myword = document.getElementById("my-word");
     const scoreContainer = document.getElementById("score-container");
     const currentScoreElement = document.getElementById("current-score");
-    const wordLengthElement = document.getElementById("word-length");
     const wordPatternElement = document.getElementById("word-pattern");
     const statsButton = document.getElementById("stats-button");
     const statsModal = document.getElementById("stats-modal");
@@ -63,26 +62,14 @@ document.addEventListener("DOMContentLoaded", function() {
         showWordLengthSetting.checked = gameSettings.showWordLength;
         autoClueSetting.checked = gameSettings.autoClue;
         
-        // Update word length display visibility if game is active
+        // Update word pattern display visibility if game is active
         if (gameStarted) {
-            const lengthParagraph = document.querySelector('p:has(#word-length)');
-            const patternParagraph = document.querySelector('p:has(#word-pattern)');
-            
-            // Find the paragraphs containing word-length and word-pattern
-            const wordLengthP = Array.from(document.querySelectorAll('#my-word p')).find(p => 
-                p.textContent.includes('Length:')
-            );
-            const wordPatternP = Array.from(document.querySelectorAll('#my-word p')).find(p => 
-                p.textContent.includes('Pattern:')
-            );
-            
-            if (wordLengthP && wordPatternP) {
+            const wordDisplayElement = document.getElementById('word-display');
+            if (wordDisplayElement) {
                 if (gameSettings.showWordLength) {
-                    wordLengthP.style.display = 'block';
-                    wordPatternP.style.display = 'block';
+                    wordDisplayElement.style.display = 'block';
                 } else {
-                    wordLengthP.style.display = 'none';
-                    wordPatternP.style.display = 'none';
+                    wordDisplayElement.style.display = 'none';
                 }
             }
         }
@@ -249,17 +236,15 @@ function startGame() {
     fetchPuzzle().then(() => {
         // Display the primary definition
         // Assuming puzzleData is already fetched and contains the word and primary definition
-    const firstLetter = puzzleData.word[0]; // Get the first letter of the word
     const definition = puzzleData.definitions[0]; // Get the primary definition of the word
     
     // Display the formatted message in the primary-definition element
     document.getElementById("primary-definition").innerHTML = `${definition}`;
-        document.getElementById("first-letter").innerHTML = `${firstLetter.toUpperCase()}`;
         
-        // Show word length and pattern
-        const wordLength = puzzleData.word.length;
-        const wordPattern = '_ '.repeat(wordLength).trim();
-        wordLengthElement.innerHTML = wordLength;
+        // Show word pattern with first letter revealed
+        const firstLetter = puzzleData.word[0].toUpperCase();
+        const hiddenLetters = '_ '.repeat(puzzleData.word.length - 1).trim();
+        const wordPattern = firstLetter + (hiddenLetters ? ' ' + hiddenLetters : '');
         wordPatternElement.innerHTML = wordPattern;
 
     // Clear the clue list for any previous game clues and reset other UI elements as needed

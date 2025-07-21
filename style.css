@@ -67,6 +67,15 @@ h1 {
     font-size: 1.15rem;
 }
 
+.word-pattern {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.3em;
+    color: #2a9d8f;
+    margin: 20px 0;
+    font-family: 'Courier New', monospace;
+}
+
 .intro-text {
     font-size: 1.3rem;
     color: #555;
