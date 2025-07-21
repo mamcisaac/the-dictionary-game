@@ -72,18 +72,18 @@ document.addEventListener("DOMContentLoaded", function() {
     function updateWordPatternDisplay() {
         if (!puzzleData) return;
         
-        const firstLetter = puzzleData.word[0].toUpperCase();
-        
         if (gameSettings.showWordLength) {
-            // Show full pattern: "P _ _ _ _ _ _"
-            const hiddenLetters = '_ '.repeat(puzzleData.word.length - lettersRevealed).trim();
+            // Show full pattern with consistent spacing: "c o n s t _ _ _"
             const revealedPart = puzzleData.word.substring(0, lettersRevealed).toUpperCase();
-            const pattern = revealedPart + (hiddenLetters ? ' ' + hiddenLetters : '');
+            const revealedWithSpacing = revealedPart.split('').join(' ');
+            const hiddenLetters = '_ '.repeat(puzzleData.word.length - lettersRevealed).trim();
+            const pattern = revealedWithSpacing + (hiddenLetters ? ' ' + hiddenLetters : '');
             wordPatternElement.innerHTML = pattern;
         } else {
-            // Show only the first letter: "P"
+            // Show only revealed letters with consistent spacing: "c o n s t"
             const revealedPart = puzzleData.word.substring(0, lettersRevealed).toUpperCase();
-            wordPatternElement.innerHTML = revealedPart;
+            const revealedWithSpacing = revealedPart.split('').join(' ');
+            wordPatternElement.innerHTML = revealedWithSpacing;
         }
         
         // Always show the element (don't hide it completely)
