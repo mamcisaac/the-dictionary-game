@@ -26,12 +26,33 @@ document.addEventListener("DOMContentLoaded", function() {
     const progressFill = document.getElementById("progress-fill");
     const clueCounter = document.getElementById("clue-counter");
     
-    // Update progress bar - show clues used without fixed maximum
+    // Calculate total available clues for current word
+    function calculateAvailableClues() {
+        if (!puzzleData) return 0;
+        
+        let totalClues = 0;
+        totalClues += puzzleData.definitions ? puzzleData.definitions.length : 0;
+        totalClues += puzzleData.examples ? Math.min(puzzleData.examples.length, 2) : 0; // Max 2 examples
+        totalClues += puzzleData.synonyms && puzzleData.synonyms.length > 0 ? 1 : 0; // Synonyms as one clue
+        totalClues += puzzleData.antonyms && puzzleData.antonyms.length > 0 ? 1 : 0; // Antonyms as one clue
+        totalClues += puzzleData.word ? puzzleData.word.length - 1 : 0; // Letter reveals (excluding first letter)
+        
+        return totalClues;
+    }
+    
+    // Determine difficulty tier based on available clues
+    function getDifficultyTier(availableClues) {
+        if (availableClues >= 15) return { name: 'Easy', color: '#81b29a', multiplier: 1.0 };
+        if (availableClues >= 8) return { name: 'Medium', color: '#f2cc8f', multiplier: 1.2 };
+        return { name: 'Hard', color: '#e07a5f', multiplier: 1.5 };
+    }
+    
+    // Update progress bar with dynamic limits
     function updateProgressBar() {
-        // Show progress as clues used, with visual indicator
-        const progressPercentage = Math.min((cluesUsed / 10) * 100, 100); // Visual scale up to 10 clues
-        progressFill.style.width = progressPercentage + '%';
-        clueCounter.textContent = `${cluesUsed} clues used`;
+        const availableClues = calculateAvailableClues();
+        const progressPercentage = availableClues > 0 ? (cluesUsed / availableClues) * 100 : 0;
+        progressFill.style.width = Math.min(progressPercentage, 100) + '%';
+        clueCounter.textContent = `${cluesUsed}/${availableClues} clues`;
     }
     
     // Settings object
@@ -151,6 +172,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let cluesGiven = [];
     let currentScore = 100;
     let cluesUsed = 0;
+    let currentDifficulty = null;
     let gameStats = {
         gamesPlayed: 0,
         gamesWon: 0,
@@ -174,7 +196,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function getNextClue() {
     cluesUsed++;
-    currentScore = Math.max(0, currentScore - 10); // 10 point penalty for requesting a clue
+    
+    // Adaptive scoring based on difficulty
+    const availableClues = calculateAvailableClues();
+    const difficulty = getDifficultyTier(availableClues);
+    const basePenalty = 10;
+    const adjustedPenalty = Math.round(basePenalty / difficulty.multiplier);
+    
+    currentScore = Math.max(0, currentScore - adjustedPenalty);
     currentScoreElement.textContent = currentScore;
     updateProgressBar();
     
@@ -182,6 +211,12 @@ function getNextClue() {
     if (currentScore === 0) {
         clueButton.disabled = true;
         clueButton.textContent = "No More Clues (Score: 0)";
+    }
+    
+    // If all clues used, disable button
+    if (cluesUsed >= availableClues) {
+        clueButton.disabled = true;
+        clueButton.textContent = "All Clues Used";
     }
     
     if (currentClueIndex >= puzzleData.definitions.length || currentClueIndex > 2) {
@@ -265,6 +300,16 @@ function startGame() {
     // Display the formatted message in the primary-definition element
     document.getElementById("primary-definition").innerHTML = `${definition}`;
         
+        // Initialize difficulty system
+        const availableClues = calculateAvailableClues();
+        currentDifficulty = getDifficultyTier(availableClues);
+        
+        // Display difficulty indicator
+        const difficultyElement = document.getElementById("difficulty-indicator");
+        difficultyElement.textContent = `${currentDifficulty.name} (${availableClues} clues)`;
+        difficultyElement.style.backgroundColor = currentDifficulty.color;
+        difficultyElement.style.color = '#fff';
+        
         // Initialize word pattern display
         updateWordPatternDisplay();
 
@@ -336,17 +381,24 @@ function handleGuess() {
     }
     
     if (guess === targetWord) {
-        messageDisplay.innerHTML = `Congratulations! The word was: ${puzzleData.word}. You scored ${currentScore} points!`;
+        // Apply difficulty bonus to final score
+        const finalScore = Math.round(currentScore * currentDifficulty.multiplier);
+        messageDisplay.innerHTML = `Congratulations! The word was: ${puzzleData.word}. You scored ${finalScore} points! (${currentDifficulty.name} difficulty)`;
         messageDisplay.style.color = "#81b29a"; // Success color
-        recordGameResult(true, currentScore); // Record win
+        recordGameResult(true, finalScore); // Record win with bonus
         gameStarted = false; // Indicate the game has ended
         guessButton.disabled = true; // Disable the Guess button
         clueButton.disabled = true; // Disable the Clue button
         giveUpButton.disabled = true; // Disable the Give Up button
     } else {
-        // Small score penalty for wrong guesses (less than clue penalty)
+        // Adaptive score penalty for wrong guesses (less than clue penalty)
         if (guess.length >= 2) { // Only penalize substantial guesses
-            currentScore = Math.max(0, currentScore - 3); // 3 point penalty for wrong guess
+            const availableClues = calculateAvailableClues();
+            const difficulty = getDifficultyTier(availableClues);
+            const basePenalty = 3;
+            const adjustedPenalty = Math.round(basePenalty / difficulty.multiplier);
+            
+            currentScore = Math.max(0, currentScore - adjustedPenalty);
             currentScoreElement.textContent = currentScore;
             
             // If score hits 0 from wrong guesses, disable clue button
