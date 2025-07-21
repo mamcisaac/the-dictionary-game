@@ -235,6 +235,12 @@ function updateClueDisplay(newClue) {
 }
 
 function startGame() {
+    // If a game is already in progress, treat as giving up
+    if (gameStarted) {
+        recordGameResult(false); // Record as a loss
+        updateClueDisplay(`You gave up. The word was: ${puzzleData.word}`);
+    }
+    
     gameStarted = true;
     guessButton.disabled = false;
     clueButton.disabled = false;
