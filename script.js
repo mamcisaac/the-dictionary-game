@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const settingsModal = document.getElementById("settings-modal");
     const closeSettingsModal = document.querySelector(".close-settings");
     const showWordLengthSetting = document.getElementById("show-word-length");
-    const autoClieSetting = document.getElementById("auto-clue");
+    const autoClueSetting = document.getElementById("auto-clue");
     const resetStatsButton = document.getElementById("reset-stats");
     const helpButton = document.getElementById("help-button");
     const helpModal = document.getElementById("help-modal");
@@ -61,15 +61,29 @@ document.addEventListener("DOMContentLoaded", function() {
     // Apply settings to UI
     function applySettings() {
         showWordLengthSetting.checked = gameSettings.showWordLength;
-        autoClieSetting.checked = gameSettings.autoClue;
+        autoClueSetting.checked = gameSettings.autoClue;
         
-        // Update word length display visibility
+        // Update word length display visibility if game is active
         if (gameStarted) {
-            const wordLengthDisplay = document.getElementById('word-length').parentElement;
-            if (gameSettings.showWordLength) {
-                wordLengthDisplay.style.display = 'inline';
-            } else {
-                wordLengthDisplay.style.display = 'none';
+            const lengthParagraph = document.querySelector('p:has(#word-length)');
+            const patternParagraph = document.querySelector('p:has(#word-pattern)');
+            
+            // Find the paragraphs containing word-length and word-pattern
+            const wordLengthP = Array.from(document.querySelectorAll('#my-word p')).find(p => 
+                p.textContent.includes('Length:')
+            );
+            const wordPatternP = Array.from(document.querySelectorAll('#my-word p')).find(p => 
+                p.textContent.includes('Pattern:')
+            );
+            
+            if (wordLengthP && wordPatternP) {
+                if (gameSettings.showWordLength) {
+                    wordLengthP.style.display = 'block';
+                    wordPatternP.style.display = 'block';
+                } else {
+                    wordLengthP.style.display = 'none';
+                    wordPatternP.style.display = 'none';
+                }
             }
         }
     }
@@ -255,6 +269,9 @@ function startGame() {
         currentClueIndex = 1; // Start from the second definition for the next clue
 				lettersRevealed = 1;
 				cluesGiven = []; // Reset clues given
+				
+				// Apply settings after game setup
+				setTimeout(() => applySettings(), 100);
 
     });
 }
@@ -431,9 +448,10 @@ showWordLengthSetting.addEventListener("change", (e) => {
     applySettings();
 });
 
-autoClieSetting.addEventListener("change", (e) => {
+autoClueSetting.addEventListener("change", (e) => {
     gameSettings.autoClue = e.target.checked;
     saveSettings();
+    applySettings();
 });
 
 resetStatsButton.addEventListener("click", () => {
