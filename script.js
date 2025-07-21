@@ -26,14 +26,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const progressFill = document.getElementById("progress-fill");
     const clueCounter = document.getElementById("clue-counter");
     
-    // Maximum number of possible clues (definitions + examples + synonyms + antonyms + letters)
-    const maxClues = 8;
-    
-    // Update progress bar
+    // Update progress bar - show clues used without fixed maximum
     function updateProgressBar() {
-        const progressPercentage = (cluesUsed / maxClues) * 100;
+        // Show progress as clues used, with visual indicator
+        const progressPercentage = Math.min((cluesUsed / 10) * 100, 100); // Visual scale up to 10 clues
         progressFill.style.width = progressPercentage + '%';
-        clueCounter.textContent = `${cluesUsed}/${maxClues}`;
+        clueCounter.textContent = `${cluesUsed} clues used`;
     }
     
     // Settings object
@@ -176,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function getNextClue() {
     cluesUsed++;
-    currentScore = Math.max(10, 100 - (cluesUsed * 10));
+    currentScore = Math.max(10, currentScore - 10); // 10 point penalty for requesting a clue
     currentScoreElement.textContent = currentScore;
     updateProgressBar();
     
@@ -333,6 +331,12 @@ function handleGuess() {
         clueButton.disabled = true; // Disable the Clue button
         giveUpButton.disabled = true; // Disable the Give Up button
     } else {
+        // Small score penalty for wrong guesses (less than clue penalty)
+        if (guess.length >= 2) { // Only penalize substantial guesses
+            currentScore = Math.max(10, currentScore - 3); // 3 point penalty for wrong guess
+            currentScoreElement.textContent = currentScore;
+        }
+        
         // Calculate similarity for better feedback
         const similarity = calculateSimilarity(guess, targetWord);
         let feedback = "Not quite. Try again!";
