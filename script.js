@@ -174,9 +174,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function getNextClue() {
     cluesUsed++;
-    currentScore = Math.max(10, currentScore - 10); // 10 point penalty for requesting a clue
+    currentScore = Math.max(0, currentScore - 10); // 10 point penalty for requesting a clue
     currentScoreElement.textContent = currentScore;
     updateProgressBar();
+    
+    // If score hits 0, disable clue button to prevent further clue requests
+    if (currentScore === 0) {
+        clueButton.disabled = true;
+        clueButton.textContent = "No More Clues (Score: 0)";
+    }
     
     if (currentClueIndex >= puzzleData.definitions.length || currentClueIndex > 2) {
         // Give an example sentence if not already given
@@ -231,7 +237,8 @@ function updateClueDisplay(newClue) {
 function startGame() {
     gameStarted = true;
     guessButton.disabled = false;
-    clueButton.disabled = false; 
+    clueButton.disabled = false;
+    clueButton.textContent = "Need a Clue?"; // Reset button text
 		giveUpButton.disabled = false; 
 		
     // Reset scoring
@@ -333,8 +340,14 @@ function handleGuess() {
     } else {
         // Small score penalty for wrong guesses (less than clue penalty)
         if (guess.length >= 2) { // Only penalize substantial guesses
-            currentScore = Math.max(10, currentScore - 3); // 3 point penalty for wrong guess
+            currentScore = Math.max(0, currentScore - 3); // 3 point penalty for wrong guess
             currentScoreElement.textContent = currentScore;
+            
+            // If score hits 0 from wrong guesses, disable clue button
+            if (currentScore === 0) {
+                clueButton.disabled = true;
+                clueButton.textContent = "No More Clues (Score: 0)";
+            }
         }
         
         // Calculate similarity for better feedback
