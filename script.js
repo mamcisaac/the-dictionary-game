@@ -64,13 +64,10 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Update word pattern display visibility if game is active
         if (gameStarted) {
-            const wordDisplayElement = document.getElementById('word-display');
-            if (wordDisplayElement) {
-                if (gameSettings.showWordLength) {
-                    wordDisplayElement.style.display = 'block';
-                } else {
-                    wordDisplayElement.style.display = 'none';
-                }
+            if (gameSettings.showWordLength) {
+                wordPatternElement.style.display = 'block';
+            } else {
+                wordPatternElement.style.display = 'none';
             }
         }
     }
