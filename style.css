@@ -373,20 +373,57 @@ button:hover:not(:disabled) {
 }
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
+    color: #666;
+    font-size: 24px;
     font-weight: bold;
     position: absolute;
-    right: 15px;
-    top: 10px;
+    left: 15px;
+    top: 15px;
     cursor: pointer;
+    background-color: #f0f0f0;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: all 0.2s ease;
 }
 
 .close:hover,
-.close:focus {
-    color: #81b29a;
+.close:focus,
+.close-settings:hover,
+.close-settings:focus,
+.close-help:hover,
+.close-help:focus {
+    color: #fff;
+    background-color: #e07a5f;
+    border-color: #e07a5f;
     text-decoration: none;
+    transform: scale(1.1);
+}
+
+.close-settings,
+.close-help {
+    color: #666;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: all 0.2s ease;
 }
 
 #stats-content p {
