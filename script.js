@@ -8,6 +8,117 @@ document.addEventListener("DOMContentLoaded", function() {
     const inputContainer = document.getElementById("input-container");
 		const messageDisplay = document.getElementById("message");
     const myword = document.getElementById("my-word");
+    const scoreContainer = document.getElementById("score-container");
+    const currentScoreElement = document.getElementById("current-score");
+    const wordLengthElement = document.getElementById("word-length");
+    const wordPatternElement = document.getElementById("word-pattern");
+    const statsButton = document.getElementById("stats-button");
+    const statsModal = document.getElementById("stats-modal");
+    const closeModal = document.querySelector(".close");
+    const settingsButton = document.getElementById("settings-button");
+    const settingsModal = document.getElementById("settings-modal");
+    const closeSettingsModal = document.querySelector(".close-settings");
+    const showWordLengthSetting = document.getElementById("show-word-length");
+    const autoClieSetting = document.getElementById("auto-clue");
+    const resetStatsButton = document.getElementById("reset-stats");
+    const helpButton = document.getElementById("help-button");
+    const helpModal = document.getElementById("help-modal");
+    const closeHelpModal = document.querySelector(".close-help");
+    const progressFill = document.getElementById("progress-fill");
+    const clueCounter = document.getElementById("clue-counter");
+    
+    // Maximum number of possible clues (definitions + examples + synonyms + antonyms + letters)
+    const maxClues = 8;
+    
+    // Update progress bar
+    function updateProgressBar() {
+        const progressPercentage = (cluesUsed / maxClues) * 100;
+        progressFill.style.width = progressPercentage + '%';
+        clueCounter.textContent = `${cluesUsed}/${maxClues}`;
+    }
+    
+    // Settings object
+    let gameSettings = {
+        showWordLength: true,
+        autoClue: true,
+        theme: 'default'
+    };
+    
+    // Load settings from localStorage
+    function loadSettings() {
+        const savedSettings = localStorage.getItem('dictionaryGameSettings');
+        if (savedSettings) {
+            gameSettings = JSON.parse(savedSettings);
+        }
+        applySettings();
+    }
+    
+    // Save settings to localStorage
+    function saveSettings() {
+        localStorage.setItem('dictionaryGameSettings', JSON.stringify(gameSettings));
+    }
+    
+    // Apply settings to UI
+    function applySettings() {
+        showWordLengthSetting.checked = gameSettings.showWordLength;
+        autoClieSetting.checked = gameSettings.autoClue;
+        
+        // Update word length display visibility
+        if (gameStarted) {
+            const wordLengthDisplay = document.getElementById('word-length').parentElement;
+            if (gameSettings.showWordLength) {
+                wordLengthDisplay.style.display = 'inline';
+            } else {
+                wordLengthDisplay.style.display = 'none';
+            }
+        }
+    }
+    
+    // Load stats from localStorage
+    function loadStats() {
+        const savedStats = localStorage.getItem('dictionaryGameStats');
+        if (savedStats) {
+            gameStats = JSON.parse(savedStats);
+        }
+    }
+    
+    // Save stats to localStorage
+    function saveStats() {
+        localStorage.setItem('dictionaryGameStats', JSON.stringify(gameStats));
+    }
+    
+    // Update stats display
+    function updateStatsDisplay() {
+        document.getElementById('games-played').textContent = gameStats.gamesPlayed;
+        document.getElementById('games-won').textContent = gameStats.gamesWon;
+        const winRate = gameStats.gamesPlayed > 0 ? Math.round((gameStats.gamesWon / gameStats.gamesPlayed) * 100) : 0;
+        document.getElementById('win-rate').textContent = winRate + '%';
+        const avgScore = gameStats.gamesWon > 0 ? Math.round(gameStats.totalScore / gameStats.gamesWon) : 0;
+        document.getElementById('avg-score').textContent = avgScore;
+        document.getElementById('best-score').textContent = gameStats.bestScore;
+        document.getElementById('current-streak').textContent = gameStats.currentStreak;
+        document.getElementById('best-streak').textContent = gameStats.bestStreak;
+    }
+    
+    // Record game result
+    function recordGameResult(won, score = 0) {
+        gameStats.gamesPlayed++;
+        if (won) {
+            gameStats.gamesWon++;
+            gameStats.totalScore += score;
+            gameStats.currentStreak++;
+            if (gameStats.currentStreak > gameStats.bestStreak) {
+                gameStats.bestStreak = gameStats.currentStreak;
+            }
+            if (score > gameStats.bestScore) {
+                gameStats.bestScore = score;
+            }
+        } else {
+            gameStats.currentStreak = 0;
+        }
+        saveStats();
+        updateStatsDisplay();
+    }
 
 
 
@@ -24,6 +135,16 @@ document.addEventListener("DOMContentLoaded", function() {
     let puzzleData = null;
     let gameStarted = false;
     let cluesGiven = [];
+    let currentScore = 100;
+    let cluesUsed = 0;
+    let gameStats = {
+        gamesPlayed: 0,
+        gamesWon: 0,
+        totalScore: 0,
+        bestScore: 0,
+        currentStreak: 0,
+        bestStreak: 0
+    };
 
     // Initially hide the input container until the game starts
     inputContainer.style.display = "none";
@@ -38,6 +159,11 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 function getNextClue() {
+    cluesUsed++;
+    currentScore = Math.max(10, 100 - (cluesUsed * 10));
+    currentScoreElement.textContent = currentScore;
+    updateProgressBar();
+    
     if (currentClueIndex >= puzzleData.definitions.length || currentClueIndex > 2) {
         // Give an example sentence if not already given
         if (cluesGiven.includes('example') === false && puzzleData.examples.length > 0) {
@@ -61,7 +187,14 @@ function getNextClue() {
         } else if (lettersRevealed < puzzleData.word.length - 1) {
             lettersRevealed++;
             cluesGiven.push(`letters${lettersRevealed}`); // Ensure unique entry for each state of letters revealed
-            return `The word starts with: ${puzzleData.word.substring(0, lettersRevealed)}`;
+            
+            // Update word pattern display
+            const revealedPart = puzzleData.word.substring(0, lettersRevealed);
+            const hiddenPart = '_ '.repeat(puzzleData.word.length - lettersRevealed).trim();
+            const pattern = revealedPart + (hiddenPart ? ' ' + hiddenPart : '');
+            wordPatternElement.innerHTML = pattern;
+            
+            return `The word starts with: ${revealedPart}`;
         }
     } else {
         // Provide a secondary definition if the index is valid
@@ -89,6 +222,13 @@ function startGame() {
     clueButton.disabled = false; 
 		giveUpButton.disabled = false; 
 		
+    // Reset scoring
+    currentScore = 100;
+    cluesUsed = 0;
+    currentScoreElement.textContent = currentScore;
+    scoreContainer.style.display = "block";
+    updateProgressBar();
+    
     clueList.innerHTML = ''; // Clear the list for a new game
     inputContainer.style.display = "block"; // Show the input container
     myword.style.display = "block"; // Show the input container
@@ -101,6 +241,12 @@ function startGame() {
     // Display the formatted message in the primary-definition element
     document.getElementById("primary-definition").innerHTML = `${definition}`;
         document.getElementById("first-letter").innerHTML = `${firstLetter.toUpperCase()}`;
+        
+        // Show word length and pattern
+        const wordLength = puzzleData.word.length;
+        const wordPattern = '_ '.repeat(wordLength).trim();
+        wordLengthElement.innerHTML = wordLength;
+        wordPatternElement.innerHTML = wordPattern;
 
     // Clear the clue list for any previous game clues and reset other UI elements as needed
     document.getElementById("clue-list").innerHTML = '';
@@ -108,24 +254,81 @@ function startGame() {
     
         currentClueIndex = 1; // Start from the second definition for the next clue
 				lettersRevealed = 1;
+				cluesGiven = []; // Reset clues given
 
     });
 }
     
 			
+// Function to calculate similarity between two strings
+function calculateSimilarity(str1, str2) {
+    const longer = str1.length > str2.length ? str1 : str2;
+    const shorter = str1.length > str2.length ? str2 : str1;
+    
+    if (longer.length === 0) return 1.0;
+    
+    const editDistance = levenshteinDistance(longer, shorter);
+    return (longer.length - editDistance) / longer.length;
+}
+
+// Calculate Levenshtein distance between two strings
+function levenshteinDistance(str1, str2) {
+    const matrix = [];
+    
+    for (let i = 0; i <= str2.length; i++) {
+        matrix[i] = [i];
+    }
+    
+    for (let j = 0; j <= str1.length; j++) {
+        matrix[0][j] = j;
+    }
+    
+    for (let i = 1; i <= str2.length; i++) {
+        for (let j = 1; j <= str1.length; j++) {
+            if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+                matrix[i][j] = Math.min(
+                    matrix[i - 1][j - 1] + 1,
+                    matrix[i][j - 1] + 1,
+                    matrix[i - 1][j] + 1
+                );
+            }
+        }
+    }
+    
+    return matrix[str2.length][str1.length];
+}
+
 function handleGuess() {
     if (!gameStarted) return;
     const guess = guessInput.value.trim().toLowerCase();
+    const targetWord = puzzleData.word.toLowerCase();
     
-    if (guess === puzzleData.word.toLowerCase()) {
-        messageDisplay.innerHTML = `Congratulations! The word was: ${puzzleData.word}. You've guessed it correctly!`;
+    if (guess === targetWord) {
+        messageDisplay.innerHTML = `Congratulations! The word was: ${puzzleData.word}. You scored ${currentScore} points!`;
         messageDisplay.style.color = "#81b29a"; // Success color
+        recordGameResult(true, currentScore); // Record win
         gameStarted = false; // Indicate the game has ended
         guessButton.disabled = true; // Disable the Guess button
         clueButton.disabled = true; // Disable the Clue button
         giveUpButton.disabled = true; // Disable the Give Up button
     } else {
-        messageDisplay.innerHTML = `Not quite. Try again!`;
+        // Calculate similarity for better feedback
+        const similarity = calculateSimilarity(guess, targetWord);
+        let feedback = "Not quite. Try again!";
+        
+        if (similarity > 0.7) {
+            feedback = "Very close! You're almost there!";
+        } else if (similarity > 0.5) {
+            feedback = "Getting warmer! Keep trying!";
+        } else if (guess.startsWith(targetWord.charAt(0))) {
+            feedback = "Good start with the first letter! Keep going!";
+        } else if (targetWord.includes(guess.charAt(0))) {
+            feedback = "One of your letters is in the word!";
+        }
+        
+        messageDisplay.innerHTML = feedback;
         messageDisplay.style.color = "#e07a5f"; // Error color
 
         const newClue = getNextClue();
@@ -163,6 +366,7 @@ clueButton.addEventListener("click", () => {
 giveUpButton.addEventListener("click", () => {
     if (gameStarted) {
         updateClueDisplay(`The word was: ${puzzleData.word}`);
+        recordGameResult(false); // Record loss
         guessButton.disabled = true; // Optionally disable the Guess button
         clueButton.disabled = true; // Optionally disable the Clue button
         giveUpButton.disabled = true; 
@@ -172,10 +376,81 @@ giveUpButton.addEventListener("click", () => {
 });
 
 startGameButton.addEventListener("click", startGame);
+
+// Stats modal event listeners
+statsButton.addEventListener("click", () => {
+    updateStatsDisplay();
+    statsModal.style.display = "block";
 });
 
-document.getElementById('help-button').addEventListener('click', function() {
-  alert('Guess the word based on the clues provided. You can ask for additional clues, guess the word, or give up to see the answer. The game starts by revealing the first letter of the word and its definition. Good luck!');
+closeModal.addEventListener("click", () => {
+    statsModal.style.display = "none";
+});
+
+window.addEventListener("click", (event) => {
+    if (event.target === statsModal) {
+        statsModal.style.display = "none";
+    }
+});
+
+// Settings modal event listeners
+settingsButton.addEventListener("click", () => {
+    settingsModal.style.display = "block";
+});
+
+closeSettingsModal.addEventListener("click", () => {
+    settingsModal.style.display = "none";
+});
+
+// Settings change listeners
+showWordLengthSetting.addEventListener("change", (e) => {
+    gameSettings.showWordLength = e.target.checked;
+    saveSettings();
+    applySettings();
+});
+
+autoClieSetting.addEventListener("change", (e) => {
+    gameSettings.autoClue = e.target.checked;
+    saveSettings();
+});
+
+resetStatsButton.addEventListener("click", () => {
+    if (confirm("Are you sure you want to reset all statistics? This cannot be undone.")) {
+        gameStats = {
+            gamesPlayed: 0,
+            gamesWon: 0,
+            totalScore: 0,
+            bestScore: 0,
+            currentStreak: 0,
+            bestStreak: 0
+        };
+        saveStats();
+        updateStatsDisplay();
+    }
+});
+
+// Load settings and stats on page load
+loadSettings();
+loadStats();
+updateStatsDisplay();
+});
+
+// Help modal event listeners
+helpButton.addEventListener("click", () => {
+    helpModal.style.display = "block";
+});
+
+closeHelpModal.addEventListener("click", () => {
+    helpModal.style.display = "none";
+});
+
+window.addEventListener("click", (event) => {
+    if (event.target === helpModal) {
+        helpModal.style.display = "none";
+    }
+    if (event.target === settingsModal) {
+        settingsModal.style.display = "none";
+    }
 });
 
 

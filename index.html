@@ -14,7 +14,18 @@
         <main>
             <div id="clue-container">
                 <p>I am thinking of a word.<br>Can you guess what it is?</p>
+                <div id="score-container" style="display: none;">
+                    <p>Score: <span id="current-score">100</span> points</p>
+                    <div class="progress-container">
+                        <label>Clues Used:</label>
+                        <div class="progress-bar">
+                            <div id="progress-fill"></div>
+                        </div>
+                        <span id="clue-counter">0/8</span>
+                    </div>
+                </div>
                 <p id="my-word" style="display: none;">My word begins with the letter <span id="first-letter" class="highlight"></span>.<br>
+                My word has <span id="word-length" class="highlight"></span> letters: <span id="word-pattern" class="highlight"></span><br>
                 My word is defined as: <span id="primary-definition" class="highlight"></span></p>
                 <ul id="clue-list"></ul>
 								<ul id="message"></ul> 
@@ -26,7 +37,85 @@
                 <button id="give-up-button">Give Up</button>
             </div> <br>
             <button id="start-game-button">New Game</button>
+            <button id="stats-button">Stats</button>
+            <button id="settings-button">Settings</button>
             <button id="help-button" aria-label="Help">?</button>
+            
+            <!-- Stats Modal -->
+            <div id="stats-modal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Game Statistics</h2>
+                    <div id="stats-content">
+                        <p>Games Played: <span id="games-played">0</span></p>
+                        <p>Games Won: <span id="games-won">0</span></p>
+                        <p>Win Rate: <span id="win-rate">0%</span></p>
+                        <p>Average Score: <span id="avg-score">0</span></p>
+                        <p>Best Score: <span id="best-score">0</span></p>
+                        <p>Current Streak: <span id="current-streak">0</span></p>
+                        <p>Best Streak: <span id="best-streak">0</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Settings Modal -->
+            <div id="settings-modal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close-settings">&times;</span>
+                    <h2>Settings</h2>
+                    <div id="settings-content">
+                        <div class="setting-item">
+                            <label for="show-word-length">Show word length hint:</label>
+                            <input type="checkbox" id="show-word-length" checked>
+                        </div>
+                        <div class="setting-item">
+                            <label for="auto-clue">Auto-reveal clue after wrong guess:</label>
+                            <input type="checkbox" id="auto-clue" checked>
+                        </div>
+                        <div class="setting-item">
+                            <label for="theme-select">Color theme:</label>
+                            <select id="theme-select">
+                                <option value="default">Default</option>
+                                <option value="dark">Dark</option>
+                                <option value="high-contrast">High Contrast</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <button id="reset-stats">Reset Statistics</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Help/Tutorial Modal -->
+            <div id="help-modal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close-help">&times;</span>
+                    <h2>How to Play</h2>
+                    <div id="help-content">
+                        <div class="help-step">
+                            <h3>1. Start the Game</h3>
+                            <p>Click "New Game" to begin. You'll see the first letter and definition of a mystery word.</p>
+                        </div>
+                        <div class="help-step">
+                            <h3>2. Make Your Guess</h3>
+                            <p>Type your guess in the input field and press Enter or click "Guess".</p>
+                        </div>
+                        <div class="help-step">
+                            <h3>3. Get Hints</h3>
+                            <p>If you're wrong, you can ask for more clues. Each clue reduces your score by 10 points.</p>
+                        </div>
+                        <div class="help-step">
+                            <h3>4. Scoring</h3>
+                            <p>Start with 100 points. Use fewer clues to get a higher score!</p>
+                        </div>
+                        <div class="help-step">
+                            <h3>5. Track Progress</h3>
+                            <p>Check your statistics to see your win rate and best scores.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
     <script src="script.js"></script>

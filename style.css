@@ -35,6 +35,61 @@ h1 {
     margin-bottom: 1rem;
 }
 
+/* Score display styling */
+#score-container {
+    background-color: #f2cc8f;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 2px solid #81b29a;
+}
+
+#score-container p {
+    margin: 0;
+    font-weight: bold;
+    color: #3d405b;
+}
+
+#current-score {
+    color: #81b29a;
+    font-size: 1.3rem;
+}
+
+/* Progress bar styles */
+.progress-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.progress-container label {
+    font-weight: bold;
+    min-width: 80px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 20px;
+    background-color: #eae7dc;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+#progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #81b29a 0%, #e07a5f 100%);
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 10px;
+}
+
+#clue-counter {
+    font-weight: bold;
+    min-width: 40px;
+}
+
 
 
 /* Special styling for the word when revealed */
@@ -183,6 +238,108 @@ button:hover:not(:disabled) {
 /* Transition for clue and message reveals */
 #clue-list li, #message li, #message {
     transition: opacity 0.5s ease-in-out;
+}
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #81b29a;
+    text-decoration: none;
+}
+
+#stats-content p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+#stats-content span {
+    font-weight: bold;
+    color: #81b29a;
+}
+
+/* Settings styles */
+.setting-item {
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.setting-item label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.setting-item input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+.setting-item select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#reset-stats {
+    background-color: #e07a5f;
+    padding: 8px 16px;
+    margin: 0;
+}
+
+#reset-stats:hover {
+    background-color: #d65d42;
+}
+
+/* Help/Tutorial styles */
+.help-step {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f4f1de;
+    border-radius: 8px;
+    border-left: 4px solid #81b29a;
+}
+
+.help-step h3 {
+    margin: 0 0 10px 0;
+    color: #3d405b;
+}
+
+.help-step p {
+    margin: 0;
+    line-height: 1.5;
 }
 
 /* Responsive design adjustments */
