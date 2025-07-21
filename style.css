@@ -12,14 +12,15 @@ body {
 }
 
 .container {
-    max-width: 800px;
-    margin: 40px auto;
+    max-width: 900px;
+    margin: 20px auto;
     text-align: center;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    padding: 40px;
-    border: 3px solid #f2cc8f; /* Soft border color */
+    padding: 30px;
+    border: 3px solid #f2cc8f;
+    position: relative;
 }
 
 h1 {
@@ -31,17 +32,32 @@ h1 {
 /* Highlighting the first letter and the definition */
 #primary-definition {
     font-weight: bold;
-    font-size: 1.25rem; /* Adjust as needed */
+    font-size: 1.25rem;
     margin-bottom: 1rem;
+}
+
+/* Improved styling for the word display area */
+#my-word {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #81b29a;
+    line-height: 1.6;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
 }
 
 /* Score display styling */
 #score-container {
     background-color: #f2cc8f;
-    padding: 10px;
+    padding: 15px;
     border-radius: 8px;
-    margin-bottom: 15px;
+    margin: 15px auto;
     border: 2px solid #81b29a;
+    max-width: 600px;
 }
 
 #score-container p {
@@ -108,16 +124,33 @@ h1 {
 
 /* Bigger font in the text input for better visibility */
 input[type="text"] {
-    font-size: 1.1rem; /* Make the text bigger in the input */
-    width: 80%; /* Adjust the width as needed */
+    font-size: 1.1rem;
+    width: 60%;
+    max-width: 400px;
     padding: 15px;
-    margin: 10px;
-    border-radius: 5px;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+    margin: 10px auto;
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: block;
 }
 
-input[type="text"]:focus, button:hover {
-    box-shadow: 0 0 12px #81b29a; /* Soft glow on focus/hover */
+input[type="text"]:focus {
+    border-color: #81b29a;
+    box-shadow: 0 0 12px rgba(129, 178, 154, 0.3);
+    outline: none;
+}
+
+button:hover {
+    box-shadow: 0 0 12px rgba(129, 178, 154, 0.3);
+}
+
+/* Input container styling */
+#input-container {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fafafa;
+    border-radius: 8px;
 }
 
 button {
@@ -126,7 +159,11 @@ button {
     cursor: pointer;
     border: none;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    padding: 12px 24px; /* Adjust the padding to increase button size */
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 5px;
 }
 
 
@@ -146,17 +183,24 @@ button:not(:disabled):hover {
     position: absolute;
     background-color: #2a9d8f;
     color: #ffffff;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Adjust top and left properties to position it correctly */
-    top: 5px;
-    left:25px;
-    font-size: 24px;
-        font-weight: bold;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+#help-button:hover {
+    background-color: #238a7a;
+    transform: scale(1.1);
 }
 
 /* Additional styles for clues and messages */
