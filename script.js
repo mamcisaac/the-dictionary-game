@@ -451,12 +451,6 @@ resetStatsButton.addEventListener("click", () => {
     }
 });
 
-// Load settings and stats on page load
-loadSettings();
-loadStats();
-updateStatsDisplay();
-});
-
 // Help modal event listeners
 helpButton.addEventListener("click", () => {
     helpModal.style.display = "block";
@@ -473,6 +467,12 @@ window.addEventListener("click", (event) => {
     if (event.target === settingsModal) {
         settingsModal.style.display = "none";
     }
+});
+
+// Load settings and stats on page load
+loadSettings();
+loadStats();
+updateStatsDisplay();
 });
 
 

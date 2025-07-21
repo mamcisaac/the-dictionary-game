@@ -185,12 +185,6 @@ h1 {
     font-size: 1.5rem; /* Make it larger to stand out */
 }
 
-/* Highlighting the first letter and the definition */
-#first-letter {
-    font-weight: bold;
-    font-size: 1.25rem; /* Adjust as needed */
-    margin-bottom: 1rem;
-}
 
 /* Bigger font in the text input for better visibility */
 input[type="text"] {
