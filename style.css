@@ -36,74 +36,135 @@ h1 {
     margin-bottom: 1rem;
 }
 
-/* Improved styling for the word display area */
+/* Main puzzle display area - make this the focus */
 #my-word {
-    margin: 20px 0;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    border-left: 4px solid #81b29a;
-    line-height: 1.6;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 3px solid #81b29a;
+    line-height: 1.8;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Score display styling */
-#score-container {
-    background-color: #f2cc8f;
+#my-word .highlight {
+    font-weight: bold;
+    color: #2a9d8f;
+    font-size: 1.1em;
+}
+
+#my-word p {
+    margin: 12px 0;
+    font-size: 1.1rem;
+}
+
+#my-word .definition {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid #e0e0e0;
+    font-size: 1.15rem;
+}
+
+.intro-text {
+    font-size: 1.3rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.main-buttons {
+    margin: 20px 0;
+}
+
+.main-buttons button {
+    background-color: #2a9d8f;
+    font-size: 18px;
+    padding: 15px 30px;
+    margin: 0 10px;
+}
+
+.main-buttons button:hover {
+    background-color: #238a7a;
+}
+
+.secondary-buttons {
+    margin: 30px 0 20px 0;
     padding: 15px;
+    background-color: #f8f9fa;
     border-radius: 8px;
-    margin: 15px auto;
-    border: 2px solid #81b29a;
-    max-width: 600px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.secondary-buttons button {
+    background-color: #6c757d;
+    font-size: 14px;
+    padding: 8px 16px;
+    margin: 4px;
+}
+
+.secondary-buttons button:hover {
+    background-color: #5a6268;
+}
+
+/* Score display styling - make it smaller and less prominent */
+#score-container {
+    background-color: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin: 10px auto;
+    border: 1px solid #e0e0e0;
+    max-width: 300px;
+    font-size: 0.9rem;
+    color: #666;
 }
 
 #score-container p {
     margin: 0;
-    font-weight: bold;
-    color: #3d405b;
+    font-weight: normal;
+    color: #666;
 }
 
 #current-score {
     color: #81b29a;
-    font-size: 1.3rem;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
-/* Progress bar styles */
+/* Progress bar styles - simplified */
 .progress-container {
-    margin-top: 10px;
+    margin-top: 8px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .progress-container label {
-    font-weight: bold;
-    min-width: 80px;
+    font-weight: normal;
+    min-width: 70px;
+    font-size: 0.85rem;
 }
 
 .progress-bar {
     flex: 1;
-    height: 20px;
-    background-color: #eae7dc;
-    border-radius: 10px;
+    height: 6px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
     overflow: hidden;
-    border: 1px solid #ccc;
 }
 
 #progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #81b29a 0%, #e07a5f 100%);
+    background: #81b29a;
     width: 0%;
     transition: width 0.3s ease;
-    border-radius: 10px;
+    border-radius: 3px;
 }
 
 #clue-counter {
-    font-weight: bold;
-    min-width: 40px;
+    font-weight: normal;
+    min-width: 30px;
+    font-size: 0.85rem;
 }
 
 
@@ -124,15 +185,16 @@ h1 {
 
 /* Bigger font in the text input for better visibility */
 input[type="text"] {
-    font-size: 1.1rem;
-    width: 60%;
+    font-size: 1.2rem;
+    width: 80%;
     max-width: 400px;
-    padding: 15px;
-    margin: 10px auto;
-    border-radius: 8px;
-    border: 2px solid #e0e0e0;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    margin: 15px auto;
+    border-radius: 25px;
+    border: 2px solid #81b29a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     display: block;
+    text-align: center;
 }
 
 input[type="text"]:focus {
@@ -145,12 +207,12 @@ button:hover {
     box-shadow: 0 0 12px rgba(129, 178, 154, 0.3);
 }
 
-/* Input container styling */
+/* Input container styling - cleaner */
 #input-container {
-    margin: 20px 0;
+    margin: 30px auto;
     padding: 20px;
-    background-color: #fafafa;
-    border-radius: 8px;
+    background-color: transparent;
+    max-width: 500px;
 }
 
 button {
@@ -158,12 +220,13 @@ button {
     color: white;
     cursor: pointer;
     border: none;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    padding: 12px 20px;
-    border-radius: 6px;
-    font-size: 14px;
+    transition: all 0.3s ease;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
     font-weight: 500;
-    margin: 5px;
+    margin: 8px;
+    min-width: 100px;
 }
 
 
@@ -173,9 +236,9 @@ button:disabled {
 }
 
 button:not(:disabled):hover {
-    background-color: #9d8df1; /* Change color on hover */
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #6b9c7a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(129, 178, 154, 0.3);
 }
 
 /* Help button styling */
