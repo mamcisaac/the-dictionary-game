@@ -243,6 +243,9 @@ function startGame() {
         const hiddenLetters = '_ '.repeat(puzzleData.word.length - 1).trim();
         const wordPattern = firstLetter + (hiddenLetters ? ' ' + hiddenLetters : '');
         wordPatternElement.innerHTML = wordPattern;
+        
+        // Ensure word pattern is visible based on settings
+        wordPatternElement.style.display = gameSettings.showWordLength ? 'block' : 'none';
 
     // Clear the clue list for any previous game clues and reset other UI elements as needed
     document.getElementById("clue-list").innerHTML = '';
