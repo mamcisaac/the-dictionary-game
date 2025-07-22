@@ -202,49 +202,124 @@ function getNextClue() {
         clueButton.textContent = "All Clues Used";
     }
     
-    // Standardized 9-clue structure:
-    // 1. Primary definition (shown at start)
-    // 2-4. Additional definitions (clues 1-3)
-    // 5-6. Examples (clues 4-5)
-    // 7-9. Letter reveals (clues 6-8)
+    // Build a queue of 9 clues dynamically based on what's available
+    const clueQueue = [];
     
-    // Clues 1-3: Additional definitions
-    if (cluesUsed <= 3 && currentClueIndex < puzzleData.definitions.length && currentClueIndex <= 3) {
-        return `Definition ${currentClueIndex + 1}: ${puzzleData.definitions[currentClueIndex++]}`;
+    // Add all available definitions (after the primary one shown at start)
+    for (let i = 1; i < puzzleData.definitions.length && i <= 4; i++) {
+        clueQueue.push({
+            type: 'definition',
+            content: `Definition ${i + 1}: ${puzzleData.definitions[i]}`,
+            index: i
+        });
     }
     
-    // Clues 4-5: Examples
-    const exampleCount = cluesGiven.filter(c => c.startsWith('example')).length;
-    if (cluesUsed <= 5 && exampleCount < 2 && puzzleData.examples.length > exampleCount) {
-        cluesGiven.push(`example${exampleCount + 1}`);
-        if (exampleCount === 0) {
-            return `Sample sentence: ${puzzleData.examples[0]}`;
-        } else {
-            return `Another example: ${puzzleData.examples[1]}`;
+    // If we have fewer than 3 additional definitions, try to fill with synonyms/antonyms
+    if (clueQueue.length < 3) {
+        if (puzzleData.synonyms && puzzleData.synonyms.length > 0 && !cluesGiven.includes('synonyms')) {
+            clueQueue.push({
+                type: 'synonyms',
+                content: `Synonyms: ${puzzleData.synonyms.slice(0, 4).join(', ')}`,
+                marker: 'synonyms'
+            });
+        }
+        if (clueQueue.length < 3 && puzzleData.antonyms && puzzleData.antonyms.length > 0 && !cluesGiven.includes('antonyms')) {
+            clueQueue.push({
+                type: 'antonyms',
+                content: `Antonyms: ${puzzleData.antonyms.slice(0, 3).join(', ')}`,
+                marker: 'antonyms'
+            });
         }
     }
     
-    // Clues 6-8: Letter reveals (max 3 additional letters)
-    if (cluesUsed <= 8 && lettersRevealed < Math.min(puzzleData.word.length - 1, 4)) {
-        lettersRevealed++;
+    // Add examples (at least 2)
+    for (let i = 0; i < Math.min(2, puzzleData.examples.length); i++) {
+        clueQueue.push({
+            type: 'example',
+            content: i === 0 ? `Sample sentence: ${puzzleData.examples[i]}` : `Another example: ${puzzleData.examples[i]}`,
+            index: i
+        });
+    }
+    
+    // Calculate how many letter reveals we can do
+    const maxLetterReveals = Math.min(puzzleData.word.length - 1, 3);
+    
+    // If word is too short for 3 letter reveals, add extra examples or definitions
+    if (maxLetterReveals < 3) {
+        const extraCluesNeeded = 3 - maxLetterReveals;
+        
+        // Try to add extra examples first
+        for (let i = 2; i < puzzleData.examples.length && clueQueue.length < 9 - maxLetterReveals; i++) {
+            clueQueue.push({
+                type: 'example',
+                content: `Example ${i + 1}: ${puzzleData.examples[i]}`,
+                index: i
+            });
+        }
+        
+        // If still need more, add any remaining definitions
+        for (let i = 4; i < puzzleData.definitions.length && clueQueue.length < 9 - maxLetterReveals; i++) {
+            clueQueue.push({
+                type: 'definition',
+                content: `Additional definition: ${puzzleData.definitions[i]}`,
+                index: i
+            });
+        }
+        
+        // Last resort: add synonyms/antonyms if not already added
+        if (clueQueue.length < 9 - maxLetterReveals && puzzleData.synonyms && puzzleData.synonyms.length > 0 && !clueQueue.some(c => c.type === 'synonyms')) {
+            clueQueue.push({
+                type: 'synonyms',
+                content: `Synonyms: ${puzzleData.synonyms.slice(0, 4).join(', ')}`,
+                marker: 'synonyms'
+            });
+        }
+    }
+    
+    // Add letter reveals
+    for (let i = 0; i < maxLetterReveals; i++) {
+        clueQueue.push({
+            type: 'letter',
+            letterCount: i + 2 // Starting from 2 since first letter is shown
+        });
+    }
+    
+    // Ensure we have exactly 9 clues
+    while (clueQueue.length < 9) {
+        // Fill remaining slots with any available content
+        if (currentClueIndex < puzzleData.definitions.length) {
+            clueQueue.push({
+                type: 'definition',
+                content: `Extra definition: ${puzzleData.definitions[currentClueIndex]}`,
+                index: currentClueIndex
+            });
+            currentClueIndex++;
+        } else {
+            clueQueue.push({
+                type: 'none',
+                content: 'No additional clue available for this word.'
+            });
+        }
+    }
+    
+    // Get the current clue from our queue
+    const currentClue = clueQueue[cluesUsed - 1];
+    
+    if (currentClue.type === 'letter') {
+        lettersRevealed = currentClue.letterCount;
         cluesGiven.push(`letters${lettersRevealed}`);
-        
-        // Update word pattern display with new revealed letters
-        updateWordPatternDisplay();
-        
-        const revealedPart = puzzleData.word.substring(0, lettersRevealed).toUpperCase();
-        return `The word starts with: ${revealedPart}`;
-    }
-    
-    // Final clue: Last letter reveal if possible
-    if (cluesUsed === 9 && lettersRevealed < puzzleData.word.length - 1) {
-        lettersRevealed++;
         updateWordPatternDisplay();
         const revealedPart = puzzleData.word.substring(0, lettersRevealed).toUpperCase();
         return `The word starts with: ${revealedPart}`;
+    } else {
+        if (currentClue.marker) {
+            cluesGiven.push(currentClue.marker);
+        }
+        if (currentClue.type === 'definition' && currentClue.index !== undefined) {
+            currentClueIndex = Math.max(currentClueIndex, currentClue.index + 1);
+        }
+        return currentClue.content;
     }
-    
-    return "No more clues available.";
 }
 
 function updateClueDisplay(newClue) {
