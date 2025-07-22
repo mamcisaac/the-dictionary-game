@@ -26,30 +26,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const progressFill = document.getElementById("progress-fill");
     const clueCounter = document.getElementById("clue-counter");
     
-    // Calculate total available clues for current word with reasonable caps
+    // Standardized to exactly 9 clues for all words
     function calculateAvailableClues() {
         if (!puzzleData) return 0;
-        
-        let totalClues = 0;
-        
-        // Cap definitions at 4 to avoid excessive primary clues
-        totalClues += puzzleData.definitions ? Math.min(puzzleData.definitions.length, 4) : 0;
-        
-        // Cap examples at 3 to prevent bloat
-        totalClues += puzzleData.examples ? Math.min(puzzleData.examples.length, 3) : 0;
-        
-        // Synonyms as one clue (if any exist)
-        totalClues += puzzleData.synonyms && puzzleData.synonyms.length > 0 ? 1 : 0;
-        
-        // Antonyms as one clue (if any exist)  
-        totalClues += puzzleData.antonyms && puzzleData.antonyms.length > 0 ? 1 : 0;
-        
-        // Letter reveals capped at 4 additional letters (max 5 total including first)
-        const maxLetterReveals = Math.min(puzzleData.word ? puzzleData.word.length - 1 : 0, 4);
-        totalClues += maxLetterReveals;
-        
-        // Cap total clues at 15 to maintain challenge
-        return Math.min(totalClues, 15);
+        return 9; // All words get exactly 9 clues for perfect balance
     }
     
     
@@ -202,12 +182,9 @@ document.addEventListener("DOMContentLoaded", function() {
 function getNextClue() {
     cluesUsed++;
     
-    // Adaptive scoring based on available clues
+    // Fixed scoring: 9 clues total, each costs 11 points (100/9 ≈ 11)
     const availableClues = calculateAvailableClues();
-    
-    // Calculate adaptive penalty: fewer available clues = lower penalties
-    // Base penalty scales from 15 (many clues) down to 5 (few clues)
-    const adjustedPenalty = Math.max(5, Math.min(15, Math.round(100 / availableClues)));
+    const adjustedPenalty = 11; // Standardized penalty for fair scoring
     
     currentScore = Math.max(0, currentScore - adjustedPenalty);
     currentScoreElement.textContent = currentScore;
@@ -225,42 +202,48 @@ function getNextClue() {
         clueButton.textContent = "All Clues Used";
     }
     
-    if (currentClueIndex >= Math.min(puzzleData.definitions.length, 4) || currentClueIndex > 2) {
-        // Give up to 3 example sentences
-        if (cluesGiven.includes('example') === false && puzzleData.examples.length > 0) {
-            cluesGiven.push('example');
-            return `Sample sentence: ${puzzleData.examples[0]}`;
-        } else if (cluesGiven.includes('example') && puzzleData.examples.length > 1 && !cluesGiven.includes('example2')) {
-            cluesGiven.push('example2');
-            return `Another sample sentence: ${puzzleData.examples[1]}`;
-        } else if (cluesGiven.includes('example2') && puzzleData.examples.length > 2 && !cluesGiven.includes('example3')) {
-            cluesGiven.push('example3');
-            return `Third example: ${puzzleData.examples[2]}`;
-        // Give synonyms if not already given and available, limited to 4
-        } else if (cluesGiven.includes('synonyms') === false && puzzleData.synonyms.length > 0) {
-            const synonyms = puzzleData.synonyms.slice(0, 4).join(', ');
-            cluesGiven.push('synonyms');
-            return `Synonyms: ${synonyms}`;
-        // Give antonyms if not already given and available, limited to 3
-        } else if (cluesGiven.includes('antonyms') === false && puzzleData.antonyms.length > 0) {
-            const antonyms = puzzleData.antonyms.slice(0, 3).join(', ');
-            cluesGiven.push('antonyms');
-            return `Antonyms: ${antonyms}`;
-        // Reveal letters if other clues have been exhausted (max 4 additional letters)
-        } else if (lettersRevealed < puzzleData.word.length - 1 && lettersRevealed < 5) {
-            lettersRevealed++;
-            cluesGiven.push(`letters${lettersRevealed}`); // Ensure unique entry for each state of letters revealed
-            
-            // Update word pattern display with new revealed letters
-            updateWordPatternDisplay();
-            
-            const revealedPart = puzzleData.word.substring(0, lettersRevealed);
-            return `The word starts with: ${revealedPart}`;
-        }
-    } else {
-        // Provide a secondary definition if the index is valid
-        return `Secondary Definition: ${puzzleData.definitions[currentClueIndex++]}`;
+    // Standardized 9-clue structure:
+    // 1. Primary definition (shown at start)
+    // 2-4. Additional definitions (clues 1-3)
+    // 5-6. Examples (clues 4-5)
+    // 7-9. Letter reveals (clues 6-8)
+    
+    // Clues 1-3: Additional definitions
+    if (cluesUsed <= 3 && currentClueIndex < puzzleData.definitions.length && currentClueIndex <= 3) {
+        return `Definition ${currentClueIndex + 1}: ${puzzleData.definitions[currentClueIndex++]}`;
     }
+    
+    // Clues 4-5: Examples
+    const exampleCount = cluesGiven.filter(c => c.startsWith('example')).length;
+    if (cluesUsed <= 5 && exampleCount < 2 && puzzleData.examples.length > exampleCount) {
+        cluesGiven.push(`example${exampleCount + 1}`);
+        if (exampleCount === 0) {
+            return `Sample sentence: ${puzzleData.examples[0]}`;
+        } else {
+            return `Another example: ${puzzleData.examples[1]}`;
+        }
+    }
+    
+    // Clues 6-8: Letter reveals (max 3 additional letters)
+    if (cluesUsed <= 8 && lettersRevealed < Math.min(puzzleData.word.length - 1, 4)) {
+        lettersRevealed++;
+        cluesGiven.push(`letters${lettersRevealed}`);
+        
+        // Update word pattern display with new revealed letters
+        updateWordPatternDisplay();
+        
+        const revealedPart = puzzleData.word.substring(0, lettersRevealed).toUpperCase();
+        return `The word starts with: ${revealedPart}`;
+    }
+    
+    // Final clue: Last letter reveal if possible
+    if (cluesUsed === 9 && lettersRevealed < puzzleData.word.length - 1) {
+        lettersRevealed++;
+        updateWordPatternDisplay();
+        const revealedPart = puzzleData.word.substring(0, lettersRevealed).toUpperCase();
+        return `The word starts with: ${revealedPart}`;
+    }
+    
     return "No more clues available.";
 }
 
