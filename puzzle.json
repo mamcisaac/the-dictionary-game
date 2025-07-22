@@ -13059,13 +13059,14 @@
     "definitions": [
       "A document evidencing ownership or debt.",
       "The information needed in order to verify a positive answer to a problem.",
-      "A motion picture age rating."
+      "A motion picture age rating.",
+      "An official document that confirms certain facts or qualifications."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["diploma", "document", "credential", "license", "qualification"],
+    "antonyms": ["rejection", "disqualification", "denial", "revocation"],
     "examples": [
       "The film is [blank] 15.",
-      "She decided to [blank] the task."
+      "She received her teaching [blank] after completing the program."
     ]
   },
   {
@@ -13160,13 +13161,14 @@
     "definitions": [
       "(usually in the plural) Someone, or a team, that is playing away from home.",
       "An extraterrestrial being on Earth for any reason.",
-      "An object which lands or passes by Earth or its orbit."
+      "An object which lands or passes by Earth or its orbit.",
+      "A person who visits a place or person, typically temporarily."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["guest", "caller", "tourist", "traveler", "outsider"],
+    "antonyms": ["resident", "host", "local", "inhabitant"],
     "examples": [
-      "The [blank] arrived at the meeting.",
-      "He found the [blank] in his backpack."
+      "The [blank] signed the guestbook before leaving.",
+      "The museum attracts thousands of [blank]s each year."
     ]
   },
   {
@@ -13366,13 +13368,14 @@
     "definitions": [
       "A shop or company that sells motor vehicle parts",
       "Having the ability to move by itself; selfpropelled or selfpropelling.",
-      "Of, or relating to motor vehicles."
+      "Of, or relating to motor vehicles.",
+      "Relating to the design, manufacture, or sale of motor vehicles."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["vehicular", "transport", "mechanical", "motoring", "car"],
+    "antonyms": ["stationary", "immobile", "pedestrian", "manual"],
     "examples": [
-      "The weather was very [blank] today.",
-      "She has a [blank] personality."
+      "The [blank] industry employs millions worldwide.",
+      "She works as an [blank] engineer designing car engines."
     ]
   },
   {
@@ -13555,13 +13558,14 @@
     "definitions": [
       "Money or other items used to facilitate transactions.",
       "(more specifically) Paper money.",
-      "Fluency; readiness of utterance"
+      "Fluency; readiness of utterance",
+      "A system of money in general use in a particular country."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["money", "cash", "tender", "coinage", "banknotes"],
+    "antonyms": ["barter", "trade", "exchange", "worthless"],
     "examples": [
       "Wampum was used as a [blank] by Amerindians.",
-      "The jargons [blank]."
+      "The euro is the official [blank] of many European countries."
     ]
   },
   {
@@ -13664,13 +13668,14 @@
     "definitions": [
       "Social intercourse; the dealings of one person or class in society with another; familiarity.",
       "An 18thcentury French card game in which the cards are subject to exchange, barter, or trade.",
-      "To carry on trade; to traffic."
+      "To carry on trade; to traffic.",
+      "The activity of buying and selling, especially on a large scale."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["trade", "business", "trading", "industry", "economy"],
+    "antonyms": ["charity", "gift", "donation", "isolation"],
     "examples": [
-      "She picked up the [blank] from the shelf.",
-      "He found the [blank] in his backpack."
+      "The port city thrived on international [blank].",
+      "E-[blank] has revolutionized the way we shop."
     ]
   },
   {
@@ -13691,13 +13696,14 @@
     "definitions": [
       "Hard, not easy, requiring much effort.",
       "(often of a person, or a horse, etc) Hard to manage, uncooperative, troublesome.",
-      "Unable or unwilling."
+      "Unable or unwilling.",
+      "Needing much effort or skill to accomplish, deal with, or understand."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["hard", "challenging", "tough", "demanding", "complex"],
+    "antonyms": ["easy", "simple", "effortless", "manageable"],
     "examples": [
       "However, the [blank] weather conditions will ensure Yunnan has plenty of freshwater.",
-      "Stop being [blank] and eat your broccoliyou know its good for you."
+      "The math problem was very [blank] to solve."
     ]
   },
   {
@@ -16025,13 +16031,14 @@
     "definitions": [
       "A variable whose value cannot be changed directly.",
       "(of a variable) Whose value cannot be changed directly.",
-      "(of a function) Which cannot change the value of its classs attributes."
+      "(of a function) Which cannot change the value of its classs attributes.",
+      "A programming keyword indicating a constant value that cannot be modified."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["constant", "immutable", "fixed", "unchangeable", "static"],
+    "antonyms": ["variable", "mutable", "changeable", "dynamic"],
     "examples": [
-      "She picked up the [blank] from the shelf.",
-      "He found the [blank] in his backpack."
+      "Declare the maximum value as a [blank] variable.",
+      "The [blank] keyword prevents accidental modification of the value."
     ]
   },
   {
@@ -18929,13 +18936,14 @@
     "definitions": [
       "(constructed with to) To be equivalent or similar in character, quantity, quality, origin, structure, function etc.",
       "(constructed with with) to exchange messages, especially by postal letter, over a period of time.",
-      "To have sex with."
+      "To have sex with.",
+      "To be in agreement or harmony with something."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["match", "relate", "communicate", "write", "agree"],
+    "antonyms": ["differ", "contradict", "clash", "disconnect"],
     "examples": [
-      "Ive been [blank] ing with my German pen pal for three years.",
-      "She decided to [blank] the task."
+      "I've been [blank]ing with my German pen pal for three years.",
+      "These findings [blank] with our earlier research."
     ]
   },
   {
