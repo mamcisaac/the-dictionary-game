@@ -207,18 +207,19 @@ document.addEventListener("DOMContentLoaded", function() {
 function getNextClue() {
     cluesUsed++;
     
-    // Fixed scoring: 7 paid clues, each costs ~14 points (100/7 ≈ 14.3)
+    // Fixed scoring: 7 paid clues, each costs 5 points
     const availableClues = calculateAvailableClues();
-    const adjustedPenalty = 14; // Standardized penalty for fair scoring
+    const adjustedPenalty = 5; // 5 points per clue
     
-    currentScore = Math.max(0, currentScore - adjustedPenalty);
+    // Prevent score from going below 1 from clues alone (preserve ability to guess)
+    currentScore = Math.max(1, currentScore - adjustedPenalty);
     currentScoreElement.textContent = currentScore;
     updateProgressBar();
     
-    // If score hits 0, disable clue button to prevent further clue requests
-    if (currentScore === 0) {
+    // If score hits 1, disable clue button but keep guess option
+    if (currentScore === 1) {
         clueButton.disabled = true;
-        clueButton.textContent = "No More Clues (Score: 0)";
+        clueButton.textContent = "No More Clues (Min Score)";
     }
     
     // If all clues used, disable button
@@ -494,9 +495,9 @@ function handleGuess() {
         clueButton.disabled = true; // Disable the Clue button
         giveUpButton.disabled = true; // Disable the Give Up button
     } else {
-        // Scale penalty based on clues used: more clues = higher penalty
-        // Base: 5 points, +2 per clue used (so 5, 7, 9, 11, 13, 15, 17, 19)
-        const wrongGuessPenalty = 5 + (cluesUsed * 2);
+        // Wrong guess penalty: 1 point base + number of clues used
+        // Examples: 0 clues = 1 pt, 3 clues = 4 pts, 7 clues = 8 pts
+        const wrongGuessPenalty = 1 + cluesUsed;
         currentScore = Math.max(0, currentScore - wrongGuessPenalty);
         currentScoreElement.textContent = currentScore;
         
