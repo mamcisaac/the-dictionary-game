@@ -1656,16 +1656,27 @@
     "word": "user",
     "definitions": [
       "A person who uses drugs, especially illegal drugs.",
-      "An exploiter, an abuser (a person who uses people, that is treats and regards people unfairly, selfishly andor unethically)."
+      "An exploiter, an abuser (a person who uses people, that is treats and regards people unfairly, selfishly andor unethically).",
+      "A person who uses or operates something, especially a computer or other machine.",
+      "A person who takes advantage of or exploits something."
     ],
     "synonyms": [
       "individual",
-      "human"
+      "human",
+      "consumer",
+      "operator",
+      "client"
     ],
-    "antonyms": [],
+    "antonyms": [
+      "provider",
+      "supplier",
+      "developer",
+      "creator"
+    ],
     "examples": [
-      "The [blank] arrived at the meeting.",
-      "He found the [blank] in his backpack."
+      "The software has over a million active [blank]s.",
+      "Please enter your [blank] name and password to log in.",
+      "The [blank] manual explains how to operate the device."
     ]
   },
   {
@@ -1913,13 +1924,27 @@
     "word": "management",
     "definitions": [
       "The executives of an organisation, especially senior executives.",
-      "Judicious use of means to accomplish an end."
+      "Judicious use of means to accomplish an end.",
+      "The act or process of managing or controlling.",
+      "The skill of dealing with people or situations."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "administration",
+      "leadership",
+      "control",
+      "supervision",
+      "direction"
+    ],
+    "antonyms": [
+      "chaos",
+      "mismanagement",
+      "disorder",
+      "anarchy"
+    ],
     "examples": [
       "Excellent time [blank] helped her succeed in all facets of her life.",
-      "The situation became [blank]."
+      "The company's [blank] decided to restructure the organization.",
+      "Stress [blank] techniques can improve your quality of life."
     ]
   },
   {
@@ -4598,13 +4623,27 @@
     "word": "description",
     "definitions": [
       "A set of characteristics by which someone or something can be recognized.",
-      "A scientific documentation of a taxon for the purpose of introducing it to science."
+      "A scientific documentation of a taxon for the purpose of introducing it to science.",
+      "A spoken or written representation or account of a person, object, or event.",
+      "The action of giving details about something."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "account",
+      "portrayal",
+      "depiction",
+      "explanation",
+      "report"
+    ],
+    "antonyms": [
+      "silence",
+      "concealment",
+      "vagueness",
+      "ambiguity"
+    ],
     "examples": [
       "The zoo had no lions, tigers, or cats of any [blank].",
-      "The type [blank] of the fungus was written by a botanist."
+      "The witness gave a detailed [blank] of the suspect.",
+      "The job [blank] lists all the required qualifications."
     ]
   },
   {
@@ -6064,13 +6103,27 @@
     "word": "accessory",
     "definitions": [
       "Assisting a crime without actually participating in committing the crime itself.",
-      "Present in a minor amount, and not essential."
+      "Present in a minor amount, and not essential.",
+      "A thing which can be added to something else to make it more useful, versatile, or attractive.",
+      "A person who gives assistance to the perpetrator of a crime without taking part in it."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "attachment",
+      "addition",
+      "supplement",
+      "accomplice",
+      "helper"
+    ],
+    "antonyms": [
+      "essential",
+      "necessity",
+      "principal",
+      "main"
+    ],
     "examples": [
       "She was [blank] to the riot.",
-      "She picked up the [blank] from the shelf."
+      "The scarf was the perfect [blank] to her outfit.",
+      "Phone cases and chargers are popular smartphone [blank] items."
     ]
   },
   {
@@ -13738,13 +13791,27 @@
     "word": "perhaps",
     "definitions": [
       "An uncertainty.",
-      "Modifies a verb, indicating a lack of certainty."
+      "Modifies a verb, indicating a lack of certainty.",
+      "Used to express uncertainty or possibility.",
+      "Maybe; possibly; it may be."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "maybe",
+      "possibly",
+      "potentially",
+      "conceivably",
+      "perchance"
+    ],
+    "antonyms": [
+      "definitely",
+      "certainly",
+      "surely",
+      "absolutely"
+    ],
     "examples": [
       "[blank] John will come over for dinner.",
-      "She picked up the [blank] from the shelf."
+      "[blank] we should reconsider our approach.",
+      "The weather will [blank] improve by tomorrow."
     ]
   },
   {
@@ -15315,13 +15382,27 @@
     "word": "classified",
     "definitions": [
       "Not meant to be disclosed by a person or organization.",
-      "To declare something a secret, especially a government secret."
+      "To declare something a secret, especially a government secret.",
+      "Arranged in classes or categories; sorted.",
+      "Kept secret or confidential for reasons of national security."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "secret",
+      "confidential",
+      "restricted",
+      "top-secret",
+      "categorized"
+    ],
+    "antonyms": [
+      "public",
+      "open",
+      "unclassified",
+      "disclosed"
+    ],
     "examples": [
       "We do not discuss specific interrogation techniques because they are [blank] information.",
-      "She decided to [blank] the task."
+      "The documents were [blank] by subject matter.",
+      "Access to [blank] materials requires security clearance."
     ]
   },
   {
@@ -16875,13 +16956,26 @@
     "word": "piano",
     "definitions": [
       "Musical direction meaning to play softly or quietly.",
-      "In extended use; quiet, subdued."
+      "In extended use; quiet, subdued.",
+      "A large musical instrument with a keyboard, strings, and hammers.",
+      "A keyboard instrument with strings struck by hammers when keys are pressed."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "pianoforte",
+      "keyboard",
+      "grand",
+      "upright",
+      "softly"
+    ],
+    "antonyms": [
+      "forte",
+      "loud",
+      "fortissimo"
+    ],
     "examples": [
       "He can play Happy Birthday on the [blank].",
-      "She picked up the [blank] from the shelf."
+      "She practices [blank] for an hour every day.",
+      "The passage should be played [blank], not forte."
     ]
   },
   {
@@ -20054,13 +20148,27 @@
     "word": "maker",
     "definitions": [
       "(usually capitalized and preceded by the) God.",
-      "Someone who signs a promissory note, thereby becoming responsible for payment."
+      "Someone who signs a promissory note, thereby becoming responsible for payment.",
+      "Someone who makes, creates, or produces something.",
+      "A person or company that manufactures or produces something."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "creator",
+      "manufacturer",
+      "producer",
+      "builder",
+      "craftsman"
+    ],
+    "antonyms": [
+      "destroyer",
+      "consumer",
+      "user",
+      "breaker"
+    ],
     "examples": [
-      "She picked up the [blank] from the shelf.",
-      "He found the [blank] in his backpack."
+      "The furniture [blank] crafted beautiful wooden chairs.",
+      "She is a talented jewelry [blank] with her own shop.",
+      "The car [blank] announced a recall of certain models."
     ]
   },
   {
