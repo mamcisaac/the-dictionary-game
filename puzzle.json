@@ -15247,13 +15247,27 @@
     "word": "jones",
     "definitions": [
       "An addiction or intense craving.",
-      "Have an intense craving."
+      "Have an intense craving.",
+      "A strong desire or urge for something.",
+      "To have a strong desire or yearning for something."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "craving",
+      "desire",
+      "yearning",
+      "urge",
+      "addiction"
+    ],
+    "antonyms": [
+      "aversion",
+      "dislike",
+      "repulsion",
+      "indifference"
+    ],
     "examples": [
-      "Ive got a basketball [blank]!",
-      "Im [blank] ing for some basketball."
+      "I've got a basketball [blank]!",
+      "I'm [blank]ing for some chocolate cake.",
+      "She has a serious coffee [blank] every morning."
     ]
   },
   {
@@ -16355,13 +16369,27 @@
     "word": "gateway",
     "definitions": [
       "Any point that represents the beginning of a transition from one place or phase to another.",
-      "A point at which freight moving from one territory to another is interchanged between transportation lines."
+      "A point at which freight moving from one territory to another is interchanged between transportation lines.",
+      "An entrance or portal to a place, especially a large or important one.",
+      "A means of access or entry to a place or system."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "entrance",
+      "portal",
+      "doorway",
+      "access",
+      "entry"
+    ],
+    "antonyms": [
+      "exit",
+      "barrier",
+      "dead-end",
+      "blockade"
+    ],
     "examples": [
-      "She decided to [blank] the task.",
-      "They will [blank] tomorrow morning."
+      "The airport serves as the [blank] to the city.",
+      "Education is often called the [blank] to success.",
+      "The network [blank] handles all internet traffic."
     ]
   },
   {
@@ -18222,13 +18250,27 @@
     "word": "duration",
     "definitions": [
       "An amount of time or a particular time interval.",
-      "(in the singular, not followed by of) The time taken for the current situation to end, especially the current war."
+      "(in the singular, not followed by of) The time taken for the current situation to end, especially the current war.",
+      "The length of time something continues or exists.",
+      "A period during which something lasts or continues."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "period",
+      "length",
+      "span",
+      "time",
+      "term"
+    ],
+    "antonyms": [
+      "instant",
+      "moment",
+      "brevity",
+      "interruption"
+    ],
     "examples": [
       "Rationing will last at least for the [blank].",
-      "The situation became [blank]."
+      "The meeting exceeded its scheduled [blank] by an hour.",
+      "The [blank] of the movie is two hours."
     ]
   },
   {
