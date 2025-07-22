@@ -459,23 +459,24 @@ button:hover:not(:disabled) {
 }
 
 .close {
-    color: #666;
-    font-size: 24px;
+    color: #333;
+    font-size: 28px;
     font-weight: bold;
     position: absolute;
     left: 15px;
     top: 15px;
     cursor: pointer;
-    background-color: #f0f0f0;
-    border: 2px solid #ddd;
+    background-color: #ffffff;
+    border: 2px solid #999;
     border-radius: 50%;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     line-height: 1;
     transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .close:hover,
@@ -483,7 +484,13 @@ button:hover:not(:disabled) {
 .close-settings:hover,
 .close-settings:focus,
 .close-help:hover,
-.close-help:focus {
+.close-help:focus,
+.close-daily-challenge:hover,
+.close-daily-challenge:focus,
+.close-achievements:hover,
+.close-achievements:focus,
+.close-word-history:hover,
+.close-word-history:focus {
     color: #fff;
     background-color: #e07a5f;
     border-color: #e07a5f;
@@ -492,24 +499,28 @@ button:hover:not(:disabled) {
 }
 
 .close-settings,
-.close-help {
-    color: #666;
-    font-size: 24px;
+.close-help,
+.close-daily-challenge,
+.close-achievements,
+.close-word-history {
+    color: #333;
+    font-size: 28px;
     font-weight: bold;
     position: absolute;
     left: 15px;
     top: 15px;
     cursor: pointer;
-    background-color: #f0f0f0;
-    border: 2px solid #ddd;
+    background-color: #ffffff;
+    border: 2px solid #999;
     border-radius: 50%;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     line-height: 1;
     transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #stats-content p {
@@ -854,12 +865,17 @@ button:hover:not(:disabled) {
 
 /* Mobile-specific close button enhancement */
 @media (max-width: 600px) {
-    .close-help {
-        width: 40px;
-        height: 40px;
-        font-size: 28px;
+    .close,
+    .close-help,
+    .close-settings,
+    .close-daily-challenge,
+    .close-achievements,
+    .close-word-history {
+        width: 44px;
+        height: 44px;
+        font-size: 32px;
         top: 10px;
-        right: 10px;
+        left: 10px;
     }
 }
 
