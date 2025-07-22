@@ -1,3 +1,25 @@
+// Global word list for validation
+let validWords = new Set();
+
+// Load word list from cornerstone
+async function loadWordList() {
+    try {
+        const response = await fetch('../cornerstone/words_alpha.txt');
+        if (!response.ok) {
+            console.error('Failed to load word list, using fallback');
+            return;
+        }
+        const text = await response.text();
+        const words = text.trim().split('\n').map(word => word.toLowerCase());
+        validWords = new Set(words);
+        console.log(`Loaded ${validWords.size} valid words`);
+    } catch (error) {
+        console.error('Error loading word list:', error);
+        // Fallback: accept any word if we can't load the list
+        validWords = null;
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     const clueList = document.getElementById("clue-list");
     const guessInput = document.getElementById("guess-input");
@@ -26,10 +48,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const progressFill = document.getElementById("progress-fill");
     const clueCounter = document.getElementById("clue-counter");
     
-    // Standardized to exactly 9 clues for all words
+    // Load word list on startup
+    loadWordList();
+    
+    // Standardized to exactly 7 paid clues for all words (2 are given free at start)
     function calculateAvailableClues() {
         if (!puzzleData) return 0;
-        return 9; // All words get exactly 9 clues for perfect balance
+        return 7; // 7 paid clues + 2 free (first definition + first letter) = 9 total
     }
     
     
@@ -182,9 +207,9 @@ document.addEventListener("DOMContentLoaded", function() {
 function getNextClue() {
     cluesUsed++;
     
-    // Fixed scoring: 9 clues total, each costs 11 points (100/9 ≈ 11)
+    // Fixed scoring: 7 paid clues, each costs ~14 points (100/7 ≈ 14.3)
     const availableClues = calculateAvailableClues();
-    const adjustedPenalty = 11; // Standardized penalty for fair scoring
+    const adjustedPenalty = 14; // Standardized penalty for fair scoring
     
     currentScore = Math.max(0, currentScore - adjustedPenalty);
     currentScoreElement.textContent = currentScore;
@@ -202,7 +227,7 @@ function getNextClue() {
         clueButton.textContent = "All Clues Used";
     }
     
-    // Build a queue of 9 clues dynamically based on what's available
+    // Build a queue of 7 paid clues (2 were given free at start)
     const clueQueue = [];
     
     // Add all available definitions (after the primary one shown at start)
@@ -249,7 +274,7 @@ function getNextClue() {
         const extraCluesNeeded = 3 - maxLetterReveals;
         
         // Try to add extra examples first
-        for (let i = 2; i < puzzleData.examples.length && clueQueue.length < 9 - maxLetterReveals; i++) {
+        for (let i = 2; i < puzzleData.examples.length && clueQueue.length < 7 - maxLetterReveals; i++) {
             clueQueue.push({
                 type: 'example',
                 content: `Example ${i + 1}: ${puzzleData.examples[i]}`,
@@ -258,7 +283,7 @@ function getNextClue() {
         }
         
         // If still need more, add any remaining definitions
-        for (let i = 4; i < puzzleData.definitions.length && clueQueue.length < 9 - maxLetterReveals; i++) {
+        for (let i = 4; i < puzzleData.definitions.length && clueQueue.length < 7 - maxLetterReveals; i++) {
             clueQueue.push({
                 type: 'definition',
                 content: `Additional definition: ${puzzleData.definitions[i]}`,
@@ -267,7 +292,7 @@ function getNextClue() {
         }
         
         // Last resort: add synonyms/antonyms if not already added
-        if (clueQueue.length < 9 - maxLetterReveals && puzzleData.synonyms && puzzleData.synonyms.length > 0 && !clueQueue.some(c => c.type === 'synonyms')) {
+        if (clueQueue.length < 7 - maxLetterReveals && puzzleData.synonyms && puzzleData.synonyms.length > 0 && !clueQueue.some(c => c.type === 'synonyms')) {
             clueQueue.push({
                 type: 'synonyms',
                 content: `Synonyms: ${puzzleData.synonyms.slice(0, 4).join(', ')}`,
@@ -284,8 +309,8 @@ function getNextClue() {
         });
     }
     
-    // Ensure we have exactly 9 clues
-    while (clueQueue.length < 9) {
+    // Ensure we have exactly 7 paid clues
+    while (clueQueue.length < 7) {
         // Fill remaining slots with any available content
         if (currentClueIndex < puzzleData.definitions.length) {
             clueQueue.push({
@@ -439,6 +464,22 @@ function handleGuess() {
         return;
     }
     
+    // Validate guess: must start with correct letter
+    const firstLetter = puzzleData.word[0].toLowerCase();
+    if (guess[0] !== firstLetter) {
+        messageDisplay.innerHTML = `Your guess must start with the letter '${firstLetter.toUpperCase()}'!`;
+        messageDisplay.style.color = "#e07a5f";
+        guessInput.value = ''; // Clear invalid input
+        return;
+    }
+    
+    // Validate guess: must be a real English word (if word list loaded)
+    if (validWords && validWords.size > 0 && !validWords.has(guess)) {
+        messageDisplay.innerHTML = `"${guess}" is not a valid English word. Try again!`;
+        messageDisplay.style.color = "#e07a5f";
+        return;
+    }
+    
     if (guess === targetWord) {
         // Reveal the complete word in the pattern display
         wordPatternElement.innerHTML = puzzleData.word.toUpperCase().split('').join(' ');
@@ -453,22 +494,15 @@ function handleGuess() {
         clueButton.disabled = true; // Disable the Clue button
         giveUpButton.disabled = true; // Disable the Give Up button
     } else {
-        // Adaptive score penalty for wrong guesses (less than clue penalty)
-        if (guess.length >= 2) { // Only penalize substantial guesses
-            const availableClues = calculateAvailableClues();
-            
-            // Adaptive wrong guess penalty: fewer clues = smaller penalties
-            // Base penalty scales from 5 (many clues) down to 2 (few clues)
-            const adjustedPenalty = Math.max(2, Math.min(5, Math.round(30 / availableClues)));
-            
-            currentScore = Math.max(0, currentScore - adjustedPenalty);
-            currentScoreElement.textContent = currentScore;
-            
-            // If score hits 0 from wrong guesses, disable clue button
-            if (currentScore === 0) {
-                clueButton.disabled = true;
-                clueButton.textContent = "No More Clues (Score: 0)";
-            }
+        // Fixed penalty for wrong guesses: 5 points
+        const wrongGuessPenalty = 5;
+        currentScore = Math.max(0, currentScore - wrongGuessPenalty);
+        currentScoreElement.textContent = currentScore;
+        
+        // If score hits 0 from wrong guesses, disable clue button
+        if (currentScore === 0) {
+            clueButton.disabled = true;
+            clueButton.textContent = "No More Clues (Score: 0)";
         }
         
         // Calculate similarity for better feedback
