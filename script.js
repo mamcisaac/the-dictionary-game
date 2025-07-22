@@ -209,10 +209,13 @@ document.addEventListener("DOMContentLoaded", function() {
 function getNextClue() {
     cluesUsed++;
     
-    // Adaptive scoring based on difficulty
+    // Adaptive scoring based on available clues and difficulty
     const availableClues = calculateAvailableClues();
     const difficulty = getDifficultyTier(availableClues);
-    const basePenalty = 10;
+    
+    // Calculate adaptive penalty: fewer available clues = lower penalties
+    // Base penalty scales from 15 (many clues) down to 5 (few clues)
+    const basePenalty = Math.max(5, Math.min(15, Math.round(100 / availableClues)));
     const adjustedPenalty = Math.round(basePenalty / difficulty.multiplier);
     
     currentScore = Math.max(0, currentScore - adjustedPenalty);
@@ -303,7 +306,10 @@ function startGame() {
     scoreContainer.style.display = "block";
     updateProgressBar();
     
+    // Clear all previous game UI elements immediately
     clueList.innerHTML = ''; // Clear the list for a new game
+    document.getElementById("message").innerHTML = ''; // Clear any previous messages
+    guessInput.value = ''; // Clear guess input
     inputContainer.style.display = "block"; // Show the input container
     myword.style.display = "block"; // Show the input container
     fetchPuzzle().then(() => {
@@ -327,16 +333,13 @@ function startGame() {
         // Initialize word pattern display
         updateWordPatternDisplay();
 
-    // Clear the clue list for any previous game clues and reset other UI elements as needed
-    document.getElementById("clue-list").innerHTML = '';
-    document.getElementById("message").innerHTML = ''; // Clear any previous messages
+    // Reset game state variables
+    currentClueIndex = 1; // Start from the second definition for the next clue
+    lettersRevealed = 1;
+    cluesGiven = []; // Reset clues given
     
-        currentClueIndex = 1; // Start from the second definition for the next clue
-				lettersRevealed = 1;
-				cluesGiven = []; // Reset clues given
-				
-				// Apply settings after game setup
-				setTimeout(() => applySettings(), 100);
+    // Apply settings after game setup
+    setTimeout(() => applySettings(), 100);
 
     });
 }
@@ -409,7 +412,10 @@ function handleGuess() {
         if (guess.length >= 2) { // Only penalize substantial guesses
             const availableClues = calculateAvailableClues();
             const difficulty = getDifficultyTier(availableClues);
-            const basePenalty = 3;
+            
+            // Adaptive wrong guess penalty: fewer clues = smaller penalties
+            // Base penalty scales from 5 (many clues) down to 2 (few clues)
+            const basePenalty = Math.max(2, Math.min(5, Math.round(30 / availableClues)));
             const adjustedPenalty = Math.round(basePenalty / difficulty.multiplier);
             
             currentScore = Math.max(0, currentScore - adjustedPenalty);
@@ -432,16 +438,23 @@ function handleGuess() {
                 feedback = "Very close! You're almost there!";
             } else if (similarity > 0.5) {
                 feedback = "Getting warmer! Keep trying!";
-            } else if (guess.startsWith(targetWord.charAt(0))) {
-                feedback = "Good start with the first letter! Keep going!";
-            } else if (targetWord.includes(guess.charAt(0))) {
-                feedback = "One of your letters is in the word!";
+            } else if (guess.length !== targetWord.length) {
+                const lengthDiff = targetWord.length - guess.length;
+                if (lengthDiff > 0) {
+                    feedback = `Try a longer word (need ${lengthDiff} more letters)`;
+                } else {
+                    feedback = `Try a shorter word (${Math.abs(lengthDiff)} letters too many)`;
+                }
+            } else if (!guess.startsWith(puzzleData.word.substring(0, lettersRevealed).toLowerCase())) {
+                feedback = `Your guess should start with "${puzzleData.word.substring(0, lettersRevealed).toUpperCase()}"`;
+            } else if (targetWord.includes(guess.charAt(guess.length - 1))) {
+                feedback = "Your last letter appears somewhere in the word!";
+            } else {
+                feedback = "Keep trying! Check the definition again.";
             }
         } else if (guess.length === 1) {
             // Special handling for single character guesses
-            if (guess === targetWord.charAt(0)) {
-                feedback = "That's the first letter! Now guess the full word.";
-            } else if (targetWord.includes(guess)) {
+            if (targetWord.includes(guess)) {
                 feedback = "That letter is in the word!";
             } else {
                 feedback = "That letter is not in the word.";

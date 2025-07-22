@@ -696,12 +696,25 @@
       "wellness",
       "fitness",
       "condition",
-      "wellbeing"
+      "wellbeing",
+      "vitality",
+      "vigor",
+      "strength",
+      "soundness",
+      "robustness",
+      "wholeness"
     ],
     "antonyms": [
       "sickness",
       "illness",
-      "disease"
+      "disease",
+      "ailment",
+      "malady",
+      "disorder",
+      "infirmity",
+      "weakness",
+      "frailty",
+      "debility"
     ],
     "examples": [
       "Her mental [blank] is really affected by stressful environments.",
@@ -781,6 +794,42 @@
     "examples": [
       "We dont have much time. Lets get to [blank] piling up those sandbags.",
       "Tell me youre using clean [blank] s at least."
+    ]
+  },
+  {
+    "word": "law",
+    "definitions": [
+      "A binding rule or body of rules prescribed by a government and enforced by a controlling authority.",
+      "A system of principles and regulations established in a community by some authority and applicable to its people.",
+      "The condition of social order and justice created by adherence to such a system.",
+      "The profession that deals with law and legal procedure.",
+      "A statement of an order or relation of phenomena that so far as is known is invariable under the given conditions."
+    ],
+    "synonyms": [
+      "statute",
+      "regulation",
+      "rule",
+      "ordinance",
+      "legislation",
+      "act",
+      "code",
+      "jurisprudence",
+      "legal system",
+      "justice"
+    ],
+    "antonyms": [
+      "lawlessness",
+      "anarchy",
+      "disorder",
+      "chaos",
+      "illegality",
+      "injustice"
+    ],
+    "examples": [
+      "The [blank] requires all citizens to pay taxes.",
+      "She decided to study [blank] at university.",
+      "Breaking the [blank] has serious consequences.",
+      "The [blank] of gravity affects all objects."
     ]
   },
   {
@@ -944,6 +993,8 @@
   {
     "word": "policy",
     "definitions": [
+      "A course or principle of action adopted or proposed by a government, party, business, or individual.",
+      "A contract of insurance.",
       "Wise or advantageous conduct; prudence, formerly also with connotations of craftiness.",
       "(now chiefly in the plural) The grounds of a large country house.",
       "A trick; a stratagem.",
@@ -954,9 +1005,26 @@
       "rule",
       "guideline",
       "procedure",
-      "plan"
+      "plan",
+      "strategy",
+      "approach",
+      "doctrine",
+      "directive",
+      "mandate",
+      "regulation",
+      "protocol",
+      "legislation",
+      "statute",
+      "ordinance"
     ],
-    "antonyms": [],
+    "antonyms": [
+      "improvisation",
+      "spontaneity",
+      "randomness",
+      "chaos",
+      "disorder",
+      "lawlessness"
+    ],
     "examples": [
       "The Communist Party has a [blank] of returning power to the workers.",
       "She picked up the [blank] from the shelf."
@@ -1037,8 +1105,27 @@
       "An underlying theme or conclusion to be drawn from something.",
       "(chiefly in the plural) An errand."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "text",
+      "note",
+      "memo",
+      "notification",
+      "alert",
+      "update",
+      "communication",
+      "correspondence",
+      "dispatch",
+      "bulletin",
+      "announcement",
+      "post",
+      "dm",
+      "ping"
+    ],
+    "antonyms": [
+      "silence",
+      "secrecy",
+      "concealment"
+    ],
     "examples": [
       "Weve just received an urgent [blank] from the President.",
       "The main [blank] of the novel is that time heals all wounds.",
@@ -1164,12 +1251,33 @@
       "community",
       "general",
       "common",
-      "open"
+      "open",
+      "civic",
+      "municipal",
+      "governmental",
+      "official",
+      "state",
+      "national",
+      "collective",
+      "social",
+      "communal",
+      "accessible",
+      "transparent",
+      "visible"
     ],
     "antonyms": [
       "private",
       "personal",
-      "confidential"
+      "confidential",
+      "secret",
+      "classified",
+      "restricted",
+      "exclusive",
+      "individual",
+      "proprietary",
+      "closed",
+      "hidden",
+      "concealed"
     ],
     "examples": [
       "Members of the [blank] may not proceed beyond this point.",
@@ -1920,8 +2028,34 @@
       "To move illegally by walking or running without dribbling the ball.",
       "To force to journey."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "journey",
+      "trip",
+      "voyage",
+      "expedition",
+      "tour",
+      "excursion",
+      "traverse",
+      "roam",
+      "wander",
+      "migrate",
+      "commute",
+      "transit",
+      "passage",
+      "movement",
+      "locomotion"
+    ],
+    "antonyms": [
+      "stay",
+      "remain",
+      "settle",
+      "dwell",
+      "reside",
+      "stop",
+      "rest",
+      "pause",
+      "stationary"
+    ],
     "examples": [
       "The [blank] played an important role in the situation.",
       "Im off on my [blank] s around France again.",
@@ -1979,9 +2113,27 @@
       "To show up or appear at an appointed time; to present oneself."
     ],
     "synonyms": [
-      "subordinate"
+      "subordinate",
+      "account",
+      "summary",
+      "briefing",
+      "bulletin",
+      "statement",
+      "documentation",
+      "analysis",
+      "findings",
+      "news",
+      "story",
+      "article",
+      "update",
+      "brief"
     ],
-    "antonyms": [],
+    "antonyms": [
+      "suppress",
+      "conceal",
+      "withhold",
+      "silence"
+    ],
     "examples": [
       "For insurance reasons, I had to [blank] the theft to the local police station.",
       "If you do that again Ill [blank] you to the boss.",
@@ -3324,6 +3476,48 @@
     ]
   },
   {
+    "word": "administration",
+    "definitions": [
+      "The process or activity of running a business, organization, or government.",
+      "The management of public affairs; the conduct of government policy.",
+      "A government in power; the executive branch of government.",
+      "The officials in the executive branch of government.",
+      "The action of dispensing, giving, or applying something.",
+      "The management and organization of the affairs of a business or institution."
+    ],
+    "synonyms": [
+      "management",
+      "government",
+      "leadership",
+      "authority",
+      "direction",
+      "control",
+      "supervision",
+      "governance",
+      "regime",
+      "cabinet",
+      "executive",
+      "bureaucracy",
+      "ministry",
+      "organization"
+    ],
+    "antonyms": [
+      "anarchy",
+      "chaos",
+      "disorder",
+      "mismanagement",
+      "neglect",
+      "abandonment",
+      "opposition"
+    ],
+    "examples": [
+      "The new [blank] promised to reduce taxes.",
+      "She works in hospital [blank].",
+      "The [blank] of justice requires fair procedures.",
+      "The company's [blank] was restructured last year."
+    ]
+  },
+  {
     "word": "access",
     "definitions": [
       "A way or means of approaching or entering; an entrance; a passage.",
@@ -3831,9 +4025,28 @@
       "administration",
       "authority",
       "state",
-      "regime"
+      "regime",
+      "cabinet",
+      "ministry",
+      "parliament",
+      "congress",
+      "legislature",
+      "executive",
+      "governance",
+      "bureaucracy",
+      "establishment",
+      "leadership"
     ],
-    "antonyms": [],
+    "antonyms": [
+      "anarchy",
+      "chaos",
+      "lawlessness",
+      "disorder",
+      "rebellion",
+      "insurgency",
+      "revolution",
+      "opposition"
+    ],
     "examples": [
       "If the citizens must follow the law, then the [blank] must follow the constitution.",
       "She decided to [blank] the task."
@@ -4643,8 +4856,27 @@
       "A distinct part. that serves a specific purpose or function",
       "A precise point in time; a moment."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "piece",
+      "story",
+      "report",
+      "feature",
+      "column",
+      "editorial",
+      "blog",
+      "post",
+      "essay",
+      "review",
+      "news",
+      "publication",
+      "content",
+      "copy"
+    ],
+    "antonyms": [
+      "silence",
+      "censorship",
+      "suppression"
+    ],
     "examples": [
       "a sales [blank]",
       "The [blank] played an important role in the situation.",
@@ -4908,6 +5140,50 @@
       "The [blank] was on its feet.",
       "Some users may not be able to access the AOL [blank].",
       "Doctor Watson [blank] ed with Sherlock Holmes at Baker Street."
+    ]
+  },
+  {
+    "word": "rule",
+    "definitions": [
+      "A regulation or principle governing conduct, action, procedure, arrangement, etc.",
+      "A standard or criterion for making a decision or judgment.",
+      "The normal or usual state of things; the ordinary course of events.",
+      "Control, command, or dominion over something.",
+      "A fundamental principle that serves as the foundation for a system of belief, behavior, or reasoning.",
+      "An authoritative regulation or direction concerning method or procedure.",
+      "A graduated strip of rigid material for measuring length."
+    ],
+    "synonyms": [
+      "regulation",
+      "law",
+      "statute",
+      "ordinance",
+      "directive",
+      "guideline",
+      "policy",
+      "principle",
+      "standard",
+      "criterion",
+      "precept",
+      "decree",
+      "mandate",
+      "command"
+    ],
+    "antonyms": [
+      "exception",
+      "irregularity",
+      "chaos",
+      "anarchy",
+      "disorder",
+      "lawlessness",
+      "freedom",
+      "rebellion"
+    ],
+    "examples": [
+      "The [blank] states that all students must wear uniforms.",
+      "As a general [blank], we don't allow pets in the building.",
+      "The judge will [blank] on this case tomorrow.",
+      "Democracy should [blank] over dictatorship."
     ]
   },
   {
@@ -6220,6 +6496,48 @@
     ]
   },
   {
+    "word": "official",
+    "definitions": [
+      "A person who holds a position of authority in an organization, especially in government.",
+      "Relating to an authority or public body and its activities, duties, or responsibilities.",
+      "Having the approval or authorization of an authority; formally recognized.",
+      "Appointed or recognized as having authority; authoritative.",
+      "Characteristic of or befitting a person in office; formal and ceremonious."
+    ],
+    "synonyms": [
+      "authority",
+      "administrator",
+      "executive",
+      "bureaucrat",
+      "representative",
+      "agent",
+      "officer",
+      "delegate",
+      "functionary",
+      "magistrate",
+      "commissioner",
+      "formal",
+      "authorized",
+      "legitimate"
+    ],
+    "antonyms": [
+      "unofficial",
+      "informal",
+      "unauthorized",
+      "illegitimate",
+      "private",
+      "personal",
+      "civilian",
+      "layperson"
+    ],
+    "examples": [
+      "The government [blank] announced new policies today.",
+      "This is the [blank] version of the document.",
+      "The [blank] ceremony will begin at noon.",
+      "She became an [blank] representative of the organization."
+    ]
+  },
+  {
     "word": "offer",
     "definitions": [
       "A proposal that has been made.",
@@ -6245,10 +6563,29 @@
       "Having its basis in the law.",
       "Being allowed or prescribed by law."
     ],
-    "synonyms": [],
+    "synonyms": [
+      "lawful",
+      "legitimate",
+      "authorized",
+      "constitutional",
+      "statutory",
+      "judicial",
+      "juridical",
+      "permissible",
+      "valid",
+      "sanctioned"
+    ],
     "antonyms": [
       "illegal",
-      "undocumented"
+      "unlawful",
+      "unauthorized",
+      "unconstitutional",
+      "illegitimate",
+      "illicit",
+      "prohibited",
+      "forbidden",
+      "criminal",
+      "unlicensed"
     ],
     "examples": [
       "[blank] wants this in writing.",
@@ -7958,8 +8295,35 @@
       "A person accepted as a source of reliable information on a subject.",
       "Governmentowned agency which runs a revenuegenerating activity."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "power",
+      "control",
+      "command",
+      "jurisdiction",
+      "dominion",
+      "sovereignty",
+      "government",
+      "administration",
+      "leadership",
+      "official",
+      "expert",
+      "specialist",
+      "scholar",
+      "agency",
+      "institution"
+    ],
+    "antonyms": [
+      "powerlessness",
+      "subordination",
+      "submission",
+      "weakness",
+      "incompetence",
+      "inexperience",
+      "amateur",
+      "novice",
+      "anarchy",
+      "chaos"
+    ],
     "examples": [
       "the worlds foremost [blank] on orangutans",
       "She decided to [blank] the task."
@@ -8009,9 +8373,31 @@
       "To trade meanly or mercenarily; to bargain."
     ],
     "synonyms": [
-      "trade"
+      "trade",
+      "vehicles",
+      "congestion",
+      "flow",
+      "movement",
+      "transportation",
+      "circulation",
+      "commerce",
+      "business",
+      "dealings",
+      "exchange",
+      "activity",
+      "passage"
     ],
-    "antonyms": [],
+    "antonyms": [
+      "stillness",
+      "calm",
+      "quiet",
+      "empty",
+      "clear",
+      "vacant",
+      "stagnation",
+      "blockage",
+      "standstill"
+    ],
     "examples": [
       "The [blank] is slow during rush hour.",
       "She picked up the [blank] from the shelf."
@@ -8942,8 +9328,32 @@
       "A mode or method of spiritual practice; a yana.",
       "An animal or (rarely) a plant on which a Hindu deity rides or sits"
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "conveyance",
+      "transport",
+      "car",
+      "automobile",
+      "truck",
+      "bus",
+      "machine",
+      "craft",
+      "vessel",
+      "carrier",
+      "device",
+      "means",
+      "medium",
+      "instrument"
+    ],
+    "antonyms": [
+      "pedestrian",
+      "walking",
+      "stationary",
+      "immobile",
+      "fixed",
+      "obstacle",
+      "barrier",
+      "hindrance"
+    ],
     "examples": [
       "The [blank] arrived at the meeting.",
       "He found the [blank] in his backpack."
@@ -9241,8 +9651,31 @@
       "A means of conveyance.",
       "A ticket or fare."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "transport",
+      "conveyance",
+      "travel",
+      "transit",
+      "carriage",
+      "haulage",
+      "shipping",
+      "delivery",
+      "movement",
+      "transfer",
+      "passage",
+      "logistics",
+      "mobility"
+    ],
+    "antonyms": [
+      "immobility",
+      "stagnation",
+      "stillness",
+      "stationary",
+      "settlement",
+      "staying",
+      "remaining",
+      "isolation"
+    ],
     "examples": [
       "We have to get people out of their cars and encourage them to use alternative forms of [blank].",
       "Mulligans sentence was commuted from death to [blank].",
@@ -10606,12 +11039,33 @@
   {
     "word": "driver",
     "definitions": [
+      "One who drives a vehicle, such as a car, truck, or bus.",
+      "A person who operates or controls a vehicle.",
       "A program that acts as an interface between an application and hardware, written specifically for the device it controls.",
       "A tamping iron. that serves a specific purpose or function",
       "A screwdriver. that serves a specific purpose or function"
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "operator",
+      "chauffeur",
+      "motorist",
+      "pilot",
+      "navigator",
+      "conductor",
+      "controller",
+      "handler",
+      "guide",
+      "captain",
+      "steersman"
+    ],
+    "antonyms": [
+      "passenger",
+      "pedestrian",
+      "rider",
+      "hitchhiker",
+      "walker",
+      "follower"
+    ],
     "examples": [
       "She picked up the [blank] from the shelf.",
       "He found the [blank] in his backpack."
@@ -10738,8 +11192,31 @@
       "A mechanical cutout device",
       "A quick, light step; a lively movement of the feet; a skip"
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "journey",
+      "travel",
+      "voyage",
+      "excursion",
+      "expedition",
+      "tour",
+      "outing",
+      "jaunt",
+      "adventure",
+      "stumble",
+      "fall",
+      "misstep",
+      "slip"
+    ],
+    "antonyms": [
+      "stay",
+      "remain",
+      "rest",
+      "settle",
+      "stabilize",
+      "steady",
+      "balance",
+      "success"
+    ],
     "examples": [
       "We made a [blank] to the beach.",
       "He was injured due to a [blank] down the stairs.",
@@ -11968,9 +12445,30 @@
     ],
     "synonyms": [
       "rule",
-      "regulation"
+      "law",
+      "statute",
+      "ordinance",
+      "directive",
+      "guideline",
+      "policy",
+      "code",
+      "standard",
+      "requirement",
+      "mandate",
+      "provision",
+      "restriction",
+      "control"
     ],
-    "antonyms": [],
+    "antonyms": [
+      "deregulation",
+      "freedom",
+      "liberation",
+      "chaos",
+      "anarchy",
+      "lawlessness",
+      "disorder",
+      "unrestricted"
+    ],
     "examples": [
       "She decided to [blank] the task.",
       "They will [blank] tomorrow morning."
@@ -12460,8 +12958,28 @@
       "Cool and emotionless.",
       "Of or relating to a bed."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "medical",
+      "therapeutic",
+      "professional",
+      "objective",
+      "analytical",
+      "detached",
+      "scientific",
+      "methodical",
+      "systematic",
+      "hospital-based"
+    ],
+    "antonyms": [
+      "emotional",
+      "subjective",
+      "personal",
+      "non-medical",
+      "warm",
+      "empathetic",
+      "home-based",
+      "informal"
+    ],
     "examples": [
       "Medicine is now more often practiced in a [blank] setting than in the home.",
       "a [blank] convert one who turns to religion on their deathbed"
@@ -13661,8 +14179,23 @@
       "To genetically alter an extant species.",
       "To alter or make obscure, as with the intention to deceive, especially a document."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "physician",
+      "medic",
+      "practitioner",
+      "clinician",
+      "healer",
+      "surgeon",
+      "specialist",
+      "consultant",
+      "GP",
+      "medical professional"
+    ],
+    "antonyms": [
+      "patient",
+      "layperson",
+      "non-medical person"
+    ],
     "examples": [
       "If you still feel unwell tomorrow, see your [blank].",
       "the [blank] of a calicoprinting machine, which is a knife to remove superfluous colouring matter",
@@ -13950,8 +14483,32 @@
       "A group of canal locks with a short distance between them",
       "A floor which is reached by stairs or escalators."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "flying",
+      "aviation",
+      "journey",
+      "trip",
+      "voyage",
+      "escape",
+      "fleeing",
+      "departure",
+      "exodus",
+      "migration",
+      "soaring",
+      "gliding",
+      "travel"
+    ],
+    "antonyms": [
+      "landing",
+      "grounding",
+      "arrival",
+      "staying",
+      "remaining",
+      "stationary",
+      "pursuit",
+      "confrontation",
+      "approach"
+    ],
     "examples": [
       "Most birds are capable of [blank].",
       "The migrating birds [blank] took them to Africa.",
@@ -15666,8 +16223,32 @@
       "(collective) A group of giraffes.",
       "To travel, to make a trip or voyage."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "trip",
+      "travel",
+      "voyage",
+      "expedition",
+      "adventure",
+      "quest",
+      "pilgrimage",
+      "excursion",
+      "tour",
+      "trek",
+      "passage",
+      "odyssey",
+      "crossing"
+    ],
+    "antonyms": [
+      "stay",
+      "rest",
+      "remain",
+      "settle",
+      "dwell",
+      "stop",
+      "destination",
+      "arrival",
+      "stationary"
+    ],
     "examples": [
       "my [blank] of dealing with grief",
       "She picked up the [blank] from the shelf."
@@ -18446,8 +19027,25 @@
       "The identification of the nature and cause of an illness.",
       "The identification of the nature and cause of something (of any nature)."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "assessment",
+      "evaluation",
+      "analysis",
+      "examination",
+      "identification",
+      "determination",
+      "conclusion",
+      "finding",
+      "medical opinion",
+      "prognosis"
+    ],
+    "antonyms": [
+      "misdiagnosis",
+      "uncertainty",
+      "confusion",
+      "ignorance",
+      "guesswork"
+    ],
     "examples": [
       "He was given the wrong treatment due to an erroneous [blank].",
       "She decided to [blank] the task."
@@ -18534,6 +19132,318 @@
       "There was a strange [blank] in the sky.",
       "Some people say Im shallow because I care so much about my [blank].",
       "A person makes his [blank] as an historian, an artist, or an orator."
+    ]
+  },
+  {
+    "word": "communication",
+    "definitions": [
+      "The act or process of transmitting information, ideas, or feelings between individuals or groups.",
+      "The means by which information is transmitted, such as speech, writing, or digital media.",
+      "A message or information that is communicated.",
+      "The field of study concerned with the transmission of information."
+    ],
+    "synonyms": [
+      "correspondence",
+      "contact",
+      "interaction",
+      "exchange",
+      "dialogue",
+      "discussion",
+      "conversation",
+      "transmission",
+      "messaging",
+      "networking",
+      "outreach",
+      "liaison"
+    ],
+    "antonyms": [
+      "silence",
+      "isolation",
+      "disconnection",
+      "miscommunication"
+    ],
+    "examples": [
+      "Clear [blank] is essential for team success.",
+      "Digital [blank] has revolutionized how we connect.",
+      "The breakdown in [blank] led to confusion.",
+      "She studied [blank] and media in college."
+    ]
+  },
+  {
+    "word": "media",
+    "definitions": [
+      "The main means of mass communication (television, radio, newspapers, internet, etc.).",
+      "The materials or methods used to store and deliver information or entertainment.",
+      "Digital platforms and channels used for communication and content distribution.",
+      "Plural of medium; the intervening substance through which something is transmitted."
+    ],
+    "synonyms": [
+      "press",
+      "news",
+      "journalism",
+      "broadcasting",
+      "publication",
+      "content",
+      "channels",
+      "platforms",
+      "outlets",
+      "networks",
+      "digital",
+      "social"
+    ],
+    "antonyms": [
+      "censorship",
+      "blackout",
+      "silence"
+    ],
+    "examples": [
+      "Social [blank] has changed how we communicate.",
+      "The [blank] reported on the breaking news.",
+      "Digital [blank] offers new opportunities for creators.",
+      "Traditional [blank] is adapting to online platforms."
+    ]
+  },
+  {
+    "word": "publication",
+    "definitions": [
+      "The action of making something publicly known; announcement or disclosure.",
+      "A book, journal, newspaper, or other printed or digital material made available to the public.",
+      "The process of producing and distributing literature, information, or entertainment.",
+      "An organization that produces books, magazines, or other media."
+    ],
+    "synonyms": [
+      "release",
+      "announcement",
+      "disclosure",
+      "magazine",
+      "journal",
+      "newspaper",
+      "book",
+      "periodical",
+      "newsletter",
+      "bulletin",
+      "edition",
+      "issue"
+    ],
+    "antonyms": [
+      "suppression",
+      "concealment",
+      "censorship",
+      "withdrawal"
+    ],
+    "examples": [
+      "The [blank] of the research findings caused controversy.",
+      "She works for a scientific [blank].",
+      "The digital [blank] reached millions of readers.",
+      "Weekly [blank] keeps subscribers informed."
+    ]
+  },
+  {
+    "word": "document",
+    "definitions": [
+      "A written or printed paper that provides information or evidence.",
+      "A computer file containing formatted text, images, or other data.",
+      "Official papers that establish identity, ownership, or authorization.",
+      "To record or report details of something in writing or other permanent form."
+    ],
+    "synonyms": [
+      "file",
+      "record",
+      "paper",
+      "form",
+      "certificate",
+      "report",
+      "manuscript",
+      "text",
+      "contract",
+      "agreement",
+      "evidence",
+      "proof"
+    ],
+    "antonyms": [
+      "erase",
+      "delete",
+      "destroy",
+      "conceal"
+    ],
+    "examples": [
+      "Please sign this legal [blank].",
+      "Save the [blank] before closing the application.",
+      "Identity [blank] s are required for verification.",
+      "The photographer will [blank] the entire event."
+    ]
+  },
+  {
+    "word": "letter",
+    "definitions": [
+      "A written message addressed to a person or organization.",
+      "A symbol representing a speech sound in a writing system.",
+      "Formal correspondence sent through postal or electronic means.",
+      "A document stating terms, conditions, or official communication."
+    ],
+    "synonyms": [
+      "note",
+      "correspondence",
+      "message",
+      "mail",
+      "missive",
+      "communication",
+      "post",
+      "dispatch",
+      "memo",
+      "character",
+      "symbol",
+      "email"
+    ],
+    "antonyms": [
+      "silence",
+      "neglect",
+      "ignore"
+    ],
+    "examples": [
+      "I received a [blank] from my grandmother.",
+      "Type each [blank] carefully in the password.",
+      "The cover [blank] impressed the hiring manager.",
+      "Official [blank] s require proper formatting."
+    ]
+  },
+  {
+    "word": "email",
+    "definitions": [
+      "Electronic mail; messages sent and received electronically over a computer network.",
+      "A system for sending and receiving digital messages via the internet.",
+      "An individual electronic message sent through this system.",
+      "The address or account used for electronic correspondence."
+    ],
+    "synonyms": [
+      "message",
+      "correspondence",
+      "mail",
+      "communication",
+      "note",
+      "notification",
+      "digital-mail",
+      "electronic-message",
+      "inbox",
+      "outbox"
+    ],
+    "antonyms": [
+      "snail-mail",
+      "postal-mail",
+      "silence",
+      "disconnect"
+    ],
+    "examples": [
+      "Check your [blank] for the meeting details.",
+      "Send me an [blank] with your availability.",
+      "The [blank] notification appeared on my phone.",
+      "Professional [blank] etiquette is important."
+    ]
+  },
+  {
+    "word": "telephone",
+    "definitions": [
+      "A device used to transmit and receive voice communications over long distances.",
+      "The system or network that enables voice communication between distant locations.",
+      "A conversation conducted using such a device.",
+      "To contact someone using a telephone; to make a phone call."
+    ],
+    "synonyms": [
+      "phone",
+      "cell",
+      "mobile",
+      "landline",
+      "smartphone",
+      "device",
+      "handset",
+      "call",
+      "ring",
+      "contact",
+      "dial"
+    ],
+    "antonyms": [
+      "disconnect",
+      "silence",
+      "hang-up"
+    ],
+    "examples": [
+      "The [blank] rang during dinner.",
+      "Please [blank] me when you arrive.",
+      "Modern [blank] s have many features beyond calling.",
+      "The [blank] conversation lasted an hour."
+    ]
+  },
+  {
+    "word": "passenger",
+    "definitions": [
+      "A person who travels in a vehicle, aircraft, ship, or other means of transportation, but is not the operator.",
+      "Someone who is carried by a conveyance without taking part in its operation.",
+      "A traveler who is not the driver, pilot, or crew member."
+    ],
+    "synonyms": [
+      "traveler",
+      "rider",
+      "commuter",
+      "voyager",
+      "fare",
+      "hitchhiker",
+      "tourist",
+      "client",
+      "patron"
+    ],
+    "antonyms": [
+      "driver",
+      "pilot",
+      "captain",
+      "operator",
+      "conductor",
+      "crew",
+      "navigator"
+    ],
+    "examples": [
+      "The [blank] fastened their seatbelt before takeoff.",
+      "Every [blank] must show their ticket to the conductor.",
+      "The train was full of [blank] s heading to work.",
+      "As a [blank], she enjoyed watching the scenery go by."
+    ]
+  },
+  {
+    "word": "destination",
+    "definitions": [
+      "The place to which someone or something is going or being sent.",
+      "The ultimate goal or endpoint of a journey or trip.",
+      "A place that is worth visiting because of its appeal or significance."
+    ],
+    "synonyms": [
+      "target",
+      "goal",
+      "endpoint",
+      "terminus",
+      "arrival",
+      "finish",
+      "objective",
+      "aim",
+      "stop",
+      "port",
+      "station",
+      "location",
+      "place"
+    ],
+    "antonyms": [
+      "origin",
+      "start",
+      "beginning",
+      "departure",
+      "source",
+      "starting point",
+      "launch",
+      "embarkation"
+    ],
+    "examples": [
+      "Our [blank] is Paris, but we'll stop in London first.",
+      "The airport announced the final [blank] for Flight 402.",
+      "Hawaii is a popular vacation [blank].",
+      "We finally reached our [blank] after a long journey."
     ]
   }
 ]
