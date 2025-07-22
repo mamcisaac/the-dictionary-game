@@ -135,10 +135,12 @@
     "word": "other",
     "definitions": [
       "To treat as different or separate; segregate; ostracise.",
-      "Left, as opposed to right."
+      "Left, as opposed to right.",
+      "Different from what has been mentioned.",
+      "Additional or alternative."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["different", "alternative", "another", "distinct"],
+    "antonyms": ["same", "identical"],
     "examples": [
       "Im afraid little Robbie does not always play well with [blank] s.",
       "One boat is not better than the [blank].",
@@ -486,8 +488,8 @@
       "The cost of an action or deed.",
       "Value; estimation; excellence; worth."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["cost", "value", "amount", "charge"],
+    "antonyms": ["free", "worthless"],
     "examples": [
       "I paid a high [blank] for my folly.",
       "to [blank] eggs"
@@ -1107,8 +1109,8 @@
       "Motion picture stored on VHS or some other format.",
       "To record a television program"
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["film", "movie", "recording", "footage"],
+    "antonyms": ["audio", "still"],
     "examples": [
       "She picked up the [blank] from the shelf.",
       "He found the [blank] in his backpack."
@@ -1932,10 +1934,12 @@
     "word": "comment",
     "definitions": [
       "A spoken or written remark.",
-      "(with on or about) To make remarks or notes."
+      "(with on or about) To make remarks or notes.",
+      "An observation or explanation.",
+      "Feedback or opinion about something."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["remark", "note", "observation", "feedback"],
+    "antonyms": ["silence", "ignore"],
     "examples": [
       "I have no [blank] on that.",
       "I wish Id [blank] ed this complicated algorithm back when I remembered how it worked."
@@ -6209,10 +6213,12 @@
     "word": "offer",
     "definitions": [
       "A proposal that has been made.",
-      "Something put forth, bid, proffered or tendered."
+      "Something put forth, bid, proffered or tendered.",
+      "To present for acceptance or rejection.",
+      "To provide or make available."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["provide", "present", "propose", "suggest"],
+    "antonyms": ["withdraw", "refuse", "deny"],
     "examples": [
       "I decline your [blank] to contract.",
       "His [blank] was 3.50 per share.",
@@ -6546,8 +6552,8 @@
       "A collection of events andor activities from which an individual or group may gather knowledge, opinions, and skills.",
       "The knowledge thus gathered."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["encounter", "knowledge", "background", "exposure"],
+    "antonyms": ["inexperience", "theory", "ignorance"],
     "examples": [
       "It was an [blank] he would not soon forget.",
       "She picked up the [blank] from the shelf."
@@ -7344,8 +7350,8 @@
       "A period of 30 days, 31 days, or some alternation thereof.",
       "(in the plural) A womans period; menstrual discharge."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["period", "lunar cycle"],
+    "antonyms": ["year", "day", "week"],
     "examples": [
       "July is my favourite [blank].",
       "We went on holiday for two [blank] s."
@@ -15823,10 +15829,13 @@
   {
     "word": "calculate",
     "definitions": [
-      "To plan; to expect; to think."
+      "To plan; to expect; to think.",
+      "To determine by mathematical computation.",
+      "To estimate or figure out.",
+      "To work out using numbers."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["compute", "figure", "estimate", "determine"],
+    "antonyms": ["guess", "approximate"],
     "examples": [
       "[blank] the square root of 3 to 10 decimal places.",
       "to [blank] or cast ones nativity",
