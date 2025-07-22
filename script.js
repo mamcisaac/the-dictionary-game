@@ -218,13 +218,21 @@ document.addEventListener("DOMContentLoaded", function() {
     // Initially hide the input container until the game starts
     inputContainer.style.display = "none";
 
-    async function fetchPuzzle() {
-        const response = await fetch("puzzle.json");
-        puzzleData = await response.json();
-        var randomIndex = Math.floor(Math.random() * puzzleData.length);
+    // Store the full puzzle list for Phase 1 features
+    let puzzleDataList = [];
+    let currentPuzzleIndex = -1;
 
-        puzzleData = puzzleData[randomIndex]; // For this example, we're using the first puzzle
+    async function fetchPuzzle(specificIndex = null) {
+        const response = await fetch("puzzle.json");
+        puzzleDataList = await response.json();
         
+        if (specificIndex !== null && specificIndex >= 0 && specificIndex < puzzleDataList.length) {
+            currentPuzzleIndex = specificIndex;
+        } else {
+            currentPuzzleIndex = Math.floor(Math.random() * puzzleDataList.length);
+        }
+
+        puzzleData = puzzleDataList[currentPuzzleIndex];
     }
 
 function getNextClue() {
@@ -709,6 +717,20 @@ window.addEventListener("click", (event) => {
     if (event.target === settingsModal) {
         settingsModal.style.display = "none";
     }
+    // Phase 1 modals
+    const dailyChallengeModal = document.getElementById("daily-challenge-modal");
+    const achievementsModal = document.getElementById("achievements-modal"); 
+    const wordHistoryModal = document.getElementById("word-history-modal");
+    
+    if (event.target === dailyChallengeModal) {
+        dailyChallengeModal.style.display = "none";
+    }
+    if (event.target === achievementsModal) {
+        achievementsModal.style.display = "none";
+    }
+    if (event.target === wordHistoryModal) {
+        wordHistoryModal.style.display = "none";
+    }
 });
 
 // Load settings and stats on page load
@@ -732,12 +754,127 @@ window.addEventListener("click", (event) => {
     if (event.target === settingsModal) {
         settingsModal.style.display = "none";
     }
+    // Phase 1 modals
+    const dailyChallengeModal = document.getElementById("daily-challenge-modal");
+    const achievementsModal = document.getElementById("achievements-modal"); 
+    const wordHistoryModal = document.getElementById("word-history-modal");
+    
+    if (event.target === dailyChallengeModal) {
+        dailyChallengeModal.style.display = "none";
+    }
+    if (event.target === achievementsModal) {
+        achievementsModal.style.display = "none";
+    }
+    if (event.target === wordHistoryModal) {
+        wordHistoryModal.style.display = "none";
+    }
 });
 
 // Load settings and stats on page load
 loadSettings();
 loadStats();
 updateStatsDisplay();
+
+// ========================
+// PHASE 1 INITIALIZATION
+// ========================
+
+// Load all Phase 1 data
+loadDailyChallengeData();
+loadAchievements();
+loadWordHistory();
+
+// Get DOM elements for new features
+const dailyChallengeButton = document.getElementById("daily-challenge-button");
+const dailyChallengeModal = document.getElementById("daily-challenge-modal");
+const closeDailyChallengeModal = document.querySelector(".close-daily-challenge");
+const startDailyChallengeButton = document.getElementById("start-daily-challenge");
+const achievementsButton = document.getElementById("achievements-button");
+const achievementsModal = document.getElementById("achievements-modal");
+const closeAchievementsModal = document.querySelector(".close-achievements");
+const wordHistoryButton = document.getElementById("word-history-button");
+const wordHistoryModal = document.getElementById("word-history-modal");
+const closeWordHistoryModal = document.querySelector(".close-word-history");
+const themeSelect = document.getElementById("theme-select");
+
+// Daily Challenge Modal
+if (dailyChallengeButton) {
+    dailyChallengeButton.addEventListener("click", () => {
+        updateDailyChallengeModal();
+        dailyChallengeModal.style.display = "block";
+    });
+}
+
+if (closeDailyChallengeModal) {
+    closeDailyChallengeModal.addEventListener("click", () => {
+        dailyChallengeModal.style.display = "none";
+    });
+}
+
+if (startDailyChallengeButton) {
+    startDailyChallengeButton.addEventListener("click", () => {
+        startDailyChallenge();
+        dailyChallengeModal.style.display = "none";
+    });
+}
+
+// Achievements Modal
+if (achievementsButton) {
+    achievementsButton.addEventListener("click", () => {
+        updateAchievementsModal();
+        achievementsModal.style.display = "block";
+    });
+}
+
+if (closeAchievementsModal) {
+    closeAchievementsModal.addEventListener("click", () => {
+        achievementsModal.style.display = "none";
+    });
+}
+
+// Word History Modal
+if (wordHistoryButton) {
+    wordHistoryButton.addEventListener("click", () => {
+        updateWordHistoryModal();
+        wordHistoryModal.style.display = "block";
+    });
+}
+
+if (closeWordHistoryModal) {
+    closeWordHistoryModal.addEventListener("click", () => {
+        wordHistoryModal.style.display = "none";
+    });
+}
+
+// Theme selector enhancement
+if (themeSelect) {
+    themeSelect.addEventListener("change", (e) => {
+        applyTheme(e.target.value);
+    });
+
+    // Set initial theme
+    if (gameSettings.theme) {
+        themeSelect.value = gameSettings.theme;
+        applyTheme(gameSettings.theme);
+    }
+}
+
+// Word History search and filter
+const wordSearch = document.getElementById("word-search");
+const wordFilter = document.getElementById("word-filter");
+
+if (wordSearch) {
+    wordSearch.addEventListener("input", () => {
+        updateWordHistoryDisplay();
+    });
+}
+
+if (wordFilter) {
+    wordFilter.addEventListener("change", () => {
+        updateWordHistoryDisplay();
+    });
+}
+
 });
 
 
@@ -759,3 +896,555 @@ function displayMessageWithAnimation(message, isSuccess) {
         messageDisplay.style.transform = "scale(1)";
     }, 150);
 }
+
+// ========================
+// PHASE 1 FEATURES
+// ========================
+
+// Daily Challenge System
+const dailyChallengeData = {
+    challenges: {},
+    leaderboard: {},
+    currentStreak: 0
+};
+
+// Load daily challenge data
+function loadDailyChallengeData() {
+    const savedData = localStorage.getItem('dictionaryGameDailyChallenge');
+    if (savedData) {
+        Object.assign(dailyChallengeData, JSON.parse(savedData));
+    }
+}
+
+// Save daily challenge data
+function saveDailyChallengeData() {
+    localStorage.setItem('dictionaryGameDailyChallenge', JSON.stringify(dailyChallengeData));
+}
+
+// Get today's date string
+function getTodayString() {
+    return new Date().toISOString().split('T')[0];
+}
+
+// Generate deterministic word for date
+function getDailyWord(dateString) {
+    // Use date as seed for consistent word selection
+    const seed = dateString.split('-').join('');
+    const hash = seed.split('').reduce((a, b) => (a * 31 + b.charCodeAt(0)) % 1000, 0);
+    return hash % puzzleDataList.length;
+}
+
+// Check if daily challenge completed
+function isDailyChallengeCompleted(dateString) {
+    return dailyChallengeData.challenges[dateString] !== undefined;
+}
+
+// Get simulated leaderboard
+function getSimulatedLeaderboard() {
+    const names = ['Alex', 'Sam', 'Jordan', 'Casey', 'Taylor', 'Morgan', 'Riley', 'Avery'];
+    const leaderboard = [];
+    
+    for (let i = 0; i < 5; i++) {
+        leaderboard.push({
+            name: names[Math.floor(Math.random() * names.length)],
+            score: Math.floor(Math.random() * 40) + 60, // Score between 60-100
+            time: Math.floor(Math.random() * 300) + 60 // Time between 1-6 minutes
+        });
+    }
+    
+    return leaderboard.sort((a, b) => b.score - a.score);
+}
+
+// Record daily challenge result
+function recordDailyChallengeResult(score, won) {
+    const today = getTodayString();
+    dailyChallengeData.challenges[today] = {
+        score: score,
+        won: won,
+        date: today,
+        cluesUsed: cluesUsed,
+        guessCount: guessCount
+    };
+    
+    if (won) {
+        dailyChallengeData.currentStreak++;
+    } else {
+        dailyChallengeData.currentStreak = 0;
+    }
+    
+    saveDailyChallengeData();
+    checkAchievements(); // Check for daily challenge achievements
+}
+
+// Achievement System
+const achievementDefinitions = {
+    first_game: {
+        id: 'first_game',
+        name: 'First Steps',
+        description: 'Complete your first game',
+        icon: '🎮',
+        condition: (stats, history, dailyData) => stats.gamesPlayed >= 1
+    },
+    perfect_score: {
+        id: 'perfect_score',
+        name: 'Perfect Score',
+        description: 'Win a game with 100 points',
+        icon: '💯',
+        condition: (stats, history, dailyData) => stats.bestScore >= 100
+    },
+    efficient_guesser: {
+        id: 'efficient_guesser',
+        name: 'Efficient Guesser',
+        description: 'Win using only 1-2 clues',
+        icon: '🎯',
+        condition: (stats, history, dailyData) => history.some(game => game.won && game.cluesUsed <= 2)
+    },
+    persistent_player: {
+        id: 'persistent_player',
+        name: 'Persistent Player',
+        description: 'Complete 10 games',
+        icon: '🏃',
+        condition: (stats, history, dailyData) => stats.gamesPlayed >= 10
+    },
+    streak_master: {
+        id: 'streak_master',
+        name: 'Streak Master',
+        description: 'Win 5 games in a row',
+        icon: '🔥',
+        condition: (stats, history, dailyData) => stats.bestStreak >= 5
+    },
+    word_collector: {
+        id: 'word_collector',
+        name: 'Word Collector',
+        description: 'Discover 50 unique words',
+        icon: '📚',
+        condition: (stats, history, dailyData) => history.length >= 50
+    },
+    daily_devotion: {
+        id: 'daily_devotion',
+        name: 'Daily Devotion',
+        description: 'Complete 7 daily challenges',
+        icon: '📅',
+        condition: (stats, history, dailyData) => Object.keys(dailyData.challenges).length >= 7
+    },
+    speed_demon: {
+        id: 'speed_demon',
+        name: 'Speed Demon',
+        description: 'Win in under 2 minutes',
+        icon: '⚡',
+        condition: (stats, history, dailyData) => history.some(game => game.won && game.timeSpent && game.timeSpent < 120)
+    },
+    favorite_collector: {
+        id: 'favorite_collector',
+        name: 'Favorite Collector',
+        description: 'Add 10 words to favorites',
+        icon: '⭐',
+        condition: (stats, history, dailyData) => wordHistoryData.favorites.length >= 10
+    },
+    theme_explorer: {
+        id: 'theme_explorer',
+        name: 'Theme Explorer',
+        description: 'Try the dark theme',
+        icon: '🌙',
+        condition: (stats, history, dailyData) => gameSettings.theme === 'dark'
+    }
+};
+
+// Load earned achievements
+let earnedAchievements = new Set();
+
+function loadAchievements() {
+    const saved = localStorage.getItem('dictionaryGameAchievements');
+    if (saved) {
+        earnedAchievements = new Set(JSON.parse(saved));
+    }
+}
+
+function saveAchievements() {
+    localStorage.setItem('dictionaryGameAchievements', JSON.stringify([...earnedAchievements]));
+}
+
+// Check and award new achievements
+function checkAchievements() {
+    const newAchievements = [];
+    
+    for (const achievement of Object.values(achievementDefinitions)) {
+        if (!earnedAchievements.has(achievement.id)) {
+            if (achievement.condition(gameStats, wordHistoryData.history, dailyChallengeData)) {
+                earnedAchievements.add(achievement.id);
+                newAchievements.push(achievement);
+            }
+        }
+    }
+    
+    if (newAchievements.length > 0) {
+        saveAchievements();
+        // Show achievement notification
+        newAchievements.forEach(achievement => {
+            showAchievementNotification(achievement);
+        });
+    }
+}
+
+// Show achievement notification
+function showAchievementNotification(achievement) {
+    const notification = document.createElement('div');
+    notification.className = 'achievement-notification';
+    notification.innerHTML = `
+        <div class="achievement-popup">
+            <div class="achievement-icon">${achievement.icon}</div>
+            <div class="achievement-text">
+                <div class="achievement-earned">Achievement Earned!</div>
+                <div class="achievement-name">${achievement.name}</div>
+            </div>
+        </div>
+    `;
+    
+    // Add notification styles if not already added
+    if (!document.querySelector('#achievement-notification-styles')) {
+        const style = document.createElement('style');
+        style.id = 'achievement-notification-styles';
+        style.textContent = `
+            .achievement-notification {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 2000;
+                animation: slideInRight 0.5s ease-out, fadeOut 0.5s ease-out 2.5s;
+            }
+            
+            .achievement-popup {
+                background: linear-gradient(135deg, var(--success-color), var(--accent-secondary));
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                max-width: 300px;
+            }
+            
+            .achievement-popup .achievement-icon {
+                font-size: 2rem;
+            }
+            
+            .achievement-earned {
+                font-size: 0.8rem;
+                opacity: 0.9;
+            }
+            
+            .achievement-popup .achievement-name {
+                font-weight: bold;
+                font-size: 1.1rem;
+            }
+            
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            
+            @keyframes fadeOut {
+                to { opacity: 0; transform: translateX(100%); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
+
+// Word History and Favorites System
+const wordHistoryData = {
+    history: [],
+    favorites: []
+};
+
+function loadWordHistory() {
+    const saved = localStorage.getItem('dictionaryGameWordHistory');
+    if (saved) {
+        Object.assign(wordHistoryData, JSON.parse(saved));
+    }
+}
+
+function saveWordHistory() {
+    localStorage.setItem('dictionaryGameWordHistory', JSON.stringify(wordHistoryData));
+}
+
+// Record game in word history
+function recordWordInHistory(word, won, score, cluesUsed, guessCount, isDailyChallenge = false) {
+    const entry = {
+        word: word,
+        won: won,
+        score: score,
+        cluesUsed: cluesUsed,
+        guessCount: guessCount,
+        date: new Date().toISOString(),
+        isDailyChallenge: isDailyChallenge,
+        timeSpent: gameStartTime ? Math.floor((Date.now() - gameStartTime) / 1000) : null
+    };
+    
+    wordHistoryData.history.unshift(entry); // Add to beginning
+    
+    // Limit history to last 1000 games
+    if (wordHistoryData.history.length > 1000) {
+        wordHistoryData.history = wordHistoryData.history.slice(0, 1000);
+    }
+    
+    saveWordHistory();
+    checkAchievements(); // Check achievements after recording
+}
+
+// Toggle word favorite status
+function toggleWordFavorite(word) {
+    const index = wordHistoryData.favorites.indexOf(word);
+    if (index === -1) {
+        wordHistoryData.favorites.push(word);
+    } else {
+        wordHistoryData.favorites.splice(index, 1);
+    }
+    saveWordHistory();
+    checkAchievements(); // Check favorite-related achievements
+}
+
+// Check if word is favorited
+function isWordFavorited(word) {
+    return wordHistoryData.favorites.includes(word);
+}
+
+// Theme System Enhancement
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    gameSettings.theme = theme;
+    saveSettings();
+    checkAchievements(); // Check theme-related achievements
+}
+
+// Game timing for achievements
+let gameStartTime = null;
+
+// ========================
+// UI EVENT LISTENERS FOR PHASE 1 FEATURES
+// ========================
+
+
+// ========================
+// UI UPDATE FUNCTIONS
+// ========================
+
+function updateDailyChallengeModal() {
+    const today = getTodayString();
+    const isCompleted = isDailyChallengeCompleted(today);
+    
+    document.getElementById("daily-challenge-date").textContent = `Daily Challenge - ${new Date().toLocaleDateString()}`;
+    
+    if (isCompleted) {
+        const result = dailyChallengeData.challenges[today];
+        document.getElementById("daily-challenge-status").innerHTML = `
+            ✅ Completed! Score: ${result.score} points ${result.won ? '(Won!)' : '(Lost)'}
+        `;
+        document.getElementById("start-daily-challenge").textContent = "Already Completed";
+        document.getElementById("start-daily-challenge").disabled = true;
+    } else {
+        document.getElementById("daily-challenge-status").textContent = "Ready to play today's challenge!";
+        document.getElementById("start-daily-challenge").textContent = "Play Today's Challenge";
+        document.getElementById("start-daily-challenge").disabled = false;
+    }
+    
+    // Update leaderboard
+    const leaderboard = getSimulatedLeaderboard();
+    const leaderboardList = document.getElementById("leaderboard-list");
+    leaderboardList.innerHTML = '';
+    
+    leaderboard.forEach((entry, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `${index + 1}. ${entry.name} - ${entry.score} pts`;
+        leaderboardList.appendChild(li);
+    });
+}
+
+function updateAchievementsModal() {
+    const badgesEarned = earnedAchievements.size;
+    const totalBadges = Object.keys(achievementDefinitions).length;
+    
+    document.getElementById("badges-earned").textContent = badgesEarned;
+    document.getElementById("total-badges").textContent = totalBadges;
+    
+    const achievementGrid = document.getElementById("achievement-grid");
+    achievementGrid.innerHTML = '';
+    
+    Object.values(achievementDefinitions).forEach(achievement => {
+        const isEarned = earnedAchievements.has(achievement.id);
+        const achievementElement = document.createElement('div');
+        achievementElement.className = `achievement-item ${isEarned ? 'earned' : 'locked'}`;
+        
+        achievementElement.innerHTML = `
+            <div class="achievement-icon">${achievement.icon}</div>
+            <div class="achievement-name">${achievement.name}</div>
+            <div class="achievement-description">${achievement.description}</div>
+            ${isEarned ? '<div class="achievement-progress">✅ Earned!</div>' : '<div class="achievement-progress">🔒 Locked</div>'}
+        `;
+        
+        achievementGrid.appendChild(achievementElement);
+    });
+}
+
+function updateWordHistoryModal() {
+    document.getElementById("total-words-played").textContent = wordHistoryData.history.length;
+    document.getElementById("total-favorites").textContent = wordHistoryData.favorites.length;
+    
+    updateWordHistoryDisplay();
+}
+
+function updateWordHistoryDisplay() {
+    const searchTerm = document.getElementById("word-search")?.value.toLowerCase() || '';
+    const filter = document.getElementById("word-filter")?.value || 'all';
+    
+    let filteredHistory = wordHistoryData.history;
+    
+    // Apply search filter
+    if (searchTerm) {
+        filteredHistory = filteredHistory.filter(entry => 
+            entry.word.toLowerCase().includes(searchTerm)
+        );
+    }
+    
+    // Apply category filter
+    switch (filter) {
+        case 'won':
+            filteredHistory = filteredHistory.filter(entry => entry.won);
+            break;
+        case 'lost':
+            filteredHistory = filteredHistory.filter(entry => !entry.won);
+            break;
+        case 'favorites':
+            filteredHistory = filteredHistory.filter(entry => isWordFavorited(entry.word));
+            break;
+    }
+    
+    const wordHistoryList = document.getElementById("word-history-list");
+    wordHistoryList.innerHTML = '';
+    
+    if (filteredHistory.length === 0) {
+        wordHistoryList.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--text-muted);">No words found</div>';
+        return;
+    }
+    
+    filteredHistory.slice(0, 100).forEach(entry => { // Limit to 100 for performance
+        const historyItem = document.createElement('div');
+        historyItem.className = 'word-history-item';
+        
+        const resultText = entry.won ? 
+            `Won with ${entry.score} points (${entry.cluesUsed} clues, ${entry.guessCount} guesses)` :
+            `Lost (${entry.cluesUsed} clues, ${entry.guessCount} guesses)`;
+        
+        const date = new Date(entry.date).toLocaleDateString();
+        
+        historyItem.innerHTML = `
+            <div class="word-info">
+                <div class="word-name">${entry.word}${entry.isDailyChallenge ? ' 📅' : ''}</div>
+                <div class="word-result">${resultText} • ${date}</div>
+            </div>
+            <div class="word-actions">
+                <button class="favorite-btn ${isWordFavorited(entry.word) ? 'favorited' : ''}" 
+                        onclick="toggleWordFavorite('${entry.word}'); updateWordHistoryDisplay();">
+                    ${isWordFavorited(entry.word) ? '⭐' : '☆'}
+                </button>
+                <button class="replay-btn" onclick="replayWord('${entry.word}');">Replay</button>
+            </div>
+        `;
+        
+        wordHistoryList.appendChild(historyItem);
+    });
+}
+
+// ========================
+// GAME INTEGRATION FUNCTIONS
+// ========================
+
+function startDailyChallenge() {
+    const today = getTodayString();
+    const wordIndex = getDailyWord(today);
+    
+    // Mark as daily challenge mode
+    isDailyChallengeMode = true;
+    
+    // Start the game with the daily word
+    startGameWithSpecificWord(wordIndex);
+}
+
+function replayWord(word) {
+    // Find the word in the puzzle data
+    const wordIndex = puzzleDataList.findIndex(puzzle => puzzle.word.toLowerCase() === word.toLowerCase());
+    if (wordIndex !== -1) {
+        // Close word history modal
+        document.getElementById("word-history-modal").style.display = "none";
+        // Start game with this specific word
+        startGameWithSpecificWord(wordIndex);
+    }
+}
+
+function startGameWithSpecificWord(wordIndex) {
+    currentPuzzleIndex = wordIndex;
+    puzzleData = puzzleDataList[wordIndex];
+    
+    // Reset game state
+    cluesGiven = [];
+    currentScore = 100;
+    cluesUsed = 0;
+    guessCount = 0;
+    gameStarted = true;
+    gameStartTime = Date.now(); // Track start time
+    
+    // Update display
+    updateScore();
+    updateProgressBar();
+    updateButtonCosts();
+    
+    // Show initial clues
+    myword.style.display = "block";
+    wordPatternElement.textContent = puzzleData.word[0].toUpperCase() + " _ ".repeat(puzzleData.word.length - 1);
+    document.getElementById("primary-definition").textContent = puzzleData.definitions[0];
+    
+    // Update UI state
+    startGameButton.textContent = isDailyChallengeMode ? "New Daily Challenge" : "New Game";
+    inputContainer.style.display = "block";
+    scoreContainer.style.display = "block";
+    guessInput.focus();
+    
+    // Clear previous messages
+    messageDisplay.textContent = "";
+    clueList.innerHTML = "";
+    
+    console.log(`Started ${isDailyChallengeMode ? 'daily challenge' : 'game'} with word: ${puzzleData.word}`);
+}
+
+// Track daily challenge mode
+let isDailyChallengeMode = false;
+
+// Override the original recordGameResult to integrate with new systems
+const originalRecordGameResult = recordGameResult;
+recordGameResult = function(won, score = 0) {
+    // Record in word history
+    if (puzzleData) {
+        recordWordInHistory(puzzleData.word, won, score, cluesUsed, guessCount, isDailyChallengeMode);
+    }
+    
+    // Record daily challenge result if in daily challenge mode
+    if (isDailyChallengeMode && puzzleData) {
+        recordDailyChallengeResult(score, won);
+        isDailyChallengeMode = false; // Reset mode
+    }
+    
+    // Call original function
+    originalRecordGameResult(won, score);
+    
+    // Check achievements after game completion
+    checkAchievements();
+};
+
+console.log("Phase 1 features loaded: Daily Challenge, Achievements, Word History, Dark Mode");
