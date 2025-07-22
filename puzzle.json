@@ -6285,8 +6285,8 @@
       "Uptodate; not oldfashioned or dated.",
       "Having done something a short while ago that distinguishes them as what they are called."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["latest", "current", "fresh", "new"],
+    "antonyms": ["old", "ancient", "outdated"],
     "examples": [
       "I met three [blank] graduates at the conference.",
       "The weather was very [blank] today."
@@ -7562,10 +7562,12 @@
     "word": "similar",
     "definitions": [
       "A material that produces an effect that resembles the symptoms of a particular disease.",
-      "Having traits or characteristics in common; alike, comparable."
+      "Having traits or characteristics in common; alike, comparable.",
+      "Resembling or having like qualities.",
+      "Comparable in appearance or nature."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["alike", "comparable", "related", "equivalent"],
+    "antonyms": ["different", "opposite", "distinct"],
     "examples": [
       "She picked up the [blank] from the shelf.",
       "He found the [blank] in his backpack."
@@ -7776,8 +7778,8 @@
       "An act or instance of participating in such a choice, e.g., by submitting a ballot",
       "An ardent wish or desire; a vow; a prayer"
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["ballot", "elect", "choose", "select"],
+    "antonyms": ["abstain", "ignore", "boycott"],
     "examples": [
       "The Supreme Court upheld the principle of one person, one [blank].",
       "Did you [blank] last month?"
