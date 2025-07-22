@@ -1801,8 +1801,8 @@
       "A questionable or unethical practice in pursuit of a goal; a scheme.",
       "(of males) To perform premeditated seduction strategy."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["sport", "match", "contest", "competition", "tournament", "play", "recreation", "activity", "pastime", "amusement", "bout", "round", "fixture", "event"],
+    "antonyms": ["work", "labor", "drudgery", "chore", "duty", "obligation", "seriousness", "reality"],
     "examples": [
       "Hes in the securities [blank] somehow.",
       "The forest has plenty of [blank].",
@@ -2669,7 +2669,7 @@
       "clan",
       "kin"
     ],
-    "antonyms": [],
+    "antonyms": ["strangers", "outsiders", "enemies"],
     "examples": [
       "Our [blank] lives in town.",
       "1915, William T. Groves, A History and Genealogy of the Groves [blank] in America",
@@ -3131,8 +3131,8 @@
       "One who consorts with disreputable people, including prostitutes.",
       "An amorous dalliance. that serves a specific purpose or function"
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["athletics", "game", "recreation", "activity", "exercise", "competition", "pastime", "play", "contest", "tournament", "match", "event", "discipline", "pursuit"],
+    "antonyms": ["inactivity", "rest", "sedentariness", "idleness", "work", "labor", "seriousness", "lethargy"],
     "examples": [
       "Joe was banned from getting legal help. He seemed to view lawsuits as a [blank].",
       "Jen may have won, but she was sure a poor [blank]; she laughed at the loser.",
@@ -12939,8 +12939,8 @@
       "The woodwind section of an orchestra. Occasionally also used to include the brass section.",
       "Mere breath or talk; empty effort; idle words."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["breeze", "gust", "gale", "draft", "current", "airflow", "zephyr", "squall", "typhoon", "cyclone", "hurricane", "tempest", "whirlwind"],
+    "antonyms": ["stillness", "calm", "quiet", "motionless", "stagnant", "windless", "breathless", "tranquil"],
     "examples": [
       "As they accelerated onto the motorway, the [blank] tore the plywood off the cars roofrack.",
       "After the second lap he was already out of [blank].",

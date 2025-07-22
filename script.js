@@ -52,12 +52,6 @@ document.addEventListener("DOMContentLoaded", function() {
         return Math.min(totalClues, 15);
     }
     
-    // Determine difficulty tier based on available clues (with new caps)
-    function getDifficultyTier(availableClues) {
-        if (availableClues >= 12) return { name: 'Easy', color: '#81b29a', multiplier: 1.0 };
-        if (availableClues >= 8) return { name: 'Medium', color: '#f2cc8f', multiplier: 1.2 };
-        return { name: 'Hard', color: '#e07a5f', multiplier: 1.5 };
-    }
     
     // Update progress bar with dynamic limits
     function updateProgressBar() {
@@ -69,8 +63,8 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Settings object
     let gameSettings = {
-        showWordLength: true,
-        autoClue: true,
+        showWordLength: false,
+        autoClue: false,
         theme: 'default'
     };
     
@@ -104,17 +98,17 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!puzzleData) return;
         
         if (gameSettings.showWordLength) {
+            // Show only revealed letters with consistent spacing: "c o n s t"
+            const revealedPart = puzzleData.word.substring(0, lettersRevealed).toUpperCase();
+            const revealedWithSpacing = revealedPart.split('').join(' ');
+            wordPatternElement.innerHTML = revealedWithSpacing;
+        } else {
             // Show full pattern with consistent spacing: "c o n s t _ _ _"
             const revealedPart = puzzleData.word.substring(0, lettersRevealed).toUpperCase();
             const revealedWithSpacing = revealedPart.split('').join(' ');
             const hiddenLetters = '_ '.repeat(puzzleData.word.length - lettersRevealed).trim();
             const pattern = revealedWithSpacing + (hiddenLetters ? ' ' + hiddenLetters : '');
             wordPatternElement.innerHTML = pattern;
-        } else {
-            // Show only revealed letters with consistent spacing: "c o n s t"
-            const revealedPart = puzzleData.word.substring(0, lettersRevealed).toUpperCase();
-            const revealedWithSpacing = revealedPart.split('').join(' ');
-            wordPatternElement.innerHTML = revealedWithSpacing;
         }
         
         // Always show the element (don't hide it completely)
@@ -184,7 +178,6 @@ document.addEventListener("DOMContentLoaded", function() {
     let cluesGiven = [];
     let currentScore = 100;
     let cluesUsed = 0;
-    let currentDifficulty = null;
     let gameStats = {
         gamesPlayed: 0,
         gamesWon: 0,
@@ -209,14 +202,12 @@ document.addEventListener("DOMContentLoaded", function() {
 function getNextClue() {
     cluesUsed++;
     
-    // Adaptive scoring based on available clues and difficulty
+    // Adaptive scoring based on available clues
     const availableClues = calculateAvailableClues();
-    const difficulty = getDifficultyTier(availableClues);
     
     // Calculate adaptive penalty: fewer available clues = lower penalties
     // Base penalty scales from 15 (many clues) down to 5 (few clues)
-    const basePenalty = Math.max(5, Math.min(15, Math.round(100 / availableClues)));
-    const adjustedPenalty = Math.round(basePenalty / difficulty.multiplier);
+    const adjustedPenalty = Math.max(5, Math.min(15, Math.round(100 / availableClues)));
     
     currentScore = Math.max(0, currentScore - adjustedPenalty);
     currentScoreElement.textContent = currentScore;
@@ -320,15 +311,6 @@ function startGame() {
     // Display the formatted message in the primary-definition element
     document.getElementById("primary-definition").innerHTML = `${definition}`;
         
-        // Initialize difficulty system
-        const availableClues = calculateAvailableClues();
-        currentDifficulty = getDifficultyTier(availableClues);
-        
-        // Display difficulty indicator
-        const difficultyElement = document.getElementById("difficulty-indicator");
-        difficultyElement.textContent = `${currentDifficulty.name} (${availableClues} clues)`;
-        difficultyElement.style.backgroundColor = currentDifficulty.color;
-        difficultyElement.style.color = '#fff';
         
         // Initialize word pattern display
         updateWordPatternDisplay();
@@ -398,9 +380,12 @@ function handleGuess() {
     }
     
     if (guess === targetWord) {
-        // Apply difficulty bonus to final score
-        const finalScore = Math.round(currentScore * currentDifficulty.multiplier);
-        messageDisplay.innerHTML = `Congratulations! The word was: ${puzzleData.word}. You scored ${finalScore} points! (${currentDifficulty.name} difficulty)`;
+        // Reveal the complete word in the pattern display
+        wordPatternElement.innerHTML = puzzleData.word.toUpperCase().split('').join(' ');
+        
+        // Final score is just current score
+        const finalScore = currentScore;
+        messageDisplay.innerHTML = `Congratulations! The word was: ${puzzleData.word}. You scored ${finalScore} points!`;
         messageDisplay.style.color = "#81b29a"; // Success color
         recordGameResult(true, finalScore); // Record win with bonus
         gameStarted = false; // Indicate the game has ended
@@ -411,12 +396,10 @@ function handleGuess() {
         // Adaptive score penalty for wrong guesses (less than clue penalty)
         if (guess.length >= 2) { // Only penalize substantial guesses
             const availableClues = calculateAvailableClues();
-            const difficulty = getDifficultyTier(availableClues);
             
             // Adaptive wrong guess penalty: fewer clues = smaller penalties
             // Base penalty scales from 5 (many clues) down to 2 (few clues)
-            const basePenalty = Math.max(2, Math.min(5, Math.round(30 / availableClues)));
-            const adjustedPenalty = Math.round(basePenalty / difficulty.multiplier);
+            const adjustedPenalty = Math.max(2, Math.min(5, Math.round(30 / availableClues)));
             
             currentScore = Math.max(0, currentScore - adjustedPenalty);
             currentScoreElement.textContent = currentScore;

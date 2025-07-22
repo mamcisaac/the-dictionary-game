@@ -16,7 +16,6 @@
                 <p class="intro-text">I am thinking of a word.<br>Can you guess what it is?</p>
                 
                 <div id="my-word" style="display: none;">
-                    <div id="difficulty-indicator" class="difficulty-badge"></div>
                     <p id="word-pattern" class="word-pattern"></p>
                     <p class="definition"><strong>Definition:</strong> <span id="primary-definition" class="highlight"></span></p>
                 </div>
@@ -75,12 +74,12 @@
                     <h2>Settings</h2>
                     <div id="settings-content">
                         <div class="setting-item">
-                            <label for="show-word-length">Show word pattern:</label>
-                            <input type="checkbox" id="show-word-length" checked>
+                            <label for="show-word-length">Show only the first letter:</label>
+                            <input type="checkbox" id="show-word-length">
                         </div>
                         <div class="setting-item">
                             <label for="auto-clue">Auto-reveal clue after wrong guess:</label>
-                            <input type="checkbox" id="auto-clue" checked>
+                            <input type="checkbox" id="auto-clue">
                         </div>
                         <div class="setting-item">
                             <label for="theme-select">Color theme:</label>

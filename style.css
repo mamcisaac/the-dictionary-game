@@ -76,16 +76,6 @@ h1 {
     font-family: 'Courier New', monospace;
 }
 
-.difficulty-badge {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 0.85rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
 
 .intro-text {
     font-size: 1.3rem;
