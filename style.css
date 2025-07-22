@@ -849,6 +849,18 @@ button:hover:not(:disabled) {
     width: 95%;
     max-height: 85vh;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Mobile-specific close button enhancement */
+@media (max-width: 600px) {
+    .close-help {
+        width: 40px;
+        height: 40px;
+        font-size: 28px;
+        top: 10px;
+        right: 10px;
+    }
 }
 
 .help-section {
@@ -1125,33 +1137,43 @@ kbd {
     }
     
     /* Help modal responsive */
-    .rules-grid {
-        grid-template-columns: 1fr;
+    #help-modal .modal-content {
+        max-width: 95%;
+        width: 95%;
+        padding: 20px;
+        margin: 10% auto;
     }
     
-    .features-grid {
-        grid-template-columns: 1fr;
+    .help-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
     }
     
     .help-step {
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
-        text-align: left;
+        padding: 10px 15px;
+        margin-bottom: 12px;
+        gap: 12px;
     }
     
     .step-number {
-        margin-bottom: 10px;
+        width: 24px;
+        height: 24px;
+        font-size: 0.85rem;
+        flex-shrink: 0;
     }
     
-    .rule-item {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
+    .step-content p {
+        font-size: 0.95rem;
+        line-height: 1.4;
     }
     
-    .tip {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+    /* Ensure modal doesn't get cut off on very small screens */
+    @media (max-height: 600px) {
+        #help-modal .modal-content {
+            margin: 5% auto;
+            max-height: 90vh;
+        }
     }
 }
