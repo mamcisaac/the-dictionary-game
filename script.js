@@ -51,6 +51,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Load word list on startup
     loadWordList();
     
+    // Track number of guesses made
+    let guessCount = 0;
+    
     // Update button text with current costs
     function updateButtonCosts() {
         if (!gameStarted) return;
@@ -60,10 +63,14 @@ document.addEventListener("DOMContentLoaded", function() {
             clueButton.textContent = "Get Clue (-5 pts)";
         }
         
-        // Update guess button cost (1 + clues used)
-        const guessCost = 1 + cluesUsed;
+        // Update guess button cost (first guess free, then 1 + clues used)
         if (!guessButton.disabled) {
-            guessButton.textContent = `Guess (-${guessCost} pt${guessCost > 1 ? 's' : ''})`;
+            if (guessCount === 0) {
+                guessButton.textContent = "Guess (Free)";
+            } else {
+                const guessCost = 1 + cluesUsed;
+                guessButton.textContent = `Guess (-${guessCost} pt${guessCost > 1 ? 's' : ''})`;
+            }
         }
     }
     
@@ -399,6 +406,7 @@ function startGame() {
     // Reset scoring
     currentScore = 100;
     cluesUsed = 0;
+    guessCount = 0; // Reset guess counter
     currentScoreElement.textContent = currentScore;
     scoreContainer.style.display = "block";
     
@@ -483,9 +491,16 @@ function handleGuess() {
     const guess = guessInput.value.trim().toLowerCase();
     const targetWord = puzzleData.word.toLowerCase();
     
-    // Check if guess is empty
+    // Check if guess is empty or single character
     if (!guess) {
         messageDisplay.innerHTML = "Please enter a word to guess!";
+        messageDisplay.style.color = "#e07a5f";
+        return;
+    }
+    
+    // Block single character guesses
+    if (guess.length === 1) {
+        messageDisplay.innerHTML = "Please enter a word (not a single letter).";
         messageDisplay.style.color = "#e07a5f";
         return;
     }
@@ -506,6 +521,29 @@ function handleGuess() {
         return;
     }
     
+    // Charge for guess (first guess is free)
+    guessCount++;
+    if (guessCount > 1) {
+        const guessCost = 1 + cluesUsed;
+        currentScore = Math.max(0, currentScore - guessCost);
+        currentScoreElement.textContent = currentScore;
+        
+        // If score hits 0 from guess cost, game over
+        if (currentScore === 0) {
+            clueButton.disabled = true;
+            clueButton.textContent = "No More Clues (Score: 0)";
+            messageDisplay.innerHTML = `Game Over! The word was: ${puzzleData.word}. Your score: 0`;
+            messageDisplay.style.color = "#e07a5f";
+            recordGameResult(false, 0);
+            gameStarted = false;
+            guessButton.disabled = true;
+            guessButton.textContent = "Guess";
+            giveUpButton.disabled = true;
+            wordPatternElement.innerHTML = puzzleData.word.toUpperCase().split('').join(' ');
+            return;
+        }
+    }
+    
     if (guess === targetWord) {
         // Reveal the complete word in the pattern display
         wordPatternElement.innerHTML = puzzleData.word.toUpperCase().split('').join(' ');
@@ -522,57 +560,28 @@ function handleGuess() {
         clueButton.textContent = "Need a Clue?"; // Reset button text
         giveUpButton.disabled = true; // Disable the Give Up button
     } else {
-        // Wrong guess penalty: 1 point base + number of clues used
-        // Examples: 0 clues = 1 pt, 3 clues = 4 pts, 7 clues = 8 pts
-        const wrongGuessPenalty = 1 + cluesUsed;
-        currentScore = Math.max(0, currentScore - wrongGuessPenalty);
-        currentScoreElement.textContent = currentScore;
-        
-        // If score hits 0 from wrong guesses, game over
-        if (currentScore === 0) {
-            clueButton.disabled = true;
-            clueButton.textContent = "No More Clues (Score: 0)";
-            messageDisplay.innerHTML = `Game Over! The word was: ${puzzleData.word}. Your score: 0`;
-            messageDisplay.style.color = "#e07a5f";
-            recordGameResult(false, 0);
-            gameStarted = false;
-            guessButton.disabled = true;
-            guessButton.textContent = "Guess"; // Reset button text
-            giveUpButton.disabled = true;
-            // Reveal the complete word in the pattern display
-            wordPatternElement.innerHTML = puzzleData.word.toUpperCase().split('').join(' ');
-            return;
-        }
+        // Wrong guess - no additional penalty since guess already cost points
         
         // Calculate similarity for better feedback
         const similarity = calculateSimilarity(guess, targetWord);
         let feedback = "Not quite. Try again!";
         
-        // Only provide detailed feedback for meaningful guesses (2+ characters)
-        if (guess.length >= 2) {
-            if (similarity > 0.7) {
-                feedback = "Very close! You're almost there!";
-            } else if (similarity > 0.5) {
-                feedback = "Getting warmer! Keep trying!";
-            } else if (guess.length !== targetWord.length) {
-                const lengthDiff = targetWord.length - guess.length;
-                if (lengthDiff > 0) {
-                    feedback = `Try a longer word (need ${lengthDiff} more letters)`;
-                } else {
-                    feedback = `Try a shorter word (${Math.abs(lengthDiff)} letters too many)`;
-                }
-            } else if (!guess.startsWith(puzzleData.word.substring(0, lettersRevealed).toLowerCase())) {
-                feedback = `Your guess should start with "${puzzleData.word.substring(0, lettersRevealed).toUpperCase()}"`;
+        // Provide detailed feedback for all word guesses
+        if (similarity > 0.7) {
+            feedback = "Very close! You're almost there!";
+        } else if (similarity > 0.5) {
+            feedback = "Getting warmer! Keep trying!";
+        } else if (guess.length !== targetWord.length) {
+            const lengthDiff = targetWord.length - guess.length;
+            if (lengthDiff > 0) {
+                feedback = `Try a longer word (need ${lengthDiff} more letters)`;
             } else {
-                feedback = "Keep trying! Check the definition again.";
+                feedback = `Try a shorter word (${Math.abs(lengthDiff)} letters too many)`;
             }
-        } else if (guess.length === 1) {
-            // Special handling for single character guesses
-            if (targetWord.includes(guess)) {
-                feedback = "That letter is in the word!";
-            } else {
-                feedback = "That letter is not in the word.";
-            }
+        } else if (!guess.startsWith(puzzleData.word.substring(0, lettersRevealed).toLowerCase())) {
+            feedback = `Your guess should start with "${puzzleData.word.substring(0, lettersRevealed).toUpperCase()}"`;
+        } else {
+            feedback = "Keep trying! Check the definition again.";
         }
         
         // Don't show penalty in feedback - it's shown in buttons
