@@ -845,20 +845,10 @@ button:hover:not(:disabled) {
 
 /* Enhanced Help/Tutorial Styles */
 #help-modal .modal-content {
-    max-width: 800px;
+    max-width: 600px;
     width: 95%;
     max-height: 85vh;
     overflow-y: auto;
-}
-
-.help-intro {
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 1.1rem;
 }
 
 .help-section {
@@ -879,44 +869,44 @@ button:hover:not(:disabled) {
 /* Basic Gameplay Steps */
 .help-step {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 15px;
-    margin-bottom: 20px;
-    padding: 15px;
+    margin-bottom: 15px;
+    padding: 12px 20px;
     background: var(--bg-tertiary);
-    border-radius: 10px;
-    border-left: 4px solid var(--accent-secondary);
-    transition: all 0.3s ease;
+    border-radius: 8px;
+    border-left: 3px solid var(--accent-secondary);
+    transition: all 0.2s ease;
 }
 
 .help-step:hover {
-    transform: translateX(5px);
-    box-shadow: 0 4px 12px var(--shadow-light);
+    background: var(--bg-secondary);
+    transform: translateX(3px);
 }
 
 .step-number {
     background: var(--accent-secondary);
     color: white;
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    font-size: 0.9rem;
     flex-shrink: 0;
 }
 
-.step-content h4 {
-    margin: 0 0 8px 0;
-    color: var(--text-primary);
-    font-size: 1.1rem;
+.step-content {
+    flex: 1;
 }
 
 .step-content p {
     margin: 0;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     line-height: 1.5;
+    font-size: 1rem;
 }
 
 /* Rules Grid */
