@@ -563,8 +563,6 @@ function handleGuess() {
                 }
             } else if (!guess.startsWith(puzzleData.word.substring(0, lettersRevealed).toLowerCase())) {
                 feedback = `Your guess should start with "${puzzleData.word.substring(0, lettersRevealed).toUpperCase()}"`;
-            } else if (targetWord.includes(guess.charAt(guess.length - 1))) {
-                feedback = "Your last letter appears somewhere in the word!";
             } else {
                 feedback = "Keep trying! Check the definition again.";
             }
