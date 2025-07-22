@@ -26,8 +26,14 @@
             <div id="input-container">
                 <input type="text" id="guess-input" placeholder="Enter your guess" aria-label="Enter your guess here">
                 <div class="main-buttons">
-                    <button id="guess-button">Guess</button>
-                    <button id="clue-button">Need a Clue?</button>
+                    <div class="button-container">
+                        <button id="guess-button">Guess</button>
+                        <div id="guess-cost-preview" class="cost-preview" style="display: none;"></div>
+                    </div>
+                    <div class="button-container">
+                        <button id="clue-button">Need a Clue?</button>
+                        <div id="clue-cost-preview" class="cost-preview" style="display: none;"></div>
+                    </div>
                 </div>
             </div>
             

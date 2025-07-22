@@ -47,6 +47,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const closeHelpModal = document.querySelector(".close-help");
     const progressFill = document.getElementById("progress-fill");
     const clueCounter = document.getElementById("clue-counter");
+    const guessCostPreview = document.getElementById("guess-cost-preview");
+    const clueCostPreview = document.getElementById("clue-cost-preview");
     
     // Load word list on startup
     loadWordList();
@@ -54,23 +56,46 @@ document.addEventListener("DOMContentLoaded", function() {
     // Track number of guesses made
     let guessCount = 0;
     
-    // Update button text with current costs
+    // Calculate difficulty multiplier based on word length for fairer scoring
+    function calculateDifficultyMultiplier(wordLength) {
+        // Base multiplier increases with word length to balance difficulty
+        if (wordLength <= 4) return 1.0;      // Short words: no bonus
+        if (wordLength <= 6) return 1.1;      // Medium words: 10% bonus
+        if (wordLength <= 8) return 1.2;      // Long words: 20% bonus
+        return 1.3;                           // Very long words: 30% bonus
+    }
+    
+    // Update button text and cost previews with current costs
     function updateButtonCosts() {
-        if (!gameStarted) return;
+        if (!gameStarted) {
+            guessCostPreview.style.display = "none";
+            clueCostPreview.style.display = "none";
+            return;
+        }
         
         // Update clue button cost (5 points per clue)
         if (!clueButton.disabled) {
-            clueButton.textContent = "Get Clue (-5 pts)";
+            clueButton.textContent = "Get Clue";
+            clueCostPreview.textContent = "💰 -5 points";
+            clueCostPreview.className = "cost-preview";
+            clueCostPreview.style.display = "block";
+        } else {
+            clueCostPreview.style.display = "none";
         }
         
-        // Update guess button cost (first guess free, then 1 + clues used)
+        // Update guess button cost (first guess free, then flat 3 points)
         if (!guessButton.disabled) {
+            guessButton.textContent = "Guess";
             if (guessCount === 0) {
-                guessButton.textContent = "Guess (Free)";
+                guessCostPreview.textContent = "🆓 First guess free!";
+                guessCostPreview.className = "cost-preview free";
             } else {
-                const guessCost = 1 + cluesUsed;
-                guessButton.textContent = `Guess (-${guessCost} pt${guessCost > 1 ? 's' : ''})`;
+                guessCostPreview.textContent = "💰 -3 points";
+                guessCostPreview.className = "cost-preview";
             }
+            guessCostPreview.style.display = "block";
+        } else {
+            guessCostPreview.style.display = "none";
         }
     }
     
@@ -268,46 +293,57 @@ function getNextClue() {
     // Build a queue of 7 paid clues (2 were given free at start)
     const clueQueue = [];
     
+    // Intelligent clue distribution based on word difficulty and available content
+    const wordLength = puzzleData.word.length;
+    const isHardWord = wordLength > 6;
+    
+    // For harder words, prioritize additional definitions first
+    const maxDefinitions = isHardWord ? Math.min(puzzleData.definitions.length - 1, 3) : Math.min(puzzleData.definitions.length - 1, 2);
+    
     // Add all available definitions (after the primary one shown at start)
-    for (let i = 1; i < puzzleData.definitions.length && i <= 4; i++) {
+    for (let i = 1; i <= maxDefinitions && i < puzzleData.definitions.length; i++) {
         clueQueue.push({
             type: 'definition',
             content: `Definition ${i + 1}: ${puzzleData.definitions[i]}`,
-            index: i
+            index: i,
+            priority: isHardWord ? 10 : 8 // Higher priority for hard words
         });
     }
     
-    // If we have fewer than 3 additional definitions, try to fill with synonyms/antonyms
-    if (clueQueue.length < 3) {
-        if (puzzleData.synonyms && puzzleData.synonyms.length > 0 && !cluesGiven.includes('synonyms')) {
-            clueQueue.push({
-                type: 'synonyms',
-                content: `Synonyms: ${puzzleData.synonyms.slice(0, 4).join(', ')}`,
-                marker: 'synonyms'
-            });
-        }
-        if (clueQueue.length < 3 && puzzleData.antonyms && puzzleData.antonyms.length > 0 && !cluesGiven.includes('antonyms')) {
-            clueQueue.push({
-                type: 'antonyms',
-                content: `Antonyms: ${puzzleData.antonyms.slice(0, 3).join(', ')}`,
-                marker: 'antonyms'
-            });
-        }
+    // Add synonyms/antonyms strategically - earlier for easier words, later for harder words
+    if (puzzleData.synonyms && puzzleData.synonyms.length > 0 && !cluesGiven.includes('synonyms')) {
+        clueQueue.push({
+            type: 'synonyms',
+            content: `💡 Synonyms: ${puzzleData.synonyms.slice(0, 4).join(', ')}`,
+            marker: 'synonyms',
+            priority: isHardWord ? 6 : 9 // Lower priority for hard words (comes later)
+        });
+    }
+    if (puzzleData.antonyms && puzzleData.antonyms.length > 0 && !cluesGiven.includes('antonyms')) {
+        clueQueue.push({
+            type: 'antonyms',
+            content: `🔄 Antonyms: ${puzzleData.antonyms.slice(0, 3).join(', ')}`,
+            marker: 'antonyms',
+            priority: isHardWord ? 5 : 7
+        });
     }
     
-    // Add examples (at least 2)
-    for (let i = 0; i < Math.min(2, puzzleData.examples.length); i++) {
+    // Add examples strategically - more examples for harder words
+    const numExamples = isHardWord ? Math.min(3, puzzleData.examples.length) : Math.min(2, puzzleData.examples.length);
+    for (let i = 0; i < numExamples; i++) {
         clueQueue.push({
             type: 'example',
-            content: i === 0 ? `Sample sentence: ${puzzleData.examples[i]}` : `Another example: ${puzzleData.examples[i]}`,
-            index: i
+            content: i === 0 ? `📝 Sample sentence: ${puzzleData.examples[i]}` : `📝 Example ${i + 1}: ${puzzleData.examples[i]}`,
+            index: i,
+            priority: 7 // Medium priority
         });
     }
     
-    // Calculate how many letter reveals we can do
-    const maxLetterReveals = Math.min(puzzleData.word.length - 1, 3);
+    // Calculate how many letter reveals we can do (max 40% of word length)
+    const maxLetterReveals = Math.min(puzzleData.word.length - 1, Math.floor(puzzleData.word.length * 0.4));
     
-    // If word is too short for 3 letter reveals, add extra examples or definitions
+    // If we have fewer letter reveals available, add extra content to fill clue slots
+    const targetLetterReveals = Math.min(3, maxLetterReveals); // Still aim for up to 3 if possible
     if (maxLetterReveals < 3) {
         const extraCluesNeeded = 3 - maxLetterReveals;
         
@@ -339,13 +375,17 @@ function getNextClue() {
         }
     }
     
-    // Add letter reveals
+    // Add letter reveals with strategic priority - later for easy words, earlier for hard words
     for (let i = 0; i < maxLetterReveals; i++) {
         clueQueue.push({
             type: 'letter',
-            letterCount: i + 2 // Starting from 2 since first letter is shown
+            letterCount: i + 2, // Starting from 2 since first letter is shown
+            priority: isHardWord ? 8 : 4 // Earlier for hard words, later for easy words
         });
     }
+    
+    // Sort clue queue by priority (highest first) for optimal clue ordering
+    clueQueue.sort((a, b) => (b.priority || 0) - (a.priority || 0));
     
     // Ensure we have exactly 7 paid clues
     while (clueQueue.length < 7) {
@@ -529,10 +569,10 @@ function handleGuess() {
         return;
     }
     
-    // Charge for guess (first guess is free)
+    // Charge for guess (first guess is free, then flat 3 points)
     guessCount++;
     if (guessCount > 1) {
-        const guessCost = 1 + cluesUsed;
+        const guessCost = 3; // Flat penalty for balanced gameplay
         currentScore = Math.max(0, currentScore - guessCost);
         currentScoreElement.textContent = currentScore;
         
@@ -556,9 +596,11 @@ function handleGuess() {
         // Reveal the complete word in the pattern display
         wordPatternElement.innerHTML = puzzleData.word.toUpperCase().split('').join(' ');
         
-        // Final score is just current score
-        const finalScore = currentScore;
-        messageDisplay.innerHTML = `Congratulations! The word was: ${puzzleData.word}. You scored ${finalScore} points!`;
+        // Apply difficulty multiplier for fairer scoring based on word length
+        const difficultyMultiplier = calculateDifficultyMultiplier(puzzleData.word.length);
+        const finalScore = Math.round(currentScore * difficultyMultiplier);
+        const bonusText = difficultyMultiplier > 1.0 ? ` (${Math.round((difficultyMultiplier - 1) * 100)}% difficulty bonus)` : '';
+        messageDisplay.innerHTML = `Congratulations! The word was: ${puzzleData.word}. You scored ${finalScore} points!${bonusText}`;
         messageDisplay.style.color = "#81b29a"; // Success color
         recordGameResult(true, finalScore); // Record win with bonus
         gameStarted = false; // Indicate the game has ended
@@ -574,22 +616,27 @@ function handleGuess() {
         const similarity = calculateSimilarity(guess, targetWord);
         let feedback = "Not quite. Try again!";
         
-        // Provide detailed feedback for all word guesses
-        if (similarity > 0.7) {
-            feedback = "Very close! You're almost there!";
-        } else if (similarity > 0.5) {
-            feedback = "Getting warmer! Keep trying!";
+        // Provide enhanced, specific feedback for all word guesses
+        if (similarity > 0.8) {
+            feedback = "🎯 Extremely close! You're on the right track!";
+        } else if (similarity > 0.6) {
+            feedback = "🔥 Very close! You're almost there!";
+        } else if (similarity > 0.4) {
+            feedback = "🌡️ Getting warmer! Keep trying!";
         } else if (guess.length !== targetWord.length) {
             const lengthDiff = targetWord.length - guess.length;
             if (lengthDiff > 0) {
-                feedback = `Try a longer word (need ${lengthDiff} more letters)`;
+                feedback = `📏 Try a longer word - you need ${lengthDiff} more letter${lengthDiff > 1 ? 's' : ''} (target: ${targetWord.length} letters)`;
             } else {
-                feedback = `Try a shorter word (${Math.abs(lengthDiff)} letters too many)`;
+                feedback = `📏 Try a shorter word - you have ${Math.abs(lengthDiff)} too many letter${Math.abs(lengthDiff) > 1 ? 's' : ''} (target: ${targetWord.length} letters)`;
             }
         } else if (!guess.startsWith(puzzleData.word.substring(0, lettersRevealed).toLowerCase())) {
-            feedback = `Your guess should start with "${puzzleData.word.substring(0, lettersRevealed).toUpperCase()}"`;
+            feedback = `🎯 Your guess should start with "${puzzleData.word.substring(0, lettersRevealed).toUpperCase()}"`;
+        } else if (guess.length === targetWord.length && similarity < 0.3) {
+            feedback = "🤔 Right length, but very different word. Review the definition and try a different approach!";
         } else {
-            feedback = "Keep trying! Check the definition again.";
+            const encouragement = guessCount <= 2 ? "You've got this!" : guessCount <= 4 ? "Don't give up!" : "Think about the definition!";
+            feedback = `💭 Not quite right. ${encouragement}`;
         }
         
         // Don't show penalty in feedback - it's shown in buttons
