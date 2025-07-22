@@ -13868,10 +13868,11 @@
     "definitions": [
       "Comfortably, without discomfort or anxiety.",
       "Without difficulty.",
-      "Absolutely, without question."
+      "Absolutely, without question.",
+      "In a way that involves little effort or difficulty."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["effortlessly", "simply", "readily", "comfortably", "smoothly"],
+    "antonyms": ["difficultly", "hardly", "laboriously", "strenuously"],
     "examples": [
       "Individuals without a family network are [blank] controlled.",
       "This is [blank] the best meal I have eaten."
@@ -14488,13 +14489,14 @@
     "definitions": [
       "The practical aspects of a given art, occupation etc.; formal requirements.",
       "Practical ability in some given field or practice, often as opposed to creativity or imaginative skill.",
-      "A method of achieving something or carrying something out, especially one requiring some skill or knowledge."
+      "A method of achieving something or carrying something out, especially one requiring some skill or knowledge.",
+      "A skillful or efficient way of doing or achieving something."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["method", "approach", "procedure", "skill", "way"],
+    "antonyms": ["clumsiness", "incompetence", "inexperience"],
     "examples": [
-      "She picked up the [blank] from the shelf.",
-      "He found the [blank] in his backpack."
+      "She mastered the [blank] of oil painting through years of practice.",
+      "The surgeon used a minimally invasive [blank] for the operation."
     ]
   },
   {
@@ -17110,13 +17112,14 @@
     "definitions": [
       "The conclusion of an act of conveyancing concerning the sale of a property.",
       "A forward pass that is successfully caught by the intended receiver.",
-      "The space resulting from such an act."
+      "The space resulting from such an act.",
+      "The action of completing or finishing something; the state of being complete."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["finishing", "conclusion", "end", "fulfillment", "achievement"],
+    "antonyms": ["beginning", "start", "incompletion", "abandonment"],
     "examples": [
-      "She decided to [blank] the task.",
-      "They will [blank] tomorrow morning."
+      "The project is nearing [blank] after months of work.",
+      "Upon [blank] of the course, students receive a certificate."
     ]
   },
   {
@@ -18940,13 +18943,14 @@
     "definitions": [
       "A store of things that may be required in the future, which can be retrieved rapidly, protected or hidden in some way.",
       "A fast temporary storage where recently or frequently used information is stored to avoid having to reload it from a slower storage medium.",
-      "(geocaching) A container containing treasure in a global treasurehunt game."
+      "(geocaching) A container containing treasure in a global treasurehunt game.",
+      "A hidden storage place, especially for weapons, provisions, or treasure."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["store", "stash", "reserve", "hoard", "stockpile"],
+    "antonyms": ["expose", "reveal", "empty", "deplete"],
     "examples": [
-      "She picked up the [blank] from the shelf.",
-      "He found the [blank] in his backpack."
+      "The browser's [blank] stores frequently accessed web pages.",
+      "They discovered a weapons [blank] hidden in the cave."
     ]
   },
   {
