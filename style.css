@@ -1079,8 +1079,8 @@ button:hover:not(:disabled) {
     line-height: 1.5;
 }
 
-/* Special text styling */
-.highlight {
+/* Special text styling for help modal */
+.help-content .highlight {
     background: linear-gradient(135deg, var(--success-color), #66bb6a);
     color: white;
     padding: 2px 6px;
