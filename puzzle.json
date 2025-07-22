@@ -164,7 +164,7 @@
       "Things that are or can be known about a given topic; communicable knowledge of something.",
       "The systematic imparting of knowledge; education, training.",
       "The creation of form; the imparting of a given quality or characteristic; forming, animation.",
-      "the meaning that a human assigns to data by means of the known conventions used in its representation.",
+      "The meaning that a human assigns to data by means of the known conventions used in its representation.",
       "Divine inspiration.",
       "A service provided by telephone which provides listed telephone numbers of a subscriber.",
       "Any unambiguous abstract data, the smallest possible unit being the bit."
@@ -2253,7 +2253,7 @@
     "definitions": [
       "One who officially belongs to a group.",
       "A part of a whole.",
-      "Part of an animal capable of performing a distinct office; an organ; a limb.",
+      "A Part of an animal capable of performing a distinct office; an organ; a limb.",
       "One of the propositions making up a syllogism.",
       "An element of a set.",
       "A function or piece of data associated with each separate instance of a class.",
@@ -2344,7 +2344,7 @@
       "A point, line, or superficies that limits.",
       "A word or phrase, especially one from a specialised area of knowledge.",
       "Relations among people.",
-      "Part of a year, especially one of the three parts of an academic year.",
+      "A Part of a year, especially one of the three parts of an academic year.",
       "Duration of a set length; period in office of fixed length."
     ],
     "synonyms": [],
@@ -3341,7 +3341,7 @@
       "The condition of not being threatened, especially physically, psychologically, emotionally, or financially.",
       "Freedom from apprehension.",
       "(often used in plural) A tradeable financial asset, such as a share of stock.W",
-      "Proof of ownership of stocks, bonds or other investment instruments.",
+      "A Proof of ownership of stocks, bonds or other investment instruments.",
       "Property etc. temporarily relinquished to guarantee repayment of a loan.",
       "A guarantee. that serves a specific purpose or function",
       "Carelessness; negligence."
@@ -5346,7 +5346,7 @@
       "The trunk and woody main stems of a tree. The base from which something grows or branches.",
       "Any of the several species of cruciferous flowers in the genus Matthiola.",
       "A handle or stem to which the working part of an implement or weapon is attached.",
-      "Part of a machine that supports items or holds them in place.",
+      "A Part of a machine that supports items or holds them in place.",
       "A bar, stick or rod."
     ],
     "synonyms": [],
@@ -6681,7 +6681,7 @@
       "Relating to an authority or public body and its activities, duties, or responsibilities.",
       "Having the approval or authorization of an authority; formally recognized.",
       "Appointed or recognized as having authority; authoritative.",
-      "Characteristic of or befitting a person in office; formal and ceremonious."
+      "A Characteristic of or befitting a person in office; formal and ceremonious."
     ],
     "synonyms": [
       "authority",
@@ -7832,7 +7832,7 @@
   {
     "word": "request",
     "definitions": [
-      "Condition of being sought after.",
+      "A Condition of being sought after.",
       "A message sent over a network to a server.",
       "To ask for (something).",
       "To ask (somebody) to do something."
@@ -8363,7 +8363,7 @@
     "definitions": [
       "Any of several animals related to Equus ferus caballus.",
       "Equipment with legs.",
-      "Type of equipment.",
+      "A Type of equipment.",
       "The sedative, antidepressant, and anxiolytic drug morphine, chiefly when used illicitly.",
       "(among students) A translation or other illegitimate aid in study or examination."
     ],
@@ -11367,7 +11367,7 @@
     "word": "sector",
     "definitions": [
       "Zone (designated area).",
-      "Part of a circle, extending to the center",
+      "A Part of a circle, extending to the center",
       "Fixedsized unit (traditionally 512 bytes) of sequential data stored on a track of a digital medium (compare to block)",
       "An area designated by boundaries within which a unit operates, and for which it is responsible",
       "One of the subdivisions of a coastal frontier",
@@ -13062,8 +13062,19 @@
       "A motion picture age rating.",
       "An official document that confirms certain facts or qualifications."
     ],
-    "synonyms": ["diploma", "document", "credential", "license", "qualification"],
-    "antonyms": ["rejection", "disqualification", "denial", "revocation"],
+    "synonyms": [
+      "diploma",
+      "document",
+      "credential",
+      "license",
+      "qualification"
+    ],
+    "antonyms": [
+      "rejection",
+      "disqualification",
+      "denial",
+      "revocation"
+    ],
     "examples": [
       "The film is [blank] 15.",
       "She received her teaching [blank] after completing the program."
@@ -13164,8 +13175,19 @@
       "An object which lands or passes by Earth or its orbit.",
       "A person who visits a place or person, typically temporarily."
     ],
-    "synonyms": ["guest", "caller", "tourist", "traveler", "outsider"],
-    "antonyms": ["resident", "host", "local", "inhabitant"],
+    "synonyms": [
+      "guest",
+      "caller",
+      "tourist",
+      "traveler",
+      "outsider"
+    ],
+    "antonyms": [
+      "resident",
+      "host",
+      "local",
+      "inhabitant"
+    ],
     "examples": [
       "The [blank] signed the guestbook before leaving.",
       "The museum attracts thousands of [blank]s each year."
@@ -13371,8 +13393,19 @@
       "Of, or relating to motor vehicles.",
       "Relating to the design, manufacture, or sale of motor vehicles."
     ],
-    "synonyms": ["vehicular", "transport", "mechanical", "motoring", "car"],
-    "antonyms": ["stationary", "immobile", "pedestrian", "manual"],
+    "synonyms": [
+      "vehicular",
+      "transport",
+      "mechanical",
+      "motoring",
+      "car"
+    ],
+    "antonyms": [
+      "stationary",
+      "immobile",
+      "pedestrian",
+      "manual"
+    ],
     "examples": [
       "The [blank] industry employs millions worldwide.",
       "She works as an [blank] engineer designing car engines."
@@ -13561,8 +13594,19 @@
       "Fluency; readiness of utterance",
       "A system of money in general use in a particular country."
     ],
-    "synonyms": ["money", "cash", "tender", "coinage", "banknotes"],
-    "antonyms": ["barter", "trade", "exchange", "worthless"],
+    "synonyms": [
+      "money",
+      "cash",
+      "tender",
+      "coinage",
+      "banknotes"
+    ],
+    "antonyms": [
+      "barter",
+      "trade",
+      "exchange",
+      "worthless"
+    ],
     "examples": [
       "Wampum was used as a [blank] by Amerindians.",
       "The euro is the official [blank] of many European countries."
@@ -13671,8 +13715,19 @@
       "To carry on trade; to traffic.",
       "The activity of buying and selling, especially on a large scale."
     ],
-    "synonyms": ["trade", "business", "trading", "industry", "economy"],
-    "antonyms": ["charity", "gift", "donation", "isolation"],
+    "synonyms": [
+      "trade",
+      "business",
+      "trading",
+      "industry",
+      "economy"
+    ],
+    "antonyms": [
+      "charity",
+      "gift",
+      "donation",
+      "isolation"
+    ],
     "examples": [
       "The port city thrived on international [blank].",
       "E-[blank] has revolutionized the way we shop."
@@ -13699,8 +13754,19 @@
       "Unable or unwilling.",
       "Needing much effort or skill to accomplish, deal with, or understand."
     ],
-    "synonyms": ["hard", "challenging", "tough", "demanding", "complex"],
-    "antonyms": ["easy", "simple", "effortless", "manageable"],
+    "synonyms": [
+      "hard",
+      "challenging",
+      "tough",
+      "demanding",
+      "complex"
+    ],
+    "antonyms": [
+      "easy",
+      "simple",
+      "effortless",
+      "manageable"
+    ],
     "examples": [
       "However, the [blank] weather conditions will ensure Yunnan has plenty of freshwater.",
       "The math problem was very [blank] to solve."
@@ -13877,8 +13943,19 @@
       "Absolutely, without question.",
       "In a way that involves little effort or difficulty."
     ],
-    "synonyms": ["effortlessly", "simply", "readily", "comfortably", "smoothly"],
-    "antonyms": ["difficultly", "hardly", "laboriously", "strenuously"],
+    "synonyms": [
+      "effortlessly",
+      "simply",
+      "readily",
+      "comfortably",
+      "smoothly"
+    ],
+    "antonyms": [
+      "difficultly",
+      "hardly",
+      "laboriously",
+      "strenuously"
+    ],
     "examples": [
       "Individuals without a family network are [blank] controlled.",
       "This is [blank] the best meal I have eaten."
@@ -14325,8 +14402,19 @@
       "The puppeteer who performs a Punch and Judy show; a Punchman.",
       "A person who teaches at a university or college."
     ],
-    "synonyms": ["teacher", "instructor", "educator", "academic", "faculty"],
-    "antonyms": ["student", "pupil", "learner", "amateur"],
+    "synonyms": [
+      "teacher",
+      "instructor",
+      "educator",
+      "academic",
+      "faculty"
+    ],
+    "antonyms": [
+      "student",
+      "pupil",
+      "learner",
+      "amateur"
+    ],
     "examples": [
       "The [blank] assigned a challenging research project.",
       "She became a [blank] of literature at Harvard."
@@ -14498,8 +14586,18 @@
       "A method of achieving something or carrying something out, especially one requiring some skill or knowledge.",
       "A skillful or efficient way of doing or achieving something."
     ],
-    "synonyms": ["method", "approach", "procedure", "skill", "way"],
-    "antonyms": ["clumsiness", "incompetence", "inexperience"],
+    "synonyms": [
+      "method",
+      "approach",
+      "procedure",
+      "skill",
+      "way"
+    ],
+    "antonyms": [
+      "clumsiness",
+      "incompetence",
+      "inexperience"
+    ],
     "examples": [
       "She mastered the [blank] of oil painting through years of practice.",
       "The surgeon used a minimally invasive [blank] for the operation."
@@ -14554,13 +14652,25 @@
     "definitions": [
       "Authorisation; consent (especially formal consent from someone in authority)",
       "Flags or access control lists pertaining to a file that dictate who can access it, and how.",
-      "To grant or obtain authorization for."
+      "To grant or obtain authorization for.",
+      "The act of allowing someone to do something."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "authorization",
+      "consent",
+      "approval",
+      "clearance",
+      "license"
+    ],
+    "antonyms": [
+      "denial",
+      "refusal",
+      "prohibition",
+      "ban"
+    ],
     "examples": [
       "Sire, do I have your [blank] to execute this traitor?",
-      "I used the chmod command to change the files [blank]."
+      "She asked for [blank] to leave work early."
     ]
   },
   {
@@ -14746,8 +14856,18 @@
       "Of or relating to alchemy.",
       "A substance produced by or used in chemistry or chemical processes."
     ],
-    "synonyms": ["substance", "compound", "element", "drug", "reagent"],
-    "antonyms": ["natural", "organic", "biological"],
+    "synonyms": [
+      "substance",
+      "compound",
+      "element",
+      "drug",
+      "reagent"
+    ],
+    "antonyms": [
+      "natural",
+      "organic",
+      "biological"
+    ],
     "examples": [
       "The lab technician mixed the [blank] solutions carefully.",
       "Many household cleaners contain harsh [blank] ingredients."
@@ -15134,7 +15254,7 @@
     "word": "fuel",
     "definitions": [
       "Substance consumed to provide energy through combustion, or through chemical or nuclear reaction.",
-      "Substance that provides nourishment for a living organism; food.",
+      "A Substance that provides nourishment for a living organism; food.",
       "Something that stimulates, encourages or maintains an action.",
       "To exacerbate, to cause to grow or become greater."
     ],
@@ -15475,8 +15595,19 @@
       "A division of an enclosure that is separate from others; a compartment",
       "A set of rooms for living in, typically on one floor of a building."
     ],
-    "synonyms": ["flat", "unit", "residence", "dwelling", "suite"],
-    "antonyms": ["house", "mansion", "villa", "estate"],
+    "synonyms": [
+      "flat",
+      "unit",
+      "residence",
+      "dwelling",
+      "suite"
+    ],
+    "antonyms": [
+      "house",
+      "mansion",
+      "villa",
+      "estate"
+    ],
     "examples": [
       "They rented a cozy two-bedroom [blank] downtown.",
       "The [blank] complex has a swimming pool and gym."
@@ -15607,8 +15738,19 @@
       "A young or inexperienced person.",
       "The game of dare."
     ],
-    "synonyms": ["fowl", "poultry", "coward", "bird", "hen"],
-    "antonyms": ["brave", "courageous", "bold", "fearless"],
+    "synonyms": [
+      "fowl",
+      "poultry",
+      "coward",
+      "bird",
+      "hen"
+    ],
+    "antonyms": [
+      "brave",
+      "courageous",
+      "bold",
+      "fearless"
+    ],
     "examples": [
       "Why do you refuse to fight? Huh, I guess you're just too [blank].",
       "We're having roasted [blank] for dinner tonight."
@@ -15915,13 +16057,25 @@
     "definitions": [
       "Of or pertaining to the sun; proceeding from the sun",
       "Born under the predominant influence of the sun.",
-      "Produced by the action of the sun, or peculiarly affected by its influence."
+      "Produced by the action of the sun, or peculiarly affected by its influence.",
+      "Relating to or derived from the sun's energy."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "sun",
+      "celestial",
+      "stellar",
+      "photovoltaic",
+      "sunny"
+    ],
+    "antonyms": [
+      "lunar",
+      "dark",
+      "shaded",
+      "nocturnal"
+    ],
     "examples": [
-      "The [blank] played an important role in the situation.",
-      "She decided to [blank] the task."
+      "The [blank] panels generate electricity from sunlight.",
+      "Our [blank] system consists of eight planets orbiting the sun."
     ]
   },
   {
@@ -16034,8 +16188,19 @@
       "(of a function) Which cannot change the value of its classs attributes.",
       "A programming keyword indicating a constant value that cannot be modified."
     ],
-    "synonyms": ["constant", "immutable", "fixed", "unchangeable", "static"],
-    "antonyms": ["variable", "mutable", "changeable", "dynamic"],
+    "synonyms": [
+      "constant",
+      "immutable",
+      "fixed",
+      "unchangeable",
+      "static"
+    ],
+    "antonyms": [
+      "variable",
+      "mutable",
+      "changeable",
+      "dynamic"
+    ],
     "examples": [
       "Declare the maximum value as a [blank] variable.",
       "The [blank] keyword prevents accidental modification of the value."
@@ -16847,7 +17012,7 @@
       "An instance of equipment failure.",
       "A stop on an organ that is operated by a hand or foot control rather than having to be manually set up in advance.",
       "A machine that performs a job typically accomplished using an animal or manual labor.",
-      "Characteristic of someone who does manual labour for a living; coarse, vulgar.",
+      "A Characteristic of someone who does manual labour for a living; coarse, vulgar.",
       "Done by machine.",
       "In a manner if performed by a machine lifeless or mindless.",
       "(of a person) Acting as if one were a machine lifeless or mindless."
@@ -17122,8 +17287,19 @@
       "The space resulting from such an act.",
       "The action of completing or finishing something; the state of being complete."
     ],
-    "synonyms": ["finishing", "conclusion", "end", "fulfillment", "achievement"],
-    "antonyms": ["beginning", "start", "incompletion", "abandonment"],
+    "synonyms": [
+      "finishing",
+      "conclusion",
+      "end",
+      "fulfillment",
+      "achievement"
+    ],
+    "antonyms": [
+      "beginning",
+      "start",
+      "incompletion",
+      "abandonment"
+    ],
     "examples": [
       "The project is nearing [blank] after months of work.",
       "Upon [blank] of the course, students receive a certificate."
@@ -17531,13 +17707,25 @@
     "definitions": [
       "An expression of intent to injure or punish another.",
       "An indication of potential or imminent danger.",
-      "A person or object that is regarded as a danger; a menace."
+      "A person or object that is regarded as a danger; a menace.",
+      "A statement of intention to inflict pain, injury, damage, or other hostile action."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "menace",
+      "danger",
+      "warning",
+      "intimidation",
+      "risk"
+    ],
+    "antonyms": [
+      "safety",
+      "protection",
+      "security",
+      "assurance"
+    ],
     "examples": [
-      "She decided to [blank] the task.",
-      "They will [blank] tomorrow morning."
+      "The bully made a [blank] against the younger student.",
+      "Climate change poses a serious [blank] to our planet."
     ]
   },
   {
@@ -17578,7 +17766,7 @@
   {
     "word": "trailer",
     "definitions": [
-      "Part of an object which extends some distance beyond the main body of the object.",
+      "A Part of an object which extends some distance beyond the main body of the object.",
       "A furnished vehicle towed behind another, and used as a dwelling when stationary; a caravan; a camper.",
       "A prefabricated home that could be towed to a new destination but is typically permanently left in an area designated for such homes.",
       "A preview of a film, video game or TV show.",
@@ -17890,13 +18078,25 @@
     "definitions": [
       "Very bad or intense.",
       "Strict or harsh.",
-      "Sober, plain in appearance, austere."
+      "Sober, plain in appearance, austere.",
+      "Extremely serious or intense in degree or manner."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "harsh",
+      "strict",
+      "intense",
+      "extreme",
+      "serious"
+    ],
+    "antonyms": [
+      "mild",
+      "gentle",
+      "lenient",
+      "moderate"
+    ],
     "examples": [
-      "a [blank] taskmaster",
-      "a [blank] old maiden aunt"
+      "The patient experienced [blank] pain after the surgery.",
+      "The judge imposed a [blank] sentence for the crime."
     ]
   },
   {
@@ -18108,8 +18308,19 @@
       "To pistolwhip.",
       "Any of several large wild oxen native to Asia and Africa."
     ],
-    "synonyms": ["bison", "ox", "confuse", "bewilder", "baffle"],
-    "antonyms": ["clarify", "enlighten", "explain", "simplify"],
+    "synonyms": [
+      "bison",
+      "ox",
+      "confuse",
+      "bewilder",
+      "baffle"
+    ],
+    "antonyms": [
+      "clarify",
+      "enlighten",
+      "explain",
+      "simplify"
+    ],
     "examples": [
       "The complex legal jargon was meant to [blank] the jury.",
       "We saw a herd of [blank] grazing on the plains."
@@ -18120,13 +18331,25 @@
     "definitions": [
       "A level or flat surface.",
       "(Unicode) Any of a number of designated ranges of sequential code points.",
-      "Of a surface flat or level."
+      "Of a surface flat or level.",
+      "An aircraft designed to fly through the air."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "aircraft",
+      "airplane",
+      "jet",
+      "surface",
+      "level"
+    ],
+    "antonyms": [
+      "curved",
+      "rough",
+      "uneven",
+      "ground"
+    ],
     "examples": [
-      "She picked up the [blank] from the shelf.",
-      "He found the [blank] in his backpack."
+      "The [blank] took off on schedule for Paris.",
+      "The carpenter used a [blank] to smooth the wood surface."
     ]
   },
   {
@@ -18636,7 +18859,7 @@
       "General character, mood, or trend.",
       "The pitch of a word that distinguishes a difference in meaning, for example in Chinese.",
       "The manner in which speech or writing is expressed.",
-      "State of mind; temper; mood."
+      "A State of mind; temper; mood."
     ],
     "synonyms": [],
     "antonyms": [],
@@ -18800,7 +19023,7 @@
     "word": "wing",
     "definitions": [
       "An appendage of an animals (bird, bat, insect) body that enables it to fly; a similar fin at the side of a ray or similar fish",
-      "Part of an aircraft that produces the lift for rising into the air.",
+      "A Part of an aircraft that produces the lift for rising into the air.",
       "One of the large pectoral fins of a flying fish.",
       "One of the broad, thin, anterior lobes of the foot of a pteropod, used as an organ in swimming.",
       "Any membranaceous expansion, such as that along the sides of certain stems, or of a fruit of the kind called samara.",
@@ -18939,8 +19162,19 @@
       "To have sex with.",
       "To be in agreement or harmony with something."
     ],
-    "synonyms": ["match", "relate", "communicate", "write", "agree"],
-    "antonyms": ["differ", "contradict", "clash", "disconnect"],
+    "synonyms": [
+      "match",
+      "relate",
+      "communicate",
+      "write",
+      "agree"
+    ],
+    "antonyms": [
+      "differ",
+      "contradict",
+      "clash",
+      "disconnect"
+    ],
     "examples": [
       "I've been [blank]ing with my German pen pal for three years.",
       "These findings [blank] with our earlier research."
@@ -18954,8 +19188,19 @@
       "(geocaching) A container containing treasure in a global treasurehunt game.",
       "A hidden storage place, especially for weapons, provisions, or treasure."
     ],
-    "synonyms": ["store", "stash", "reserve", "hoard", "stockpile"],
-    "antonyms": ["expose", "reveal", "empty", "deplete"],
+    "synonyms": [
+      "store",
+      "stash",
+      "reserve",
+      "hoard",
+      "stockpile"
+    ],
+    "antonyms": [
+      "expose",
+      "reveal",
+      "empty",
+      "deplete"
+    ],
     "examples": [
       "The browser's [blank] stores frequently accessed web pages.",
       "They discovered a weapons [blank] hidden in the cave."
