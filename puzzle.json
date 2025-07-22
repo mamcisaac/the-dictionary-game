@@ -14315,13 +14315,14 @@
     "definitions": [
       "A teacher or faculty member at a college or university regardless of formal rank.",
       "A pianist in a saloon, brothel, etc.",
-      "The puppeteer who performs a Punch and Judy show; a Punchman."
+      "The puppeteer who performs a Punch and Judy show; a Punchman.",
+      "A person who teaches at a university or college."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["teacher", "instructor", "educator", "academic", "faculty"],
+    "antonyms": ["student", "pupil", "learner", "amateur"],
     "examples": [
-      "She picked up the [blank] from the shelf.",
-      "He found the [blank] in his backpack."
+      "The [blank] assigned a challenging research project.",
+      "She became a [blank] of literature at Harvard."
     ]
   },
   {
@@ -14732,15 +14733,16 @@
   {
     "word": "chemical",
     "definitions": [
-      "An addictive drug. that serves a specific purpose or function",
+      "An addictive drug.",
       "Of or relating to a material or processes not commonly found in nature or in a particular product.",
-      "Of or relating to alchemy."
+      "Of or relating to alchemy.",
+      "A substance produced by or used in chemistry or chemical processes."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["substance", "compound", "element", "drug", "reagent"],
+    "antonyms": ["natural", "organic", "biological"],
     "examples": [
-      "She picked up the [blank] from the shelf.",
-      "He found the [blank] in his backpack."
+      "The lab technician mixed the [blank] solutions carefully.",
+      "Many household cleaners contain harsh [blank] ingredients."
     ]
   },
   {
@@ -15462,13 +15464,14 @@
     "definitions": [
       "A complete domicile occupying only part of a building, especially one for rent; a flat.",
       "A suite of rooms within a domicile, designated for a specific person or persons and including a bedroom.",
-      "A division of an enclosure that is separate from others; a compartment"
+      "A division of an enclosure that is separate from others; a compartment",
+      "A set of rooms for living in, typically on one floor of a building."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["flat", "unit", "residence", "dwelling", "suite"],
+    "antonyms": ["house", "mansion", "villa", "estate"],
     "examples": [
-      "She decided to [blank] the task.",
-      "They will [blank] tomorrow morning."
+      "They rented a cozy two-bedroom [blank] downtown.",
+      "The [blank] complex has a swimming pool and gym."
     ]
   },
   {
@@ -15596,11 +15599,11 @@
       "A young or inexperienced person.",
       "The game of dare."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["fowl", "poultry", "coward", "bird", "hen"],
+    "antonyms": ["brave", "courageous", "bold", "fearless"],
     "examples": [
-      "Why do you refuse to fight? Huh, I guess youre just too [blank].",
-      "She decided to [blank] the task."
+      "Why do you refuse to fight? Huh, I guess you're just too [blank].",
+      "We're having roasted [blank] for dinner tonight."
     ]
   },
   {
@@ -18092,13 +18095,14 @@
     "definitions": [
       "A related North American animal, the American bison, Bison bison.",
       "To outwit, confuse, deceive, or intimidate.",
-      "To pistolwhip. that serves a specific purpose or function"
+      "To pistolwhip.",
+      "Any of several large wild oxen native to Asia and Africa."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["bison", "ox", "confuse", "bewilder", "baffle"],
+    "antonyms": ["clarify", "enlighten", "explain", "simplify"],
     "examples": [
-      "She picked up the [blank] from the shelf.",
-      "He found the [blank] in his backpack."
+      "The complex legal jargon was meant to [blank] the jury.",
+      "We saw a herd of [blank] grazing on the plains."
     ]
   },
   {
