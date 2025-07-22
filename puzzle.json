@@ -2743,8 +2743,15 @@
       "To write software programs."
     ],
     "synonyms": [
-      "brief",
-      "quick"
+      "cipher",
+      "encryption",
+      "program",
+      "script",
+      "software",
+      "regulations",
+      "rules",
+      "protocol",
+      "system"
     ],
     "antonyms": [],
     "examples": [
@@ -3160,7 +3167,7 @@
       "building",
       "dwelling"
     ],
-    "antonyms": [],
+    "antonyms": ["outdoors", "street", "homeless"],
     "examples": [
       "This is my [blank] and my familys ancestral home.",
       "On arriving at the zoo, we immediately headed for the monkey [blank].",
@@ -4067,7 +4074,7 @@
       "minor",
       "youth"
     ],
-    "antonyms": [],
+    "antonyms": ["adult", "parent", "elder", "grown-up"],
     "examples": [
       "Go easy on him he is but a [blank].",
       "My youngest [blank] is fortythree this year."
@@ -5364,8 +5371,8 @@
       "(by extension) To go together well; to harmonize.",
       "To give work to a gang under a subcontractor."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["group", "squad", "crew", "unit", "band", "party"],
+    "antonyms": ["individual", "solo", "lone"],
     "examples": [
       "The IT manager leads a [blank] of three software developers.",
       "They [blank] ed to complete the project.",
@@ -8813,8 +8820,8 @@
       "An organisms or species degree of success in finding a mate and producing offspring.",
       "The condition of being attractive, fanciable or beautiful."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["health", "wellness", "strength", "conditioning", "shape"],
+    "antonyms": ["illness", "weakness", "unfitness", "sickness"],
     "examples": [
       "The situation became [blank].",
       "She felt [blank] after the news."
@@ -14297,8 +14304,8 @@
       "To perform physical activity for health or training.",
       "To use (a right, an option, etc.); to put into practice."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["workout", "activity", "training", "practice", "drill"],
+    "antonyms": ["rest", "inactivity", "relaxation", "laziness"],
     "examples": [
       "The teacher told us that the next [blank] is to write an essay.",
       "I do crosswords for mental [blank].",

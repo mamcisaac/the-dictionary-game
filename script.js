@@ -295,7 +295,6 @@ function startGame() {
     cluesUsed = 0;
     currentScoreElement.textContent = currentScore;
     scoreContainer.style.display = "block";
-    updateProgressBar();
     
     // Clear all previous game UI elements immediately
     clueList.innerHTML = ''; // Clear the list for a new game
@@ -319,6 +318,9 @@ function startGame() {
     currentClueIndex = 1; // Start from the second definition for the next clue
     lettersRevealed = 1;
     cluesGiven = []; // Reset clues given
+    
+    // Update progress bar after puzzle is loaded
+    updateProgressBar();
     
     // Apply settings after game setup
     setTimeout(() => applySettings(), 100);
