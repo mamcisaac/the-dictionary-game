@@ -494,15 +494,25 @@ function handleGuess() {
         clueButton.disabled = true; // Disable the Clue button
         giveUpButton.disabled = true; // Disable the Give Up button
     } else {
-        // Fixed penalty for wrong guesses: 5 points
-        const wrongGuessPenalty = 5;
+        // Scale penalty based on clues used: more clues = higher penalty
+        // Base: 5 points, +2 per clue used (so 5, 7, 9, 11, 13, 15, 17, 19)
+        const wrongGuessPenalty = 5 + (cluesUsed * 2);
         currentScore = Math.max(0, currentScore - wrongGuessPenalty);
         currentScoreElement.textContent = currentScore;
         
-        // If score hits 0 from wrong guesses, disable clue button
+        // If score hits 0 from wrong guesses, game over
         if (currentScore === 0) {
             clueButton.disabled = true;
             clueButton.textContent = "No More Clues (Score: 0)";
+            messageDisplay.innerHTML = `Game Over! The word was: ${puzzleData.word}. Your score: 0`;
+            messageDisplay.style.color = "#e07a5f";
+            recordGameResult(false, 0);
+            gameStarted = false;
+            guessButton.disabled = true;
+            giveUpButton.disabled = true;
+            // Reveal the complete word in the pattern display
+            wordPatternElement.innerHTML = puzzleData.word.toUpperCase().split('').join(' ');
+            return;
         }
         
         // Calculate similarity for better feedback
@@ -538,7 +548,9 @@ function handleGuess() {
             }
         }
         
-        messageDisplay.innerHTML = feedback;
+        // Add penalty information to feedback
+        const penaltyInfo = ` (-${wrongGuessPenalty} points)`;
+        messageDisplay.innerHTML = feedback + penaltyInfo;
         messageDisplay.style.color = "#e07a5f"; // Error color
 
         // Auto-reveal clue if setting is enabled and guess was substantial
