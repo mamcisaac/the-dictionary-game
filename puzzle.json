@@ -1364,8 +1364,8 @@
       "The state of being secluded from the presence, sight, or knowledge of others.",
       "A place of seclusion."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["seclusion", "solitude", "confidentiality", "secrecy", "isolation", "intimacy", "discretion", "anonymity"],
+    "antonyms": ["publicity", "exposure", "openness", "transparency", "revelation", "disclosure", "visibility", "scrutiny"],
     "examples": [
       "I need my [blank], so please stay out of my room.",
       "It takes a village to rob one of a sense of [blank].",
@@ -1404,8 +1404,8 @@
       "Any business, whether incorporated or not, that manufactures or sells products (also known as goods), or provides services as a commercial venture.",
       "To associate. that serves a specific purpose or function"
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["business", "firm", "corporation", "organization"],
+    "antonyms": ["solitude", "isolation"],
     "examples": [
       "Keep the house clean; I have [blank] coming.",
       "I treasure your [blank]."
@@ -1543,8 +1543,8 @@
       "To make an extensive investigation into.",
       "To search again."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["study", "investigation", "inquiry", "analysis"],
+    "antonyms": ["ignorance", "neglect"],
     "examples": [
       "She decided to [blank] the task.",
       "They will [blank] tomorrow morning."
@@ -3654,8 +3654,18 @@
       "A leasing on rent.",
       "A contract for the use of a thing, or service of a person, for hire."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "place",
+      "position",
+      "site",
+      "spot",
+      "area",
+      "venue"
+    ],
+    "antonyms": [
+      "nowhere",
+      "absence"
+    ],
     "examples": [
       "The situation became [blank].",
       "She felt [blank] after the news."
@@ -5589,8 +5599,8 @@
       "Naturally to demand (something) as indispensable; to need, to call for as necessary.",
       "To demand of (someone) to do something."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["need", "demand", "necessitate", "mandate"],
+    "antonyms": ["provide", "offer"],
     "examples": [
       "She decided to [blank] the task.",
       "They will [blank] tomorrow morning."
@@ -6943,8 +6953,8 @@
       "Prestige or high standing.",
       "The legal condition of a person or thing."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["position", "standing", "rank", "level", "state", "condition", "prestige", "reputation"],
+    "antonyms": ["insignificance", "obscurity", "anonymity", "lowliness", "disgrace", "dishonor", "inferiority", "mediocrity"],
     "examples": [
       "Superstition is highly correlated with economic [blank].",
       "New York is known for its [blank] as a financial center.",
@@ -7650,10 +7660,8 @@
       "A quantity that denotes the ability to do work and is measured in a unit dimensioned in mass distance\u00b2time\u00b2 (ML\u00b2T\u00b2) or the equivalent.",
       "A measure of how many actions a player or unit can take; in the fantasy genre often called magic points or mana."
     ],
-    "synonyms": [
-      "action points"
-    ],
-    "antonyms": [],
+    "synonyms": ["power", "vigor", "strength", "vitality"],
+    "antonyms": ["fatigue", "weakness", "lethargy"],
     "examples": [
       "She picked up the [blank] from the shelf.",
       "He found the [blank] in his backpack."
@@ -8433,8 +8441,8 @@
       "The judgment or sentiment which the mind forms of persons or things; estimation.",
       "Favorable estimation; hence, consideration; reputation; fame; public sentiment or esteem."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["view", "belief", "judgment", "perspective", "stance", "sentiment", "viewpoint", "notion"],
+    "antonyms": ["fact", "certainty", "truth", "knowledge", "evidence", "proof", "reality"],
     "examples": [
       "Every man is a fool in some mans [blank].",
       "He struggled to understand the [blank]."
@@ -8680,8 +8688,8 @@
       "To put constraint upon; to restrain; to confine; to keep within bounds.",
       "(of a set etc.) To have as an element or subset."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["hold", "include", "enclose", "house", "carry", "store", "embrace", "comprise"],
+    "antonyms": ["exclude", "release", "empty", "free", "expel", "remove", "lack"],
     "examples": [
       "Im so excited, I can hardly [blank] myself!",
       "A group [blank] s a unique inverse for each of its elements."
@@ -9153,8 +9161,8 @@
       "The part of the day between midnight and noon.",
       "The early part of anything."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["dawn", "sunrise", "daybreak", "forenoon"],
+    "antonyms": ["evening", "night", "dusk"],
     "examples": [
       "Ill see you tomorrow [blank].",
       "She decided to [blank] the task."
@@ -9379,8 +9387,8 @@
       "To set bounds to; to moderate.",
       "(grammar) To qualify the meaning of."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["change", "alter", "adjust", "update", "revise", "edit", "adapt", "tweak"],
+    "antonyms": ["preserve", "maintain", "keep", "fix", "stabilize", "freeze"],
     "examples": [
       "She decided to [blank] the task.",
       "They will [blank] tomorrow morning."
@@ -9540,8 +9548,8 @@
       "(followed by of) To consider worthy (to); to be pleased (with); to accept.",
       "To show to be worthy; to demonstrate the merits of."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["accept", "endorse", "support", "agree", "confirm", "allow", "permit", "authorize"],
+    "antonyms": ["reject", "deny", "disapprove", "refuse", "oppose", "forbid", "veto", "ban"],
     "examples": [
       "We [blank] the measure of the administration, for it is an excellent decision.",
       "She decided to [blank] the task."
@@ -9709,8 +9717,17 @@
       "Someone with dark skin, eyes and hair, seen as best suited to certain colors of clothing.",
       "An appliance to be fixed on the front of a grate, to keep a kettle warm, etc."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "cold season",
+      "hibernation",
+      "frost"
+    ],
+    "antonyms": [
+      "summer",
+      "warmth",
+      "spring",
+      "autumn"
+    ],
     "examples": [
       "When they retired, they hoped to [blank] in Florida.",
       "She picked up the [blank] from the shelf."
@@ -10037,8 +10054,8 @@
       "To form; to found; to institute; to set up in business.",
       "To appoint or adopt, as officers, laws, regulations, guidelines, etc.; to enact; to ordain."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["create", "found", "set up", "start", "build", "form", "institute", "confirm"],
+    "antonyms": ["destroy", "abolish", "end", "dissolve", "dismantle", "eliminate", "remove"],
     "examples": [
       "She decided to [blank] the task.",
       "They will [blank] tomorrow morning."
@@ -10108,8 +10125,20 @@
       "Away from the mesial plane of the body; lateral.",
       "Provided by something or someone outside of the entity (object, group, company etc.) considered."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "outside",
+      "outer",
+      "exterior",
+      "outward",
+      "foreign"
+    ],
+    "antonyms": [
+      "internal",
+      "inside",
+      "interior",
+      "inward",
+      "inner"
+    ],
     "examples": [
       "This building has some [blank] pipework.",
       "She picked up the [blank] from the shelf."
@@ -10160,8 +10189,8 @@
       "A field of study attempting to exhaustively describe a particular class of constructs.",
       "A hypothesis or conjecture."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["hypothesis", "principle", "concept", "notion", "idea", "proposition", "doctrine", "conjecture"],
+    "antonyms": ["practice", "fact", "reality", "application", "execution", "implementation", "experience", "proof"],
     "examples": [
       "Knot [blank] classifies the mappings of a circle into 3space.",
       "A [blank] is consistent if it has a model."
@@ -10175,8 +10204,8 @@
       "To be satisfied or receive pleasure.",
       "To have sexual intercourse with."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["like", "love", "appreciate", "relish", "savor", "delight", "cherish", "treasure"],
+    "antonyms": ["hate", "dislike", "despise", "loathe", "detest", "suffer", "endure"],
     "examples": [
       "I plan to go travelling while I still [blank] good health.",
       "I [blank] ed a lot."
@@ -10281,8 +10310,8 @@
       "An indication; a lesson.",
       "The second highest office in the Aaronic priesthood, held by priesthood holders of at least the age of 14."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["educator", "instructor", "tutor", "professor"],
+    "antonyms": ["student", "pupil"],
     "examples": [
       "She picked up the [blank] from the shelf.",
       "He found the [blank] in his backpack."
@@ -10457,8 +10486,19 @@
       "(sequence) To finish (with); lastly (in the present).",
       "(manner) Definitively, comprehensively."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "lastly",
+      "ultimately",
+      "eventually",
+      "at last",
+      "in the end"
+    ],
+    "antonyms": [
+      "initially",
+      "first",
+      "beginning",
+      "originally"
+    ],
     "examples": [
       "The contest was long, but the Romans [blank] conquered.",
       "[blank], I washed my dog.",
@@ -10789,8 +10829,8 @@
       "A way in which two or more people behave and are involved with each other",
       "The level or degree of affinity between keys, chords and tones."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["connection", "bond", "association", "partnership"],
+    "antonyms": ["isolation", "separation", "disconnection"],
     "examples": [
       "They have been in a [blank] for ten years, but have never married.",
       "I have a good working [blank] with my boss."
@@ -11723,8 +11763,8 @@
       "A state of alertness in the standing position.",
       "A call for people to be quietstop doing what they are presently doing and pay heed to what they are to be told or shown."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["focus", "concentration", "awareness", "notice"],
+    "antonyms": ["neglect", "distraction", "inattention"],
     "examples": [
       "Please direct your [blank] to the following words.",
       "The company will now come to [blank]."
@@ -12158,8 +12198,8 @@
       "Guidance, instruction.",
       "A persons address. that serves a specific purpose or function"
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["guidance", "instruction", "path", "course"],
+    "antonyms": ["confusion", "misdirection"],
     "examples": [
       "Keep going in the same [blank].",
       "The trombonist looked to the bandleader for [blank].",
@@ -12225,8 +12265,8 @@
       "The signal strength, reception of a radio signal.",
       "Journalism the attention given by the press or news media about some news; the total of stories published or broadcast about a topic."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["reporting", "protection", "scope", "range", "extent", "inclusion", "attention", "documentation"],
+    "antonyms": ["neglect", "omission", "exclusion", "ignorance", "silence", "concealment", "blackout", "suppression"],
     "examples": [
       "Before laying sod on that clay, the ground needs two inches of [blank] with topsoil.",
       "Mobile phone [blank] is poor in some areas."
@@ -12331,8 +12371,8 @@
       "To examine or search thoroughly; to exhaust a remedy against, as against a principal debtor before proceeding against the surety.",
       "To drive away, disperse, shake off; said especially of tumors."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["talk", "debate", "converse", "chat", "examine", "review", "consider", "explore"],
+    "antonyms": ["ignore", "avoid", "dismiss", "skip", "neglect", "overlook"],
     "examples": [
       "I dont wish to [blank] this further. Lets talk about something else.",
       "She decided to [blank] the task."
@@ -12452,8 +12492,8 @@
       "To seem; to have a certain semblance; to look.",
       "To bring into view."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["show", "emerge", "arrive", "surface", "manifest", "seem", "look", "materialize"],
+    "antonyms": ["disappear", "vanish", "hide", "conceal", "fade", "leave", "depart"],
     "examples": [
       "A great writer [blank] ed at that time.",
       "He [blank] ed quite happy with the result."
@@ -12685,8 +12725,19 @@
       "To a great extent.",
       "Specifically, uniquely or individually."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "especially",
+      "specifically",
+      "notably",
+      "remarkably",
+      "exceptionally"
+    ],
+    "antonyms": [
+      "generally",
+      "broadly",
+      "vaguely",
+      "ordinarily"
+    ],
     "examples": [
       "The ap\u00e9ritifs were [blank] stimulating.",
       "The weather was very [blank] today."
@@ -13152,8 +13203,8 @@
       "A force acting on a body in the direction of its motion.",
       "To strengthen, fortify or stimulate"
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["work", "exertion", "attempt", "endeavor"],
+    "antonyms": ["laziness", "idleness", "neglect"],
     "examples": [
       "Although he didnt win any medals, Johnsons [blank] at the Olympics won over many fans.",
       "She picked up the [blank] from the shelf."
@@ -13222,8 +13273,8 @@
       "To knit or bind together; to unite closely.",
       "Knit or woven together; close; firm."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["background", "setting", "circumstances", "environment", "situation", "framework", "backdrop", "conditions"],
+    "antonyms": ["isolation", "vacuum", "detachment", "separation", "independence", "abstraction", "removal", "disconnection"],
     "examples": [
       "She picked up the [blank] from the shelf.",
       "He found the [blank] in his backpack."
@@ -13236,8 +13287,8 @@
       "To admit formally into an office, rank or position.",
       "To establish or settle in."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["set up", "place", "mount", "fit", "put in", "establish", "position", "attach"],
+    "antonyms": ["remove", "uninstall", "take out", "disconnect", "dismantle", "delete"],
     "examples": [
       "After inserting the disk, you need to run the [blank].",
       "I havent [blank] ed the new operating system yet because of all the bugs.",
@@ -14415,8 +14466,20 @@
       "Not permanent; existing only for a period or periods of time.",
       "Existing only for a short time or short times; transient, ephemeral."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "transient",
+      "short-term",
+      "provisional",
+      "interim",
+      "brief"
+    ],
+    "antonyms": [
+      "permanent",
+      "lasting",
+      "enduring",
+      "eternal",
+      "long-term"
+    ],
     "examples": [
       "She picked up the [blank] from the shelf.",
       "He found the [blank] in his backpack."
@@ -14469,8 +14532,17 @@
       "During the night following the current day.",
       "Last night. that serves a specific purpose or function"
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "this evening",
+      "this night",
+      "today's night"
+    ],
+    "antonyms": [
+      "yesterday",
+      "tomorrow",
+      "daytime",
+      "morning"
+    ],
     "examples": [
       "I have high hopes for [blank].",
       "I had a wonderful time with you [blank]."
@@ -14641,8 +14713,8 @@
       "A plan or method for dealing with a problem or for achieving a result.",
       "A manufactured food simulating human breast milk, designed to be fed to babies and infants under 12 months of age."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["recipe", "method", "procedure", "blueprint", "plan", "equation", "expression", "system"],
+    "antonyms": ["improvisation", "spontaneity", "randomness", "chaos", "disorder", "uncertainty", "guesswork", "accident"],
     "examples": [
       "H2O is the [blank] for water.",
       "The companys winning [blank] includes excellent service and quality products.",
@@ -15035,8 +15107,19 @@
       "To a usual or customary extent or degree.",
       "In the manner of a variable with a Gaussian distribution."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "usually",
+      "typically",
+      "ordinarily",
+      "commonly",
+      "regularly"
+    ],
+    "antonyms": [
+      "abnormally",
+      "unusually",
+      "rarely",
+      "exceptionally"
+    ],
     "examples": [
       "[blank], I eat breakfast at 6am, but today, I got up late and didnt eat until 9.",
       "The weather was very [blank] today."
@@ -15161,8 +15244,8 @@
       "A reparation for an injury or loss.",
       "A vindication for a wrong suffered."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["fulfillment", "contentment", "gratification", "pleasure", "happiness", "delight", "enjoyment", "approval"],
+    "antonyms": ["dissatisfaction", "discontent", "frustration", "disappointment", "displeasure", "unhappiness", "irritation", "annoyance"],
     "examples": [
       "He enjoyed the dish with great [blank]. Hell order it again the next time he arrives.",
       "The [blank] played an important role in the situation."
@@ -15197,8 +15280,8 @@
       "To advance, promote (someone or something).",
       "To put forward for acceptance; to introduce, recommend (to)."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["choose", "favor", "select", "pick", "like", "want", "desire", "opt for"],
+    "antonyms": ["reject", "dislike", "avoid", "refuse", "decline", "dismiss"],
     "examples": [
       "I [blank] tea to coffee.",
       "She decided to [blank] the task."
@@ -16050,8 +16133,8 @@
       "A figure, image or idea that substitutes reality.",
       "A theatrical performance."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["depiction", "portrayal", "image", "symbol", "delegation", "advocacy", "illustration", "description"],
+    "antonyms": ["reality", "original", "absence", "misrepresentation", "distortion", "concealment", "abandonment", "neglect"],
     "examples": [
       "The Venus of Willendorf was an early [blank] of the female body.",
       "We are no longer happy with your [blank] of our company at trade events.",
@@ -16669,8 +16752,8 @@
       "To sing in parts.",
       "To band together into a group or union that can bargain and act collectively; to unionize."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["arrange", "sort", "plan", "structure", "order", "coordinate", "manage", "systematize"],
+    "antonyms": ["disorganize", "scatter", "mess up", "confuse", "disorder", "jumble", "mix up"],
     "examples": [
       "an [blank] d being",
       "to [blank] an anthem"
@@ -17207,8 +17290,8 @@
       "A disposition of property, or the act of granting it.",
       "A resolution of a dispute."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["agreement", "resolution", "colony", "community", "payment", "arrangement", "compromise", "village"],
+    "antonyms": ["dispute", "conflict", "disagreement", "abandonment", "evacuation", "unsettlement", "wandering", "displacement"],
     "examples": [
       "The situation became [blank].",
       "She felt [blank] after the news."
