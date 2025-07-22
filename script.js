@@ -51,6 +51,22 @@ document.addEventListener("DOMContentLoaded", function() {
     // Load word list on startup
     loadWordList();
     
+    // Update button text with current costs
+    function updateButtonCosts() {
+        if (!gameStarted) return;
+        
+        // Update clue button cost (5 points per clue)
+        if (!clueButton.disabled) {
+            clueButton.textContent = "Get Clue (-5 pts)";
+        }
+        
+        // Update guess button cost (1 + clues used)
+        const guessCost = 1 + cluesUsed;
+        if (!guessButton.disabled) {
+            guessButton.textContent = `Guess (-${guessCost} pt${guessCost > 1 ? 's' : ''})`;
+        }
+    }
+    
     // Standardized to exactly 7 paid clues for all words (2 are given free at start)
     function calculateAvailableClues() {
         if (!puzzleData) return 0;
@@ -220,6 +236,9 @@ function getNextClue() {
     if (currentScore === 1) {
         clueButton.disabled = true;
         clueButton.textContent = "No More Clues (Min Score)";
+    } else {
+        // Update button costs if not disabled
+        updateButtonCosts();
     }
     
     // If all clues used, disable button
@@ -227,6 +246,9 @@ function getNextClue() {
         clueButton.disabled = true;
         clueButton.textContent = "All Clues Used";
     }
+    
+    // Update button costs after using a clue
+    updateButtonCosts();
     
     // Build a queue of 7 paid clues (2 were given free at start)
     const clueQueue = [];
@@ -406,6 +428,9 @@ function startGame() {
     // Update progress bar after puzzle is loaded
     updateProgressBar();
     
+    // Initialize button costs
+    updateButtonCosts();
+    
     // Apply settings after game setup
     setTimeout(() => applySettings(), 100);
 
@@ -492,7 +517,9 @@ function handleGuess() {
         recordGameResult(true, finalScore); // Record win with bonus
         gameStarted = false; // Indicate the game has ended
         guessButton.disabled = true; // Disable the Guess button
+        guessButton.textContent = "Guess"; // Reset button text
         clueButton.disabled = true; // Disable the Clue button
+        clueButton.textContent = "Need a Clue?"; // Reset button text
         giveUpButton.disabled = true; // Disable the Give Up button
     } else {
         // Wrong guess penalty: 1 point base + number of clues used
@@ -510,6 +537,7 @@ function handleGuess() {
             recordGameResult(false, 0);
             gameStarted = false;
             guessButton.disabled = true;
+            guessButton.textContent = "Guess"; // Reset button text
             giveUpButton.disabled = true;
             // Reveal the complete word in the pattern display
             wordPatternElement.innerHTML = puzzleData.word.toUpperCase().split('').join(' ');
@@ -549,10 +577,12 @@ function handleGuess() {
             }
         }
         
-        // Add penalty information to feedback
-        const penaltyInfo = ` (-${wrongGuessPenalty} points)`;
-        messageDisplay.innerHTML = feedback + penaltyInfo;
+        // Don't show penalty in feedback - it's shown in buttons
+        messageDisplay.innerHTML = feedback;
         messageDisplay.style.color = "#e07a5f"; // Error color
+        
+        // Update button costs after wrong guess
+        updateButtonCosts();
 
         // Auto-reveal clue if setting is enabled and guess was substantial
         if (gameSettings.autoClue && guess.length >= 2) {
