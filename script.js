@@ -799,9 +799,18 @@ const themeSelect = document.getElementById("theme-select");
 
 // Daily Challenge Modal
 if (dailyChallengeButton) {
-    dailyChallengeButton.addEventListener("click", () => {
-        updateDailyChallengeModal();
-        dailyChallengeModal.style.display = "block";
+    dailyChallengeButton.addEventListener("click", async () => {
+        try {
+            // Ensure puzzle data is loaded
+            if (!puzzleDataList || puzzleDataList.length === 0) {
+                await fetchPuzzle();
+            }
+            updateDailyChallengeModal();
+            dailyChallengeModal.style.display = "block";
+        } catch (error) {
+            console.error("Error in daily challenge modal:", error);
+            alert("Error loading daily challenge. Please try again.");
+        }
     });
 }
 
@@ -931,6 +940,11 @@ function getDailyWord(dateString) {
     // Use date as seed for consistent word selection
     const seed = dateString.split('-').join('');
     const hash = seed.split('').reduce((a, b) => (a * 31 + b.charCodeAt(0)) % 1000, 0);
+    // Make sure puzzleDataList is loaded
+    if (!puzzleDataList || puzzleDataList.length === 0) {
+        console.error("Puzzle data not loaded yet!");
+        return 0; // Fallback to first puzzle
+    }
     return hash % puzzleDataList.length;
 }
 
