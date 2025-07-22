@@ -49,17 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
         totalClues += maxLetterReveals;
         
         // Cap total clues at 15 to maintain challenge
-        const cappedClues = Math.min(totalClues, 15);
-        
-        // Ensure minimum 8 clues by adding letter reveals if needed
-        if (cappedClues < 8) {
-            const additionalLettersNeeded = 8 - cappedClues;
-            const maxPossibleLetters = Math.min(puzzleData.word ? puzzleData.word.length - 1 : 0, 6); // Up to 6 additional letters
-            const actualAdditionalLetters = Math.min(additionalLettersNeeded, maxPossibleLetters - maxLetterReveals);
-            return cappedClues + actualAdditionalLetters;
-        }
-        
-        return cappedClues;
+        return Math.min(totalClues, 15);
     }
     
     // Determine difficulty tier based on available clues (with new caps)
@@ -262,22 +252,16 @@ function getNextClue() {
             const antonyms = puzzleData.antonyms.slice(0, 3).join(', ');
             cluesGiven.push('antonyms');
             return `Antonyms: ${antonyms}`;
-        // Reveal letters if other clues have been exhausted (dynamic limit based on available clues)
-        } else if (lettersRevealed < puzzleData.word.length - 1) {
-            // Allow more letter reveals for words with fewer content clues
-            const availableClues = calculateAvailableClues();
-            const maxLetterReveals = availableClues < 8 ? 6 : 4; // More letters for low-clue words
+        // Reveal letters if other clues have been exhausted (max 4 additional letters)
+        } else if (lettersRevealed < puzzleData.word.length - 1 && lettersRevealed < 5) {
+            lettersRevealed++;
+            cluesGiven.push(`letters${lettersRevealed}`); // Ensure unique entry for each state of letters revealed
             
-            if (lettersRevealed < maxLetterReveals + 1) {
-                lettersRevealed++;
-                cluesGiven.push(`letters${lettersRevealed}`); // Ensure unique entry for each state of letters revealed
-                
-                // Update word pattern display with new revealed letters
-                updateWordPatternDisplay();
-                
-                const revealedPart = puzzleData.word.substring(0, lettersRevealed);
-                return `The word starts with: ${revealedPart}`;
-            }
+            // Update word pattern display with new revealed letters
+            updateWordPatternDisplay();
+            
+            const revealedPart = puzzleData.word.substring(0, lettersRevealed);
+            return `The word starts with: ${revealedPart}`;
         }
     } else {
         // Provide a secondary definition if the index is valid

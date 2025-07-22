@@ -204,8 +204,8 @@
       "Information about current events disseminated via media.",
       "To report; to make known."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["information", "reports", "updates", "headlines"],
+    "antonyms": ["silence", "censorship"],
     "examples": [
       "Is there any [blank] about the storm?",
       "Did you hearreadsee the latest [blank]?"
@@ -853,8 +853,8 @@
       "(plural data) A fact known from direct observation.",
       "(plural data) A premise from which conclusions are drawn."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["fact", "information", "evidence", "data point"],
+    "antonyms": ["opinion", "speculation", "assumption"],
     "examples": [
       "She picked up the [blank] from the shelf.",
       "He found the [blank] in his backpack."
@@ -5018,8 +5018,8 @@
       "The fact of knowing something; knowledge or understanding of a truth.",
       "The sport of boxing."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["knowledge", "study", "research", "discipline"],
+    "antonyms": ["ignorance", "superstition", "pseudoscience"],
     "examples": [
       "Of course in my opinion Social Studies is more of a [blank] than an art.",
       "My favorite subjects at school are [blank], mathematics, and history."
@@ -6532,8 +6532,8 @@
       "One of a set of choices that can be made.",
       "The freedom or right to choose."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["choice", "alternative", "selection", "possibility"],
+    "antonyms": ["requirement", "obligation", "necessity"],
     "examples": [
       "The situation became [blank].",
       "She felt [blank] after the news."
@@ -10435,8 +10435,8 @@
       "To be in the first stage of some situation",
       "To come into existence."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["start", "commence", "initiate", "launch"],
+    "antonyms": ["end", "finish", "conclude", "stop"],
     "examples": [
       "She decided to [blank] the task.",
       "They will [blank] tomorrow morning."
@@ -12374,8 +12374,8 @@
       "A result that one is attempting to achieve.",
       "In many sports, an area into which the players attempt to put an object."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": ["objective", "target", "aim", "purpose"],
+    "antonyms": ["failure", "abandonment"],
     "examples": [
       "My lifelong [blank] is to get into a Hollywood movie.",
       "She decided to [blank] the task."
