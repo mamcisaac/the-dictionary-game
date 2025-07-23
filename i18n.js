@@ -138,7 +138,17 @@ const i18n = {
     
     // Victory messages
     victory: {
-        celebration: "🎉 Victory! You scored {score} points on \"{word}\"!"
+        celebration: "🎉 Victory! You scored {score}/1000 points on \"{word}\"!",
+        breakdown: {
+            baseScore: "Base Score",
+            difficulty: "Difficulty",
+            firstGuessBonus: "First Guess Bonus",
+            cluesCost: "Clues Cost",
+            guessPenalty: "Guess Penalty", 
+            timeDecay: "Time Decay",
+            rawScore: "Raw Score",
+            finalScore: "Final Score"
+        }
     }
 };
 

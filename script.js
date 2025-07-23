@@ -322,9 +322,12 @@ let gameStats = {
     bestStreak: 0
 };
 
-// Global game state variables
+// Global game state variables  
 let currentScore = 100;
 let cluesUsed = 0;
+
+// New scoring system
+let gameScoring = new GameScoring();
 
 // Load word dictionary from Cornerstone (JSON is faster than text parsing)
 async function loadWordList() {
@@ -761,6 +764,10 @@ function startGame() {
     inputContainer.style.display = "block"; // Show the input container
     myword.style.display = "block"; // Show the input container
     fetchPuzzle().then(() => {
+        // Initialize new scoring system
+        gameScoring.initializeGame(puzzleData);
+        currentScore = gameScoring.getCurrentScore();
+        
         // Display the primary definition
         // Assuming puzzleData is already fetched and contains the word and primary definition
     const definition = puzzleData.definitions[0]; // Get the primary definition of the word
@@ -874,39 +881,32 @@ function handleGuess() {
     
     // Charge for guess (first guess is free, then flat 3 points)
     guessCount++;
-    if (guessCount > 1) {
-        const guessCost = 3; // Flat penalty for balanced gameplay
-        currentScore = Math.max(0, currentScore - guessCost);
-        currentScoreElement.textContent = currentScore;
-        updateScoreBadge();
-        
-        // If score hits 0 from guess cost, game over
-        if (currentScore === 0) {
-            clueButton.disabled = true;
-            clueButton.textContent = "No More Clues (Score: 0)";
-            messageDisplay.innerHTML = `Game Over! The word was: ${puzzleData.word}. Your score: 0`;
-            messageDisplay.style.color = "#e07a5f";
-            recordGameResult(false, 0);
-            gameStarted = false;
-            guessButton.disabled = true;
-            guessButton.textContent = "Guess";
-            giveUpButton.disabled = true;
-            wordPatternElement.innerHTML = puzzleData.word.toUpperCase().split('').join(' ');
-            return;
-        }
-    }
+    // Use new scoring system for guess processing
+    const guessResult = gameScoring.makeGuess(guess === puzzleData.word.toLowerCase());
+    currentScore = gameScoring.getCurrentScore();
+    currentScoreElement.textContent = currentScore;
+    updateScoreBadge();
+    
+    console.log(`Guess ${guessResult.guessNumber}: Bonus=${guessResult.bonus}, Penalty=${guessResult.penalty}, Score=${currentScore}`);
     
     if (guess === targetWord) {
         // Reveal the complete word in the pattern display
         wordPatternElement.innerHTML = puzzleData.word.toUpperCase().split('').join(' ');
         
-        messageDisplay.innerHTML = `Congratulations! The word was: ${puzzleData.word}. You scored ${currentScore} points!`;
+        // Get detailed score breakdown for victory display
+        const scoreBreakdown = gameScoring.getScoreBreakdown();
+        const finalScore = scoreBreakdown.finalScore;
+        
+        messageDisplay.innerHTML = `Congratulations! The word was: ${puzzleData.word}. You scored ${finalScore}/1000 points!`;
         messageDisplay.style.color = "var(--dg-accent)"; // Success color
         
-        // Trigger victory celebration
-        Components.Victory.triggerVictory(currentScore, puzzleData.word);
+        // Show detailed breakdown in console for now
+        console.log('Score Breakdown:', scoreBreakdown);
         
-        recordGameResult(true, currentScore); // Record win
+        // Trigger victory celebration
+        Components.Victory.triggerVictory(finalScore, puzzleData.word);
+        
+        recordGameResult(true, finalScore); // Record win with normalized score
         gameStarted = false; // Indicate the game has ended
         guessButton.disabled = true; // Disable the Guess button
         guessButton.textContent = "Guess"; // Reset button text
@@ -1049,12 +1049,16 @@ updateUnopenedCluesCount();
 
 // Purchase and reveal a specific clue type
 function purchaseClue(type, cost) {
-    // Deduct points
-    currentScore = Math.max(1, currentScore - cost);
+    // Use new scoring system
+    const clueResult = gameScoring.purchaseClue(type, puzzleData);
+    currentScore = gameScoring.getCurrentScore();
+    
     currentScoreElement.textContent = currentScore;
     updateScoreBadge();
     cluesUsed++; // Increment total clues counter
     updateProgressBar();
+    
+    console.log(`Purchased ${type} clue: Cost=${clueResult.cost}, Remaining entropy=${clueResult.remainingEntropy.toFixed(2)} bits`);
     
     // Get and display the clue
     const clueContent = getClueContent(type);
@@ -1138,14 +1142,17 @@ function showClueMenu() {
     const available = getAvailableClues();
     clueOptions.innerHTML = ''; // Clear previous options
     
-    // Define clue types with costs and icons
+    // Get dynamic costs from new scoring system
+    const dynamicCosts = gameScoring.getAllClueCosts(puzzleData);
+    
+    // Define clue types with dynamic costs and icons
     const clueTypes = [
-        { type: 'definition', name: 'Another Definition', cost: 2, icon: '📖', count: available.definitions },
-        { type: 'wordLength', name: 'Word Length', cost: 3, icon: '📏', count: available.wordLength },
-        { type: 'example', name: 'Sample Sentence', cost: 4, icon: '📝', count: available.examples },
-        { type: 'synonyms', name: 'Synonyms', cost: 5, icon: '💡', count: available.synonyms },
-        { type: 'antonyms', name: 'Antonyms', cost: 5, icon: '🔄', count: available.antonyms },
-        { type: 'letter', name: 'Reveal Letter', cost: 7, icon: '🔤', count: available.letters }
+        { type: 'definition', name: 'Another Definition', cost: dynamicCosts.definition, icon: '📖', count: available.definitions },
+        { type: 'wordLength', name: 'Word Length', cost: dynamicCosts.wordLength, icon: '📏', count: available.wordLength },
+        { type: 'example', name: 'Sample Sentence', cost: dynamicCosts.example, icon: '📝', count: available.examples },
+        { type: 'synonyms', name: 'Synonyms', cost: dynamicCosts.synonyms, icon: '💡', count: available.synonyms },
+        { type: 'antonyms', name: 'Antonyms', cost: dynamicCosts.antonyms, icon: '🔄', count: available.antonyms },
+        { type: 'letter', name: 'Reveal Letter', cost: dynamicCosts.letter, icon: '🔤', count: available.letters }
     ];
     
     // Create ClueStripe components for each option
@@ -1183,7 +1190,7 @@ function showClueMenu() {
 
 // Check if player can afford a clue
 function canAffordClue(cost) {
-    return currentScore > cost; // Must have more than cost to maintain min score of 1
+    return currentScore >= cost; // New scoring system allows going to 0
 }
 
 });
@@ -1299,9 +1306,12 @@ function startGameWithSpecificWord(wordIndex) {
     currentPuzzleIndex = wordIndex;
     puzzleData = puzzleDataList[wordIndex];
     
+    // Initialize new scoring system
+    gameScoring.initializeGame(puzzleData);
+    
     // Reset game state
     cluesGiven = [];
-    currentScore = 100;
+    currentScore = gameScoring.getCurrentScore();
     cluesUsed = 0;
     guessCount = 0;
     guessedWords.clear(); // Reset guessed words
@@ -1437,5 +1447,22 @@ function updateScoreBadge() {
         scoreBadge.textContent = currentScore;
     }
 }
+
+// Periodic score update to handle time decay
+function startScoreUpdateTimer() {
+    setInterval(() => {
+        if (gameStarted && gameScoring) {
+            const newScore = gameScoring.getCurrentScore();
+            if (newScore !== currentScore) {
+                currentScore = newScore;
+                currentScoreElement.textContent = currentScore;
+                updateScoreBadge();
+            }
+        }
+    }, 5000); // Update every 5 seconds
+}
+
+// Start the score update timer
+startScoreUpdateTimer();
 
 console.log("Game loaded successfully");
