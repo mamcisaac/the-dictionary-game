@@ -34,6 +34,10 @@ let gameStats = {
     bestStreak: 0
 };
 
+// Global game state variables
+let currentScore = 100;
+let cluesUsed = 0;
+
 // Load word dictionary from Cornerstone (JSON is faster than text parsing)
 async function loadWordList() {
     try {
@@ -230,8 +234,6 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentClueIndex = 0;
     let gameStarted = false;
     let cluesGiven = [];
-    let currentScore = 100;
-    let cluesUsed = 0;
 
     // Initially hide the input container until the game starts
     inputContainer.style.display = "none";
