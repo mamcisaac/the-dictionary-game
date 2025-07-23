@@ -178,7 +178,7 @@ const Components = {
                             data-cost-level="${costLevel}"
                             ${disabled ? 'disabled' : ''}
                             role="button"
-                            aria-label="Purchase ${clue.name} for ${clue.cost} points"
+                            aria-label="${disabled ? clue.name + ' unavailable' : 'Purchase ' + clue.name + ' for ' + clue.cost + ' points'}"
                             tabindex="${disabled ? '-1' : '0'}">
                         <div class="clue-card-header">
                             <span class="clue-card-icon">${clue.icon}</span>
@@ -186,8 +186,6 @@ const Components = {
                         </div>
                         <div class="clue-card-subtitle">
                             <span class="clue-card-cost">${clue.cost} pts</span>
-                            <span class="clue-card-separator">•</span>
-                            <span class="clue-card-remaining">${clue.count} left</span>
                         </div>
                     </button>
                 `;
