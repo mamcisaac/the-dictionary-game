@@ -62,7 +62,7 @@ const Components = {
             stripe.innerHTML = `
                 <div class="clue-stripe__icon">${icon}</div>
                 <div class="clue-stripe__content">${content}</div>
-                ${cost ? `<div class="clue-stripe__cost">${cost} pts</div>` : ''}
+                ${cost ? `<div class="clue-stripe__cost" data-tooltip="${i18n.tooltips.clueCost}">${cost} pts</div>` : ''}
             `;
             
             return stripe;
@@ -726,7 +726,7 @@ function startGame() {
     // If a game is already in progress, treat as giving up
     if (gameStarted) {
         recordGameResult(false); // Record as a loss
-        updateClueDisplay(`You gave up. The word was: ${puzzleData.word}`);
+        updateClueDisplay(formatString(i18n.messages.gaveUp, { word: puzzleData.word }));
     }
     
     gameStarted = true;

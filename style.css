@@ -1,6 +1,6 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 /* Design System Tokens */
 :root {
@@ -532,9 +532,59 @@ header {
 }
 
 .clue-stripe__cost {
-    font-size: var(--type-small);
-    color: var(--dg-warning);
-    font-weight: bold;
+    background-color: var(--dg-warning);
+    color: white;
+    font-size: var(--type-caption);
+    font-weight: 500;
+    padding: var(--space-1) var(--space-2);
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    min-width: 40px;
+    justify-content: center;
+    position: relative;
+    cursor: help;
+}
+
+/* Tooltip for clue cost */
+.clue-stripe__cost::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--dg-text-primary);
+    color: white;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-s);
+    font-size: var(--type-caption);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--motion-duration-fast) var(--motion-easing-standard);
+    z-index: 1000;
+    margin-bottom: var(--space-1);
+}
+
+.clue-stripe__cost::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid var(--dg-text-primary);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--motion-duration-fast) var(--motion-easing-standard);
+    margin-bottom: -4px;
+}
+
+.clue-stripe__cost:hover::after,
+.clue-stripe__cost:hover::before {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* ScoreMeter Component */
@@ -925,11 +975,13 @@ header {
 }
 
 h1 {
-    font-family: 'Indie Flower', cursive;
-    color: var(--dg-accent);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600;
+    color: var(--dg-text-primary);
     margin-bottom: var(--space-6);
     font-size: clamp(28px, 4vw + 1rem, var(--type-h1));
     transition: color 0.3s ease;
+    letter-spacing: -0.02em;
 }
 
 /* Highlighting the first letter and the definition */
@@ -1402,6 +1454,20 @@ button {
 .secondary-buttons button:hover:not(:disabled) {
     background-color: var(--dg-border);
     border-color: var(--dg-primary);
+}
+
+/* Secondary style for reveal answer button */
+.secondary-style {
+    background-color: var(--dg-bg-secondary) !important;
+    color: var(--dg-text-secondary) !important;
+    border: 1px solid var(--dg-border) !important;
+    font-weight: 400 !important;
+}
+
+.secondary-style:hover {
+    background-color: var(--dg-text-muted) !important;
+    color: white !important;
+    transform: none !important;
 }
 
 /* Score Badge Component */

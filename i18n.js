@@ -7,7 +7,7 @@ const i18n = {
     skipToContent: "Skip to main content",
     
     // Intro and prompts
-    introText: "I am thinking of a word.<br>Can you guess what it is?",
+    introText: "Guess the word from its clues.",
     guessPlaceholder: "Enter your guess",
     guessAriaLabel: "Enter your guess here",
     
@@ -15,7 +15,7 @@ const i18n = {
     guessButton: "Guess",
     getClueButton: "Get a Clue",
     newGameButton: "New Game",
-    giveUpButton: "Give Up",
+    revealAnswerButton: "Reveal Answer",
     statsButton: "Stats",
     helpButton: "Help",
     resetStatsButton: "Reset Statistics",
@@ -51,7 +51,7 @@ const i18n = {
         invalidWord: "Please enter a valid English word.",
         correctGuess: "Congratulations! The word was: {word}. You scored {score} points!",
         gameOver: "Game Over! The word was: {word}. Your score: 0",
-        gaveUp: "You gave up. The word was: {word}",
+        gaveUp: "Answer revealed. The word was: {word}",
         wrongGuess: "Wrong guess! Try again.",
         startWithLetter: 'Your guess should start with "{letter}"',
         tryLonger: "Try a longer word",
@@ -119,6 +119,11 @@ const i18n = {
         gameClues: "Game clues",
         gameFeedback: "Game feedback",
         firstClueDescription: "First clue for the word you're guessing"
+    },
+    
+    // Tooltips
+    tooltips: {
+        clueCost: "Cost deducted from score"
     },
     
     // Console messages (for developers)

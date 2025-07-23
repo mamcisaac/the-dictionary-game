@@ -19,7 +19,7 @@
         <main class="game-prompt" id="main-content">
             <!-- GuessCard Component -->
             <div id="guess-card" class="guess-card" data-variant="default">
-                <p class="intro-text">I am thinking of a word.<br>Can you guess what it is?</p>
+                <p class="intro-text" id="intro-text">Guess the word from its clues.</p>
                 
                 <div id="my-word" style="display: none;">
                     <div id="word-pattern" class="guess-card__letter"></div>
@@ -62,7 +62,7 @@
             
             <div class="secondary-buttons">
                 <button id="start-game-button">New Game</button>
-                <button id="give-up-button">Give Up</button>
+                <button id="give-up-button" class="secondary-style">Reveal Answer</button>
                 <button id="stats-button">Stats</button>
             </div>
         </section>
