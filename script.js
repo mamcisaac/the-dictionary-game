@@ -7,6 +7,10 @@ let gameSettings = {
     theme: 'default'
 };
 
+// Global puzzle data
+let puzzleData = null;
+let puzzleDataList = [];
+
 // Load word dictionary from Cornerstone (JSON is faster than text parsing)
 async function loadWordList() {
     try {
@@ -248,7 +252,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		let lettersRevealed = 1; 
     let currentClueIndex = 0;
-    let puzzleData = null;
     let gameStarted = false;
     let cluesGiven = [];
     let currentScore = 100;
@@ -266,7 +269,6 @@ document.addEventListener("DOMContentLoaded", function() {
     inputContainer.style.display = "none";
 
     // Store the full puzzle list for Phase 1 features
-    let puzzleDataList = [];
     let currentPuzzleIndex = -1;
 
     async function fetchPuzzle(specificIndex = null) {
