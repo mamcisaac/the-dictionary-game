@@ -1750,13 +1750,7 @@ function setupKeyboardNavigation() {
     }
 }
 
-// Update score badge in real-time
-function updateScoreBadge() {
-    const scoreBadge = document.getElementById('current-score-badge');
-    if (scoreBadge) {
-        scoreBadge.textContent = currentScore;
-    }
-}
+// Duplicate function removed - keeping the version with animation
 
 // Periodic score update to handle time decay
 function startScoreUpdateTimer() {
