@@ -146,11 +146,12 @@ body.popup-open {
     box-shadow: 0 0 0 3px rgba(0, 109, 111, 0.2);
 }
 
-/* Action buttons - grid layout */
+/* Action buttons - improved grid layout */
 .action-buttons {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 1.8fr 1fr 1fr 1fr;
     gap: var(--space-2);
+    margin-top: var(--space-3);
 }
 
 .action-btn {
@@ -177,6 +178,48 @@ body.popup-open {
 
 .action-btn:active {
     transform: scale(0.98);
+}
+
+/* Help button - completely override floating styles to integrate with action buttons */
+#help-button {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: var(--radius-m) !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    bottom: auto !important;
+    background-color: #6b7280 !important;
+    color: white !important;
+    font-size: var(--type-sm) !important;
+    font-weight: 500 !important;
+    transform: none !important;
+    z-index: auto !important;
+    padding: var(--space-3) !important;
+    min-height: 48px !important;
+    border: none !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+    text-align: center !important;
+    font-family: inherit !important;
+    outline: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    box-sizing: border-box !important;
+}
+
+#help-button:hover {
+    background-color: #4b5563 !important;
+    transform: translateY(-1px) !important;
+    scale: none !important;
+}
+
+#help-button:active {
+    transform: scale(0.98) !important;
 }
 
 /* Popup Overlays */
@@ -417,13 +460,13 @@ body.popup-open {
     }
     
     .action-buttons {
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        max-width: 500px;
-        margin: 0 auto;
+        grid-template-columns: 1.8fr 1fr 1fr 1fr;
+        max-width: 600px;
+        margin: 0 auto var(--space-3) auto;
     }
     
     #guess-input {
-        max-width: 500px;
+        max-width: 600px;
         margin: 0 auto var(--space-3) auto;
     }
 }
