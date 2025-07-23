@@ -110,7 +110,23 @@ const Popup = {
         
         // Check if already used or unavailable
         const cluesObj = window.cluesGivenByType || {};
-        const isUsed = cluesObj[clueType.type] === true || cluesObj[clueType.type] > 0;
+        let isUsed = false;
+        
+        // Different logic for different clue types
+        if (clueType.type === 'definition') {
+            // For definitions, check if we've used all available definitions
+            const totalDefinitions = window.puzzleData?.definitions?.length || 0;
+            isUsed = cluesObj.definitions >= totalDefinitions;
+        } else if (clueType.type === 'example') {
+            // For examples, check if we've used all available examples  
+            const totalExamples = window.puzzleData?.examples?.length || 0;
+            isUsed = cluesObj.examples >= totalExamples;
+        } else {
+            // For boolean clues (wordLength, synonyms, antonyms) or letters
+            isUsed = cluesObj[clueType.type] === true || 
+                     (clueType.type === 'letter' && cluesObj.lettersRevealed >= (window.puzzleData?.word?.length || 0));
+        }
+        
         const isAvailable = clueType.available;
         const canAfford = (window.currentScore || 0) >= (clueType.cost || 0);
         
