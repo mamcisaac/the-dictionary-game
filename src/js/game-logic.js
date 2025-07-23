@@ -89,7 +89,7 @@ function prepareGameUI() {
  * Reset all game state variables for new game
  */
 function resetGameStateForNewGame() {
-    gameStarted = true;
+    window.gameStarted = true;
     cluesUsed = 0;
     guessCount = 0;
     
@@ -351,7 +351,7 @@ function handleGuess() {
         
         Statistics.recordGameResult(true, finalScore);
         
-        gameStarted = false; // Indicate the game has ended
+        window.gameStarted = false; // Indicate the game has ended
         
         const guessButton = document.getElementById("guess-button");
         const giveUpButton = document.getElementById("give-up-button");

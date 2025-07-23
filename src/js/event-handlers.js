@@ -257,7 +257,7 @@ const EventHandlers = {
     handleGiveUp() {
         if (!gameStarted || !puzzleData) return;
 
-        gameStarted = false;
+        window.gameStarted = false;
         currentScore = 0;
         
         // Record the game as a loss

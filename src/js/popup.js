@@ -59,7 +59,7 @@ const Popup = {
     
     showCluePopup() {
         // Check if game has started
-        if (typeof gameStarted === 'undefined' || !gameStarted) {
+        if (!window.gameStarted) {
             const messageArea = document.getElementById('message');
             if (messageArea) {
                 messageArea.textContent = 'Please start a new game first!';
@@ -99,7 +99,7 @@ const Popup = {
         card.setAttribute('data-clue-type', clueType.type);
         
         // Check if already used
-        const cluesObj = (typeof cluesGivenByType !== 'undefined') ? cluesGivenByType : {};
+        const cluesObj = window.cluesGivenByType || {};
         const isUsed = cluesObj[clueType.type] === true || cluesObj[clueType.type] > 0;
         if (isUsed) {
             card.classList.add('used');
@@ -161,18 +161,18 @@ const Popup = {
         };
         
         if (elements.score) {
-            elements.score.textContent = (typeof currentScore !== 'undefined') ? currentScore : 0;
+            elements.score.textContent = window.currentScore || 0;
         }
         
         if (elements.clues) {
-            const cluesObj = (typeof cluesGivenByType !== 'undefined') ? cluesGivenByType : {};
+            const cluesObj = window.cluesGivenByType || {};
             const usedClues = Object.values(cluesObj).filter(val => val === true || val > 0).length;
             const totalClues = Object.keys(cluesObj).length;
             elements.clues.textContent = `${usedClues}/${totalClues}`;
         }
         
         if (elements.guesses) {
-            elements.guesses.textContent = (typeof guessCount !== 'undefined') ? guessCount : 0;
+            elements.guesses.textContent = window.guessCount || 0;
         }
         
         if (elements.time && window.formatTime) {

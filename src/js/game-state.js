@@ -6,15 +6,13 @@
 // Global word list for validation
 let validWords = new Set();
 
-// Global game state
-let gameStarted = false;
-
-// Global puzzle data
-let puzzleData = null;
-let puzzleDataList = [];
+// Global game state - use window object for cross-module access
+window.gameStarted = false;
+window.puzzleData = null;
+window.puzzleDataList = [];
 
 // Global clue tracking for the menu system
-let cluesGivenByType = {
+window.cluesGivenByType = {
     definitions: 1,      // Start at 1 (primary shown free)
     wordLength: false,   // Has word length been revealed?
     examples: 0,         // Number of examples shown
@@ -24,9 +22,9 @@ let cluesGivenByType = {
 };
 
 // Global game state variables  
-let currentScore = 100;
-let cluesUsed = 0;
-let guessCount = 0;
+window.currentScore = 100;
+window.cluesUsed = 0;
+window.guessCount = 0;
 
 // New scoring system - initialize later after GameScoring is loaded
 let gameScoring;
