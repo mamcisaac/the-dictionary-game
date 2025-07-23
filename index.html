@@ -5,42 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Dictionary Game</title>
     <link rel="stylesheet" href="style.css">
+    <script src="i18n.js"></script>
 </head>
 <body>
+    <!-- Skip to main content for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <div class="game-shell">
         <header>
             <h1>The Dictionary Game</h1>
         </header>
         
-        <main class="game-prompt">
+        <main class="game-prompt" id="main-content">
             <!-- GuessCard Component -->
             <div id="guess-card" class="guess-card" data-variant="default">
                 <p class="intro-text">I am thinking of a word.<br>Can you guess what it is?</p>
                 
                 <div id="my-word" style="display: none;">
                     <div id="word-pattern" class="guess-card__letter"></div>
-                    <div class="guess-card__definition">
+                    <div class="guess-card__definition" id="first-clue-id">
                         <strong>Definition:</strong> <span id="primary-definition"></span>
                     </div>
                 </div>
                 
                 <!-- ClueStripe Components will be dynamically inserted here -->
-                <div id="clue-list" class="clue-list"></div>
-                <div id="message" class="message-area"></div> 
+                <div id="clue-list" class="clue-list" aria-live="polite" aria-label="Game clues"></div>
+                <div id="message" class="message-area" role="status" aria-live="assertive" aria-label="Game feedback"></div> 
             </div>
         </main>
         
         <section class="game-actions">
             <div class="input-section">
-                <input type="text" id="guess-input" placeholder="Enter your guess" aria-label="Enter your guess here">
+                <input type="text" id="guess-input" placeholder="Enter your guess" aria-label="Enter your guess here" aria-describedby="first-clue-id" tabindex="1">
                 <div class="main-buttons">
                     <div class="button-container">
-                        <button id="guess-button">Guess</button>
+                        <button id="guess-button" tabindex="2">Guess</button>
                         <div id="guess-cost-preview" class="cost-preview" style="display: none;"></div>
                     </div>
                     <div class="button-container">
                         <div class="clue-button-group">
-                            <button id="clue-button">Get a Clue</button>
+                            <button id="clue-button" tabindex="3">Get a Clue</button>
                             <div id="score-badge" class="score-badge">
                                 <span id="current-score-badge">100</span> pts
                             </div>
@@ -85,7 +89,10 @@
                     </div>
                 </div>
             </div>
-            <button id="help-button" class="help-button" aria-label="Help">?</button>
+            <button id="help-button" class="help-button" aria-label="Help">
+                <span class="sr-only">Open help and tutorial</span>
+                ?
+            </button>
         </aside>
         
         <footer class="game-footer">
@@ -158,7 +165,10 @@
             <!-- Help/Tutorial Modal -->
             <div id="help-modal" class="modal" style="display: none;">
                 <div class="modal-content">
-                    <span class="close-help">&times;</span>
+                    <button class="close-help" aria-label="Close help modal">
+                        <span class="sr-only">Close</span>
+                        &times;
+                    </button>
                     <h2>How to Play</h2>
                     <div id="help-content">
                         <div class="help-section">

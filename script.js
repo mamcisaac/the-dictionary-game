@@ -369,6 +369,9 @@ document.addEventListener("DOMContentLoaded", function() {
     clueCounter = document.getElementById("clue-counter");
     const guessCostPreview = document.getElementById("guess-cost-preview");
     
+    // Keyboard navigation setup
+    setupKeyboardNavigation();
+    
     // Initialize Components
     Components.GuessCard.init();
     Components.ScoreMeter.init();
@@ -1165,7 +1168,7 @@ function showClueMenu() {
     
     // Show message if no clues available
     if (clueOptions.children.length === 0) {
-        const noClues = Components.ClueStripe.create('❌', 'No more clues available!', 'hint-taken');
+        const noClues = Components.ClueStripe.create('❌', i18n.messages.noMoreClues, 'hint-taken');
         clueOptions.appendChild(noClues);
     }
     
@@ -1349,6 +1352,63 @@ function generateHeatMapCalendar() {
         }
         
         heatMapGrid.appendChild(weekDiv);
+    }
+}
+
+// Update score badge in real-time
+function updateScoreBadge() {
+    const scoreBadge = document.getElementById('current-score-badge');
+    if (scoreBadge) {
+        scoreBadge.textContent = currentScore;
+    }
+}
+
+// Keyboard Navigation Setup
+function setupKeyboardNavigation() {
+    // Escape key handling for closing popovers and modals
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            // Close clue shop if open
+            const clueShop = document.getElementById('clue-shop');
+            if (clueShop && clueShop.getAttribute('data-open') === 'true') {
+                Components.ClueShop.hide();
+                event.preventDefault();
+            }
+            
+            // Close stats modal if open
+            const statsModal = document.getElementById('stats-modal');
+            if (statsModal && statsModal.getAttribute('data-open') === 'true') {
+                Components.StatModal.hide();
+                event.preventDefault();
+            }
+            
+            // Close help modal if open
+            const helpModal = document.getElementById('help-modal');
+            if (helpModal && helpModal.style.display !== 'none') {
+                helpModal.style.display = 'none';
+                event.preventDefault();
+            }
+        }
+    });
+    
+    // Tab order management for clue shop
+    const clueShopElement = document.getElementById('clue-shop');
+    if (clueShopElement) {
+        clueShopElement.addEventListener('keydown', (event) => {
+            if (event.key === 'Tab') {
+                const focusableElements = clueShopElement.querySelectorAll('button, [tabindex]:not([tabindex="-1"])');
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+                
+                if (event.shiftKey && document.activeElement === firstElement) {
+                    event.preventDefault();
+                    lastElement.focus();
+                } else if (!event.shiftKey && document.activeElement === lastElement) {
+                    event.preventDefault();
+                    firstElement.focus();
+                }
+            }
+        });
     }
 }
 
