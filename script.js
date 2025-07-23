@@ -667,11 +667,10 @@ function handleGuess() {
         } else if (similarity > 0.4 && guessCount > 1) {
             feedback = "🌡️ Getting warmer! Keep trying!";
         } else if (guess.length !== targetWord.length) {
-            const lengthDiff = targetWord.length - guess.length;
-            if (lengthDiff > 0) {
-                feedback = `📏 Try a longer word - you need ${lengthDiff} more letter${lengthDiff > 1 ? 's' : ''} (target: ${targetWord.length} letters)`;
+            if (guess.length < targetWord.length) {
+                feedback = `📏 Try a longer word`;
             } else {
-                feedback = `📏 Try a shorter word - you have ${Math.abs(lengthDiff)} too many letter${Math.abs(lengthDiff) > 1 ? 's' : ''} (target: ${targetWord.length} letters)`;
+                feedback = `📏 Try a shorter word`;
             }
         } else if (!guess.startsWith(puzzleData.word.substring(0, lettersRevealed).toLowerCase())) {
             feedback = `🎯 Your guess should start with "${puzzleData.word.substring(0, lettersRevealed).toUpperCase()}"`;
