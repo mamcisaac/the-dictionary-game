@@ -807,6 +807,63 @@ function getClueContent(type) {
     return content;
 }
 
+// Show the clue menu with available options
+function showClueMenu() {
+    const available = getAvailableClues();
+    clueOptions.innerHTML = ''; // Clear previous options
+    
+    // Define clue types with costs and icons
+    const clueTypes = [
+        { type: 'definition', name: 'Another Definition', cost: 2, icon: '📖', count: available.definitions },
+        { type: 'wordLength', name: 'Word Length', cost: 3, icon: '📏', count: available.wordLength },
+        { type: 'example', name: 'Sample Sentence', cost: 4, icon: '📝', count: available.examples },
+        { type: 'synonyms', name: 'Synonyms', cost: 5, icon: '💡', count: available.synonyms },
+        { type: 'antonyms', name: 'Antonyms', cost: 5, icon: '🔄', count: available.antonyms },
+        { type: 'letter', name: 'Reveal Letter', cost: 7, icon: '🔤', count: available.letters }
+    ];
+    
+    // Create menu options
+    clueTypes.forEach(clueType => {
+        if (clueType.count > 0) { // Only show if available
+            const option = document.createElement('div');
+            option.className = 'clue-option';
+            
+            const affordable = canAffordClue(clueType.cost);
+            if (!affordable) {
+                option.classList.add('disabled');
+            }
+            
+            option.innerHTML = `
+                <span class="clue-icon">${clueType.icon}</span>
+                <span class="clue-name">${clueType.name}</span>
+                <span class="clue-info">
+                    <span class="clue-cost">${clueType.cost} pts</span>
+                    <span class="clue-remaining">${clueType.count} left</span>
+                </span>
+            `;
+            
+            if (affordable) {
+                option.addEventListener('click', () => purchaseClue(clueType.type, clueType.cost));
+            }
+            
+            clueOptions.appendChild(option);
+        }
+    });
+    
+    // Show message if no clues available
+    if (clueOptions.children.length === 0) {
+        clueOptions.innerHTML = '<div class="no-clues">No more clues available!</div>';
+    }
+    
+    // Show the menu
+    clueMenu.style.display = 'block';
+}
+
+// Check if player can afford a clue
+function canAffordClue(cost) {
+    return currentScore > cost; // Must have more than cost to maintain min score of 1
+}
+
 });
 
 // Global function for calculating available clues
@@ -863,63 +920,6 @@ function getAvailableClues() {
     };
     
     return available;
-}
-
-// Check if player can afford a clue
-function canAffordClue(cost) {
-    return currentScore > cost; // Must have more than cost to maintain min score of 1
-}
-
-// Show the clue menu with available options
-function showClueMenu() {
-    const available = getAvailableClues();
-    clueOptions.innerHTML = ''; // Clear previous options
-    
-    // Define clue types with costs and icons
-    const clueTypes = [
-        { type: 'definition', name: 'Another Definition', cost: 2, icon: '📖', count: available.definitions },
-        { type: 'wordLength', name: 'Word Length', cost: 3, icon: '📏', count: available.wordLength },
-        { type: 'example', name: 'Sample Sentence', cost: 4, icon: '📝', count: available.examples },
-        { type: 'synonyms', name: 'Synonyms', cost: 5, icon: '💡', count: available.synonyms },
-        { type: 'antonyms', name: 'Antonyms', cost: 5, icon: '🔄', count: available.antonyms },
-        { type: 'letter', name: 'Reveal Letter', cost: 7, icon: '🔤', count: available.letters }
-    ];
-    
-    // Create menu options
-    clueTypes.forEach(clueType => {
-        if (clueType.count > 0) { // Only show if available
-            const option = document.createElement('div');
-            option.className = 'clue-option';
-            
-            const affordable = canAffordClue(clueType.cost);
-            if (!affordable) {
-                option.classList.add('disabled');
-            }
-            
-            option.innerHTML = `
-                <span class="clue-icon">${clueType.icon}</span>
-                <span class="clue-name">${clueType.name}</span>
-                <span class="clue-info">
-                    <span class="clue-cost">${clueType.cost} pts</span>
-                    <span class="clue-remaining">${clueType.count} left</span>
-                </span>
-            `;
-            
-            if (affordable) {
-                option.addEventListener('click', () => purchaseClue(clueType.type, clueType.cost));
-            }
-            
-            clueOptions.appendChild(option);
-        }
-    });
-    
-    // Show message if no clues available
-    if (clueOptions.children.length === 0) {
-        clueOptions.innerHTML = '<div class="no-clues">No more clues available!</div>';
-    }
-    
-    // Show the menu
-    clueMenu.style.display = 'block';
 }
 
 function displayMessageWithAnimation(message, isSuccess) {
