@@ -407,7 +407,7 @@ function handleGuess() {
  */
 async function fetchPuzzle(specificIndex = null) {
     try {
-        const response = await fetch("puzzle.json");
+        const response = await fetch("src/data/puzzle.json");
         
         if (!response.ok) {
             throw new Error(`Failed to load puzzle data: ${response.status} ${response.statusText}`);
