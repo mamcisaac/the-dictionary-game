@@ -1195,18 +1195,69 @@ resetStatsButton.addEventListener("click", () => {
     }
 });
 
-// Help modal event listeners
-helpButton.addEventListener("click", () => {
-    helpModal.style.display = "block";
-});
+// Help modal management with focus trap
+let helpModalPreviousFocus = null;
+let helpModalKeyHandler;
 
-closeHelpModal.addEventListener("click", () => {
+function showHelpModal() {
+    helpModalPreviousFocus = document.activeElement;
+    helpModal.style.display = "block";
+    
+    // Focus the close button
+    setTimeout(() => {
+        const closeButton = helpModal.querySelector('.close-help');
+        if (closeButton) closeButton.focus();
+    }, 100);
+    
+    // Set up focus trap
+    trapFocusInHelpModal();
+}
+
+function hideHelpModal() {
     helpModal.style.display = "none";
-});
+    if (helpModalKeyHandler) {
+        helpModal.removeEventListener('keydown', helpModalKeyHandler);
+    }
+    
+    // Restore focus
+    if (helpModalPreviousFocus) {
+        helpModalPreviousFocus.focus();
+    }
+}
+
+function trapFocusInHelpModal() {
+    const focusableElements = helpModal.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const firstFocusable = focusableElements[0];
+    const lastFocusable = focusableElements[focusableElements.length - 1];
+    
+    helpModalKeyHandler = (e) => {
+        if (e.key === 'Tab') {
+            if (e.shiftKey) {
+                if (document.activeElement === firstFocusable) {
+                    lastFocusable.focus();
+                    e.preventDefault();
+                }
+            } else {
+                if (document.activeElement === lastFocusable) {
+                    firstFocusable.focus();
+                    e.preventDefault();
+                }
+            }
+        }
+    };
+    
+    helpModal.addEventListener('keydown', helpModalKeyHandler);
+}
+
+// Help modal event listeners
+helpButton.addEventListener("click", showHelpModal);
+closeHelpModal.addEventListener("click", hideHelpModal);
 
 window.addEventListener("click", (event) => {
     if (event.target === helpModal) {
-        helpModal.style.display = "none";
+        hideHelpModal();
     }
 });
 
@@ -1672,7 +1723,7 @@ function setupKeyboardNavigation() {
             // Close help modal if open
             const helpModal = document.getElementById('help-modal');
             if (helpModal && helpModal.style.display !== 'none') {
-                helpModal.style.display = 'none';
+                hideHelpModal();
                 event.preventDefault();
             }
         }

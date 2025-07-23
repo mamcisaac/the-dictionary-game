@@ -1013,30 +1013,20 @@ header {
 }
 
 .heat-map-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-1);
-    max-width: 280px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    max-width: 200px;
     margin: 0 auto;
-}
-
-.heat-map-week {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
+    padding: var(--space-2);
 }
 
 .heat-map-day {
-    width: 10px;
-    height: 10px;
-    border-radius: var(--radius-s);
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
     border: 1px solid var(--dg-border);
     background-color: var(--dg-bg-card);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--type-caption);
-    color: var(--dg-text-muted);
     position: relative;
     cursor: help;
     transition: all var(--motion-duration-fast) var(--motion-easing-standard);
@@ -1086,17 +1076,9 @@ header {
     color: var(--dg-text-muted);
 }
 
-.heat-map-legend-item {
+.heat-map-legend-squares {
     display: flex;
-    align-items: center;
-    gap: var(--space-1);
-}
-
-.heat-map-legend-square {
-    width: 12px;
-    height: 12px;
-    border-radius: var(--radius-s);
-    border: 1px solid var(--dg-border);
+    gap: 2px;
 }
 
 .game-footer {
