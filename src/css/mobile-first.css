@@ -389,8 +389,7 @@ body.popup-open {
 .game-sidebar,
 .game-actions,
 .secondary-buttons,
-.tab-navigation,
-.help-button {
+.tab-navigation {
     display: none !important;
 }
 
