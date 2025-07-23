@@ -218,8 +218,10 @@ const Components = {
             cardElement.classList.add('purchasing');
             setTimeout(() => cardElement.classList.remove('purchasing'), 300);
             
-            // Purchase the clue
-            purchaseClue(type, cost);
+            // Purchase the clue if function is available
+            if (typeof purchaseClue === 'function') {
+                purchaseClue(type, cost);
+            }
             
             // Re-render cards after purchase
             setTimeout(() => this.renderCards(), 100);
