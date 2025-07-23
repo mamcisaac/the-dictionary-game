@@ -1,12 +1,14 @@
 // Global word list for validation
 let validWords = new Set();
 
-// Load word list from cornerstone
+// Load word list - fallback to no validation if file not found
 async function loadWordList() {
     try {
-        const response = await fetch('../cornerstone/words_alpha.txt');
+        // Try to load from the same directory first
+        const response = await fetch('words_alpha.txt');
         if (!response.ok) {
-            console.error('Failed to load word list, using fallback');
+            console.warn('Word list not found, word validation disabled');
+            validWords = null;
             return;
         }
         const text = await response.text();
@@ -14,7 +16,7 @@ async function loadWordList() {
         validWords = new Set(words);
         console.log(`Loaded ${validWords.size} valid words`);
     } catch (error) {
-        console.error('Error loading word list:', error);
+        console.warn('Word list not found, word validation disabled');
         // Fallback: accept any word if we can't load the list
         validWords = null;
     }
@@ -143,9 +145,12 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Apply settings to UI
     function applySettings() {
-        autoClueSetting.checked = gameSettings.autoClue;
+        if (autoClueSetting) {
+            autoClueSetting.checked = gameSettings.autoClue;
+        }
         
         // Apply theme if needed
+        const themeSelect = document.getElementById("theme-select");
         if (gameSettings.theme && themeSelect) {
             themeSelect.value = gameSettings.theme;
             applyTheme(gameSettings.theme);
@@ -219,6 +224,18 @@ document.addEventListener("DOMContentLoaded", function() {
         saveStats();
         updateStatsDisplay();
     }
+    
+    // Override recordGameResult to add achievement checking
+    const originalRecordGameResult = recordGameResult;
+    recordGameResult = function(won, score = 0) {
+        // Call original function
+        originalRecordGameResult(won, score);
+        
+        // Check achievements after game completion
+        if (typeof checkAchievements === 'function') {
+            checkAchievements();
+        }
+    };
 
     // Event listener for pressing 'Enter' in the guess input
     guessInput.addEventListener("keydown", function(event) {
@@ -815,7 +832,7 @@ loadAchievements();
 const achievementsButton = document.getElementById("achievements-button");
 const achievementsModal = document.getElementById("achievements-modal");
 const closeAchievementsModal = document.querySelector(".close-achievements");
-const themeSelect = document.getElementById("theme-select");
+const themeSelectElement = document.getElementById("theme-select");
 
 // Achievements Modal
 if (achievementsButton) {
@@ -832,14 +849,14 @@ if (closeAchievementsModal) {
 }
 
 // Theme selector enhancement
-if (themeSelect) {
-    themeSelect.addEventListener("change", (e) => {
+if (themeSelectElement) {
+    themeSelectElement.addEventListener("change", (e) => {
         applyTheme(e.target.value);
     });
 
     // Set initial theme
     if (gameSettings.theme) {
-        themeSelect.value = gameSettings.theme;
+        themeSelectElement.value = gameSettings.theme;
         applyTheme(gameSettings.theme);
     }
 }
@@ -862,7 +879,14 @@ function addClueWithAnimation(clue) {
 
 // Calculate available clues for current word
 function getAvailableClues() {
-    if (!puzzleData) return {};
+    if (!puzzleData) return {
+        definitions: 0,
+        wordLength: 0,
+        examples: 0,
+        synonyms: 0,
+        antonyms: 0,
+        letters: 0
+    };
     
     const available = {
         definitions: Math.max(0, puzzleData.definitions.length - cluesGivenByType.definitions),
@@ -1304,15 +1328,5 @@ function startGameWithSpecificWord(wordIndex) {
     
     console.log(`Started game with word: ${puzzleData.word}`);
 }
-
-// Override the original recordGameResult to integrate with new systems
-const originalRecordGameResult = recordGameResult;
-recordGameResult = function(won, score = 0) {
-    // Call original function
-    originalRecordGameResult(won, score);
-    
-    // Check achievements after game completion
-    checkAchievements();
-};
 
 console.log("Phase 1 features loaded: Achievements, Dark Mode");
