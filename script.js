@@ -1044,6 +1044,9 @@ window.addEventListener("click", (event) => {
 loadStats();
 updateStatsDisplay();
 
+// Initialize clue count display
+updateUnopenedCluesCount();
+
 // Purchase and reveal a specific clue type
 function purchaseClue(type, cost) {
     // Deduct points
@@ -1197,6 +1200,20 @@ function updateProgressBar() {
     
     // Use the animated ScoreMeter component
     Components.ScoreMeter.setProgress(cluesUsed, availableClues, true);
+    
+    // Update unopened clues count
+    updateUnopenedCluesCount();
+}
+
+// Update the count of remaining unopened clues
+function updateUnopenedCluesCount() {
+    const available = getAvailableClues();
+    const totalRemaining = Object.values(available).reduce((sum, count) => sum + count, 0);
+    
+    const cluesRemainingElement = document.getElementById('clues-remaining-count');
+    if (cluesRemainingElement) {
+        cluesRemainingElement.textContent = totalRemaining;
+    }
 }
 
 // ========================
@@ -1296,6 +1313,7 @@ function startGameWithSpecificWord(wordIndex) {
     updateScore();
     updateProgressBar();
     updateButtonCosts();
+    updateUnopenedCluesCount();
     
     // Show initial clues
     myword.style.display = "block";
