@@ -54,6 +54,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Track number of guesses made
     let guessCount = 0;
     
+    // Track guessed words to prevent duplicates
+    let guessedWords = new Set();
+    
     // Track clues given by type for the new menu system
     let cluesGivenByType = {
         definitions: 1,      // Start at 1 (primary shown free)
@@ -476,6 +479,7 @@ function startGame() {
     currentScore = 100;
     cluesUsed = 0;
     guessCount = 0; // Reset guess counter
+    guessedWords.clear(); // Reset guessed words
     currentScoreElement.textContent = currentScore;
     scoreContainer.style.display = "block";
     
@@ -599,6 +603,16 @@ function handleGuess() {
         messageDisplay.style.color = "#e07a5f";
         return;
     }
+    
+    // Check for duplicate guess
+    if (guessedWords.has(guess)) {
+        messageDisplay.innerHTML = `You already guessed "${guess}"! Try a different word.`;
+        messageDisplay.style.color = "#f4a261"; // Orange color for warning
+        return;
+    }
+    
+    // Add guess to set of guessed words
+    guessedWords.add(guess);
     
     // Charge for guess (first guess is free, then flat 3 points)
     guessCount++;
@@ -1303,6 +1317,7 @@ function startGameWithSpecificWord(wordIndex) {
     currentScore = 100;
     cluesUsed = 0;
     guessCount = 0;
+    guessedWords.clear(); // Reset guessed words
     gameStarted = true;
     gameStartTime = Date.now(); // Track start time
     
