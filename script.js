@@ -1,22 +1,20 @@
 // Global word list for validation
 let validWords = new Set();
 
-// Load word list - fallback to no validation if file not found
+// Load word dictionary from Cornerstone (JSON is faster than text parsing)
 async function loadWordList() {
     try {
-        // Try to load from the same directory first
-        const response = await fetch('words_alpha.txt');
+        const response = await fetch('../Cornerstone/words_dictionary.json');
         if (!response.ok) {
-            console.warn('Word list not found, word validation disabled');
+            console.warn('Word dictionary not found in Cornerstone, word validation disabled');
             validWords = null;
             return;
         }
-        const text = await response.text();
-        const words = text.trim().split('\n').map(word => word.toLowerCase());
-        validWords = new Set(words);
-        console.log(`Loaded ${validWords.size} valid words`);
+        const wordsDict = await response.json();
+        validWords = new Set(Object.keys(wordsDict).map(word => word.toLowerCase()));
+        console.log(`Loaded ${validWords.size} valid words from Cornerstone dictionary`);
     } catch (error) {
-        console.warn('Word list not found, word validation disabled');
+        console.warn('Error loading word dictionary from Cornerstone:', error);
         // Fallback: accept any word if we can't load the list
         validWords = null;
     }
