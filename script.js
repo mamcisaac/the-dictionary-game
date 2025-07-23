@@ -722,6 +722,90 @@ window.addEventListener("click", (event) => {
 loadStats();
 updateStatsDisplay();
 
+// Purchase and reveal a specific clue type
+function purchaseClue(type, cost) {
+    // Deduct points
+    currentScore = Math.max(1, currentScore - cost);
+    currentScoreElement.textContent = currentScore;
+    cluesUsed++; // Increment total clues counter
+    updateProgressBar();
+    
+    // Get and display the clue
+    const clueContent = getClueContent(type);
+    if (clueContent) {
+        updateClueDisplay(clueContent);
+        
+        // Update button states
+        updateButtonCosts();
+        
+        // Check if score is too low for more clues
+        if (currentScore <= 2) { // Can't afford cheapest clue
+            clueButton.disabled = true;
+            clueButton.textContent = "No More Clues";
+        }
+    }
+    
+    // Hide the menu
+    clueMenu.style.display = 'none';
+}
+
+// Get the actual clue content based on type
+function getClueContent(type) {
+    let content = '';
+    
+    switch(type) {
+        case 'definition':
+            if (cluesGivenByType.definitions < puzzleData.definitions.length) {
+                const defIndex = cluesGivenByType.definitions;
+                content = `📖 Definition ${defIndex + 1}: ${puzzleData.definitions[defIndex]}`;
+                cluesGivenByType.definitions++;
+            }
+            break;
+            
+        case 'wordLength':
+            if (!cluesGivenByType.wordLength) {
+                // Show full word pattern
+                cluesGivenByType.wordLength = true;
+                updateWordPatternDisplay();
+                content = `📏 The word has ${puzzleData.word.length} letters`;
+            }
+            break;
+            
+        case 'example':
+            if (cluesGivenByType.examples < puzzleData.examples.length) {
+                const exIndex = cluesGivenByType.examples;
+                content = `📝 Example: ${puzzleData.examples[exIndex]}`;
+                cluesGivenByType.examples++;
+            }
+            break;
+            
+        case 'synonyms':
+            if (!cluesGivenByType.synonyms && puzzleData.synonyms && puzzleData.synonyms.length > 0) {
+                content = `💡 Synonyms: ${puzzleData.synonyms.slice(0, 4).join(', ')}`;
+                cluesGivenByType.synonyms = true;
+            }
+            break;
+            
+        case 'antonyms':
+            if (!cluesGivenByType.antonyms && puzzleData.antonyms && puzzleData.antonyms.length > 0) {
+                content = `🔄 Antonyms: ${puzzleData.antonyms.slice(0, 3).join(', ')}`;
+                cluesGivenByType.antonyms = true;
+            }
+            break;
+            
+        case 'letter':
+            if (cluesGivenByType.lettersRevealed < puzzleData.word.length) {
+                cluesGivenByType.lettersRevealed++;
+                lettersRevealed = cluesGivenByType.lettersRevealed;
+                updateWordPatternDisplay();
+                const revealedPart = puzzleData.word.substring(0, lettersRevealed).toUpperCase();
+                content = `🔤 The word starts with: ${revealedPart}`;
+            }
+            break;
+    }
+    
+    return content;
+}
 
 });
 
@@ -836,91 +920,6 @@ function showClueMenu() {
     
     // Show the menu
     clueMenu.style.display = 'block';
-}
-
-// Purchase and reveal a specific clue type
-function purchaseClue(type, cost) {
-    // Deduct points
-    currentScore = Math.max(1, currentScore - cost);
-    currentScoreElement.textContent = currentScore;
-    cluesUsed++; // Increment total clues counter
-    updateProgressBar();
-    
-    // Get and display the clue
-    const clueContent = getClueContent(type);
-    if (clueContent) {
-        updateClueDisplay(clueContent);
-        
-        // Update button states
-        updateButtonCosts();
-        
-        // Check if score is too low for more clues
-        if (currentScore <= 2) { // Can't afford cheapest clue
-            clueButton.disabled = true;
-            clueButton.textContent = "No More Clues";
-        }
-    }
-    
-    // Hide the menu
-    clueMenu.style.display = 'none';
-}
-
-// Get the actual clue content based on type
-function getClueContent(type) {
-    let content = '';
-    
-    switch(type) {
-        case 'definition':
-            if (cluesGivenByType.definitions < puzzleData.definitions.length) {
-                const defIndex = cluesGivenByType.definitions;
-                content = `📖 Definition ${defIndex + 1}: ${puzzleData.definitions[defIndex]}`;
-                cluesGivenByType.definitions++;
-            }
-            break;
-            
-        case 'wordLength':
-            if (!cluesGivenByType.wordLength) {
-                // Show full word pattern
-                cluesGivenByType.wordLength = true;
-                updateWordPatternDisplay();
-                content = `📏 The word has ${puzzleData.word.length} letters`;
-            }
-            break;
-            
-        case 'example':
-            if (cluesGivenByType.examples < puzzleData.examples.length) {
-                const exIndex = cluesGivenByType.examples;
-                content = `📝 Example: ${puzzleData.examples[exIndex]}`;
-                cluesGivenByType.examples++;
-            }
-            break;
-            
-        case 'synonyms':
-            if (!cluesGivenByType.synonyms && puzzleData.synonyms && puzzleData.synonyms.length > 0) {
-                content = `💡 Synonyms: ${puzzleData.synonyms.slice(0, 4).join(', ')}`;
-                cluesGivenByType.synonyms = true;
-            }
-            break;
-            
-        case 'antonyms':
-            if (!cluesGivenByType.antonyms && puzzleData.antonyms && puzzleData.antonyms.length > 0) {
-                content = `🔄 Antonyms: ${puzzleData.antonyms.slice(0, 3).join(', ')}`;
-                cluesGivenByType.antonyms = true;
-            }
-            break;
-            
-        case 'letter':
-            if (cluesGivenByType.lettersRevealed < puzzleData.word.length) {
-                cluesGivenByType.lettersRevealed++;
-                lettersRevealed = cluesGivenByType.lettersRevealed;
-                updateWordPatternDisplay();
-                const revealedPart = puzzleData.word.substring(0, lettersRevealed).toUpperCase();
-                content = `🔤 The word starts with: ${revealedPart}`;
-            }
-            break;
-    }
-    
-    return content;
 }
 
 function displayMessageWithAnimation(message, isSuccess) {
