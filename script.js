@@ -11,6 +11,16 @@ let gameSettings = {
 let puzzleData = null;
 let puzzleDataList = [];
 
+// Global clue tracking for the menu system
+let cluesGivenByType = {
+    definitions: 1,      // Start at 1 (primary shown free)
+    wordLength: false,   // Has word length been revealed?
+    examples: 0,         // Number of examples shown
+    synonyms: false,     // Have synonyms been shown?
+    antonyms: false,     // Have antonyms been shown?
+    lettersRevealed: 1   // Start at 1 (first letter shown)
+};
+
 // Load word dictionary from Cornerstone (JSON is faster than text parsing)
 async function loadWordList() {
     try {
@@ -63,15 +73,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Track guessed words to prevent duplicates
     let guessedWords = new Set();
     
-    // Track clues given by type for the new menu system
-    let cluesGivenByType = {
-        definitions: 1,      // Start at 1 (primary shown free)
-        wordLength: false,   // Has word length been revealed?
-        examples: 0,         // Number of examples shown
-        synonyms: false,     // Have synonyms been shown?
-        antonyms: false,     // Have antonyms been shown?
-        lettersRevealed: 1   // Start at 1 (first letter shown)
-    };
     
     // Calculate difficulty multiplier based on word length for fairer scoring
     function calculateDifficultyMultiplier(wordLength) {
