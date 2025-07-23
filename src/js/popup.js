@@ -80,14 +80,24 @@ const Popup = {
     
     populateClueGrid() {
         const clueGrid = document.getElementById('clue-grid');
-        if (!clueGrid || !window.Components?.ClueDeck) return;
+        if (!clueGrid || !window.gameStarted || !window.puzzleData) return;
         
-        // Get available clues from ClueDeck
-        const clueTypes = Components.ClueDeck.getAvailableClueTypes();
+        // Get all clue types, both available and unavailable
+        const available = getAvailableClues();
+        const dynamicCosts = gameScoring ? gameScoring.getAllClueCosts(window.puzzleData) : {};
+        
+        const allClueTypes = [
+            { type: 'definition', label: 'Definition', cost: dynamicCosts.definition || 10, icon: '📖', available: available.definitions > 0 },
+            { type: 'wordLength', label: 'Length', cost: dynamicCosts.wordLength || 5, icon: '📏', available: available.wordLength },
+            { type: 'example', label: 'Example', cost: dynamicCosts.example || 15, icon: '📝', available: available.examples > 0 },
+            { type: 'synonym', label: 'Synonym', cost: dynamicCosts.synonym || 20, icon: '💡', available: available.synonyms > 0 },
+            { type: 'antonym', label: 'Antonym', cost: dynamicCosts.antonym || 20, icon: '🔄', available: available.antonyms > 0 },
+            { type: 'letter', label: 'Letter', cost: dynamicCosts.letter || 25, icon: '🔤', available: available.letters > 0 }
+        ];
         
         clueGrid.innerHTML = '';
         
-        clueTypes.forEach(clueType => {
+        allClueTypes.forEach(clueType => {
             const card = this.createClueCard(clueType);
             clueGrid.appendChild(card);
         });
@@ -98,21 +108,39 @@ const Popup = {
         card.className = 'clue-card-popup';
         card.setAttribute('data-clue-type', clueType.type);
         
-        // Check if already used
+        // Check if already used or unavailable
         const cluesObj = window.cluesGivenByType || {};
         const isUsed = cluesObj[clueType.type] === true || cluesObj[clueType.type] > 0;
-        if (isUsed) {
-            card.classList.add('used');
+        const isAvailable = clueType.available;
+        const canAfford = (window.currentScore || 0) >= (clueType.cost || 0);
+        
+        // Disable if used or unavailable
+        const isDisabled = isUsed || !isAvailable || !canAfford;
+        
+        if (isDisabled) {
+            card.classList.add('disabled');
             card.disabled = true;
+        }
+        
+        // Determine cost display
+        let costDisplay;
+        if (isUsed) {
+            costDisplay = 'Used';
+        } else if (!isAvailable) {
+            costDisplay = 'None left';
+        } else if (clueType.cost === 0) {
+            costDisplay = 'Free';
+        } else {
+            costDisplay = `-${clueType.cost}`;
         }
         
         card.innerHTML = `
             <div class="clue-icon">${clueType.icon}</div>
             <div class="clue-name">${clueType.label}</div>
-            <div class="clue-cost">${isUsed ? 'Used' : `-${clueType.cost || 0}`}</div>
+            <div class="clue-cost">${costDisplay}</div>
         `;
         
-        if (!isUsed) {
+        if (!isDisabled) {
             card.addEventListener('click', () => {
                 this.handleClueSelection(clueType.type);
             });
@@ -125,9 +153,14 @@ const Popup = {
         // Close popup immediately
         this.close();
         
-        // Trigger clue reveal
-        if (window.revealClue) {
-            revealClue(clueType);
+        // Trigger clue purchase (which reveals the clue)
+        if (window.purchaseClue || typeof purchaseClue === 'function') {
+            // Get the cost from the ClueDeck component
+            const clueTypes = Components.ClueDeck?.getAvailableClueTypes();
+            const selectedClue = clueTypes?.find(c => c.type === clueType);
+            const cost = selectedClue?.cost || 0;
+            
+            purchaseClue(clueType, cost);
         }
         
         // Return focus to input
