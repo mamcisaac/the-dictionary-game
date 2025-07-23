@@ -41,6 +41,12 @@ let gameStats = {
     bestStreak: 0
 };
 
+// Session-specific tracking
+let guessedWords = new Set();
+
+// Modal focus management
+let helpModalPreviousFocus = null;
+
 // DOM element references for functions used outside DOMContentLoaded
 let clueList, messageDisplay, currentScoreElement, progressFill, clueCounter;
 let timeElapsedElement, guessCountElement, gameStartTime, gameTimerInterval;
@@ -54,6 +60,9 @@ function resetGameState() {
     currentScore = 100;
     cluesUsed = 0;
     guessCount = 0;
+    
+    // Reset session tracking
+    guessedWords.clear();
     
     // Reset clue tracking
     cluesGivenByType = {

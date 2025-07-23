@@ -71,7 +71,7 @@ async function startGame() {
     const guessInput = document.getElementById("guess-input");
     if (guessInput) guessInput.value = '';
     
-    const inputContainer = document.querySelector(".input-section");
+    const inputContainer = DOMUtils.get("inputSection");
     const myword = document.getElementById("my-word");
     if (inputContainer) inputContainer.style.display = "block";
     if (myword) myword.style.display = "block";

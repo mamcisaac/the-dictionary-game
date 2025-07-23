@@ -85,7 +85,7 @@ const EventHandlers = {
     setupModalHandlers() {
         // Stats modal
         const statsButton = document.getElementById("stats-button");
-        const closeModal = document.querySelector(".close");
+        const closeModal = DOMUtils.get(".close");
         const resetStatsButton = document.getElementById("reset-stats");
         const statsModal = document.getElementById("stats-modal");
 
@@ -121,7 +121,7 @@ const EventHandlers = {
 
         // Help modal
         const helpButton = document.getElementById("help-button");
-        const closeHelpModal = document.querySelector(".close-help");
+        const closeHelpModal = DOMUtils.get(".close-help");
         const helpModal = document.getElementById("help-modal");
 
         if (helpButton) {
@@ -146,7 +146,7 @@ const EventHandlers = {
             if (e.target.classList.contains("help-icon")) {
                 if (helpModal) {
                     helpModal.style.display = "block";
-                    const modalContent = document.querySelector('.modal-content');
+                    const modalContent = DOMUtils.get('.modal-content');
                     if (modalContent) modalContent.focus();
                 }
             }
@@ -258,7 +258,7 @@ const EventHandlers = {
     updateUIForGameEnd() {
         const giveUpButton = document.getElementById("give-up-button");
         const guessButton = document.getElementById("guess-button");
-        const inputSection = document.querySelector(".input-section");
+        const inputSection = DOMUtils.get("inputSection");
 
         if (giveUpButton) {
             giveUpButton.disabled = true;

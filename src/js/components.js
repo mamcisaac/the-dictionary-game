@@ -176,7 +176,7 @@ const Components = {
             }
             
             // Add click handlers
-            document.querySelectorAll('.clue-card:not(.disabled)').forEach(card => {
+            DOMUtils.getAll('.clue-card:not(.disabled)').forEach(card => {
                 card.addEventListener('click', (e) => {
                     const type = card.dataset.type;
                     const cost = parseInt(card.dataset.cost);
