@@ -1033,7 +1033,7 @@ const achievementDefinitions = {
         name: 'Daily Devotion',
         description: 'Complete 7 daily challenges',
         icon: '📅',
-        condition: (stats) => Object.keys(dailyData.challenges).length >= 7
+        condition: (stats) => false // Disabled - requires daily challenge feature
     },
     speed_demon: {
         id: 'speed_demon',
