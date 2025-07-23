@@ -35,17 +35,19 @@ function prepareGameUI() {
     
     // Enable buttons  
     const giveUpButton = document.getElementById("give-up-button");
-    const tabGiveUpButton = document.getElementById("tab-give-up");
+    const giveUpOption = document.getElementById("give-up-option");
     const statsButton = document.getElementById("stats-button");
     const guessButton = document.getElementById("guess-button");
+    const clueButton = document.getElementById("clue-button");
+    const scoreButton = document.getElementById("score-button");
     
     if (giveUpButton) {
         giveUpButton.disabled = false;
         giveUpButton.setAttribute('aria-disabled', 'false');
     }
-    if (tabGiveUpButton) {
-        tabGiveUpButton.disabled = false;
-        tabGiveUpButton.setAttribute('aria-disabled', 'false');
+    if (giveUpOption) {
+        giveUpOption.disabled = false;
+        giveUpOption.setAttribute('aria-disabled', 'false');
     }
     if (statsButton) {
         statsButton.disabled = false;
@@ -53,6 +55,12 @@ function prepareGameUI() {
     }
     if (guessButton) {
         guessButton.disabled = false;
+    }
+    if (clueButton) {
+        clueButton.disabled = false;
+    }
+    if (scoreButton) {
+        scoreButton.disabled = false;
     }
     
     // Enable clues button for mobile

@@ -40,6 +40,7 @@ const EventHandlers = {
         const startGameButton = document.getElementById("start-game-button");
         const giveUpButton = document.getElementById("give-up-button");
         const emptyStateNewGameBtn = document.getElementById("empty-state-new-game");
+        const headerNewGameBtn = document.getElementById("header-new-game");
         const helpButton = document.getElementById("help-button");
 
         if (startGameButton) {
@@ -48,6 +49,10 @@ const EventHandlers = {
 
         if (emptyStateNewGameBtn) {
             emptyStateNewGameBtn.addEventListener("click", startGame);
+        }
+        
+        if (headerNewGameBtn) {
+            headerNewGameBtn.addEventListener("click", startGame);
         }
         
         if (helpButton) {

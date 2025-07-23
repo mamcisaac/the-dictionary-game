@@ -36,18 +36,38 @@ const Popup = {
     setupCluePopup() {
         const clueBtn = document.getElementById('clue-button');
         if (clueBtn) {
-            clueBtn.addEventListener('click', () => this.showCluePopup());
+            clueBtn.addEventListener('click', () => {
+                console.log('Clue button clicked');
+                this.showCluePopup();
+            });
+        } else {
+            console.warn('Clue button not found');
         }
     },
     
     setupScorePopup() {
         const scoreBtn = document.getElementById('score-button');
         if (scoreBtn) {
-            scoreBtn.addEventListener('click', () => this.showScorePopup());
+            scoreBtn.addEventListener('click', () => {
+                console.log('Score button clicked');
+                this.showScorePopup();
+            });
+        } else {
+            console.warn('Score button not found');
         }
     },
     
     showCluePopup() {
+        // Check if game has started
+        if (!window.gameStarted) {
+            const messageArea = document.getElementById('message');
+            if (messageArea) {
+                messageArea.textContent = 'Please start a new game first!';
+                messageArea.style.color = 'var(--amber-400)';
+            }
+            return;
+        }
+        
         const popup = document.getElementById('clue-popup');
         if (!popup) return;
         

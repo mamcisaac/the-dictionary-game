@@ -3,6 +3,11 @@
  * Base styles for mobile, with desktop enhancements
  */
 
+/* Box sizing reset - critical for mobile */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 /* Reset for full-screen mobile experience */
 html, body {
     margin: 0;
@@ -23,12 +28,14 @@ body.popup-open {
 .game-shell {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    height: 100dvh; /* Dynamic viewport height for mobile */
+    min-height: 100vh;
+    min-height: -webkit-fill-available; /* iOS Safari fix */
+    height: 100%;
     padding: 0;
     margin: 0;
     max-width: none;
     background: var(--bg-default);
+    position: relative;
 }
 
 /* Header - minimal on mobile */
@@ -37,12 +44,28 @@ body.popup-open {
     padding: var(--space-2) var(--space-3);
     background: var(--bg-card);
     border-bottom: 1px solid var(--border-default);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .game-shell header h1 {
     font-size: var(--type-h4);
     margin: 0;
+    flex: 1;
     text-align: center;
+}
+
+.header-btn {
+    padding: var(--space-2) var(--space-3);
+    background: var(--primary-600);
+    color: white;
+    border: none;
+    border-radius: var(--radius-m);
+    font-size: var(--type-small);
+    font-weight: 500;
+    cursor: pointer;
+    touch-action: manipulation;
 }
 
 /* Main game area - use all available space */
@@ -58,6 +81,7 @@ body.popup-open {
     width: 100%;
     max-width: none;
     height: 100%;
+    min-height: 0; /* Important for flexbox */
     border: none;
     border-radius: 0;
     box-shadow: none;
@@ -87,7 +111,10 @@ body.popup-open {
     background: var(--bg-card);
     border-top: 1px solid var(--border-default);
     padding: var(--space-3);
+    padding-bottom: max(var(--space-3), env(safe-area-inset-bottom));
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
 }
 
 /* Message area */
@@ -101,13 +128,16 @@ body.popup-open {
 /* Input field - larger and more prominent */
 #guess-input {
     width: 100%;
+    max-width: 100%;
     padding: var(--space-4);
-    font-size: 18px;
+    font-size: 18px; /* Prevents zoom on iOS */
     text-align: center;
     border: 2px solid var(--border-default);
     border-radius: var(--radius-m);
     margin-bottom: var(--space-3);
     background: var(--bg-default);
+    -webkit-appearance: none; /* Remove iOS styling */
+    box-sizing: border-box;
 }
 
 #guess-input:focus {
@@ -135,6 +165,8 @@ body.popup-open {
     background: var(--bg-default);
     color: var(--text-default);
     border: 1px solid var(--border-default);
+    touch-action: manipulation; /* Prevent double-tap zoom */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .action-btn.primary {
