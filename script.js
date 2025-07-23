@@ -218,10 +218,10 @@ const Components = {
             cardElement.classList.add('purchasing');
             setTimeout(() => cardElement.classList.remove('purchasing'), 300);
             
-            // Purchase the clue if function is available
-            if (typeof purchaseClue === 'function') {
-                purchaseClue(type, cost);
-            }
+            // Dispatch a custom event that can be handled after purchaseClue is defined
+            document.dispatchEvent(new CustomEvent('cluePurchaseRequested', {
+                detail: { type, cost }
+            }));
             
             // Re-render cards after purchase
             setTimeout(() => this.renderCards(), 100);
@@ -1202,6 +1202,12 @@ function purchaseClue(type, cost) {
     // Update clue deck after purchase
     Components.ClueDeck.renderCards();
 }
+
+// Set up event listener for clue purchase requests from ClueDeck
+document.addEventListener('cluePurchaseRequested', (event) => {
+    const { type, cost } = event.detail;
+    purchaseClue(type, cost);
+});
 
 // Get the actual clue content based on type
 function getClueContent(type) {
