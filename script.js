@@ -17,7 +17,7 @@ let cluesGivenByType = {
 };
 
 // Global DOM element references for functions used outside DOMContentLoaded
-let clueList, messageDisplay, clueMenu, clueOptions, currentScoreElement, progressFill, clueCounter;
+let clueList, messageDisplay, currentScoreElement, progressFill, clueCounter;
 
 // Component Library Utilities
 const Components = {
@@ -54,10 +54,13 @@ const Components = {
 
     // ClueStripe Component
     ClueStripe: {
-        create(icon, content, variant = 'hint-taken', cost = null) {
+        create(icon, content, variant = 'hint-taken', cost = null, clueType = null) {
             const stripe = document.createElement('div');
             stripe.className = 'clue-stripe';
             stripe.setAttribute('data-variant', variant);
+            if (clueType) {
+                stripe.setAttribute('data-clue-type', clueType);
+            }
             
             stripe.innerHTML = `
                 <div class="clue-stripe__icon">${icon}</div>
@@ -126,37 +129,95 @@ const Components = {
         }
     },
 
-    // ClueShop Component
-    ClueShop: {
-        element: null,
+    // ClueDeck Component
+    ClueDeck: {
+        desktopElement: null,
+        mobileElement: null,
         init() {
-            this.element = document.getElementById('clue-shop');
+            this.desktopElement = document.getElementById('desktop-clue-deck');
+            this.mobileElement = document.getElementById('mobile-clue-deck');
         },
-        show() {
-            if (!this.element) return;
+        renderCards() {
+            if (!gameStarted || !puzzleData) return;
             
-            // Add performance optimization class
-            this.element.classList.add('animate-fade');
-            this.element.style.display = 'block';
+            const available = getAvailableClues();
+            const dynamicCosts = gameScoring.getAllClueCosts(puzzleData);
             
-            // Trigger animation by setting attribute after display
-            requestAnimationFrame(() => {
-                this.element?.setAttribute('data-open', 'true');
+            const clueTypes = [
+                { type: 'definition', name: 'Another Definition', cost: dynamicCosts.definition, icon: '📖', count: available.definitions },
+                { type: 'wordLength', name: 'Word Length', cost: dynamicCosts.wordLength, icon: '📏', count: available.wordLength ? 1 : 0 },
+                { type: 'example', name: 'Example Sentence', cost: dynamicCosts.example, icon: '📝', count: available.examples },
+                { type: 'synonym', name: 'Synonym', cost: dynamicCosts.synonym, icon: '💡', count: available.synonyms },
+                { type: 'antonym', name: 'Antonym', cost: dynamicCosts.antonym, icon: '🔄', count: available.antonyms },
+                { type: 'letter', name: 'Reveal Letter', cost: dynamicCosts.letter, icon: '🔤', count: available.letters }
+            ];
+            
+            // Create cards HTML
+            const cardsHTML = clueTypes.map(clue => {
+                const disabled = clue.count === 0 || currentScore < clue.cost;
+                const costLevel = clue.cost <= 15 ? 'low' : clue.cost <= 30 ? 'medium' : 'high';
+                
+                return `
+                    <button class="clue-card ${disabled ? 'disabled' : ''}" 
+                            data-type="${clue.type}"
+                            data-cost="${clue.cost}"
+                            data-cost-level="${costLevel}"
+                            ${disabled ? 'disabled' : ''}
+                            role="button"
+                            aria-label="Purchase ${clue.name} for ${clue.cost} points"
+                            tabindex="${disabled ? '-1' : '0'}">
+                        <div class="clue-card-header">
+                            <span class="clue-card-icon">${clue.icon}</span>
+                            <span class="clue-card-title">${clue.name}</span>
+                        </div>
+                        <div class="clue-card-subtitle">
+                            <span class="clue-card-cost">${clue.cost} pts</span>
+                            <span class="clue-card-separator">•</span>
+                            <span class="clue-card-remaining">${clue.count} left</span>
+                        </div>
+                    </button>
+                `;
+            }).join('');
+            
+            // Update desktop deck
+            if (this.desktopElement) {
+                const container = this.desktopElement.querySelector('.clue-cards-container');
+                if (container) container.innerHTML = cardsHTML;
+            }
+            
+            // Update mobile deck
+            if (this.mobileElement) {
+                this.mobileElement.innerHTML = `<div class="clue-cards-container">${cardsHTML}</div>`;
+            }
+            
+            // Add click handlers
+            document.querySelectorAll('.clue-card:not(.disabled)').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    const type = card.dataset.type;
+                    const cost = parseInt(card.dataset.cost);
+                    this.purchaseClue(type, cost, card);
+                });
             });
         },
-        hide() {
-            if (!this.element) return;
+        purchaseClue(type, cost, cardElement) {
+            // Add purchase animation
+            cardElement.classList.add('purchasing');
+            setTimeout(() => cardElement.classList.remove('purchasing'), 300);
             
-            this.element.setAttribute('data-open', 'false');
+            // Purchase the clue
+            purchaseClue(type, cost);
             
-            // Hide element after animation completes
-            setTimeout(() => {
-                this.element.style.display = 'none';
-                this.element.classList.remove('animate-fade');
-            }, 300); // Match motion duration
+            // Re-render cards after purchase
+            setTimeout(() => this.renderCards(), 100);
         },
-        setVariant(variant) {
-            this.element?.setAttribute('data-variant', variant);
+        show() {
+            if (this.desktopElement) this.desktopElement.style.display = 'block';
+            if (this.mobileElement) this.mobileElement.style.display = 'flex';
+            this.renderCards();
+        },
+        hide() {
+            if (this.desktopElement) this.desktopElement.style.display = 'none';
+            if (this.mobileElement) this.mobileElement.style.display = 'none';
         }
     },
 
@@ -352,7 +413,7 @@ document.addEventListener("DOMContentLoaded", function() {
     clueList = document.getElementById("clue-list");
     const guessInput = document.getElementById("guess-input");
     const guessButton = document.getElementById("guess-button");
-    const clueButton = document.getElementById("clue-button");
+    // Clue button removed - using inline clue deck instead
     const giveUpButton = document.getElementById("give-up-button");
     const startGameButton = document.getElementById("start-game-button");
     const inputContainer = document.querySelector(".input-section");
@@ -371,6 +432,29 @@ document.addEventListener("DOMContentLoaded", function() {
     progressFill = document.getElementById("progress-fill");
     clueCounter = document.getElementById("clue-counter");
     const guessCostPreview = document.getElementById("guess-cost-preview");
+    const emptyState = document.getElementById("empty-state");
+    const emptyStateNewGameBtn = document.getElementById("empty-state-new-game");
+    const introText = document.getElementById("intro-text");
+    const sidebarPlaceholder = document.getElementById("sidebar-placeholder");
+    
+    // New sidebar elements
+    const detailsToggle = document.getElementById("details-toggle");
+    const detailsSection = document.getElementById("details-section");
+    const guessCountElement = document.getElementById("guess-count");
+    const timeElapsedElement = document.getElementById("time-elapsed");
+    
+    // Game timer variables
+    let gameStartTime = null;
+    let gameTimerInterval = null;
+    
+    // Details toggle functionality
+    if (detailsToggle) {
+        detailsToggle.addEventListener('click', () => {
+            const isExpanded = detailsToggle.getAttribute('aria-expanded') === 'true';
+            detailsToggle.setAttribute('aria-expanded', !isExpanded);
+            detailsSection.style.display = isExpanded ? 'none' : 'block';
+        });
+    }
     
     // Keyboard navigation setup
     setupKeyboardNavigation();
@@ -378,7 +462,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Initialize Components
     Components.GuessCard.init();
     Components.ScoreMeter.init();
-    Components.ClueShop.init();
+    Components.ClueDeck.init();
     Components.StatModal.init();
     
     // Load word list on startup
@@ -391,27 +475,33 @@ document.addEventListener("DOMContentLoaded", function() {
     let guessedWords = new Set();
     
     // Function to update clue display using ClueStripe component
-    function updateClueDisplay(newClue) {
+    function updateClueDisplay(newClue, clueType = null) {
         // Parse clue to get icon and content
-        const icon = newClue.includes('📖') ? '📖' : 
-                    newClue.includes('📏') ? '📏' : 
-                    newClue.includes('📝') ? '📝' : 
-                    newClue.includes('💡') ? '💡' : 
-                    newClue.includes('🔄') ? '🔄' : 
-                    newClue.includes('🔤') ? '🔤' : '💡';
+        const iconMap = {
+            '📖': 'definition',
+            '📏': 'wordLength',
+            '📝': 'example',
+            '💡': 'synonym',
+            '🔄': 'antonym',
+            '🔤': 'letter'
+        };
+        
+        let icon = '💡';
+        let detectedType = clueType;
+        
+        for (const [emoji, type] of Object.entries(iconMap)) {
+            if (newClue.includes(emoji)) {
+                icon = emoji;
+                if (!detectedType) detectedType = type;
+                break;
+            }
+        }
         
         // Remove icon from content
         const content = newClue.replace(/^[📖📏📝💡🔄🔤]\s*/, '');
         
-        const clueStripe = Components.ClueStripe.create(icon, content, 'hint-taken');
-        clueStripe.style.opacity = "0";
-        clueStripe.style.transition = "opacity 0.5s ease-in-out";
+        const clueStripe = Components.ClueStripe.create(icon, content, 'hint-taken', null, detectedType);
         clueList.appendChild(clueStripe);
-        
-        // Animation to fade in the clue
-        setTimeout(() => {
-            clueStripe.style.opacity = "1";
-        }, 100);
     }
     
     
@@ -422,17 +512,8 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
         
-        // Update clue button text based on availability
-        if (!clueButton.disabled) {
-            const available = getAvailableClues();
-            const hasAnyClues = Object.values(available).some(count => count > 0);
-            if (hasAnyClues && currentScore > 2) {
-                clueButton.textContent = "Get a Clue";
-            } else {
-                clueButton.disabled = true;
-                clueButton.textContent = "No More Clues";
-            }
-        }
+        // Update clue deck to reflect available clues
+        Components.ClueDeck.renderCards();
         
         // Update guess button cost (first guess free, then flat 3 points)
         if (!guessButton.disabled) {
@@ -524,6 +605,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         saveStats();
         updateStatsDisplay();
+        
+        // Enable stats button after first game
+        if (gameStats.gamesPlayed === 1) {
+            statsButton.disabled = false;
+            statsButton.setAttribute('aria-disabled', 'false');
+        }
     }
     
 
@@ -572,20 +659,8 @@ function getNextClue() {
     updateScoreBadge();
     updateProgressBar();
     
-    // If score hits 1, disable clue button but keep guess option
-    if (currentScore === 1) {
-        clueButton.disabled = true;
-        clueButton.textContent = "No More Clues (Min Score)";
-    } else {
-        // Update button costs if not disabled
-        updateButtonCosts();
-    }
-    
-    // If all clues used, disable button
-    if (cluesUsed >= availableClues) {
-        clueButton.disabled = true;
-        clueButton.textContent = "All Clues Used";
-    }
+    // Update button costs
+    updateButtonCosts();
     
     // Update button costs after using a clue
     updateButtonCosts();
@@ -732,19 +807,27 @@ function startGame() {
         updateClueDisplay(formatString(i18n.messages.gaveUp, { word: puzzleData.word }));
     }
     
+    // Hide empty state and show game UI
+    if (emptyState) emptyState.style.display = "none";
+    if (introText) introText.style.display = "block";
+    if (sidebarPlaceholder) sidebarPlaceholder.style.display = "none";
+    
+    // Show clue deck
+    Components.ClueDeck.show();
+    
+    // Enable buttons
+    giveUpButton.disabled = false;
+    giveUpButton.setAttribute('aria-disabled', 'false');
+    statsButton.disabled = false;
+    statsButton.setAttribute('aria-disabled', 'false');
+    
     gameStarted = true;
-    guessButton.disabled = false;
-    clueButton.disabled = false;
-    clueButton.textContent = "Get a Clue"; // Reset button text
-		giveUpButton.disabled = false; 
+    guessButton.disabled = false; 
 		
-    // Reset scoring
-    currentScore = 100;
+    // Reset game state
     cluesUsed = 0;
     guessCount = 0; // Reset guess counter
-    updateScoreBadge();
     guessedWords.clear(); // Reset guessed words
-    currentScoreElement.textContent = currentScore;
     scoreContainer.style.display = "block";
     
     // Reset clue tracking for new menu system
@@ -768,12 +851,15 @@ function startGame() {
         gameScoring.initializeGame(puzzleData);
         currentScore = gameScoring.getCurrentScore();
         
-        // Display the primary definition
-        // Assuming puzzleData is already fetched and contains the word and primary definition
-    const definition = puzzleData.definitions[0]; // Get the primary definition of the word
-    
-    // Display the formatted message in the primary-definition element
-    document.getElementById("primary-definition").innerHTML = `${definition}`;
+        // Update all score displays immediately
+        currentScoreElement.textContent = currentScore;
+        updateScoreBadge();
+        
+        // Display the primary definition as a ClueStripe
+        const definition = puzzleData.definitions[0]; // Get the primary definition of the word
+        clueList.innerHTML = ''; // Clear previous clues
+        const definitionStripe = Components.ClueStripe.create('📖', `Definition: ${definition}`, 'hint-taken', null, 'definition');
+        clueList.appendChild(definitionStripe);
         
         
         // Initialize word pattern display
@@ -787,11 +873,21 @@ function startGame() {
     // Update progress bar after puzzle is loaded
     updateProgressBar();
     
+    // Update unopened clues count
+    updateUnopenedCluesCount();
+    
     // Initialize button costs
     updateButtonCosts();
     
     // Update difficulty display
     updateDifficultyIndicator();
+    
+    // Update clue deck
+    Components.ClueDeck.renderCards();
+    
+    // Start game timer and reset guess count display
+    startGameTimer();
+    updateGuessCount();
 
     });
 }
@@ -844,8 +940,10 @@ function handleGuess() {
     
     // Check if guess is empty or single character
     if (!guess) {
-        messageDisplay.innerHTML = "Please enter a word to guess!";
-        messageDisplay.style.color = "#e07a5f";
+        // Shake input and show toast
+        guessInput.classList.add('shake');
+        setTimeout(() => guessInput.classList.remove('shake'), 500);
+        Components.Toast.show("Please type a word.", 'error');
         return;
     }
     
@@ -867,8 +965,9 @@ function handleGuess() {
     
     // Validate guess: must be a real English word (if word list loaded)
     if (validWords && validWords.size > 0 && !validWords.has(guess)) {
-        messageDisplay.innerHTML = `"${guess}" is not a valid English word. Try again!`;
-        messageDisplay.style.color = "#e07a5f";
+        Components.Toast.show("Not in dictionary.", 'error');
+        guessInput.classList.add('shake');
+        setTimeout(() => guessInput.classList.remove('shake'), 500);
         return;
     }
     
@@ -884,6 +983,7 @@ function handleGuess() {
     
     // Charge for guess (first guess is free, then flat 3 points)
     guessCount++;
+    updateGuessCount(); // Update guess count display
     // Use new scoring system for guess processing
     const guessResult = gameScoring.makeGuess(guess === puzzleData.word.toLowerCase());
     currentScore = gameScoring.getCurrentScore();
@@ -913,9 +1013,9 @@ function handleGuess() {
         gameStarted = false; // Indicate the game has ended
         guessButton.disabled = true; // Disable the Guess button
         guessButton.textContent = "Guess"; // Reset button text
-        clueButton.disabled = true; // Disable the Clue button
-        clueButton.textContent = "Need a Clue?"; // Reset button text
+        // Clue deck will update automatically
         giveUpButton.disabled = true; // Disable the Give Up button
+        stopGameTimer(); // Stop the game timer
     } else {
         // Wrong guess - no additional penalty since guess already cost points
         
@@ -964,37 +1064,50 @@ function handleGuess() {
 }
 
 guessButton.addEventListener("click", handleGuess);
-// Get clue menu element references
-clueMenu = document.getElementById("clue-shop");
-clueOptions = document.getElementById("clue-options");
 
-// Show clue menu when clicking the clue button
-clueButton.addEventListener("click", () => {
-    if (gameStarted) {
-        showClueMenu();
-    }
-});
+// Remove old clue button listener since we have inline deck now
 
 // Close clue menu when clicking outside
 document.addEventListener("click", (event) => {
-    if (!clueButton.contains(event.target) && !clueMenu.contains(event.target)) {
-        clueMenu.style.display = "none";
-    }
+    // No longer needed - clue deck is always visible
 });
 
 giveUpButton.addEventListener("click", () => {
     if (gameStarted) {
-        updateClueDisplay(`The word was: ${puzzleData.word}`);
-        recordGameResult(false); // Record loss
-        guessButton.disabled = true; // Optionally disable the Guess button
-        clueButton.disabled = true; // Optionally disable the Clue button
-        giveUpButton.disabled = true; 
-      	gameStarted = false; // Indicate the game has ended
-
+        // Show confirmation dialog
+        const confirmGiveUp = confirm("Are you sure you want to reveal the answer? This will end the game with 0 points.");
+        
+        if (confirmGiveUp) {
+            updateClueDisplay(`The word was: ${puzzleData.word}`);
+            recordGameResult(false); // Record loss
+            guessButton.disabled = true; // Optionally disable the Guess button
+            // Clue deck will update automatically
+            giveUpButton.disabled = true; 
+            gameStarted = false; // Indicate the game has ended
+            stopGameTimer(); // Stop the game timer
+            
+            // Set score to 0 for giving up
+            currentScore = 0;
+            currentScoreElement.textContent = currentScore;
+            updateScoreBadge();
+        }
     }
 });
 
 startGameButton.addEventListener("click", startGame);
+
+// Empty state New Game button
+if (emptyStateNewGameBtn) {
+    emptyStateNewGameBtn.addEventListener("click", startGame);
+}
+
+// Make help icon in empty state clickable
+document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("help-icon")) {
+        helpModal.style.display = "block";
+        document.querySelector('.modal-content').focus();
+    }
+});
 
 // Stats modal event listeners
 statsButton.addEventListener("click", () => {
@@ -1047,6 +1160,12 @@ window.addEventListener("click", (event) => {
 loadStats();
 updateStatsDisplay();
 
+// Enable stats button if games have been played
+if (gameStats.gamesPlayed > 0) {
+    statsButton.disabled = false;
+    statsButton.setAttribute('aria-disabled', 'false');
+}
+
 // Initialize clue count display
 updateUnopenedCluesCount();
 
@@ -1066,20 +1185,16 @@ function purchaseClue(type, cost) {
     // Get and display the clue
     const clueContent = getClueContent(type);
     if (clueContent) {
-        updateClueDisplay(clueContent);
+        updateClueDisplay(clueContent, type);
         
         // Update button states
         updateButtonCosts();
         
-        // Check if score is too low for more clues
-        if (currentScore <= 2) { // Can't afford cheapest clue
-            clueButton.disabled = true;
-            clueButton.textContent = "No More Clues";
-        }
+        // Clue deck will update automatically to show disabled state
     }
     
-    // Hide the menu using component
-    Components.ClueShop.hide();
+    // Update clue deck after purchase
+    Components.ClueDeck.renderCards();
 }
 
 // Get the actual clue content based on type
@@ -1140,56 +1255,7 @@ function getClueContent(type) {
     return content;
 }
 
-// Show the clue menu with available options using ClueShop component
-function showClueMenu() {
-    const available = getAvailableClues();
-    clueOptions.innerHTML = ''; // Clear previous options
-    
-    // Get dynamic costs from new scoring system
-    const dynamicCosts = gameScoring.getAllClueCosts(puzzleData);
-    
-    // Define clue types with dynamic costs and icons
-    const clueTypes = [
-        { type: 'definition', name: 'Another Definition', cost: dynamicCosts.definition, icon: '📖', count: available.definitions },
-        { type: 'wordLength', name: 'Word Length', cost: dynamicCosts.wordLength, icon: '📏', count: available.wordLength },
-        { type: 'example', name: 'Sample Sentence', cost: dynamicCosts.example, icon: '📝', count: available.examples },
-        { type: 'synonyms', name: 'Synonyms', cost: dynamicCosts.synonyms, icon: '💡', count: available.synonyms },
-        { type: 'antonyms', name: 'Antonyms', cost: dynamicCosts.antonyms, icon: '🔄', count: available.antonyms },
-        { type: 'letter', name: 'Reveal Letter', cost: dynamicCosts.letter, icon: '🔤', count: available.letters }
-    ];
-    
-    // Create ClueStripe components for each option
-    clueTypes.forEach(clueType => {
-        if (clueType.count > 0) { // Only show if available
-            const affordable = canAffordClue(clueType.cost);
-            const variant = affordable ? 'available' : 'hint-taken';
-            
-            const clueStripe = Components.ClueStripe.create(
-                clueType.icon, 
-                `${clueType.name} (${clueType.count} left)`,
-                variant,
-                clueType.cost
-            );
-            
-            if (affordable) {
-                clueStripe.addEventListener('click', () => purchaseClue(clueType.type, clueType.cost));
-            }
-            
-            clueOptions.appendChild(clueStripe);
-        }
-    });
-    
-    // Show message if no clues available
-    if (clueOptions.children.length === 0) {
-        const noClues = Components.ClueStripe.create('❌', i18n.messages.noMoreClues, 'hint-taken');
-        clueOptions.appendChild(noClues);
-    }
-    
-    // Detect mobile and set appropriate variant
-    const isMobile = window.innerWidth <= 768;
-    Components.ClueShop.setVariant(isMobile ? 'drawer' : 'popover');
-    Components.ClueShop.show();
-}
+// Function removed - using inline ClueDeck component instead
 
 // Check if player can afford a clue
 function canAffordClue(cost) {
@@ -1198,10 +1264,11 @@ function canAffordClue(cost) {
 
 });
 
-// Global function for calculating available clues
+// Global function for calculating total available clues
 function calculateAvailableClues() {
     if (!puzzleData) return 0;
-    return 7; // 7 paid clues + 2 free (first definition + first letter) = 9 total
+    const available = getAvailableClues();
+    return Object.values(available).reduce((sum, count) => sum + count, 0);
 }
 
 // Global function for updating progress bar with animation
@@ -1233,15 +1300,48 @@ function updateDifficultyIndicator() {
     const breakdown = gameScoring.getScoreBreakdown();
     const difficultyElement = document.getElementById('difficulty-score');
     const difficultyFill = document.getElementById('difficulty-fill');
-    const difficultyIndicator = document.querySelector('.difficulty-indicator');
+    const difficultySection = document.querySelector('.difficulty-section');
     
-    if (difficultyElement && difficultyFill && difficultyIndicator) {
+    if (difficultyElement && difficultyFill && difficultySection) {
         const difficulty = breakdown.difficulty;
         const percentage = Math.round(difficulty * 100);
         
         difficultyElement.textContent = difficulty.toFixed(2);
         difficultyFill.style.width = `${percentage}%`;
-        difficultyIndicator.style.display = 'block';
+        difficultySection.style.display = 'block';
+    }
+}
+
+// Update game timer display
+function updateGameTimer() {
+    if (!gameStartTime || !timeElapsedElement) return;
+    
+    const elapsed = Math.floor((Date.now() - gameStartTime) / 1000);
+    const minutes = Math.floor(elapsed / 60);
+    const seconds = elapsed % 60;
+    timeElapsedElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+}
+
+// Start game timer
+function startGameTimer() {
+    gameStartTime = Date.now();
+    if (gameTimerInterval) clearInterval(gameTimerInterval);
+    gameTimerInterval = setInterval(updateGameTimer, 1000);
+    updateGameTimer();
+}
+
+// Stop game timer
+function stopGameTimer() {
+    if (gameTimerInterval) {
+        clearInterval(gameTimerInterval);
+        gameTimerInterval = null;
+    }
+}
+
+// Update guess count display
+function updateGuessCount() {
+    if (guessCountElement) {
+        guessCountElement.textContent = guessCount;
     }
 }
 
@@ -1328,6 +1428,20 @@ function startGameWithSpecificWord(wordIndex) {
     currentPuzzleIndex = wordIndex;
     puzzleData = puzzleDataList[wordIndex];
     
+    // Hide empty state and show game UI
+    if (emptyState) emptyState.style.display = "none";
+    if (introText) introText.style.display = "block";
+    if (sidebarPlaceholder) sidebarPlaceholder.style.display = "none";
+    
+    // Show clue deck
+    Components.ClueDeck.show();
+    
+    // Enable buttons
+    giveUpButton.disabled = false;
+    giveUpButton.setAttribute('aria-disabled', 'false');
+    statsButton.disabled = false;
+    statsButton.setAttribute('aria-disabled', 'false');
+    
     // Initialize new scoring system
     gameScoring.initializeGame(puzzleData);
     
@@ -1337,21 +1451,32 @@ function startGameWithSpecificWord(wordIndex) {
     cluesUsed = 0;
     guessCount = 0;
     guessedWords.clear(); // Reset guessed words
+    
+    // Update all score displays immediately
+    currentScoreElement.textContent = currentScore;
     updateScoreBadge();
     gameStarted = true;
     // Game start time tracking removed
     
     // Update display
-    updateScore();
     updateProgressBar();
     updateButtonCosts();
     updateUnopenedCluesCount();
     updateDifficultyIndicator();
+    Components.ClueDeck.renderCards();
+    
+    // Start game timer and reset guess count display
+    startGameTimer();
+    updateGuessCount();
     
     // Show initial clues
     myword.style.display = "block";
     wordPatternElement.textContent = puzzleData.word[0].toUpperCase() + " _ ".repeat(puzzleData.word.length - 1);
-    document.getElementById("primary-definition").textContent = puzzleData.definitions[0];
+    
+    // Display the primary definition as a ClueStripe
+    clueList.innerHTML = ''; // Clear previous clues
+    const definitionStripe = Components.ClueStripe.create('📖', `Definition: ${puzzleData.definitions[0]}`, 'hint-taken', null, 'definition');
+    clueList.appendChild(definitionStripe);
     
     // Update UI state
     startGameButton.textContent = "New Game";
@@ -1406,11 +1531,18 @@ function generateHeatMapCalendar() {
     }
 }
 
-// Update score badge in real-time
+// Update score badge in real-time with animation
 function updateScoreBadge() {
     const scoreBadge = document.getElementById('current-score-badge');
     if (scoreBadge) {
         scoreBadge.textContent = currentScore;
+    }
+    
+    // Animate main score number
+    const scoreNumber = document.getElementById('current-score');
+    if (scoreNumber) {
+        scoreNumber.classList.add('updating');
+        setTimeout(() => scoreNumber.classList.remove('updating'), 300);
     }
 }
 
@@ -1421,10 +1553,7 @@ function setupKeyboardNavigation() {
         if (event.key === 'Escape') {
             // Close clue shop if open
             const clueShop = document.getElementById('clue-shop');
-            if (clueShop && clueShop.getAttribute('data-open') === 'true') {
-                Components.ClueShop.hide();
-                event.preventDefault();
-            }
+            // No longer needed - clue deck is always visible
             
             // Close stats modal if open
             const statsModal = document.getElementById('stats-modal');
