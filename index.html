@@ -105,7 +105,13 @@
             <!-- StatModal Component -->
             <div id="stats-modal" class="stat-modal" data-open="false">
                 <div class="stat-modal__content">
-                    <div class="stat-modal__header">Game Statistics</div>
+                    <div class="stat-modal__header">
+                        Game Statistics
+                        <button class="close" aria-label="Close statistics modal">
+                            <span class="sr-only">Close</span>
+                            &times;
+                        </button>
+                    </div>
                     <div class="stat-modal__grid">
                         <div class="stat-modal__stat">
                             <div id="games-played" class="stat-modal__value">0</div>

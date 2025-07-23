@@ -755,6 +755,26 @@ header {
 }
 
 /* StatModal Component */
+.stat-modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stat-modal__header .close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--dg-text-muted);
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.stat-modal__header .close:hover {
+    color: var(--dg-text-primary);
+}
+
 .stat-modal {
     --bg: var(--component-bg, var(--dg-bg-primary));
     --text: var(--component-text, var(--dg-text-primary));
