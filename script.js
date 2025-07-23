@@ -659,7 +659,7 @@ function getNextClue() {
     
     // Prevent score from going below 1 from clues alone (preserve ability to guess)
     currentScore = Math.max(1, currentScore - adjustedPenalty);
-    currentScoreElement.textContent = currentScore;
+    animateScoreUpdate(currentScoreElement, currentScore);
     updateScoreBadge();
     updateProgressBar();
     
@@ -856,7 +856,7 @@ function startGame() {
         currentScore = gameScoring.getCurrentScore();
         
         // Update all score displays immediately
-        currentScoreElement.textContent = currentScore;
+        animateScoreUpdate(currentScoreElement, currentScore);
         updateScoreBadge();
         
         // Display the primary definition as a ClueStripe
@@ -991,7 +991,7 @@ function handleGuess() {
     // Use new scoring system for guess processing
     const guessResult = gameScoring.makeGuess(guess === puzzleData.word.toLowerCase());
     currentScore = gameScoring.getCurrentScore();
-    currentScoreElement.textContent = currentScore;
+    animateScoreUpdate(currentScoreElement, currentScore);
     updateScoreBadge();
     
     console.log(`Guess ${guessResult.guessNumber}: Bonus=${guessResult.bonus}, Penalty=${guessResult.penalty}, Score=${currentScore}`);
@@ -1092,7 +1092,7 @@ giveUpButton.addEventListener("click", () => {
             
             // Set score to 0 for giving up
             currentScore = 0;
-            currentScoreElement.textContent = currentScore;
+            animateScoreUpdate(currentScoreElement, currentScore);
             updateScoreBadge();
         }
     }
@@ -1179,7 +1179,7 @@ function purchaseClue(type, cost) {
     const clueResult = gameScoring.purchaseClue(type, puzzleData);
     currentScore = gameScoring.getCurrentScore();
     
-    currentScoreElement.textContent = currentScore;
+    animateScoreUpdate(currentScoreElement, currentScore);
     updateScoreBadge();
     cluesUsed++; // Increment total clues counter
     updateProgressBar();
@@ -1303,6 +1303,44 @@ function updateUnopenedCluesCount() {
     }
 }
 
+// Animate score changes with smooth counting
+function animateScoreUpdate(element, newScore) {
+    if (!element) return;
+    
+    const oldScore = parseInt(element.textContent) || 0;
+    const duration = 600; // 0.6s per spec
+    const startTime = performance.now();
+    
+    // Add updating class for visual feedback
+    element.classList.add('updating');
+    
+    const animate = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Ease-out function
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        
+        const currentValue = Math.round(oldScore + (newScore - oldScore) * easeOut);
+        element.textContent = currentValue;
+        
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        } else {
+            element.textContent = newScore;
+            element.classList.remove('updating');
+        }
+    };
+    
+    // Check for reduced motion preference
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        element.textContent = newScore;
+        return;
+    }
+    
+    requestAnimationFrame(animate);
+}
+
 // Update difficulty indicator display
 function updateDifficultyIndicator() {
     if (!gameScoring || !puzzleData) return;
@@ -1316,8 +1354,17 @@ function updateDifficultyIndicator() {
         const difficulty = breakdown.difficulty;
         const percentage = Math.round(difficulty * 100);
         
+        // Set difficulty level per spec: 0-0.3 = low, 0.3-0.6 = medium, >0.6 = high
+        let difficultyLevel = 'low';
+        if (difficulty > 0.6) {
+            difficultyLevel = 'high';
+        } else if (difficulty > 0.3) {
+            difficultyLevel = 'medium';
+        }
+        
         difficultyElement.textContent = difficulty.toFixed(2);
         difficultyFill.style.width = `${percentage}%`;
+        difficultyFill.setAttribute('data-difficulty', difficultyLevel);
         difficultySection.style.display = 'block';
     }
 }
@@ -1463,7 +1510,7 @@ function startGameWithSpecificWord(wordIndex) {
     guessedWords.clear(); // Reset guessed words
     
     // Update all score displays immediately
-    currentScoreElement.textContent = currentScore;
+    animateScoreUpdate(currentScoreElement, currentScore);
     updateScoreBadge();
     gameStarted = true;
     // Game start time tracking removed
@@ -1617,7 +1664,7 @@ function startScoreUpdateTimer() {
             const newScore = gameScoring.getCurrentScore();
             if (newScore !== currentScore) {
                 currentScore = newScore;
-                currentScoreElement.textContent = currentScore;
+                animateScoreUpdate(currentScoreElement, currentScore);
                 updateScoreBadge();
             }
         }

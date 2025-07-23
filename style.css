@@ -2,24 +2,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* Design System Tokens */
+/* Design System Tokens - Production Spec */
 :root {
-    /* Color Tokens - WCAG AA Compliant */
-    --dg-primary: #0F766E;
-    --dg-accent: #12A174;
-    --dg-accent-text: #124C46; /* High contrast text for accent buttons (4.5:1) */
-    --dg-warning: #D97706;
-    --dg-bg-card: #F9FAFB;
-    --dg-border: #D1D5DB;
+    /* Background Colors */
+    --bg-default: #f2f0e9;
+    --bg-card: #ffffff;
     
-    /* Additional colors for complete design */
-    --dg-bg-primary: #ffffff;
-    --dg-bg-secondary: #eae7dc;
-    --dg-text-primary: #1F2937; /* Enhanced contrast (4.85:1 on white) */
-    --dg-text-secondary: #374151; /* Enhanced contrast (4.69:1 on white) */
-    --dg-text-muted: #6B7280; /* Enhanced contrast (4.54:1 on white) */
-    --dg-error: #DC2626;
-    --dg-success: #059669; /* High contrast success color */
+    /* Text Colors */
+    --text-default: #1e293b;
+    --text-subtle: #475569;
+    
+    /* Primary Colors */
+    --primary-50: #e0f4f2;
+    --primary-600: #006d6f;
+    
+    /* Accent Colors */
+    --accent-400: #ffb703;
+    
+    /* Status Colors */
+    --green-400: #4ade80;
+    --amber-400: #fbbf24;
+    --red-400: #f87171;
+    
+    /* Legacy mappings for existing code */
+    --dg-primary: var(--primary-600);
+    --dg-accent: var(--accent-400);
+    --dg-accent-text: var(--primary-600);
+    --dg-warning: var(--amber-400);
+    --dg-bg-card: var(--bg-card);
+    --dg-border: #D1D5DB;
+    --dg-bg-primary: var(--bg-card);
+    --dg-bg-secondary: var(--bg-default);
+    --dg-text-primary: var(--text-default);
+    --dg-text-secondary: var(--text-default);
+    --dg-text-muted: var(--text-subtle);
+    --dg-error: var(--red-400);
+    --dg-success: var(--green-400);
     --dg-shadow: rgba(0, 0, 0, 0.15);
     --dg-shadow-light: rgba(0, 0, 0, 0.1);
     
@@ -77,17 +95,45 @@
     border: 0;
 }
 
-/* Focus Management */
+/* Focus Management - WCAG 2.1 AA Compliant */
 *:focus {
-    outline: 2px solid var(--dg-accent);
+    outline: 2px solid var(--primary-600);
     outline-offset: 2px;
 }
 
-/* High contrast focus for buttons */
-button:focus {
-    outline: 3px solid var(--dg-accent);
+/* Remove focus styles for mouse users */
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Visible focus for keyboard users only */
+*:focus-visible {
+    outline: 2px solid var(--primary-600);
     outline-offset: 2px;
-    box-shadow: 0 0 0 6px rgba(18, 161, 116, 0.2);
+}
+
+/* High contrast focus for interactive elements */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--primary-600);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(0, 109, 111, 0.2);
+}
+
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: var(--type-body);
+    line-height: 1.5;
+    color: var(--text-default);
+    background-color: var(--bg-default);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Skip to main content link */
@@ -249,72 +295,43 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Root Grid Layout */
+/* Mobile-First Grid Layout */
 .game-shell {
-    display: grid;
-    grid-template-areas:
-        "header   header"
-        "prompt   aside"
-        "actions  aside"
-        "footer   footer";
-    grid-template-columns: 1fr 320px;
-    grid-template-rows: auto 1fr auto auto;
-    gap: var(--space-4);
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
     padding: var(--space-4);
-    max-width: 1400px;
+    gap: var(--space-4);
+    max-width: 1440px;
     margin: 0 auto;
 }
 
-/* Large screens - optional 3 column layout */
-@media (min-width: 1200px) {
+/* Desktop layout (≥ 768px) per spec */
+@media (min-width: 768px) {
     .game-shell {
+        display: grid;
         grid-template-areas:
-            "header   header   header"
-            "prompt   aside    deck"
-            "actions  aside    deck"
-            "footer   footer   footer";
-        grid-template-columns: 1fr 320px 280px;
+            "header   header"
+            "prompt   aside"
+            "actions  aside"
+            "footer   footer";
+        grid-template-columns: 1fr minmax(280px, 0.6fr);
+        grid-template-rows: auto 1fr auto auto;
+        gap: var(--space-6);
+        max-width: 1024px;
+        padding: var(--space-8) var(--space-4);
     }
     
-    .desktop-clue-deck {
-        grid-area: deck;
+    .game-prompt {
+        padding: 4vh var(--space-8) 2vh var(--space-8);
+    }
+    
+    .game-sidebar {
         position: sticky;
         top: var(--space-4);
         height: fit-content;
     }
 }
-
-/* Tablet/medium screens */
-@media (min-width: 900px) and (max-width: 1199px) {
-    .game-shell {
-        grid-template-columns: 1fr 300px;
-    }
-}
-
-/* Mobile/small screens */
-@media (max-width: 899px) {
-    .game-shell {
-        grid-template-areas:
-            "header"
-            "prompt"
-            "actions"
-            "aside"
-            "footer";
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto auto auto;
-        padding: var(--space-3);
-        gap: var(--space-3);
-    }
-    
-    .game-prompt {
-        padding: 4vh 0 2vh 0;
-        min-height: auto;
-    }
-    
-    .game-sidebar {
-        margin-top: var(--space-4);
-    }
     
     /* Mobile sticky sidebar */
     .score-info-panel {
@@ -2611,13 +2628,21 @@ button[aria-disabled="true"]:hover {
 
 .difficulty-gauge-fill {
     height: 100%;
-    background: linear-gradient(to right, 
-        #10B981 0%,    /* Green */
-        #F59E0B 50%,   /* Yellow */
-        #EF4444 100%   /* Red */
-    );
-    transition: width 0.3s ease;
+    transition: width 0.3s ease, background-color 0.3s ease;
     border-radius: 4px;
+}
+
+/* Difficulty color ranges per spec */
+.difficulty-gauge-fill[data-difficulty="low"] {
+    background-color: var(--green-400);
+}
+
+.difficulty-gauge-fill[data-difficulty="medium"] {
+    background-color: var(--amber-400);
+}
+
+.difficulty-gauge-fill[data-difficulty="high"] {
+    background-color: var(--red-400);
 }
 
 /* Details Toggle */

@@ -41,7 +41,9 @@
         
         <section class="game-actions">
             <div class="input-section" style="display: none;">
-                <input type="text" id="guess-input" placeholder="Enter your guess" aria-label="Type your word guess" tabindex="1">
+                <label for="guess-input" class="sr-only">Enter your word guess</label>
+                <input type="text" id="guess-input" placeholder="Enter your guess" aria-describedby="guess-hint" tabindex="1">
+                <span id="guess-hint" class="sr-only">Type a word that starts with the given letter and press Enter or click Guess</span>
                 <div class="main-buttons">
                     <div class="button-container">
                         <button id="guess-button" tabindex="2">Guess</button>

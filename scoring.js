@@ -141,7 +141,8 @@ class GameScoring {
     // Calculate dynamic clue cost
     calculateClueCost(clueType, puzzleData) {
         const informationGain = this.calculateClueInformationGain(clueType, puzzleData);
-        return Math.round(this.K * informationGain);
+        // Production spec formula: Cost (pts) = ⌈bits × log10(2) × 10⌉
+        return Math.ceil(informationGain * Math.log10(2) * 10);
     }
 
     // Process a clue purchase
