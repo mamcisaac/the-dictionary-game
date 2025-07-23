@@ -352,7 +352,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const clueButton = document.getElementById("clue-button");
     const giveUpButton = document.getElementById("give-up-button");
     const startGameButton = document.getElementById("start-game-button");
-    const inputContainer = document.getElementById("input-container");
+    const inputContainer = document.querySelector(".input-section");
 		messageDisplay = document.getElementById("message");
     const myword = document.getElementById("my-word");
     const scoreContainer = document.getElementById("score-container");
