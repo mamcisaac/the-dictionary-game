@@ -24,6 +24,16 @@ let cluesGivenByType = {
 // Global DOM element references for functions used outside DOMContentLoaded
 let clueList, messageDisplay;
 
+// Global game statistics
+let gameStats = {
+    gamesPlayed: 0,
+    gamesWon: 0,
+    totalScore: 0,
+    bestScore: 0,
+    currentStreak: 0,
+    bestStreak: 0
+};
+
 // Load word dictionary from Cornerstone (JSON is faster than text parsing)
 async function loadWordList() {
     try {
@@ -230,14 +240,6 @@ document.addEventListener("DOMContentLoaded", function() {
     let cluesGiven = [];
     let currentScore = 100;
     let cluesUsed = 0;
-    let gameStats = {
-        gamesPlayed: 0,
-        gamesWon: 0,
-        totalScore: 0,
-        bestScore: 0,
-        currentStreak: 0,
-        bestStreak: 0
-    };
 
     // Initially hide the input container until the game starts
     inputContainer.style.display = "none";
