@@ -22,7 +22,7 @@ let cluesGivenByType = {
 };
 
 // Global DOM element references for functions used outside DOMContentLoaded
-let clueList, messageDisplay, clueMenu, clueOptions, currentScoreElement;
+let clueList, messageDisplay, clueMenu, clueOptions, currentScoreElement, progressFill, clueCounter;
 
 // Global game statistics
 let gameStats = {
@@ -77,8 +77,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const helpButton = document.getElementById("help-button");
     const helpModal = document.getElementById("help-modal");
     const closeHelpModal = document.querySelector(".close-help");
-    const progressFill = document.getElementById("progress-fill");
-    const clueCounter = document.getElementById("clue-counter");
+    progressFill = document.getElementById("progress-fill");
+    clueCounter = document.getElementById("clue-counter");
     const guessCostPreview = document.getElementById("guess-cost-preview");
     
     // Load word list on startup
@@ -135,12 +135,6 @@ document.addEventListener("DOMContentLoaded", function() {
     
     
     // Update progress bar with dynamic limits
-    function updateProgressBar() {
-        const availableClues = calculateAvailableClues();
-        const progressPercentage = availableClues > 0 ? (cluesUsed / availableClues) * 100 : 0;
-        progressFill.style.width = Math.min(progressPercentage, 100) + '%';
-        clueCounter.textContent = `${cluesUsed}/${availableClues} clues`;
-    }
     
     // Update word pattern display based on current clues
     function updateWordPatternDisplay() {
@@ -767,6 +761,14 @@ if (closeAchievementsModal) {
 }
 
 });
+
+// Global function for updating progress bar
+function updateProgressBar() {
+    const availableClues = calculateAvailableClues();
+    const progressPercentage = availableClues > 0 ? (cluesUsed / availableClues) * 100 : 0;
+    progressFill.style.width = Math.min(progressPercentage, 100) + '%';
+    clueCounter.textContent = `${cluesUsed}/${availableClues} clues`;
+}
 
 // ========================
 // PHASE 1 INITIALIZATION
