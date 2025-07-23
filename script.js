@@ -1,6 +1,8 @@
 // Global word list for validation
 let validWords = new Set();
 
+// Global game state
+let gameStarted = false;
 
 // Global puzzle data
 let puzzleData = null;
@@ -18,6 +20,14 @@ let cluesGivenByType = {
 
 // Global DOM element references for functions used outside DOMContentLoaded
 let clueList, messageDisplay, currentScoreElement, progressFill, clueCounter;
+let timeElapsedElement, guessCountElement, gameStartTime, gameTimerInterval;
+
+// Global game state variables  
+let currentScore = 100;
+let cluesUsed = 0;
+
+// New scoring system - initialize later after GameScoring is loaded
+let gameScoring;
 
 // Component Library Utilities
 const Components = {
@@ -140,6 +150,9 @@ const Components = {
         renderCards() {
             if (!gameStarted || !puzzleData) return;
             
+            // Check if dependencies are available
+            if (typeof getAvailableClues !== 'function' || !gameScoring) return;
+            
             const available = getAvailableClues();
             const dynamicCosts = gameScoring.getAllClueCosts(puzzleData);
             
@@ -154,7 +167,7 @@ const Components = {
             
             // Create cards HTML
             const cardsHTML = clueTypes.map(clue => {
-                const disabled = clue.count === 0 || currentScore < clue.cost;
+                const disabled = clue.count === 0 || (typeof currentScore !== 'undefined' && currentScore < clue.cost);
                 const costLevel = clue.cost <= 15 ? 'low' : clue.cost <= 30 ? 'medium' : 'high';
                 
                 return `
@@ -383,12 +396,8 @@ let gameStats = {
     bestStreak: 0
 };
 
-// Global game state variables  
-let currentScore = 100;
-let cluesUsed = 0;
-
-// New scoring system
-let gameScoring = new GameScoring();
+// Initialize scoring system
+gameScoring = new GameScoring();
 
 // Load word dictionary from Cornerstone (JSON is faster than text parsing)
 async function loadWordList() {
@@ -440,12 +449,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // New sidebar elements
     const detailsToggle = document.getElementById("details-toggle");
     const detailsSection = document.getElementById("details-section");
-    const guessCountElement = document.getElementById("guess-count");
-    const timeElapsedElement = document.getElementById("time-elapsed");
-    
-    // Game timer variables
-    let gameStartTime = null;
-    let gameTimerInterval = null;
+    guessCountElement = document.getElementById("guess-count");
+    timeElapsedElement = document.getElementById("time-elapsed");
     
     // Details toggle functionality
     if (detailsToggle) {
@@ -624,7 +629,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		let lettersRevealed = 1; 
     let currentClueIndex = 0;
-    let gameStarted = false;
     let cluesGiven = [];
 
     // Initially hide the input container until the game starts
