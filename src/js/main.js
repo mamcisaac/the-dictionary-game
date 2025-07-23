@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     DOMUtils.init();
     GameState.initializeScoring();
     GameState.loadWordList();
+    Statistics.init();
     
     // Initialize UI systems
     ModalManager.init();
@@ -18,6 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
     Components.ScoreMeter.init();
     Components.ClueDeck.init();
     Components.StatModal.init();
+    
+    // UI Updates module - start periodic score updates
+    if (typeof startScoreUpdateTimer === 'function') {
+        startScoreUpdateTimer();
+    }
     
     // Initialize event handling (must be last)
     EventHandlers.init();

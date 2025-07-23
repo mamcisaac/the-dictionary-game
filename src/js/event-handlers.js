@@ -91,7 +91,7 @@ const EventHandlers = {
 
         if (statsButton) {
             statsButton.addEventListener("click", () => {
-                updateStatsDisplay();
+                Statistics.updateStatsDisplay();
                 Components.StatModal.show();
             });
         }
@@ -215,6 +215,9 @@ const EventHandlers = {
         gameStarted = false;
         currentScore = 0;
         
+        // Record the game as a loss
+        Statistics.recordGameResult(false);
+        
         // Show the answer
         const messageArea = document.getElementById("message");
         if (messageArea) {
@@ -240,12 +243,10 @@ const EventHandlers = {
         };
 
         // Save to localStorage
-        localStorage.setItem('dictionaryGameStats', JSON.stringify(gameStats));
+        Statistics.saveStats(gameStats);
         
         // Update display
-        if (typeof updateStatsDisplay === 'function') {
-            updateStatsDisplay();
-        }
+        Statistics.updateStatsDisplay();
 
         // Show feedback
         Components.Toast.show("📊 Statistics reset successfully", "success");
