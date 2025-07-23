@@ -25,6 +25,7 @@ let timeElapsedElement, guessCountElement, gameStartTime, gameTimerInterval;
 // Global game state variables  
 let currentScore = 100;
 let cluesUsed = 0;
+let guessCount = 0;
 
 // New scoring system - initialize later after GameScoring is loaded
 let gameScoring;
@@ -473,8 +474,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Load word list on startup
     loadWordList();
     
-    // Track number of guesses made
-    let guessCount = 0;
+    // guessCount is now a global variable
     
     // Track guessed words to prevent duplicates
     let guessedWords = new Set();
