@@ -753,26 +753,17 @@ window.addEventListener("click", (event) => {
     if (event.target === helpModal) {
         helpModal.style.display = "none";
     }
-    // Phase 1 modals
-        const achievementsModal = document.getElementById("achievements-modal"); 
-        
-        if (event.target === achievementsModal) {
-        achievementsModal.style.display = "none";
-    }
-    });
+});
 
-// Phase 1 modals
-        const achievementsModal = document.getElementById("achievements-modal"); 
-        
-        if (event.target === achievementsModal) {
-        achievementsModal.style.display = "none";
-    }
-    });
+// Load stats on page load
+loadStats();
+updateStatsDisplay();
 
-// Get DOM elements for new features
+// Get DOM elements for achievements
 const achievementsButton = document.getElementById("achievements-button");
 const achievementsModal = document.getElementById("achievements-modal");
 const closeAchievementsModal = document.querySelector(".close-achievements");
+
 // Achievements Modal
 if (achievementsButton) {
     achievementsButton.addEventListener("click", () => {
@@ -787,9 +778,7 @@ if (closeAchievementsModal) {
     });
 }
 
-// Load stats on page load
-loadStats();
-updateStatsDisplay();
+});
 
 // ========================
 // PHASE 1 INITIALIZATION
@@ -797,8 +786,6 @@ updateStatsDisplay();
 
 // Load all Phase 1 data
 loadAchievements();
-
-});
 
 function addClueWithAnimation(clue) {
     const clueItem = document.createElement("li");
