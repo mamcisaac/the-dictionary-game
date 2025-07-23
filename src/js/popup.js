@@ -59,7 +59,7 @@ const Popup = {
     
     showCluePopup() {
         // Check if game has started
-        if (!window.gameStarted) {
+        if (typeof gameStarted === 'undefined' || !gameStarted) {
             const messageArea = document.getElementById('message');
             if (messageArea) {
                 messageArea.textContent = 'Please start a new game first!';
@@ -99,7 +99,8 @@ const Popup = {
         card.setAttribute('data-clue-type', clueType.type);
         
         // Check if already used
-        const isUsed = GameState.clues[clueType.type];
+        const cluesObj = (typeof cluesGivenByType !== 'undefined') ? cluesGivenByType : {};
+        const isUsed = cluesObj[clueType.type] === true || cluesObj[clueType.type] > 0;
         if (isUsed) {
             card.classList.add('used');
             card.disabled = true;
@@ -160,21 +161,23 @@ const Popup = {
         };
         
         if (elements.score) {
-            elements.score.textContent = GameState.score || 0;
+            elements.score.textContent = (typeof currentScore !== 'undefined') ? currentScore : 0;
         }
         
         if (elements.clues) {
-            const usedClues = Object.values(GameState.clues).filter(Boolean).length;
-            const totalClues = Object.keys(GameState.clues).length;
+            const cluesObj = (typeof cluesGivenByType !== 'undefined') ? cluesGivenByType : {};
+            const usedClues = Object.values(cluesObj).filter(val => val === true || val > 0).length;
+            const totalClues = Object.keys(cluesObj).length;
             elements.clues.textContent = `${usedClues}/${totalClues}`;
         }
         
         if (elements.guesses) {
-            elements.guesses.textContent = GameState.guessCount || 0;
+            elements.guesses.textContent = (typeof guessCount !== 'undefined') ? guessCount : 0;
         }
         
         if (elements.time && window.formatTime) {
-            elements.time.textContent = formatTime(GameState.elapsedTime || 0);
+            const elapsed = (typeof elapsedTime !== 'undefined') ? elapsedTime : 0;
+            elements.time.textContent = formatTime(elapsed);
         }
     },
     
