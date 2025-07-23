@@ -495,9 +495,6 @@ function startGame() {
     
     // Initialize button costs
     updateButtonCosts();
-    
-    // Apply settings after game setup
-    setTimeout(() => applySettings(), 100);
 
     });
 }
