@@ -134,6 +134,13 @@ body {
     background-color: var(--bg-default);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Ensure no horizontal overflow on mobile */
+html {
+    overflow-x: hidden;
+    width: 100%;
 }
 
 /* Skip to main content link */
@@ -193,7 +200,19 @@ textarea:focus-visible,
     }
 }
 
-/* Dark theme colors */
+/* Dark mode - follows system preference */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-default: #1a1a1a;
+        --bg-card: #2d2d2d;
+        --text-default: #f3f4f6;
+        --text-subtle: #9ca3af;
+        --primary-600: #10b981;
+        --accent-400: #fbbf24;
+    }
+}
+
+/* Manual dark theme override */
 [data-theme="dark"] {
     --dg-bg-card: #374151;
     --dg-border: #4B5563;
