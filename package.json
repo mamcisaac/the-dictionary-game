@@ -1,0 +1,41 @@
+{
+  "name": "the-dictionary-game",
+  "version": "2.0.0",
+  "description": "A modern web-based word guessing game featuring an advanced difficulty-aware scoring system",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "cat src/css/tokens.css src/css/layout.css src/css/components.css src/css/themes.css > dist/game.css",
+    "build:js": "cat src/js/game-state.js src/js/components.js src/js/scoring.js > dist/game.js",
+    "lint": "echo 'Linting not configured yet'",
+    "test": "echo 'Testing not configured yet'",
+    "clean": "rm -rf dist && mkdir -p dist",
+    "prepare-dist": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "game",
+    "word-game",
+    "dictionary",
+    "javascript",
+    "vanilla-js",
+    "accessibility",
+    "responsive"
+  ],
+  "author": "Michael McIsaac",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mamcisaac/the-dictionary-game.git"
+  },
+  "files": [
+    "index.html",
+    "src/",
+    "style.css",
+    "script.js",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

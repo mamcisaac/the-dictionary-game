@@ -137,20 +137,36 @@ Victory screens show detailed analysis:
 
 ### File Structure
 ```
-├── index.html          # Main game interface
-├── style.css          # Component styles and design system
-├── script.js          # Game logic and interactions
-├── scoring.js         # Advanced scoring system
-├── i18n.js           # Internationalization strings
-├── puzzle.json       # Word database with metadata
-└── README.md         # Documentation
+├── index.html              # Main game interface
+├── index-new.html          # Modular architecture version
+├── package.json            # Build system and dependencies
+├── src/
+│   ├── css/
+│   │   ├── main.css        # CSS entry point
+│   │   ├── tokens.css      # Design system tokens
+│   │   ├── layout.css      # Responsive grid layout
+│   │   ├── components.css  # UI components
+│   │   └── themes.css      # Dark mode and themes
+│   ├── js/
+│   │   ├── main.js         # JavaScript entry point
+│   │   ├── components.js   # UI component library
+│   │   ├── game-state.js   # State management
+│   │   └── scoring.js      # Advanced scoring system
+│   └── data/
+│       ├── i18n.js         # Internationalization
+│       └── puzzle.json     # Word database
+├── style.css              # Legacy monolithic styles
+├── script.js              # Legacy monolithic script
+└── README.md              # Documentation
 ```
 
-### Key Classes
-- `GameScoring`: Core scoring logic with difficulty analysis
-- `Components`: UI component library with animation support
-- Game state management with persistent storage
-- Event handling with keyboard and accessibility support
+### Key Architecture
+- **Modular Design**: Separated concerns into focused modules
+- **GameScoring**: Core scoring logic with difficulty analysis
+- **Components**: UI component library with animation support
+- **GameState**: Centralized state management
+- **Design System**: Token-based CSS architecture
+- **Build System**: npm scripts for development and production
 
 ## 🎯 Game Balance
 
