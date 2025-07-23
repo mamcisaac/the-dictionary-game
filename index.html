@@ -145,10 +145,10 @@
         <div id="toast-container" class="toast-container"></div>
             
             <!-- StatModal Component -->
-            <div id="stats-modal" class="stat-modal" data-open="false">
+            <div id="stats-modal" class="stat-modal" data-open="false" role="dialog" aria-modal="true" aria-labelledby="stats-modal-title">
                 <div class="stat-modal__content">
                     <div class="stat-modal__header">
-                        Game Statistics
+                        <span id="stats-modal-title">Game Statistics</span>
                         <button class="close" aria-label="Close statistics modal">
                             <span class="sr-only">Close</span>
                             &times;
@@ -211,13 +211,13 @@
             </div>
             
             <!-- Help/Tutorial Modal -->
-            <div id="help-modal" class="modal" style="display: none;">
+            <div id="help-modal" class="modal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="help-modal-title">
                 <div class="modal-content">
                     <button class="close-help" aria-label="Close help modal">
                         <span class="sr-only">Close</span>
                         &times;
                     </button>
-                    <h2>How to Play</h2>
+                    <h2 id="help-modal-title">How to Play</h2>
                     <div id="help-content">
                         <div class="help-section">
                             <h3>Quick Guide</h3>
