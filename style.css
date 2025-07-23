@@ -312,24 +312,16 @@ body {
     margin: 0 auto;
 }
 
-/* Desktop layout (≥ 768px) per spec */
+/* Desktop layout now uses tabs too */
 @media (min-width: 768px) {
     .game-shell {
-        display: grid;
-        grid-template-areas:
-            "header   header"
-            "prompt   aside"
-            "actions  aside"
-            "footer   footer";
-        grid-template-columns: 1fr minmax(280px, 0.6fr);
-        grid-template-rows: auto 1fr auto auto;
-        gap: var(--space-6);
         max-width: 1024px;
-        padding: var(--space-8) var(--space-4);
+        padding: var(--space-4);
+        min-height: calc(100vh - 100px);
     }
     
     .game-prompt {
-        padding: 4vh var(--space-8) 2vh var(--space-8);
+        padding: var(--space-4);
     }
     
     .game-sidebar {
@@ -871,26 +863,43 @@ header h1 {
 }
 
 /* Game Info Modal for Mobile */
+/* Game Info Modal - Full screen content area */
 .game-info-modal {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    display: flex;
-    align-items: flex-end;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-default);
+    z-index: 999;
+    display: none;
+    overflow: hidden;
+}
+
+.game-info-modal.active {
+    display: block;
+}
+
+/* Desktop: Account for top tab navigation */
+@media (min-width: 768px) {
+    .game-info-modal {
+        top: 80px; /* Space for top navigation */
+    }
+}
+
+/* Mobile: Account for bottom tab navigation */
+@media (max-width: 767px) {
+    .game-info-modal {
+        bottom: 60px; /* Space for bottom navigation */
+    }
 }
 
 .game-info-content {
-    background: var(--bg-card);
-    width: 100%;
-    max-height: 80vh;
-    border-radius: 12px 12px 0 0;
-    overflow: hidden;
+    height: 100%;
+    background: var(--bg-default);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .game-info-header {
@@ -3347,25 +3356,94 @@ button[aria-disabled="true"]:hover {
     }
 }
 
-/* Mobile Tab Navigation */
-.mobile-tab-navigation {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+/* Tab Navigation - Unified for All Screen Sizes */
+.tab-navigation {
     background-color: var(--bg-card);
-    border-top: 1px solid var(--border-default);
+    border: 1px solid var(--border-default);
     display: flex;
     justify-content: space-around;
     padding: 0;
-    z-index: 1000;
-    box-shadow: 0 -2px 8px var(--shadow-light);
+    gap: var(--space-1);
 }
 
+/* Desktop: Top navigation */
+@media (min-width: 768px) {
+    .tab-navigation {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-radius: var(--radius-m);
+        margin: var(--space-4) auto;
+        max-width: 800px;
+        box-shadow: 0 2px 8px var(--shadow-light);
+    }
+}
+
+/* Mobile: Bottom navigation */
+@media (max-width: 767px) {
+    .tab-navigation {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        z-index: 1000;
+        box-shadow: 0 -2px 8px var(--shadow-light);
+    }
+}
+
+/* Tab Buttons */
+.tab-btn {
+    flex: 1;
+    padding: var(--space-3) var(--space-4);
+    background: none;
+    border: none;
+    color: var(--text-subtle);
+    font-size: var(--type-small);
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: color var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+.tab-btn:hover {
+    color: var(--text-default);
+}
+
+.tab-btn.active {
+    color: var(--primary-600);
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--primary-600);
+}
+
+/* Desktop tab indicator at bottom */
+@media (min-width: 768px) {
+    .tab-btn.active::after {
+        bottom: 0;
+    }
+}
+
+/* Mobile tab indicator at top */
+@media (max-width: 767px) {
+    .tab-btn.active::after {
+        top: 0;
+    }
+}
+
+/* Hide old mobile tab navigation */
 @media (max-width: 767px) {
     .mobile-tab-navigation {
-        display: flex;
+        display: none;
     }
 }
 
@@ -3472,4 +3550,23 @@ button[aria-disabled="true"]:hover {
         font-weight: 600 !important;
         order: -1; /* Move clues button to top for better accessibility */
     }
+}
+
+/* Tab Panels Styling */
+.tab-panel {
+    display: none;
+    height: 100%;
+    overflow-y: auto;
+    padding: var(--space-4);
+    background: var(--bg-default);
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* Center content in tab panels */
+.tab-panel > * {
+    max-width: 800px;
+    margin: 0 auto;
 }

@@ -54,7 +54,7 @@
             </div>
         </main>
         
-        <section class="game-actions">
+        <section class="game-actions" style="display: none;">
             
             <div class="secondary-buttons">
                 <button id="start-game-button">New Game</button>
@@ -64,7 +64,7 @@
             </div>
         </section>
         
-        <aside class="game-sidebar">
+        <aside class="game-sidebar" style="display: none;">
             <div class="sidebar-content">
                 <!-- Sidebar Placeholder -->
                 <div id="sidebar-placeholder" class="sidebar-placeholder">
@@ -300,12 +300,13 @@
         </main>
     </div>
     
-    <!-- Mobile Tab Navigation -->
-    <nav class="mobile-tab-navigation" id="mobile-tab-navigation" style="display: none;">
-        <button class="mobile-tab active" data-tab="game">Game</button>
-        <button class="mobile-tab" data-tab="clues">Clues</button>
-        <button class="mobile-tab" data-tab="score">Score</button>
-        <button class="mobile-tab" data-tab="stats">Stats</button>
+    <!-- Tab Navigation (All Screen Sizes) -->
+    <nav class="tab-navigation" id="tab-navigation">
+        <button class="tab-btn active" data-tab="game">Game</button>
+        <button class="tab-btn" data-tab="clues">Clues</button>
+        <button class="tab-btn" data-tab="score">Score</button>
+        <button class="tab-btn" data-tab="stats">Stats</button>
+        <button class="tab-btn" data-tab="options">Options</button>
     </nav>
     
     <!-- Game Info Modal/Tab for Mobile -->
@@ -325,10 +326,6 @@
                             <h3>Available Clues</h3>
                             <div id="mobile-clue-deck" class="mobile-clue-deck-new">
                                 <!-- Clue cards will be dynamically inserted here -->
-                            </div>
-                            <div class="mobile-game-actions">
-                                <button id="mobile-new-game" class="button-primary">New Game</button>
-                                <button id="mobile-give-up" class="button-secondary" disabled>Give Up</button>
                             </div>
                         </div>
                     </div>
@@ -378,6 +375,17 @@
                             <!-- Stats content will be populated from the stats modal -->
                         </div>
                     </div>
+                    
+                    <!-- Options Tab -->
+                    <div id="options-tab" class="tab-panel">
+                        <div class="options-section">
+                            <h3>Game Options</h3>
+                            <div class="game-actions-container">
+                                <button id="tab-new-game" class="button-primary">New Game</button>
+                                <button id="tab-give-up" class="button-secondary" disabled>Give Up</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -394,7 +402,7 @@
     <script src="src/js/components.js"></script>
     <script src="src/js/modal-manager.js"></script>
     <script src="src/js/game-info-modal.js"></script>
-    <script src="src/js/mobile-tabs.js"></script>
+    <script src="src/js/tabs.js"></script>
     <script src="src/js/event-handlers.js"></script>
     <script src="src/js/main.js"></script>
 </body>

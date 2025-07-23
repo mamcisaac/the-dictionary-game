@@ -1,32 +1,35 @@
 /**
- * Mobile Tab Navigation Management
- * Handles tab switching for mobile layout
+ * Tab Navigation Management
+ * Handles tab switching for all screen sizes
  */
 
-const MobileTabs = {
+const Tabs = {
     init() {
-        // Only initialize on mobile
-        if (window.innerWidth > 767) return;
-        
-        this.tabNav = document.getElementById('mobile-tab-navigation');
+        this.tabNav = document.getElementById('tab-navigation');
         this.gameShell = document.querySelector('.game-shell');
         this.gameInfoModal = document.getElementById('game-info-modal');
         this.statsModal = document.getElementById('stats-modal');
         
         if (!this.tabNav) return;
         
-        // Show tab navigation
-        this.tabNav.style.display = 'flex';
-        
         // Setup tab click handlers
         this.setupTabHandlers();
         
-        // Setup mobile game action handlers
-        this.setupMobileActions();
+        // Setup game action handlers
+        this.setupGameActions();
+        
+        // Handle responsive layout
+        this.handleResponsive();
+        window.addEventListener('resize', () => this.handleResponsive());
+    },
+    
+    handleResponsive() {
+        // Tab navigation is always visible now
+        // Just adjust positioning via CSS
     },
     
     setupTabHandlers() {
-        const tabs = this.tabNav.querySelectorAll('.mobile-tab');
+        const tabs = this.tabNav.querySelectorAll('.tab-btn');
         
         tabs.forEach(tab => {
             tab.addEventListener('click', (e) => {
@@ -38,7 +41,7 @@ const MobileTabs = {
     
     switchTab(tabName) {
         // Update active tab
-        const tabs = this.tabNav.querySelectorAll('.mobile-tab');
+        const tabs = this.tabNav.querySelectorAll('.tab-btn');
         tabs.forEach(tab => {
             tab.classList.toggle('active', tab.dataset.tab === tabName);
         });
@@ -56,6 +59,9 @@ const MobileTabs = {
                 break;
             case 'stats':
                 this.showStats();
+                break;
+            case 'options':
+                this.showOptions();
                 break;
         }
     },
@@ -111,6 +117,17 @@ const MobileTabs = {
         }
     },
     
+    showOptions() {
+        this.gameShell.style.display = 'none';
+        this.gameInfoModal.classList.add('active');
+        this.gameInfoModal.style.display = 'block';
+        
+        // Activate options tab panel
+        const panels = this.gameInfoModal.querySelectorAll('.tab-panel');
+        panels.forEach(panel => panel.classList.remove('active'));
+        document.getElementById('options-tab')?.classList.add('active');
+    },
+    
     populateStatsTab() {
         const statsContent = document.querySelector('.stats-content-mobile');
         if (!statsContent || !window.Statistics) return;
@@ -147,13 +164,13 @@ const MobileTabs = {
         `;
     },
     
-    setupMobileActions() {
-        // Connect mobile buttons to game actions
-        const mobileNewGame = document.getElementById('mobile-new-game');
-        const mobileGiveUp = document.getElementById('mobile-give-up');
+    setupGameActions() {
+        // Connect tab buttons to game actions
+        const tabNewGame = document.getElementById('tab-new-game');
+        const tabGiveUp = document.getElementById('tab-give-up');
         
-        if (mobileNewGame) {
-            mobileNewGame.addEventListener('click', () => {
+        if (tabNewGame) {
+            tabNewGame.addEventListener('click', () => {
                 // Switch to game tab
                 this.switchTab('game');
                 // Trigger new game
@@ -161,8 +178,8 @@ const MobileTabs = {
             });
         }
         
-        if (mobileGiveUp) {
-            mobileGiveUp.addEventListener('click', () => {
+        if (tabGiveUp) {
+            tabGiveUp.addEventListener('click', () => {
                 // Switch to game tab
                 this.switchTab('game');
                 // Trigger give up
@@ -174,7 +191,7 @@ const MobileTabs = {
 
 // Export for use
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = MobileTabs;
+    module.exports = Tabs;
 } else {
-    window.MobileTabs = MobileTabs;
+    window.Tabs = Tabs;
 }

@@ -35,12 +35,17 @@ function prepareGameUI() {
     
     // Enable buttons  
     const giveUpButton = document.getElementById("give-up-button");
+    const tabGiveUpButton = document.getElementById("tab-give-up");
     const statsButton = document.getElementById("stats-button");
     const guessButton = document.getElementById("guess-button");
     
     if (giveUpButton) {
         giveUpButton.disabled = false;
         giveUpButton.setAttribute('aria-disabled', 'false');
+    }
+    if (tabGiveUpButton) {
+        tabGiveUpButton.disabled = false;
+        tabGiveUpButton.setAttribute('aria-disabled', 'false');
     }
     if (statsButton) {
         statsButton.disabled = false;
