@@ -213,6 +213,23 @@ const Components = {
         hide() {
             if (this.desktopElement) this.desktopElement.style.display = 'none';
             if (this.mobileElement) this.mobileElement.style.display = 'none';
+        },
+        getAvailableClueTypes() {
+            if (!gameStarted || !puzzleData) return [];
+            
+            const available = getAvailableClues();
+            const dynamicCosts = gameScoring.getAllClueCosts(puzzleData);
+            
+            const clueTypes = [
+                { type: 'definition', label: 'Definition', cost: dynamicCosts.definition, icon: '📖', available: available.definitions > 0 },
+                { type: 'wordLength', label: 'Length', cost: dynamicCosts.wordLength, icon: '📏', available: available.wordLength },
+                { type: 'example', label: 'Example', cost: dynamicCosts.example, icon: '📝', available: available.examples > 0 },
+                { type: 'synonym', label: 'Synonym', cost: dynamicCosts.synonym, icon: '💡', available: available.synonyms > 0 },
+                { type: 'antonym', label: 'Antonym', cost: dynamicCosts.antonym, icon: '🔄', available: available.antonyms > 0 },
+                { type: 'letter', label: 'Letter', cost: dynamicCosts.letter, icon: '🔤', available: available.letters > 0 }
+            ];
+            
+            return clueTypes.filter(clue => clue.available);
         }
     },
 

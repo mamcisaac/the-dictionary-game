@@ -6,6 +6,7 @@
     <title>The Dictionary Game</title>
     <link rel="stylesheet" href="src/css/main.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/css/mobile-first.css">
 </head>
 <body>
     <!-- Skip to main content for keyboard users -->
@@ -41,13 +42,16 @@
                     <div id="clue-list" class="clue-list" aria-live="polite" aria-label="Game clues"></div>
                 </div>
                 
-                <!-- Sticky Bottom Input Section -->
-                <div class="input-section" id="input-section" style="display: none;">
+                <!-- Mobile-First Action Area -->
+                <div class="action-area" id="action-area" style="display: none;">
                     <div id="message" class="message-area" role="status" aria-live="assertive" aria-label="Game feedback"></div>
-                    <div class="input-row">
-                        <label for="guess-input" class="sr-only">Enter your word guess</label>
-                        <input type="text" id="guess-input" placeholder="Enter your guess" aria-describedby="guess-hint" tabindex="1">
-                        <button id="guess-button" tabindex="2">Guess</button>
+                    <label for="guess-input" class="sr-only">Enter your word guess</label>
+                    <input type="text" id="guess-input" placeholder="Enter your guess" aria-describedby="guess-hint" tabindex="1">
+                    <div class="action-buttons">
+                        <button id="guess-button" class="action-btn primary" tabindex="2">Guess</button>
+                        <button id="clue-button" class="action-btn" tabindex="3">Clue</button>
+                        <button id="score-button" class="action-btn" tabindex="4">Score</button>
+                        <button id="help-button" class="action-btn" tabindex="5">Help</button>
                     </div>
                     <span id="guess-hint" class="sr-only">Type a word that starts with the given letter and press Enter or click Guess</span>
                 </div>
@@ -133,10 +137,7 @@
                     </div>
                 </div>
             </div>
-            <button id="help-button" class="help-button" aria-label="Help">
-                <span class="sr-only">Open help and tutorial</span>
-                ?
-            </button>
+            <!-- Help button moved to action area -->
         </aside>
         
         <footer class="game-footer">
@@ -300,95 +301,79 @@
         </main>
     </div>
     
-    <!-- Tab Navigation (All Screen Sizes) -->
-    <nav class="tab-navigation" id="tab-navigation">
-        <button class="tab-btn active" data-tab="game">Game</button>
-        <button class="tab-btn" data-tab="clues">Clues</button>
-        <button class="tab-btn" data-tab="score">Score</button>
-        <button class="tab-btn" data-tab="stats">Stats</button>
-        <button class="tab-btn" data-tab="options">Options</button>
-    </nav>
+    <!-- Clue Popup -->
+    <div id="clue-popup" class="popup-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="clue-popup-title">
+        <div class="popup-content clue-popup-content">
+            <div class="popup-header">
+                <h2 id="clue-popup-title">Select a Clue</h2>
+                <button class="popup-close" aria-label="Close clue selection">&times;</button>
+            </div>
+            <div id="clue-grid" class="clue-grid">
+                <!-- Clue cards will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
     
-    <!-- Game Info Modal/Tab for Mobile -->
-    <div id="game-info-modal" class="game-info-modal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="game-info-title">
-        <div class="game-info-content">
-            <div class="game-info-tabs">
-                <div class="tab-buttons" style="display: none;">
-                    <button class="tab-button active" data-tab="clues">Clues</button>
-                    <button class="tab-button" data-tab="score">Score</button>
-                    <button class="tab-button" data-tab="stats">Stats</button>
+    <!-- Score/Stats Popup -->
+    <div id="score-popup" class="popup-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="score-popup-title">
+        <div class="popup-content score-popup-content">
+            <div class="popup-header">
+                <h2 id="score-popup-title">Score & Stats</h2>
+                <button class="popup-close" aria-label="Close score view">&times;</button>
+            </div>
+            <div class="score-stats-container">
+                <!-- Score section -->
+                <div class="score-display">
+                    <div class="score-section">
+                        <span class="score-label">SCORE</span>
+                        <span id="current-score-popup" class="score-number">0</span>
+                    </div>
+                    <div class="score-details">
+                        <div class="detail-row">
+                            <span>Clues Used:</span>
+                            <span id="clue-counter-popup">0/0</span>
+                        </div>
+                        <div class="detail-row">
+                            <span>Guesses:</span>
+                            <span id="guess-count-popup">0</span>
+                        </div>
+                        <div class="detail-row">
+                            <span>Time:</span>
+                            <span id="time-elapsed-popup">0:00</span>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="tab-content">
-                    <!-- Clues Tab -->
-                    <div id="clues-tab" class="tab-panel active">
-                        <div class="clues-section">
-                            <h3>Available Clues</h3>
-                            <div id="mobile-clue-deck" class="mobile-clue-deck-new">
-                                <!-- Clue cards will be dynamically inserted here -->
-                            </div>
+                <!-- Stats section -->
+                <div class="stats-display">
+                    <h3>Overall Statistics</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div id="games-played-popup" class="stat-value">0</div>
+                            <div class="stat-label">Games</div>
                         </div>
-                    </div>
-                    
-                    <!-- Score Tab -->
-                    <div id="score-tab" class="tab-panel">
-                        <div class="score-info-mobile">
-                            <div class="score-section">
-                                <span class="score-label">SCORE</span>
-                                <span id="current-score-mobile" class="score-number" role="status" aria-live="polite">0</span>
-                            </div>
-                            
-                            <div class="clue-usage-section">
-                                <div class="usage-label">
-                                    <span>Clues Used</span>
-                                    <span id="clue-counter-mobile" class="usage-value">0/0</span>
-                                </div>
-                                <div class="progress-track">
-                                    <div id="progress-fill-mobile" class="progress-fill" style="width: 0%;"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="difficulty-section">
-                                <span class="difficulty-label">Difficulty</span>
-                                <span id="difficulty-score-mobile" class="difficulty-value">0.00</span>
-                                <div class="difficulty-gauge">
-                                    <div id="difficulty-fill-mobile" class="difficulty-gauge-fill" style="width: 0%;"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="details-section-mobile">
-                                <div class="detail-item">
-                                    <span class="detail-label">• Guesses:</span>
-                                    <span id="guess-count-mobile" class="detail-value">0</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">• Time:</span>
-                                    <span id="time-elapsed-mobile" class="detail-value">0:00</span>
-                                </div>
-                            </div>
+                        <div class="stat-item">
+                            <div id="win-rate-popup" class="stat-value">0%</div>
+                            <div class="stat-label">Win Rate</div>
                         </div>
-                    </div>
-                    
-                    <!-- Stats Tab -->
-                    <div id="stats-tab" class="tab-panel">
-                        <div class="stats-content-mobile">
-                            <!-- Stats content will be populated from the stats modal -->
+                        <div class="stat-item">
+                            <div id="best-score-popup" class="stat-value">0</div>
+                            <div class="stat-label">Best Score</div>
                         </div>
-                    </div>
-                    
-                    <!-- Options Tab -->
-                    <div id="options-tab" class="tab-panel">
-                        <div class="options-section">
-                            <h3>Game Options</h3>
-                            <div class="game-actions-container">
-                                <button id="tab-new-game" class="button-primary">New Game</button>
-                                <button id="tab-give-up" class="button-secondary" disabled>Give Up</button>
-                            </div>
+                        <div class="stat-item">
+                            <div id="current-streak-popup" class="stat-value">0</div>
+                            <div class="stat-label">Streak</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    
+    <!-- Options Menu (accessed via hamburger or long press) -->
+    <div id="options-menu" class="options-menu" style="display: none;">
+        <button id="new-game-option" class="option-item">New Game</button>
+        <button id="give-up-option" class="option-item" disabled>Give Up</button>
+        <button id="reset-stats-option" class="option-item">Reset Stats</button>
     </div>
     
     <!-- Load JavaScript modules -->
@@ -401,8 +386,7 @@
     <script src="src/js/ui-updates.js"></script>
     <script src="src/js/components.js"></script>
     <script src="src/js/modal-manager.js"></script>
-    <script src="src/js/game-info-modal.js"></script>
-    <script src="src/js/tabs.js"></script>
+    <script src="src/js/popup.js"></script>
     <script src="src/js/event-handlers.js"></script>
     <script src="src/js/main.js"></script>
 </body>

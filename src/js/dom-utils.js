@@ -56,6 +56,7 @@ const DOMUtils = {
             
             // Container elements
             inputSection: '.input-section',
+            actionArea: '#action-area',
             scoreContainer: '#score-container',
             sidebarPlaceholder: '#sidebar-placeholder',
             toastContainer: '#toast-container',

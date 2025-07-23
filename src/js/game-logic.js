@@ -71,9 +71,9 @@ function prepareGameUI() {
     const guessInput = document.getElementById("guess-input");
     if (guessInput) guessInput.value = '';
     
-    const inputContainer = DOMUtils.get("inputSection");
+    const actionArea = document.getElementById("action-area");
     const myword = document.getElementById("my-word");
-    if (inputContainer) inputContainer.style.display = "block";
+    if (actionArea) actionArea.style.display = "block";
     if (myword) myword.style.display = "block";
 }
 

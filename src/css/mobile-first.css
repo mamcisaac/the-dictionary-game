@@ -1,0 +1,409 @@
+/**
+ * Mobile-First Responsive Design
+ * Base styles for mobile, with desktop enhancements
+ */
+
+/* Reset for full-screen mobile experience */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    overscroll-behavior: none;
+}
+
+/* Prevent popup scroll when open */
+body.popup-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/* Main game container - full screen */
+.game-shell {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile */
+    padding: 0;
+    margin: 0;
+    max-width: none;
+    background: var(--bg-default);
+}
+
+/* Header - minimal on mobile */
+.game-shell header {
+    flex-shrink: 0;
+    padding: var(--space-2) var(--space-3);
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-default);
+}
+
+.game-shell header h1 {
+    font-size: var(--type-h4);
+    margin: 0;
+    text-align: center;
+}
+
+/* Main game area - use all available space */
+.game-prompt {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    padding: 0;
+}
+
+/* Guess card - full height */
+.guess-card {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Game content area - scrollable */
+.guess-card-header {
+    flex-shrink: 0;
+    padding: var(--space-3);
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-default);
+}
+
+.guess-card-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-3);
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Action area - always visible at bottom */
+.action-area {
+    flex-shrink: 0;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-default);
+    padding: var(--space-3);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Message area */
+.action-area .message-area {
+    min-height: 24px;
+    margin-bottom: var(--space-2);
+    text-align: center;
+    font-size: var(--type-small);
+}
+
+/* Input field - larger and more prominent */
+#guess-input {
+    width: 100%;
+    padding: var(--space-4);
+    font-size: 18px;
+    text-align: center;
+    border: 2px solid var(--border-default);
+    border-radius: var(--radius-m);
+    margin-bottom: var(--space-3);
+    background: var(--bg-default);
+}
+
+#guess-input:focus {
+    border-color: var(--primary-600);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 109, 111, 0.2);
+}
+
+/* Action buttons - grid layout */
+.action-buttons {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--space-2);
+}
+
+.action-btn {
+    padding: var(--space-3);
+    min-height: 48px;
+    border: none;
+    border-radius: var(--radius-m);
+    font-size: var(--type-body);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: var(--bg-default);
+    color: var(--text-default);
+    border: 1px solid var(--border-default);
+}
+
+.action-btn.primary {
+    background: var(--primary-600);
+    color: white;
+    border: none;
+}
+
+.action-btn:active {
+    transform: scale(0.98);
+}
+
+/* Popup Overlays */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: var(--space-4);
+}
+
+.popup-content {
+    background: var(--bg-card);
+    border-radius: var(--radius-l);
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.popup-header {
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--border-default);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popup-header h2 {
+    margin: 0;
+    font-size: var(--type-h4);
+}
+
+.popup-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-subtle);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-m);
+}
+
+/* Clue Grid */
+.clue-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: var(--space-3);
+    padding: var(--space-4);
+    overflow-y: auto;
+}
+
+.clue-card-popup {
+    background: var(--bg-default);
+    border: 2px solid var(--border-default);
+    border-radius: var(--radius-m);
+    padding: var(--space-3);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.clue-card-popup:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.clue-card-popup:not(:disabled):active {
+    transform: translateY(0);
+}
+
+.clue-card-popup.used {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.clue-icon {
+    font-size: 24px;
+    margin-bottom: var(--space-1);
+}
+
+.clue-name {
+    font-size: var(--type-small);
+    font-weight: 500;
+    margin-bottom: var(--space-1);
+}
+
+.clue-cost {
+    font-size: var(--type-caption);
+    color: var(--text-subtle);
+}
+
+/* Score/Stats Display */
+.score-stats-container {
+    padding: var(--space-4);
+    overflow-y: auto;
+}
+
+.score-display {
+    background: var(--bg-default);
+    border-radius: var(--radius-m);
+    padding: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+.score-section {
+    text-align: center;
+    margin-bottom: var(--space-3);
+}
+
+.score-label {
+    display: block;
+    font-size: var(--type-small);
+    color: var(--text-subtle);
+    margin-bottom: var(--space-1);
+}
+
+.score-number {
+    font-size: var(--type-h2);
+    font-weight: bold;
+    color: var(--primary-600);
+}
+
+.score-details {
+    display: grid;
+    gap: var(--space-2);
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--type-small);
+}
+
+.stats-display h3 {
+    margin: 0 0 var(--space-3) 0;
+    font-size: var(--type-h4);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+}
+
+.stat-item {
+    text-align: center;
+    padding: var(--space-2);
+    background: var(--bg-default);
+    border-radius: var(--radius-m);
+}
+
+.stat-value {
+    font-size: var(--type-h3);
+    font-weight: bold;
+    color: var(--primary-600);
+}
+
+.stat-label {
+    font-size: var(--type-caption);
+    color: var(--text-subtle);
+}
+
+/* Options Menu */
+.options-menu {
+    position: fixed;
+    bottom: 100px;
+    right: var(--space-3);
+    background: var(--bg-card);
+    border-radius: var(--radius-m);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: 900;
+}
+
+.option-item {
+    display: block;
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-default);
+}
+
+.option-item:last-child {
+    border-bottom: none;
+}
+
+.option-item:hover {
+    background: var(--bg-default);
+}
+
+/* Hide desktop-only elements */
+.game-sidebar,
+.game-actions,
+.secondary-buttons,
+.tab-navigation,
+.help-button {
+    display: none !important;
+}
+
+/* Desktop Enhancements */
+@media (min-width: 768px) {
+    .game-shell {
+        padding: var(--space-4);
+        height: 100vh;
+    }
+    
+    .game-shell header h1 {
+        font-size: var(--type-h2);
+    }
+    
+    .game-prompt {
+        padding: var(--space-4);
+    }
+    
+    .guess-card {
+        max-width: 680px;
+        margin: 0 auto;
+        border: 2px solid var(--border-default);
+        border-radius: var(--radius-l);
+        box-shadow: 0 4px 16px var(--shadow-default);
+    }
+    
+    .action-buttons {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    #guess-input {
+        max-width: 500px;
+        margin: 0 auto var(--space-3) auto;
+    }
+}
+
+/* Larger desktop screens */
+@media (min-width: 1024px) {
+    .popup-content {
+        max-width: 600px;
+    }
+    
+    .clue-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}

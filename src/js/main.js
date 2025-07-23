@@ -15,8 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize UI systems
     ModalManager.init();
-    GameInfoModal.init();
-    Tabs.init();
+    Popup.init();
     Components.GuessCard.init();
     Components.ScoreMeter.init();
     Components.ClueDeck.init();

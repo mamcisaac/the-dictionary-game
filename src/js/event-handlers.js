@@ -40,6 +40,7 @@ const EventHandlers = {
         const startGameButton = document.getElementById("start-game-button");
         const giveUpButton = document.getElementById("give-up-button");
         const emptyStateNewGameBtn = document.getElementById("empty-state-new-game");
+        const helpButton = document.getElementById("help-button");
 
         if (startGameButton) {
             startGameButton.addEventListener("click", startGame);
@@ -47,6 +48,45 @@ const EventHandlers = {
 
         if (emptyStateNewGameBtn) {
             emptyStateNewGameBtn.addEventListener("click", startGame);
+        }
+        
+        if (helpButton) {
+            helpButton.addEventListener("click", () => {
+                if (window.ModalManager) {
+                    ModalManager.showHelp();
+                }
+            });
+        }
+        
+        // Options menu buttons
+        const newGameOption = document.getElementById("new-game-option");
+        const giveUpOption = document.getElementById("give-up-option");
+        const resetStatsOption = document.getElementById("reset-stats-option");
+        
+        if (newGameOption) {
+            newGameOption.addEventListener("click", () => {
+                this.hideOptionsMenu();
+                startGame();
+            });
+        }
+        
+        if (giveUpOption) {
+            giveUpOption.addEventListener("click", () => {
+                this.hideOptionsMenu();
+                if (giveUpButton) giveUpButton.click();
+            });
+        }
+        
+        if (resetStatsOption) {
+            resetStatsOption.addEventListener("click", () => {
+                this.hideOptionsMenu();
+                if (confirm("Are you sure you want to reset all statistics?")) {
+                    Statistics.resetStats();
+                    if (window.Popup) {
+                        Popup.updateStatsDisplay();
+                    }
+                }
+            });
         }
 
         if (giveUpButton) {
@@ -275,6 +315,16 @@ const EventHandlers = {
 
         // Hide clue decks
         Components.ClueDeck.hide();
+    },
+    
+    /**
+     * Hide options menu
+     */
+    hideOptionsMenu() {
+        const optionsMenu = document.getElementById("options-menu");
+        if (optionsMenu) {
+            optionsMenu.style.display = "none";
+        }
     }
 };
 
