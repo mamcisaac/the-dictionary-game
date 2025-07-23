@@ -748,9 +748,7 @@ button:hover:not(:disabled) {
 .close:hover,
 .close:focus,
 .close-help:hover,
-.close-help:focus,
-.close-achievements:hover,
-.close-achievements:focus {
+.close-help:focus {
     color: #fff;
     background-color: #e07a5f;
     border-color: #e07a5f;
@@ -758,8 +756,7 @@ button:hover:not(:disabled) {
     transform: scale(1.1);
 }
 
-.close-help,
-.close-achievements {
+.close-help {
     color: #333;
     font-size: 28px;
     font-weight: bold;
@@ -876,61 +873,6 @@ button:hover:not(:disabled) {
     border-bottom: none;
 }
 
-/* Achievement System Styles */
-#achievement-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.achievement-item {
-    background: var(--bg-tertiary);
-    border: 2px solid var(--border-color);
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.achievement-item.earned {
-    border-color: var(--success-color);
-    background: linear-gradient(135deg, var(--bg-tertiary), rgba(76, 175, 80, 0.1));
-}
-
-.achievement-item.locked {
-    opacity: 0.6;
-    border-color: var(--text-muted);
-}
-
-.achievement-icon {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    display: block;
-}
-
-.achievement-item.earned .achievement-icon {
-    color: var(--success-color);
-}
-
-.achievement-name {
-    font-weight: bold;
-    color: var(--text-primary);
-    margin-bottom: 5px;
-}
-
-.achievement-description {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    line-height: 1.4;
-}
-
-.achievement-progress {
-    margin-top: 8px;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
 
 #word-search {
     flex: 1;
@@ -1010,12 +952,6 @@ button:hover:not(:disabled) {
 }
 
 /* Enhanced modal sizing for new features */
-#achievements-modal .modal-content {
-    max-width: 700px;
-    width: 90%;
-    max-height: 80vh;
-    overflow-y: auto;
-}
 
 /* Enhanced Help/Tutorial Styles */
 #help-modal .modal-content {
@@ -1029,8 +965,7 @@ button:hover:not(:disabled) {
 /* Mobile-specific close button enhancement */
 @media (max-width: 600px) {
     .close,
-    .close-help,
-    .close-achievements {
+    .close-help {
         width: 44px;
         height: 44px;
         font-size: 32px;

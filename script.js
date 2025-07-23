@@ -1,11 +1,6 @@
 // Global word list for validation
 let validWords = new Set();
 
-// Global settings object
-let gameSettings = {
-    autoClue: false,
-    theme: 'default'
-};
 
 // Global puzzle data
 let puzzleData = null;
@@ -90,6 +85,19 @@ document.addEventListener("DOMContentLoaded", function() {
     // Track guessed words to prevent duplicates
     let guessedWords = new Set();
     
+    // Function to update clue display
+    function updateClueDisplay(newClue) {
+        const clueItem = document.createElement("li");
+        clueItem.textContent = newClue;
+        clueItem.style.opacity = "0";
+        clueItem.style.transition = "opacity 0.5s ease-in-out";
+        clueList.appendChild(clueItem);
+        
+        // Animation to fade in the clue
+        setTimeout(() => {
+            clueItem.style.opacity = "1";
+        }, 100);
+    }
     
     
     // Update button text and cost previews with current costs
@@ -200,17 +208,6 @@ document.addEventListener("DOMContentLoaded", function() {
         updateStatsDisplay();
     }
     
-    // Override recordGameResult to add achievement checking
-    const originalRecordGameResult = recordGameResult;
-    recordGameResult = function(won, score = 0) {
-        // Call original function
-        originalRecordGameResult(won, score);
-        
-        // Check achievements after game completion
-        if (typeof checkAchievements === 'function') {
-            checkAchievements();
-        }
-    };
 
     // Event listener for pressing 'Enter' in the guess input
     guessInput.addEventListener("keydown", function(event) {
@@ -408,18 +405,6 @@ function getNextClue() {
     }
 }
 
-function updateClueDisplay(newClue) {
-    const clueItem = document.createElement("li");
-    clueItem.textContent = newClue;
-    clueItem.style.opacity = "0";
-    clueItem.style.transition = "opacity 0.5s ease-in-out";
-    clueList.appendChild(clueItem);
-    
-    // Animation to fade in the clue
-    setTimeout(() => {
-        clueItem.style.opacity = "1";
-    }, 100);
-}
 
 function startGame() {
     // If a game is already in progress, treat as giving up
@@ -737,24 +722,6 @@ window.addEventListener("click", (event) => {
 loadStats();
 updateStatsDisplay();
 
-// Get DOM elements for achievements
-const achievementsButton = document.getElementById("achievements-button");
-const achievementsModal = document.getElementById("achievements-modal");
-const closeAchievementsModal = document.querySelector(".close-achievements");
-
-// Achievements Modal
-if (achievementsButton) {
-    achievementsButton.addEventListener("click", () => {
-        updateAchievementsModal();
-        achievementsModal.style.display = "block";
-    });
-}
-
-if (closeAchievementsModal) {
-    closeAchievementsModal.addEventListener("click", () => {
-        achievementsModal.style.display = "none";
-    });
-}
 
 });
 
@@ -776,8 +743,6 @@ function updateProgressBar() {
 // PHASE 1 INITIALIZATION
 // ========================
 
-// Load all Phase 1 data
-loadAchievements();
 
 function addClueWithAnimation(clue) {
     const clueItem = document.createElement("li");
@@ -984,220 +949,6 @@ function getDailyWord(dateString) {
     return hash % puzzleDataList.length;
 }
 
-// Achievement System
-const achievementDefinitions = {
-    first_game: {
-        id: 'first_game',
-        name: 'First Steps',
-        description: 'Complete your first game',
-        icon: '🎮',
-        condition: (stats) => stats.gamesPlayed >= 1
-    },
-    perfect_score: {
-        id: 'perfect_score',
-        name: 'Perfect Score',
-        description: 'Win a game with 100 points',
-        icon: '💯',
-        condition: (stats) => stats.bestScore >= 100
-    },
-    efficient_guesser: {
-        id: 'efficient_guesser',
-        name: 'Efficient Guesser',
-        description: 'Win using only 1-2 clues',
-        icon: '🎯',
-        condition: (stats) => false // Disabled - requires game history tracking
-    },
-    persistent_player: {
-        id: 'persistent_player',
-        name: 'Persistent Player',
-        description: 'Complete 10 games',
-        icon: '🏃',
-        condition: (stats) => stats.gamesPlayed >= 10
-    },
-    streak_master: {
-        id: 'streak_master',
-        name: 'Streak Master',
-        description: 'Win 5 games in a row',
-        icon: '🔥',
-        condition: (stats) => stats.bestStreak >= 5
-    },
-    word_collector: {
-        id: 'word_collector',
-        name: 'Word Collector',
-        description: 'Discover 50 unique words',
-        icon: '📚',
-        condition: (stats) => stats.gamesPlayed >= 50
-    },
-    daily_devotion: {
-        id: 'daily_devotion',
-        name: 'Daily Devotion',
-        description: 'Complete 7 daily challenges',
-        icon: '📅',
-        condition: (stats) => false // Disabled - requires daily challenge feature
-    },
-    speed_demon: {
-        id: 'speed_demon',
-        name: 'Speed Demon',
-        description: 'Win in under 2 minutes',
-        icon: '⚡',
-        condition: (stats) => false // Disabled - requires time tracking
-    },
-    theme_explorer: {
-        id: 'theme_explorer',
-        name: 'Theme Explorer',
-        description: 'Try the dark theme',
-        icon: '🌙',
-        condition: (stats) => false // Theme achievement disabled
-    }
-};
-
-// Load earned achievements
-let earnedAchievements = new Set();
-
-function loadAchievements() {
-    const saved = localStorage.getItem('dictionaryGameAchievements');
-    if (saved) {
-        earnedAchievements = new Set(JSON.parse(saved));
-    }
-}
-
-function saveAchievements() {
-    localStorage.setItem('dictionaryGameAchievements', JSON.stringify([...earnedAchievements]));
-}
-
-// Check and award new achievements
-function checkAchievements() {
-    const newAchievements = [];
-    
-    for (const achievement of Object.values(achievementDefinitions)) {
-        if (!earnedAchievements.has(achievement.id)) {
-            if (achievement.condition(gameStats)) {
-                earnedAchievements.add(achievement.id);
-                newAchievements.push(achievement);
-            }
-        }
-    }
-    
-    if (newAchievements.length > 0) {
-        saveAchievements();
-        // Show achievement notification
-        newAchievements.forEach(achievement => {
-            showAchievementNotification(achievement);
-        });
-    }
-}
-
-// Show achievement notification
-function showAchievementNotification(achievement) {
-    const notification = document.createElement('div');
-    notification.className = 'achievement-notification';
-    notification.innerHTML = `
-        <div class="achievement-popup">
-            <div class="achievement-icon">${achievement.icon}</div>
-            <div class="achievement-text">
-                <div class="achievement-earned">Achievement Earned!</div>
-                <div class="achievement-name">${achievement.name}</div>
-            </div>
-        </div>
-    `;
-    
-    // Add notification styles if not already added
-    if (!document.querySelector('#achievement-notification-styles')) {
-        const style = document.createElement('style');
-        style.id = 'achievement-notification-styles';
-        style.textContent = `
-            .achievement-notification {
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                z-index: 2000;
-                animation: slideInRight 0.5s ease-out, fadeOut 0.5s ease-out 2.5s;
-            }
-            
-            .achievement-popup {
-                background: linear-gradient(135deg, var(--success-color), var(--accent-secondary));
-                color: white;
-                padding: 15px 20px;
-                border-radius: 10px;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-                display: flex;
-                align-items: center;
-                gap: 15px;
-                max-width: 300px;
-            }
-            
-            .achievement-popup .achievement-icon {
-                font-size: 2rem;
-            }
-            
-            .achievement-earned {
-                font-size: 0.8rem;
-                opacity: 0.9;
-            }
-            
-            .achievement-popup .achievement-name {
-                font-weight: bold;
-                font-size: 1.1rem;
-            }
-            
-            @keyframes slideInRight {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            
-            @keyframes fadeOut {
-                to { opacity: 0; transform: translateX(100%); }
-            }
-        `;
-        document.head.appendChild(style);
-    }
-    
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.remove();
-    }, 3000);
-}
-
-
-
-// Game timing for achievements
-let gameStartTime = null;
-
-// ========================
-// UI EVENT LISTENERS FOR PHASE 1 FEATURES
-// ========================
-
-// ========================
-// UI UPDATE FUNCTIONS
-// ========================
-
-function updateAchievementsModal() {
-    const badgesEarned = earnedAchievements.size;
-    const totalBadges = Object.keys(achievementDefinitions).length;
-    
-    document.getElementById("badges-earned").textContent = badgesEarned;
-    document.getElementById("total-badges").textContent = totalBadges;
-    
-    const achievementGrid = document.getElementById("achievement-grid");
-    achievementGrid.innerHTML = '';
-    
-    Object.values(achievementDefinitions).forEach(achievement => {
-        const isEarned = earnedAchievements.has(achievement.id);
-        const achievementElement = document.createElement('div');
-        achievementElement.className = `achievement-item ${isEarned ? 'earned' : 'locked'}`;
-        
-        achievementElement.innerHTML = `
-            <div class="achievement-icon">${achievement.icon}</div>
-            <div class="achievement-name">${achievement.name}</div>
-            <div class="achievement-description">${achievement.description}</div>
-            ${isEarned ? '<div class="achievement-progress">✅ Earned!</div>' : '<div class="achievement-progress">🔒 Locked</div>'}
-        `;
-        
-        achievementGrid.appendChild(achievementElement);
-    });
-}
-
 // ========================
 // GAME INTEGRATION FUNCTIONS
 // ========================
@@ -1213,7 +964,7 @@ function startGameWithSpecificWord(wordIndex) {
     guessCount = 0;
     guessedWords.clear(); // Reset guessed words
     gameStarted = true;
-    gameStartTime = Date.now(); // Track start time
+    // Game start time tracking removed
     
     // Update display
     updateScore();
@@ -1238,4 +989,4 @@ function startGameWithSpecificWord(wordIndex) {
     console.log(`Started game with word: ${puzzleData.word}`);
 }
 
-console.log("Phase 1 features loaded: Achievements, Dark Mode");
+console.log("Game loaded successfully");
