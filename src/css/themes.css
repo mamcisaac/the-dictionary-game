@@ -1,0 +1,52 @@
+/**
+ * Theme Variations
+ * Dark mode and other theme overrides
+ */
+
+/* Manual dark theme override */
+[data-theme="dark"] {
+    --bg-default: #1a1a1a;
+    --bg-card: #2d2d2d;
+    --text-default: #f3f4f6;
+    --text-subtle: #9ca3af;
+    --border-default: #4B5563;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --shadow-light: rgba(0, 0, 0, 0.3);
+}
+
+/* Dark theme specific help adjustments */
+[data-theme="dark"] .help-intro {
+    background: linear-gradient(135deg, var(--accent-400), var(--primary-600));
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] kbd {
+    background: #555555;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* High contrast theme specific adjustments */
+[data-theme="high-contrast"] {
+    /* Ensure all backgrounds are truly black */
+    background-color: #000000;
+}
+
+[data-theme="high-contrast"] .modal-content {
+    background-color: #000000;
+    border: 3px solid #ffffff;
+}
+
+[data-theme="high-contrast"] .cost-preview {
+    background-color: #000000;
+    border: 2px solid #ffffff;
+    color: #ffff00;
+    font-weight: bold;
+}
+
+/* Theme transition animations */
+* {
+    transition: background-color var(--motion-duration-normal) ease,
+                color var(--motion-duration-normal) ease,
+                border-color var(--motion-duration-normal) ease;
+}

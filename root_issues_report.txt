@@ -1,8 +1,0 @@
-Definitions that still contain their word's root:
-
-THING: (somewhat obsolete, with the) The latest fad or fashion.
-  Contains root: 'the'
-
-THING: (in the plural) Clothes, possessions or equipment.
-  Contains root: 'the'
-

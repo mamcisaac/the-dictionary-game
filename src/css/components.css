@@ -1,0 +1,221 @@
+/**
+ * Component Styles
+ * UI component styles using design tokens
+ */
+
+/* Button Components */
+.button-primary {
+    background: var(--primary-600);
+    color: white;
+    border: none;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-m);
+    font-size: var(--type-body);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--motion-duration-normal) var(--motion-easing-standard);
+}
+
+.button-primary:hover {
+    background: var(--primary-500);
+    transform: translateY(-1px);
+}
+
+.button-primary:active {
+    transform: translateY(0);
+}
+
+/* Card Components */
+.guess-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-l);
+    padding: var(--space-6);
+    box-shadow: 0 4px 6px var(--shadow-light);
+    margin-bottom: var(--space-4);
+}
+
+.guess-card[data-variant="success"] {
+    background: linear-gradient(135deg, var(--green-400), var(--primary-600));
+    color: white;
+}
+
+/* Clue Components */
+.clue-stripe {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    border-radius: var(--radius-m);
+    margin-bottom: var(--space-2);
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+}
+
+.clue-stripe[data-variant="hint-taken"] {
+    background: var(--primary-50);
+    border-color: var(--primary-600);
+}
+
+.clue-stripe__icon {
+    font-size: var(--type-h4);
+    flex-shrink: 0;
+}
+
+.clue-stripe__content {
+    flex-grow: 1;
+    font-size: var(--type-body);
+}
+
+.clue-stripe__cost {
+    font-size: var(--type-small);
+    color: var(--text-subtle);
+    font-weight: 600;
+}
+
+/* Score Components */
+.score-number {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-default);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.score-number.updating {
+    color: var(--accent-400);
+    animation: scoreUpdate var(--motion-duration-normal) var(--motion-easing-standard);
+}
+
+@keyframes scoreUpdate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Progress Components */
+.progress-fill {
+    height: 100%;
+    background: var(--primary-600);
+    border-radius: var(--radius-s);
+    transition: width var(--motion-duration-normal) var(--motion-easing-standard);
+}
+
+.progress-fill.animate-progress {
+    transition: width var(--motion-duration-slow) var(--motion-easing-decelerate);
+}
+
+/* Difficulty Gauge */
+.difficulty-gauge {
+    width: 100%;
+    height: 8px;
+    background: var(--border-default);
+    border-radius: var(--radius-s);
+    overflow: hidden;
+    margin-top: var(--space-2);
+    position: relative;
+}
+
+.difficulty-gauge-fill {
+    height: 100%;
+    transition: width 0.3s ease, background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+/* Difficulty color ranges per spec */
+.difficulty-gauge-fill[data-difficulty="low"] {
+    background-color: var(--green-400);
+}
+
+.difficulty-gauge-fill[data-difficulty="medium"] {
+    background-color: var(--amber-400);
+}
+
+.difficulty-gauge-fill[data-difficulty="high"] {
+    background-color: var(--red-400);
+}
+
+/* Modal Components */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: var(--bg-card);
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: var(--radius-l);
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 8px 16px var(--shadow);
+    position: relative;
+    color: var(--text-default);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Toast Components */
+.toast-container {
+    position: fixed;
+    top: var(--space-4);
+    right: var(--space-4);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.toast {
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-m);
+    padding: var(--space-3) var(--space-4);
+    box-shadow: 0 4px 6px var(--shadow-light);
+    transform: translateX(100%);
+    transition: transform var(--motion-duration-normal) var(--motion-easing-standard);
+}
+
+.toast[data-visible="true"] {
+    transform: translateX(0);
+}
+
+.toast[data-variant="success"] {
+    background: var(--green-400);
+    color: white;
+}
+
+.toast__message {
+    font-size: var(--type-body);
+    font-weight: 500;
+}
+
+/* Input Components */
+input[type="text"] {
+    padding: var(--space-3);
+    border: 2px solid var(--border-default);
+    border-radius: var(--radius-m);
+    font-size: var(--type-body);
+    background: var(--bg-card);
+    color: var(--text-default);
+    transition: border-color var(--motion-duration-normal) var(--motion-easing-standard);
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary-600);
+}
+
+/* Animation utilities */
+.animate-scale {
+    animation: scaleUp var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+@keyframes scaleUp {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
