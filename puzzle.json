@@ -18185,17 +18185,29 @@
   {
     "word": "entitle",
     "definitions": [
-      "To give a title to.",
-      "To dignify by an honorary designation.",
-      "To give power or authority (to do something).",
-      "To give rightful ownership.",
-      "To give a title to a book, film, play, etc."
+      "To give someone the right or privilege to do or have something.",
+      "To give a name or title to a book, article, movie, or other work.",
+      "To furnish with proper grounds for seeking or claiming something.",
+      "To give an official title or designation to someone.",
+      "To qualify someone for something; to make eligible."
     ],
-    "synonyms": [],
-    "antonyms": [],
+    "synonyms": [
+      "authorize",
+      "qualify",
+      "permit",
+      "empower"
+    ],
+    "antonyms": [
+      "disqualify",
+      "prohibit",
+      "forbid"
+    ],
     "examples": [
-      "A passport [blank] s the bearer to travel to other countries.",
-      "She decided to [blank] the task."
+      "A passport [blank]s the bearer to travel to other countries.",
+      "She decided to [blank] her new novel 'The Secret Garden'.",
+      "Your membership [blank]s you to use all club facilities.",
+      "The award [blank]s the winner to a cash prize.",
+      "Being a citizen [blank]s you to vote in elections."
     ]
   },
   {
