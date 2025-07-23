@@ -40,6 +40,7 @@ function prepareGameUI() {
     const guessButton = document.getElementById("guess-button");
     const clueButton = document.getElementById("clue-button");
     const scoreButton = document.getElementById("score-button");
+    const newGameButton = document.getElementById("new-game-button");
     
     if (giveUpButton) {
         giveUpButton.disabled = false;
@@ -61,6 +62,9 @@ function prepareGameUI() {
     }
     if (scoreButton) {
         scoreButton.disabled = false;
+    }
+    if (newGameButton) {
+        newGameButton.disabled = false;
     }
     
     // Enable clues button for mobile
