@@ -552,7 +552,8 @@ header h1 {
     /* Flexbox layout for sticky positioning */
     display: flex;
     flex-direction: column;
-    height: 600px; /* Fixed height for scrollable area */
+    height: 600px; /* fallback */
+    height: min(700px, 85vh); /* Take 85% of viewport or 700px, whichever is smaller */
     position: relative;
     overflow: hidden;
 }
@@ -573,7 +574,7 @@ header h1 {
     top: 0;
     z-index: 10;
     background-color: var(--bg-card);
-    padding: var(--space-4) var(--space-4) var(--space-3);
+    padding: var(--space-3) var(--space-3) var(--space-2);
     border-bottom: 1px solid var(--border-default);
     flex-shrink: 0;
 }
@@ -1661,22 +1662,24 @@ h1 {
     
     /* Optimize input for mobile */
     .input-row {
-        flex-direction: column;
+        flex-direction: row; /* Keep horizontal on mobile for better use of space */
         gap: var(--space-2);
+        width: 100%;
     }
     
     .input-row input[type="text"] {
-        font-size: 18px; /* Prevent zoom on iOS */
-        padding: 18px 20px;
+        font-size: 16px; /* Prevent zoom on iOS */
+        padding: var(--space-3);
         width: 100%;
         max-width: none;
-        min-height: 50px;
+        flex: 1;
+        min-height: 44px;
     }
     
     .input-row #guess-button {
-        width: 100%;
-        padding: var(--space-3) var(--space-5);
-        min-height: 50px;
+        padding: var(--space-3) var(--space-4);
+        min-height: 44px;
+        flex-shrink: 0;
     }
     
     /* Better modal handling on mobile */
@@ -1795,7 +1798,7 @@ h1 {
     position: sticky;
     bottom: 0;
     width: 100%;
-    padding: var(--space-4);
+    padding: var(--space-3);
     background-color: var(--bg-card);
     border-top: 1px solid var(--border-default);
     flex-shrink: 0;
@@ -1803,7 +1806,7 @@ h1 {
 }
 
 .guess-card .input-section .message-area {
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-2);
     min-height: 24px;
     text-align: center;
 }
@@ -3300,15 +3303,150 @@ button[aria-disabled="true"]:hover {
 /* Mobile layout adjustments */
 @media (max-width: 767px) {
     main {
-        padding: var(--space-3);
+        padding: var(--space-2);
     }
     
     .game-prompt {
-        padding: var(--space-4);
+        padding: 0;
+        min-height: auto;
     }
     
     .game-sidebar {
         display: none; /* Hidden on mobile, accessed via clues button */
+    }
+    
+    /* Remove fixed height and sticky positioning */
+    .guess-card {
+        height: auto;
+        max-height: none;
+        overflow: visible;
+        display: block;
+        padding: var(--space-3);
+    }
+    
+    .guess-card-header {
+        position: static;
+        padding: var(--space-3) 0;
+        border-bottom: none;
+    }
+    
+    .guess-card-scroll {
+        overflow: visible;
+        padding: var(--space-3) 0;
+    }
+    
+    .guess-card .input-section {
+        position: static;
+        padding: var(--space-3) 0;
+        border-top: none;
+    }
+    
+    /* Hide desktop game actions on mobile */
+    .game-actions {
+        display: none;
+    }
+}
+
+/* Mobile Tab Navigation */
+.mobile-tab-navigation {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-default);
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    z-index: 1000;
+    box-shadow: 0 -2px 8px var(--shadow-light);
+}
+
+@media (max-width: 767px) {
+    .mobile-tab-navigation {
+        display: flex;
+    }
+}
+
+.mobile-tab {
+    flex: 1;
+    padding: var(--space-3) var(--space-2);
+    background: none;
+    border: none;
+    color: var(--text-subtle);
+    font-size: var(--type-small);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.mobile-tab.active {
+    color: var(--primary-600);
+}
+
+.mobile-tab.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--primary-600);
+}
+
+/* Mobile Game Actions */
+.mobile-game-actions {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+    padding: var(--space-4) 0;
+}
+
+.mobile-game-actions button {
+    flex: 1;
+    padding: var(--space-3) var(--space-4);
+}
+
+/* Mobile full-screen tabs */
+@media (max-width: 767px) {
+    .game-info-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 60px; /* Space for tab navigation */
+        background: var(--bg-default);
+        z-index: 999;
+        display: none;
+        overflow-y: auto;
+    }
+    
+    .game-info-modal.active {
+        display: block;
+    }
+    
+    .game-info-content {
+        height: 100%;
+        max-height: 100%;
+        border-radius: 0;
+        background: var(--bg-default);
+        padding: var(--space-4);
+    }
+    
+    .game-info-header {
+        display: none;
+    }
+    
+    /* Hide desktop clues button on mobile */
+    .clues-button {
+        display: none;
+    }
+    
+    /* Adjust main content to account for bottom navigation */
+    .game-shell {
+        padding-bottom: 60px;
     }
 }
 

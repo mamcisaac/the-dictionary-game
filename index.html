@@ -300,20 +300,22 @@
         </main>
     </div>
     
+    <!-- Mobile Tab Navigation -->
+    <nav class="mobile-tab-navigation" id="mobile-tab-navigation" style="display: none;">
+        <button class="mobile-tab active" data-tab="game">Game</button>
+        <button class="mobile-tab" data-tab="clues">Clues</button>
+        <button class="mobile-tab" data-tab="score">Score</button>
+        <button class="mobile-tab" data-tab="stats">Stats</button>
+    </nav>
+    
     <!-- Game Info Modal/Tab for Mobile -->
     <div id="game-info-modal" class="game-info-modal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="game-info-title">
         <div class="game-info-content">
-            <div class="game-info-header">
-                <h2 id="game-info-title">Game Info</h2>
-                <button id="close-game-info" class="close-game-info" aria-label="Close game info">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            
             <div class="game-info-tabs">
-                <div class="tab-buttons">
+                <div class="tab-buttons" style="display: none;">
                     <button class="tab-button active" data-tab="clues">Clues</button>
                     <button class="tab-button" data-tab="score">Score</button>
+                    <button class="tab-button" data-tab="stats">Stats</button>
                 </div>
                 
                 <div class="tab-content">
@@ -323,6 +325,10 @@
                             <h3>Available Clues</h3>
                             <div id="mobile-clue-deck" class="mobile-clue-deck-new">
                                 <!-- Clue cards will be dynamically inserted here -->
+                            </div>
+                            <div class="mobile-game-actions">
+                                <button id="mobile-new-game" class="button-primary">New Game</button>
+                                <button id="mobile-give-up" class="button-secondary" disabled>Give Up</button>
                             </div>
                         </div>
                     </div>
@@ -365,6 +371,13 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Stats Tab -->
+                    <div id="stats-tab" class="tab-panel">
+                        <div class="stats-content-mobile">
+                            <!-- Stats content will be populated from the stats modal -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -381,6 +394,7 @@
     <script src="src/js/components.js"></script>
     <script src="src/js/modal-manager.js"></script>
     <script src="src/js/game-info-modal.js"></script>
+    <script src="src/js/mobile-tabs.js"></script>
     <script src="src/js/event-handlers.js"></script>
     <script src="src/js/main.js"></script>
 </body>
