@@ -1012,7 +1012,7 @@ const achievementDefinitions = {
         name: 'Efficient Guesser',
         description: 'Win using only 1-2 clues',
         icon: '🎯',
-        condition: (stats) => history.some(game => game.won && game.cluesUsed <= 2)
+        condition: (stats) => false // Disabled - requires game history tracking
     },
     persistent_player: {
         id: 'persistent_player',
@@ -1033,7 +1033,7 @@ const achievementDefinitions = {
         name: 'Word Collector',
         description: 'Discover 50 unique words',
         icon: '📚',
-        condition: (stats) => history.length >= 50
+        condition: (stats) => stats.gamesPlayed >= 50
     },
     daily_devotion: {
         id: 'daily_devotion',
@@ -1047,7 +1047,7 @@ const achievementDefinitions = {
         name: 'Speed Demon',
         description: 'Win in under 2 minutes',
         icon: '⚡',
-        condition: (stats) => history.some(game => game.won && game.timeSpent && game.timeSpent < 120)
+        condition: (stats) => false // Disabled - requires time tracking
     },
     theme_explorer: {
         id: 'theme_explorer',
@@ -1166,7 +1166,6 @@ function showAchievementNotification(achievement) {
     }, 3000);
 }
 
-// Record game in word history
 
 
 // Game timing for achievements
