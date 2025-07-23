@@ -22,7 +22,7 @@ let cluesGivenByType = {
 };
 
 // Global DOM element references for functions used outside DOMContentLoaded
-let clueList, messageDisplay;
+let clueList, messageDisplay, clueMenu, clueOptions;
 
 // Global game statistics
 let gameStats = {
@@ -675,9 +675,9 @@ function handleGuess() {
 }
 
 guessButton.addEventListener("click", handleGuess);
-// Add clue menu element reference
-const clueMenu = document.getElementById("clue-menu");
-const clueOptions = document.getElementById("clue-options");
+// Get clue menu element references
+clueMenu = document.getElementById("clue-menu");
+clueOptions = document.getElementById("clue-options");
 
 // Show clue menu when clicking the clue button
 clueButton.addEventListener("click", () => {
