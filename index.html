@@ -50,11 +50,9 @@
             
             <div class="secondary-buttons">
                 <button id="start-game-button">New Game</button>
-                <button id="daily-challenge-button">Daily Challenge</button>
                 <button id="give-up-button">Give Up</button>
                 <button id="stats-button">Stats</button>
                 <button id="achievements-button">Achievements</button>
-                <button id="word-history-button">Word History</button>
                 <button id="settings-button">Settings</button>
             </div>
             <button id="help-button" aria-label="Help">?</button>
@@ -152,28 +150,6 @@
                 </div>
             </div>
             
-            <!-- Daily Challenge Modal -->
-            <div id="daily-challenge-modal" class="modal" style="display: none;">
-                <div class="modal-content">
-                    <span class="close-daily-challenge">&times;</span>
-                    <h2>Daily Challenge</h2>
-                    <div id="daily-challenge-content">
-                        <div id="daily-challenge-info">
-                            <p id="daily-challenge-date"></p>
-                            <p id="daily-challenge-status"></p>
-                        </div>
-                        <div id="daily-challenge-leaderboard">
-                            <h3>Today's Leaderboard</h3>
-                            <ol id="leaderboard-list"></ol>
-                        </div>
-                        <div class="daily-challenge-buttons">
-                            <button id="start-daily-challenge">Play Today's Challenge</button>
-                            <button id="view-daily-history">View History</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
             <!-- Achievements Modal -->
             <div id="achievements-modal" class="modal" style="display: none;">
                 <div class="modal-content">
@@ -184,30 +160,6 @@
                             <p>Badges Earned: <span id="badges-earned">0</span>/<span id="total-badges">15</span></p>
                         </div>
                         <div id="achievement-grid"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Word History Modal -->
-            <div id="word-history-modal" class="modal" style="display: none;">
-                <div class="modal-content">
-                    <span class="close-word-history">&times;</span>
-                    <h2>Word History</h2>
-                    <div id="word-history-content">
-                        <div id="word-history-controls">
-                            <input type="text" id="word-search" placeholder="Search words..." />
-                            <select id="word-filter">
-                                <option value="all">All Words</option>
-                                <option value="won">Won</option>
-                                <option value="lost">Lost</option>
-                                <option value="favorites">Favorites</option>
-                            </select>
-                        </div>
-                        <div id="word-history-stats">
-                            <p>Total Words: <span id="total-words-played">0</span></p>
-                            <p>Favorites: <span id="total-favorites">0</span></p>
-                        </div>
-                        <div id="word-history-list"></div>
                     </div>
                 </div>
             </div>

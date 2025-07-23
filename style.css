@@ -394,15 +394,12 @@ h1 {
     font-size: 0.85rem;
 }
 
-
-
 /* Special styling for the word when revealed */
 .revealed-word {
     color: #81b29a; /* Or any other color that makes the text stand out */
     font-weight: bold;
     font-size: 1.5rem; /* Make it larger to stand out */
 }
-
 
 /* Bigger font in the text input for better visibility */
 input[type="text"] {
@@ -449,7 +446,6 @@ button {
     margin: 8px;
     min-width: 100px;
 }
-
 
 button:disabled {
     background-color: #ccc;
@@ -619,12 +615,8 @@ button:hover:not(:disabled) {
 .close-settings:focus,
 .close-help:hover,
 .close-help:focus,
-.close-daily-challenge:hover,
-.close-daily-challenge:focus,
 .close-achievements:hover,
-.close-achievements:focus,
-.close-word-history:hover,
-.close-word-history:focus {
+.close-achievements:focus {
     color: #fff;
     background-color: #e07a5f;
     border-color: #e07a5f;
@@ -634,9 +626,7 @@ button:hover:not(:disabled) {
 
 .close-settings,
 .close-help,
-.close-daily-challenge,
-.close-achievements,
-.close-word-history {
+.close-achievements {
     color: #333;
     font-size: 28px;
     font-weight: bold;
@@ -744,47 +734,6 @@ button:hover:not(:disabled) {
 
 /* Phase 1 Feature Styles */
 
-/* Daily Challenge Styles */
-.daily-challenge-info {
-    background: var(--bg-tertiary);
-    padding: 15px;
-    border-radius: 8px;
-    margin: 15px 0;
-    border: 2px solid var(--accent-tertiary);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.daily-challenge-buttons {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.daily-challenge-buttons button {
-    background-color: var(--accent-secondary);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.1s ease;
-}
-
-.daily-challenge-buttons button:hover {
-    background-color: var(--accent-primary);
-    transform: translateY(-2px);
-}
-
-#leaderboard-list {
-    background: var(--bg-tertiary);
-    padding: 15px;
-    border-radius: 8px;
-    border: 2px solid var(--border-color);
-    text-align: left;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
 #leaderboard-list li {
     padding: 8px 0;
     border-bottom: 1px solid var(--border-color);
@@ -850,15 +799,6 @@ button:hover:not(:disabled) {
     color: var(--text-muted);
 }
 
-/* Word History Styles */
-#word-history-controls {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    align-items: center;
-    justify-content: space-between;
-}
-
 #word-search {
     flex: 1;
     padding: 8px 12px;
@@ -883,48 +823,6 @@ button:hover:not(:disabled) {
     color: var(--text-primary);
     cursor: pointer;
     transition: border-color 0.3s ease, background-color 0.3s ease;
-}
-
-#word-history-stats {
-    background: var(--bg-tertiary);
-    padding: 15px;
-    border-radius: 8px;
-    margin: 15px 0;
-    display: flex;
-    justify-content: space-around;
-    border: 2px solid var(--border-color);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-#word-history-list {
-    max-height: 400px;
-    overflow-y: auto;
-    border: 2px solid var(--border-color);
-    border-radius: 8px;
-    background: var(--bg-tertiary);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.word-history-item {
-    padding: 15px;
-    border-bottom: 1px solid var(--border-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.2s ease;
-}
-
-.word-history-item:hover {
-    background: var(--bg-secondary);
-}
-
-.word-history-item:last-child {
-    border-bottom: none;
-}
-
-.word-info {
-    text-align: left;
-    flex: 1;
 }
 
 .word-name {
@@ -979,9 +877,7 @@ button:hover:not(:disabled) {
 }
 
 /* Enhanced modal sizing for new features */
-#daily-challenge-modal .modal-content,
-#achievements-modal .modal-content,
-#word-history-modal .modal-content {
+#achievements-modal .modal-content {
     max-width: 700px;
     width: 90%;
     max-height: 80vh;
@@ -1002,9 +898,7 @@ button:hover:not(:disabled) {
     .close,
     .close-help,
     .close-settings,
-    .close-daily-challenge,
-    .close-achievements,
-    .close-word-history {
+    .close-achievements {
         width: 44px;
         height: 44px;
         font-size: 32px;
@@ -1260,30 +1154,6 @@ kbd {
 @media (max-width: 600px) {
     #achievement-grid {
         grid-template-columns: 1fr;
-    }
-    
-    #word-history-controls {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    #word-history-stats {
-        flex-direction: column;
-        gap: 5px;
-    }
-    
-    .word-history-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-    
-    .word-actions {
-        align-self: flex-end;
-    }
-    
-    .daily-challenge-buttons {
-        flex-direction: column;
     }
     
     /* Help modal responsive */
