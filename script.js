@@ -128,10 +128,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
     // Standardized to exactly 7 paid clues for all words (2 are given free at start)
-    function calculateAvailableClues() {
-        if (!puzzleData) return 0;
-        return 7; // 7 paid clues + 2 free (first definition + first letter) = 9 total
-    }
     
     
     // Update progress bar with dynamic limits
@@ -761,6 +757,12 @@ if (closeAchievementsModal) {
 }
 
 });
+
+// Global function for calculating available clues
+function calculateAvailableClues() {
+    if (!puzzleData) return 0;
+    return 7; // 7 paid clues + 2 free (first definition + first letter) = 9 total
+}
 
 // Global function for updating progress bar
 function updateProgressBar() {
