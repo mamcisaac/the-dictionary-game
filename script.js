@@ -21,6 +21,9 @@ let cluesGivenByType = {
     lettersRevealed: 1   // Start at 1 (first letter shown)
 };
 
+// Global DOM element references for functions used outside DOMContentLoaded
+let clueList, messageDisplay;
+
 // Load word dictionary from Cornerstone (JSON is faster than text parsing)
 async function loadWordList() {
     try {
@@ -41,14 +44,14 @@ async function loadWordList() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    const clueList = document.getElementById("clue-list");
+    clueList = document.getElementById("clue-list");
     const guessInput = document.getElementById("guess-input");
     const guessButton = document.getElementById("guess-button");
     const clueButton = document.getElementById("clue-button");
     const giveUpButton = document.getElementById("give-up-button");
     const startGameButton = document.getElementById("start-game-button");
     const inputContainer = document.getElementById("input-container");
-		const messageDisplay = document.getElementById("message");
+		messageDisplay = document.getElementById("message");
     const myword = document.getElementById("my-word");
     const scoreContainer = document.getElementById("score-container");
     const currentScoreElement = document.getElementById("current-score");
