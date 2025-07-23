@@ -635,7 +635,7 @@ function handleGuess() {
             feedback = "🎯 Extremely close! You're on the right track!";
         } else if (similarity > 0.6) {
             feedback = "🔥 Very close! You're almost there!";
-        } else if (similarity > 0.4) {
+        } else if (similarity > 0.4 && guessCount > 1) {
             feedback = "🌡️ Getting warmer! Keep trying!";
         } else if (guess.length !== targetWord.length) {
             const lengthDiff = targetWord.length - guess.length;
