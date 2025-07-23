@@ -9,7 +9,10 @@
     "build:css": "cat src/css/tokens.css src/css/layout.css src/css/components.css src/css/themes.css > dist/game.css",
     "build:js": "cat src/js/game-state.js src/js/components.js src/js/scoring.js > dist/game.js",
     "lint": "echo 'Linting not configured yet'",
-    "test": "echo 'Testing not configured yet'",
+    "test": "jest",
+    "test:mobile": "jest tests/mobile-game-info.test.js",
+    "test:watch": "jest --watch",
+    "test:debug": "DEBUG=true jest tests/mobile-game-info.test.js --verbose",
     "clean": "rm -rf dist && mkdir -p dist",
     "prepare-dist": "npm run clean && npm run build"
   },
@@ -37,5 +40,9 @@
   ],
   "engines": {
     "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "jest": "^30.0.5",
+    "puppeteer": "^24.15.0"
   }
 }

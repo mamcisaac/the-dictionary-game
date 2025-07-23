@@ -127,6 +127,14 @@ const Components = {
             // Check if dependencies are available
             if (typeof getAvailableClues !== 'function' || !gameScoring) return;
             
+            // Ensure elements are initialized
+            if (!this.mobileElement) {
+                this.mobileElement = document.getElementById('mobile-clue-deck');
+            }
+            if (!this.desktopElement) {
+                this.desktopElement = document.getElementById('desktop-clue-deck');
+            }
+            
             const available = getAvailableClues();
             const dynamicCosts = gameScoring.getAllClueCosts(puzzleData);
             

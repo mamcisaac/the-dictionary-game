@@ -49,7 +49,7 @@ function prepareGameUI() {
     }
     
     // Enable clues button for mobile
-    if (typeof GameInfoModal !== 'undefined') {
+    if (typeof GameInfoModal !== 'undefined' && GameInfoModal.enableCluesButton) {
         GameInfoModal.enableCluesButton();
     }
     
@@ -146,6 +146,11 @@ function setupGameComponents() {
     // Update clue deck
     if (typeof Components !== 'undefined' && Components.ClueDeck) {
         Components.ClueDeck.renderCards();
+    }
+    
+    // Enable clues button for mobile
+    if (typeof GameInfoModal !== 'undefined' && GameInfoModal.enableCluesButton) {
+        GameInfoModal.enableCluesButton();
     }
     
     // Start game timer

@@ -147,10 +147,24 @@ const GameInfoModal = {
      * Update the clues tab with current clue deck
      */
     updateCluesTab() {
-        // Trigger ClueDeck to re-render cards
-        if (typeof Components !== 'undefined' && Components.ClueDeck) {
-            Components.ClueDeck.renderCards();
+        // Check if all dependencies are available
+        const dependenciesReady = (
+            typeof Components !== 'undefined' && 
+            Components.ClueDeck &&
+            typeof gameStarted !== 'undefined' && gameStarted &&
+            typeof puzzleData !== 'undefined' && puzzleData &&
+            typeof getAvailableClues === 'function' &&
+            typeof gameScoring !== 'undefined' && gameScoring
+        );
+        
+        if (!dependenciesReady) {
+            // Try again after a short delay
+            setTimeout(() => this.updateCluesTab(), 100);
+            return;
         }
+        
+        // Trigger ClueDeck to re-render cards
+        Components.ClueDeck.renderCards();
     },
     
     /**
