@@ -22,7 +22,7 @@ let cluesGivenByType = {
 };
 
 // Global DOM element references for functions used outside DOMContentLoaded
-let clueList, messageDisplay, clueMenu, clueOptions;
+let clueList, messageDisplay, clueMenu, clueOptions, currentScoreElement;
 
 // Global game statistics
 let gameStats = {
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		messageDisplay = document.getElementById("message");
     const myword = document.getElementById("my-word");
     const scoreContainer = document.getElementById("score-container");
-    const currentScoreElement = document.getElementById("current-score");
+    currentScoreElement = document.getElementById("current-score");
     const wordPatternElement = document.getElementById("word-pattern");
     const statsButton = document.getElementById("stats-button");
     const statsModal = document.getElementById("stats-modal");
