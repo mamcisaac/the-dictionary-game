@@ -1,6 +1,12 @@
 // Global word list for validation
 let validWords = new Set();
 
+// Global settings object
+let gameSettings = {
+    autoClue: false,
+    theme: 'default'
+};
+
 // Load word dictionary from Cornerstone (JSON is faster than text parsing)
 async function loadWordList() {
     try {
@@ -123,12 +129,6 @@ document.addEventListener("DOMContentLoaded", function() {
         progressFill.style.width = Math.min(progressPercentage, 100) + '%';
         clueCounter.textContent = `${cluesUsed}/${availableClues} clues`;
     }
-    
-    // Settings object
-    let gameSettings = {
-        autoClue: false,
-        theme: 'default'
-    };
     
     // Load settings from localStorage
     function loadSettings() {
