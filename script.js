@@ -46,8 +46,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const statsButton = document.getElementById("stats-button");
     const statsModal = document.getElementById("stats-modal");
     const closeModal = document.querySelector(".close");
-    // Settings now in Help modal
-    const autoClueSetting = document.getElementById("auto-clue");
     const resetStatsButton = document.getElementById("reset-stats");
     const helpButton = document.getElementById("help-button");
     const helpModal = document.getElementById("help-modal");
@@ -132,34 +130,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const progressPercentage = availableClues > 0 ? (cluesUsed / availableClues) * 100 : 0;
         progressFill.style.width = Math.min(progressPercentage, 100) + '%';
         clueCounter.textContent = `${cluesUsed}/${availableClues} clues`;
-    }
-    
-    // Load settings from localStorage
-    function loadSettings() {
-        const savedSettings = localStorage.getItem('dictionaryGameSettings');
-        if (savedSettings) {
-            gameSettings = JSON.parse(savedSettings);
-        }
-        applySettings();
-    }
-    
-    // Save settings to localStorage
-    function saveSettings() {
-        localStorage.setItem('dictionaryGameSettings', JSON.stringify(gameSettings));
-    }
-    
-    // Apply settings to UI
-    function applySettings() {
-        if (autoClueSetting) {
-            autoClueSetting.checked = gameSettings.autoClue;
-        }
-        
-        // Apply theme if needed
-        const themeSelect = document.getElementById("theme-select");
-        if (gameSettings.theme && themeSelect) {
-            themeSelect.value = gameSettings.theme;
-            applyTheme(gameSettings.theme);
-        }
     }
     
     // Update word pattern display based on current clues
@@ -690,16 +660,6 @@ function handleGuess() {
         // Update button costs after wrong guess
         updateButtonCosts();
 
-        // Auto-reveal clue if setting is enabled and guess was substantial
-        if (gameSettings.autoClue && guess.length >= 2) {
-            const newClue = getNextClue();
-            if (newClue !== "No more clues available." || !cluesGiven.includes('no-more-clues')) {
-                updateClueDisplay(newClue);
-                if (newClue === "No more clues available.") {
-                    cluesGiven.push('no-more-clues');
-                }
-            }
-        }
     }
     
     // Animation for feedback message
@@ -760,12 +720,6 @@ window.addEventListener("click", (event) => {
     }
 });
 
-// Settings change listeners (now in Help modal)
-autoClueSetting.addEventListener("change", (e) => {
-    gameSettings.autoClue = e.target.checked;
-    saveSettings();
-    applySettings();
-});
 
 resetStatsButton.addEventListener("click", () => {
     if (confirm("Are you sure you want to reset all statistics? This cannot be undone.")) {
@@ -828,8 +782,6 @@ window.addEventListener("click", (event) => {
 const achievementsButton = document.getElementById("achievements-button");
 const achievementsModal = document.getElementById("achievements-modal");
 const closeAchievementsModal = document.querySelector(".close-achievements");
-const themeSelectElement = document.getElementById("theme-select");
-
 // Achievements Modal
 if (achievementsButton) {
     achievementsButton.addEventListener("click", () => {
@@ -844,21 +796,7 @@ if (closeAchievementsModal) {
     });
 }
 
-// Theme selector enhancement
-if (themeSelectElement) {
-    themeSelectElement.addEventListener("change", (e) => {
-        applyTheme(e.target.value);
-    });
-
-    // Set initial theme
-    if (gameSettings.theme) {
-        themeSelectElement.value = gameSettings.theme;
-        applyTheme(gameSettings.theme);
-    }
-}
-
-// Load settings and stats on page load
-loadSettings();
+// Load stats on page load
 loadStats();
 updateStatsDisplay();
 
@@ -1139,7 +1077,7 @@ const achievementDefinitions = {
         name: 'Theme Explorer',
         description: 'Try the dark theme',
         icon: '🌙',
-        condition: (stats) => gameSettings.theme === 'dark'
+        condition: (stats) => false // Theme achievement disabled
     }
 };
 
@@ -1253,13 +1191,6 @@ function showAchievementNotification(achievement) {
 
 // Record game in word history
 
-// Theme System Enhancement
-function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    gameSettings.theme = theme;
-    saveSettings();
-    checkAchievements(); // Check theme-related achievements
-}
 
 // Game timing for achievements
 let gameStartTime = null;
