@@ -70,12 +70,15 @@ function updateButtonCosts() {
     // Update guess button cost (first guess free, then flat 3 points)
     if (guessButton && !guessButton.disabled && guessCostPreview) {
         guessButton.textContent = "Guess";
-        if (guessCount === 0) {
-            guessCostPreview.textContent = "🆓 First guess free!";
-            guessCostPreview.className = "cost-preview free";
-        } else {
-            guessCostPreview.textContent = "💰 -3 points";
-            guessCostPreview.className = "cost-preview";
+        const costValueElement = guessCostPreview.querySelector('.cost-preview-value');
+        if (costValueElement) {
+            if (guessCount === 0) {
+                costValueElement.textContent = "🆓 First guess free!";
+                guessCostPreview.className = "cost-preview-sidebar free";
+            } else {
+                costValueElement.textContent = "💰 -3 points";
+                guessCostPreview.className = "cost-preview-sidebar";
+            }
         }
         guessCostPreview.style.display = "block";
     } else if (guessCostPreview) {

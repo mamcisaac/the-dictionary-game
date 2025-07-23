@@ -19,11 +19,13 @@ function handleGameGiveUp() {
 function prepareGameUI() {
     // Hide empty state and show game UI
     const emptyState = document.getElementById("empty-state");
-    const introText = document.getElementById("intro-text");
+    const guessCardHeader = document.getElementById("guess-card-header");
+    const guessCardScroll = document.getElementById("guess-card-scroll");
     const sidebarPlaceholder = document.getElementById("sidebar-placeholder");
     
     if (emptyState) emptyState.style.display = "none";
-    if (introText) introText.style.display = "block";
+    if (guessCardHeader) guessCardHeader.style.display = "block";
+    if (guessCardScroll) guessCardScroll.style.display = "block";
     if (sidebarPlaceholder) sidebarPlaceholder.style.display = "none";
     
     // Show clue deck
@@ -119,10 +121,17 @@ function setupGameComponents() {
     // Display primary definition
     if (puzzleData && puzzleData.definitions && puzzleData.definitions[0]) {
         const definition = puzzleData.definitions[0];
-        if (clueList && typeof Components !== 'undefined' && Components.ClueStripe) {
+        
+        // Add primary definition to the sticky header
+        const primaryDefElement = document.getElementById('primary-definition');
+        if (primaryDefElement) {
+            primaryDefElement.textContent = `📖 Definition: ${definition}`;
+        }
+        
+        // Clear the clue list for additional clues
+        const clueList = DOMUtils.get('clueList');
+        if (clueList) {
             clueList.innerHTML = '';
-            const definitionStripe = Components.ClueStripe.create('📖', `Definition: ${definition}`, 'hint-taken', null, 'definition');
-            clueList.appendChild(definitionStripe);
         }
     }
     

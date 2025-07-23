@@ -26,35 +26,35 @@
                     <button id="empty-state-new-game" class="button-primary">New Game</button>
                 </div>
                 
-                <p class="intro-text" id="intro-text" style="display: none;">Guess the word from its clues.</p>
-                
-                <div id="my-word" style="display: none;">
-                    <div id="word-pattern" class="guess-card__letter"></div>
+                <!-- Sticky Header Section -->
+                <div class="guess-card-header" id="guess-card-header" style="display: none;">
+                    <p class="intro-text" id="intro-text">Guess the word from its clues.</p>
+                    <div id="my-word">
+                        <div id="word-pattern" class="guess-card__letter"></div>
+                    </div>
+                    <div id="primary-definition" class="primary-definition"></div>
                 </div>
                 
-                <!-- ClueStripe Components will be dynamically inserted here -->
-                <div id="clue-list" class="clue-list" aria-live="polite" aria-label="Game clues"></div>
-                <div id="message" class="message-area" role="status" aria-live="assertive" aria-label="Game feedback"></div> 
+                <!-- Scrollable Middle Section -->
+                <div class="guess-card-scroll" id="guess-card-scroll" style="display: none;">
+                    <!-- ClueStripe Components will be dynamically inserted here -->
+                    <div id="clue-list" class="clue-list" aria-live="polite" aria-label="Game clues"></div>
+                </div>
+                
+                <!-- Sticky Bottom Input Section -->
+                <div class="input-section" id="input-section" style="display: none;">
+                    <div id="message" class="message-area" role="status" aria-live="assertive" aria-label="Game feedback"></div>
+                    <div class="input-row">
+                        <label for="guess-input" class="sr-only">Enter your word guess</label>
+                        <input type="text" id="guess-input" placeholder="Enter your guess" aria-describedby="guess-hint" tabindex="1">
+                        <button id="guess-button" tabindex="2">Guess</button>
+                    </div>
+                    <span id="guess-hint" class="sr-only">Type a word that starts with the given letter and press Enter or click Guess</span>
+                </div>
             </div>
         </main>
         
         <section class="game-actions">
-            <div class="input-section" style="display: none;">
-                <label for="guess-input" class="sr-only">Enter your word guess</label>
-                <input type="text" id="guess-input" placeholder="Enter your guess" aria-describedby="guess-hint" tabindex="1">
-                <span id="guess-hint" class="sr-only">Type a word that starts with the given letter and press Enter or click Guess</span>
-                <div class="main-buttons">
-                    <div class="button-container">
-                        <button id="guess-button" tabindex="2">Guess</button>
-                        <div id="guess-cost-preview" class="cost-preview" style="display: none;"></div>
-                    </div>
-                    <div class="button-container">
-                        <div class="score-badge-standalone" id="score-badge">
-                            <span id="current-score-badge">0</span> pts
-                        </div>
-                    </div>
-                </div>
-            </div>
             
             <div class="secondary-buttons">
                 <button id="start-game-button">New Game</button>
@@ -115,6 +115,12 @@
                             <span class="detail-label">• Time:</span>
                             <span id="time-elapsed" class="detail-value">0:00</span>
                         </div>
+                    </div>
+                    
+                    <!-- Guess Cost Preview -->
+                    <div id="guess-cost-preview" class="cost-preview-sidebar" style="display: none;">
+                        <span class="cost-preview-label">Next Guess Cost:</span>
+                        <span class="cost-preview-value"></span>
                     </div>
                 </div>
                     

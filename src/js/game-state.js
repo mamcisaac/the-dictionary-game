@@ -96,18 +96,17 @@ function initializeScoring() {
  */
 async function loadWordList() {
     try {
-        const response = await fetch('../Cornerstone/words_dictionary.json');
+        const response = await fetch('src/data/words_dictionary.json');
         if (!response.ok) {
-            console.warn('Word dictionary not found in Cornerstone, word validation disabled');
+            console.warn('Word dictionary not found, word validation disabled');
             validWords = null;
             return;
         }
         const wordsDict = await response.json();
         validWords = new Set(Object.keys(wordsDict).map(word => word.toLowerCase()));
-        console.log(`Loaded ${validWords.size} valid words from Cornerstone dictionary`);
+        console.log(`Loaded ${validWords.size} valid words from dictionary`);
     } catch (error) {
-        console.warn('Error loading word dictionary from Cornerstone:', error);
-        // Fallback: accept any word if we can't load the list
+        console.warn('Error loading word dictionary:', error);
         validWords = null;
     }
 }
