@@ -101,15 +101,36 @@ const i18n = {
             },
             3: {
                 title: "Need a hint?",
-                content: 'Click "Get a Clue" to see available clue types and their costs (2-7 points).'
+                content: 'Click "Get a Clue" to see available clue types and their <strong>dynamic costs</strong>.'
             },
             4: {
                 title: "Clue types",
-                content: "Definitions, word length, examples, synonyms/antonyms, and letter reveals."
+                content: "Definitions, word length, examples, synonyms/antonyms, and letter reveals. <strong>Costs vary by information value.</strong>"
             },
             5: {
-                title: "Scoring",
-                content: "You begin with 100 points. Clues cost 2-7 points each. After the first free guess, each extra guess costs 3 points."
+                title: "Smart Scoring",
+                content: "Your score depends on <strong>word difficulty</strong>, clue efficiency, and solving speed. Harder words = higher potential scores!"
+            }
+        },
+        advanced: {
+            title: "Advanced Scoring System",
+            sections: {
+                difficulty: {
+                    title: "Difficulty-Aware Scoring",
+                    content: "Each word has a difficulty score (0-1) based on length, rarity, and complexity. Harder words offer <strong>300-600 base points</strong>, while easier words start lower."
+                },
+                clues: {
+                    title: "Dynamic Clue Costs",
+                    content: "Clue costs are calculated using <strong>information theory</strong>:<br>• Additional Definition: ~10 pts<br>• Word Length: ~13 pts<br>• Example Sentence: ~18 pts<br>• Synonyms/Antonyms: ~20 pts<br>• Letter Reveal: ~56 pts (decreases as more revealed)"
+                },
+                bonuses: {
+                    title: "Bonuses & Penalties",
+                    content: "<strong>First Guess Bonus:</strong> +50 points for perfect insight<br><strong>Guess Penalties:</strong> Free for guesses 1-5, then -5 points each<br><strong>Time Decay:</strong> Gentle quadratic decay encourages momentum"
+                },
+                final: {
+                    title: "Final Score",
+                    content: "All scores are normalized to <strong>0-1000 scale</strong> for fair comparison across different words and sessions. Perfect scores on hardest words can reach 1000!"
+                }
             }
         }
     },

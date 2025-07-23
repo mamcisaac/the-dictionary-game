@@ -789,6 +789,9 @@ function startGame() {
     
     // Initialize button costs
     updateButtonCosts();
+    
+    // Update difficulty display
+    updateDifficultyIndicator();
 
     });
 }
@@ -1223,6 +1226,25 @@ function updateUnopenedCluesCount() {
     }
 }
 
+// Update difficulty indicator display
+function updateDifficultyIndicator() {
+    if (!gameScoring || !puzzleData) return;
+    
+    const breakdown = gameScoring.getScoreBreakdown();
+    const difficultyElement = document.getElementById('difficulty-score');
+    const difficultyFill = document.getElementById('difficulty-fill');
+    const difficultyIndicator = document.querySelector('.difficulty-indicator');
+    
+    if (difficultyElement && difficultyFill && difficultyIndicator) {
+        const difficulty = breakdown.difficulty;
+        const percentage = Math.round(difficulty * 100);
+        
+        difficultyElement.textContent = difficulty.toFixed(2);
+        difficultyFill.style.width = `${percentage}%`;
+        difficultyIndicator.style.display = 'block';
+    }
+}
+
 // ========================
 // PHASE 1 INITIALIZATION
 // ========================
@@ -1324,6 +1346,7 @@ function startGameWithSpecificWord(wordIndex) {
     updateProgressBar();
     updateButtonCosts();
     updateUnopenedCluesCount();
+    updateDifficultyIndicator();
     
     // Show initial clues
     myword.style.display = "block";

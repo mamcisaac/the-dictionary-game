@@ -87,6 +87,13 @@
                         <div class="clues-remaining">
                             <span id="clues-remaining-count">7</span> unopened clues
                         </div>
+                        <div class="difficulty-indicator" style="display: none;">
+                            <span class="difficulty-label">Difficulty:</span>
+                            <span id="difficulty-score" class="difficulty-value">0.5</span>
+                            <div class="difficulty-bar">
+                                <div id="difficulty-fill" class="difficulty-fill" style="width: 50%;"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -197,22 +204,57 @@
                             <div class="help-step">
                                 <div class="step-number">3</div>
                                 <div class="step-content">
-                                    <p><strong>Need a hint?</strong> — Click "Get a Clue" to see available clue types and their costs (2-7 points).</p>
+                                    <p><strong>Need a hint?</strong> — Click "Get a Clue" to see available clue types and their <strong>dynamic costs</strong>.</p>
                                 </div>
                             </div>
                             
                             <div class="help-step">
                                 <div class="step-number">4</div>
                                 <div class="step-content">
-                                    <p><strong>Clue types</strong> — Definitions, word length, examples, synonyms/antonyms, and letter reveals.</p>
+                                    <p><strong>Clue types</strong> — Definitions, word length, examples, synonyms/antonyms, and letter reveals. <strong>Costs vary by information value.</strong></p>
                                 </div>
                             </div>
                             
                             <div class="help-step">
                                 <div class="step-number">5</div>
                                 <div class="step-content">
-                                    <p><strong>Scoring</strong> — You begin with 100 points. Clues cost 2-7 points each. After the first free guess, each extra guess costs 3 points.</p>
+                                    <p><strong>Smart Scoring</strong> — Your score depends on <strong>word difficulty</strong>, clue efficiency, and solving speed. Harder words = higher potential scores!</p>
                                 </div>
+                            </div>
+                        </div>
+                        
+                        <div class="help-section">
+                            <h3>Advanced Scoring System</h3>
+                            
+                            <div class="help-subsection">
+                                <h4>🎯 Difficulty-Aware Scoring</h4>
+                                <p>Each word has a difficulty score (0-1) based on length, rarity, and complexity. Harder words offer <strong>300-600 base points</strong>, while easier words start lower.</p>
+                            </div>
+                            
+                            <div class="help-subsection">
+                                <h4>💡 Dynamic Clue Costs</h4>
+                                <p>Clue costs are calculated using <strong>information theory</strong>:</p>
+                                <ul>
+                                    <li><strong>Additional Definition:</strong> ~10 points</li>
+                                    <li><strong>Word Length:</strong> ~13 points</li>
+                                    <li><strong>Example Sentence:</strong> ~18 points</li>
+                                    <li><strong>Synonyms/Antonyms:</strong> ~20 points</li>
+                                    <li><strong>Letter Reveal:</strong> ~56 points (decreases as more revealed)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="help-subsection">
+                                <h4>⚡ Bonuses & Penalties</h4>
+                                <ul>
+                                    <li><strong>First Guess Bonus:</strong> +50 points for perfect insight</li>
+                                    <li><strong>Guess Penalties:</strong> Free for guesses 1-5, then -5 points each</li>
+                                    <li><strong>Time Decay:</strong> Gentle quadratic decay encourages momentum</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="help-subsection">
+                                <h4>🏆 Final Score</h4>
+                                <p>All scores are normalized to <strong>0-1000 scale</strong> for fair comparison across different words and sessions. Perfect scores on hardest words can reach 1000!</p>
                             </div>
                         </div>
                         
