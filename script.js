@@ -801,11 +801,6 @@ window.addEventListener("click", (event) => {
     }
     });
 
-// Load settings and stats on page load
-loadSettings();
-loadStats();
-updateStatsDisplay();
-
 // Help modal event listeners
 helpButton.addEventListener("click", () => {
     helpModal.style.display = "block";
@@ -826,18 +821,6 @@ window.addEventListener("click", (event) => {
         achievementsModal.style.display = "none";
     }
     });
-
-// Load settings and stats on page load
-loadSettings();
-loadStats();
-updateStatsDisplay();
-
-// ========================
-// PHASE 1 INITIALIZATION
-// ========================
-
-// Load all Phase 1 data
-loadAchievements();
 
 // Get DOM elements for new features
 const achievementsButton = document.getElementById("achievements-button");
@@ -871,6 +854,18 @@ if (themeSelectElement) {
         applyTheme(gameSettings.theme);
     }
 }
+
+// Load settings and stats on page load
+loadSettings();
+loadStats();
+updateStatsDisplay();
+
+// ========================
+// PHASE 1 INITIALIZATION
+// ========================
+
+// Load all Phase 1 data
+loadAchievements();
 
 });
 
