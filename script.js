@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Update button text and cost previews with current costs
     function updateButtonCosts() {
-        if (!gameStarted) {
+        if (!gameStarted || !puzzleData) {
             guessCostPreview.style.display = "none";
             return;
         }
