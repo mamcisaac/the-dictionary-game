@@ -4,16 +4,19 @@
  */
 
 /**
- * Start a new game
- * Initializes game state, fetches puzzle, and sets up UI
+ * Handle giving up on current game
  */
-async function startGame() {
-    // If a game is already in progress, treat as giving up
-    if (gameStarted) {
+function handleGameGiveUp() {
+    if (gameStarted && puzzleData) {
         Statistics.recordGameResult(false); // Record as a loss
         updateClueDisplay(formatString(i18n.messages.gaveUp, { word: puzzleData.word }));
     }
-    
+}
+
+/**
+ * Prepare UI for new game by hiding/showing appropriate elements
+ */
+function prepareGameUI() {
     // Hide empty state and show game UI
     const emptyState = document.getElementById("empty-state");
     const introText = document.getElementById("intro-text");
@@ -28,9 +31,10 @@ async function startGame() {
         Components.ClueDeck.show();
     }
     
-    // Enable buttons
+    // Enable buttons  
     const giveUpButton = document.getElementById("give-up-button");
     const statsButton = document.getElementById("stats-button");
+    const guessButton = document.getElementById("guess-button");
     
     if (giveUpButton) {
         giveUpButton.disabled = false;
@@ -40,30 +44,14 @@ async function startGame() {
         statsButton.disabled = false;
         statsButton.setAttribute('aria-disabled', 'false');
     }
+    if (guessButton) {
+        guessButton.disabled = false;
+    }
     
-    gameStarted = true;
-    const guessButton = document.getElementById("guess-button");
-    if (guessButton) guessButton.disabled = false;
-    
-    // Reset game state
-    cluesUsed = 0;
-    guessCount = 0;
-    const guessedWords = new Set(); // Local to this game session
-    
+    // Show score container and clear previous UI
     const scoreContainer = document.getElementById("score-container");
     if (scoreContainer) scoreContainer.style.display = "block";
     
-    // Reset clue tracking for new menu system
-    cluesGivenByType = {
-        definitions: 1,      // Primary definition shown free
-        wordLength: false,
-        examples: 0,
-        synonyms: false,
-        antonyms: false,
-        lettersRevealed: 1   // First letter shown free
-    };
-    
-    // Clear all previous game UI elements immediately
     if (clueList) clueList.innerHTML = '';
     const messageEl = document.getElementById("message");
     if (messageEl) messageEl.innerHTML = '';
@@ -75,83 +63,125 @@ async function startGame() {
     const myword = document.getElementById("my-word");
     if (inputContainer) inputContainer.style.display = "block";
     if (myword) myword.style.display = "block";
+}
+
+/**
+ * Reset all game state variables for new game
+ */
+function resetGameStateForNewGame() {
+    gameStarted = true;
+    cluesUsed = 0;
+    guessCount = 0;
     
-    try {
-        await fetchPuzzle();
-        
-        // Initialize new scoring system
-        if (gameScoring) {
-            gameScoring.initializeGame(puzzleData);
-            currentScore = gameScoring.getCurrentScore();
-        } else {
-            currentScore = 100; // Fallback
-        }
-        
-        // Update all score displays immediately
-        if (typeof animateScoreUpdate === 'function' && currentScoreElement) {
-            animateScoreUpdate(currentScoreElement, currentScore);
-        }
-        if (typeof updateScoreBadge === 'function') {
-            updateScoreBadge();
-        }
-        
-        // Display the primary definition as a ClueStripe
+    // Reset clue tracking
+    cluesGivenByType = {
+        definitions: 1,      // Primary definition shown free
+        wordLength: false,
+        examples: 0,
+        synonyms: false,
+        antonyms: false,
+        lettersRevealed: 1   // First letter shown free
+    };
+}
+
+/**
+ * Initialize puzzle data and scoring system
+ */
+async function initializeNewGame() {
+    await fetchPuzzle();
+    
+    // Initialize new scoring system
+    if (gameScoring) {
+        gameScoring.initializeGame(puzzleData);
+        currentScore = gameScoring.getCurrentScore();
+    } else {
+        currentScore = 100; // Fallback
+    }
+}
+
+/**
+ * Setup and update all game components after puzzle is loaded
+ */
+function setupGameComponents() {
+    // Update score displays
+    if (typeof animateScoreUpdate === 'function' && currentScoreElement) {
+        animateScoreUpdate(currentScoreElement, currentScore);
+    }
+    if (typeof updateScoreBadge === 'function') {
+        updateScoreBadge();
+    }
+    
+    // Display primary definition
+    if (puzzleData && puzzleData.definitions && puzzleData.definitions[0]) {
         const definition = puzzleData.definitions[0];
         if (clueList && typeof Components !== 'undefined' && Components.ClueStripe) {
             clueList.innerHTML = '';
             const definitionStripe = Components.ClueStripe.create('📖', `Definition: ${definition}`, 'hint-taken', null, 'definition');
             clueList.appendChild(definitionStripe);
         }
-        
-        // Initialize word pattern display
-        if (typeof updateWordPatternDisplay === 'function') {
-            updateWordPatternDisplay();
-        }
+    }
+    
+    // Update all UI components
+    if (typeof updateWordPatternDisplay === 'function') {
+        updateWordPatternDisplay();
+    }
+    if (typeof updateProgressBar === 'function') {
+        updateProgressBar();
+    }
+    if (typeof updateUnopenedCluesCount === 'function') {
+        updateUnopenedCluesCount();
+    }
+    if (typeof updateButtonCosts === 'function') {
+        updateButtonCosts();
+    }
+    if (typeof updateDifficultyIndicator === 'function') {
+        updateDifficultyIndicator();
+    }
+    
+    // Update clue deck
+    if (typeof Components !== 'undefined' && Components.ClueDeck) {
+        Components.ClueDeck.renderCards();
+    }
+    
+    // Start game timer
+    if (typeof startGameTimer === 'function') {
+        startGameTimer();
+    }
+    if (typeof updateGuessCount === 'function') {
+        updateGuessCount();
+    }
+}
 
-        // Reset game state variables
-        let currentClueIndex = 1; // Start from the second definition for the next clue
-        let lettersRevealed = 1;
-        let cluesGiven = []; // Reset clues given
-        
-        // Update progress bar after puzzle is loaded
-        if (typeof updateProgressBar === 'function') {
-            updateProgressBar();
-        }
-        
-        // Update unopened clues count
-        if (typeof updateUnopenedCluesCount === 'function') {
-            updateUnopenedCluesCount();
-        }
-        
-        // Initialize button costs
-        if (typeof updateButtonCosts === 'function') {
-            updateButtonCosts();
-        }
-        
-        // Update difficulty display
-        if (typeof updateDifficultyIndicator === 'function') {
-            updateDifficultyIndicator();
-        }
-        
-        // Update clue deck
-        if (typeof Components !== 'undefined' && Components.ClueDeck) {
-            Components.ClueDeck.renderCards();
-        }
-        
-        // Start game timer and reset guess count display
-        if (typeof startGameTimer === 'function') {
-            startGameTimer();
-        }
-        if (typeof updateGuessCount === 'function') {
-            updateGuessCount();
-        }
-        
+/**
+ * Handle errors during game start
+ */
+function handleGameStartError(error) {
+    console.error('Error starting game:', error);
+    const messageEl = document.getElementById("message");
+    if (messageEl) {
+        messageEl.innerHTML = 'Error loading puzzle. Please try again.';
+        messageEl.style.color = '#e07a5f';
+    }
+}
+
+/**
+ * Start a new game
+ * Initializes game state, fetches puzzle, and sets up UI
+ */
+async function startGame() {
+    // If a game is already in progress, treat as giving up
+    if (gameStarted) {
+        handleGameGiveUp();
+    }
+    
+    prepareGameUI();
+    resetGameStateForNewGame();
+    
+    try {
+        await initializeNewGame();
+        setupGameComponents();
     } catch (error) {
-        console.error('Error starting game:', error);
-        if (messageEl) {
-            messageEl.innerHTML = 'Error loading puzzle. Please try again.';
-            messageEl.style.color = '#e07a5f';
-        }
+        handleGameStartError(error);
     }
 }
 
