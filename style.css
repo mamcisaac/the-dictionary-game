@@ -257,6 +257,123 @@ h1 {
     min-width: 120px;
 }
 
+/* Clue Menu Styles */
+.clue-menu {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--bg-secondary);
+    border: 2px solid var(--accent-primary);
+    border-radius: 10px;
+    box-shadow: 0 -4px 20px var(--shadow);
+    margin-bottom: 10px;
+    z-index: 1000;
+    min-width: 280px;
+    max-width: 350px;
+}
+
+.clue-menu-header {
+    background-color: var(--accent-primary);
+    color: white;
+    padding: 12px 15px;
+    border-radius: 8px 8px 0 0;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+}
+
+.clue-options {
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.clue-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    margin: 5px 0;
+    background-color: var(--bg-tertiary);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.clue-option:hover:not(.disabled) {
+    background-color: var(--accent-tertiary);
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--shadow-light);
+}
+
+.clue-option.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: var(--bg-tertiary);
+}
+
+.clue-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.clue-name {
+    flex: 1;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.clue-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 14px;
+}
+
+.clue-cost {
+    color: var(--error-color);
+    font-weight: bold;
+}
+
+.clue-remaining {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.no-clues {
+    padding: 20px;
+    text-align: center;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Modal footer for reset button */
+.modal-footer {
+    padding: 15px;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.reset-button {
+    background-color: var(--error-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.reset-button:hover {
+    background-color: #d32f2f;
+    transform: translateY(-1px);
+}
+
 /* Mobile optimizations */
 @media (max-width: 768px) {
     .main-buttons {
@@ -307,6 +424,25 @@ h1 {
         padding: 12px 18px;
         margin: 6px 3px;
         font-size: 15px;
+    }
+    
+    /* Clue menu mobile adjustments */
+    .clue-menu {
+        position: fixed;
+        bottom: 50%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        width: 90%;
+        max-width: 320px;
+        margin-bottom: 0;
+    }
+    
+    .clue-option {
+        padding: 15px 12px;
+    }
+    
+    .clue-icon {
+        font-size: 20px;
     }
 }
 
@@ -611,8 +747,6 @@ button:hover:not(:disabled) {
 
 .close:hover,
 .close:focus,
-.close-settings:hover,
-.close-settings:focus,
 .close-help:hover,
 .close-help:focus,
 .close-achievements:hover,
@@ -624,7 +758,6 @@ button:hover:not(:disabled) {
     transform: scale(1.1);
 }
 
-.close-settings,
 .close-help,
 .close-achievements {
     color: #333;
@@ -897,7 +1030,6 @@ button:hover:not(:disabled) {
 @media (max-width: 600px) {
     .close,
     .close-help,
-    .close-settings,
     .close-achievements {
         width: 44px;
         height: 44px;

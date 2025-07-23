@@ -31,8 +31,14 @@
                         <div id="guess-cost-preview" class="cost-preview" style="display: none;"></div>
                     </div>
                     <div class="button-container">
-                        <button id="clue-button">Need a Clue?</button>
-                        <div id="clue-cost-preview" class="cost-preview" style="display: none;"></div>
+                        <button id="clue-button">Get a Clue</button>
+                        <!-- Clue Menu Popup -->
+                        <div id="clue-menu" class="clue-menu" style="display: none;">
+                            <div class="clue-menu-header">Choose a Clue Type</div>
+                            <div id="clue-options" class="clue-options">
+                                <!-- Dynamically populated clue options will go here -->
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -53,7 +59,6 @@
                 <button id="give-up-button">Give Up</button>
                 <button id="stats-button">Stats</button>
                 <button id="achievements-button">Achievements</button>
-                <button id="settings-button">Settings</button>
             </div>
             <button id="help-button" aria-label="Help">?</button>
             
@@ -71,34 +76,8 @@
                         <p>Current Streak: <span id="current-streak">0</span></p>
                         <p>Best Streak: <span id="best-streak">0</span></p>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Settings Modal -->
-            <div id="settings-modal" class="modal" style="display: none;">
-                <div class="modal-content">
-                    <span class="close-settings">&times;</span>
-                    <h2>Settings</h2>
-                    <div id="settings-content">
-                        <div class="setting-item">
-                            <label for="show-word-length">Show only the first letter:</label>
-                            <input type="checkbox" id="show-word-length">
-                        </div>
-                        <div class="setting-item">
-                            <label for="auto-clue">Auto-reveal clue after wrong guess:</label>
-                            <input type="checkbox" id="auto-clue">
-                        </div>
-                        <div class="setting-item">
-                            <label for="theme-select">Color theme:</label>
-                            <select id="theme-select">
-                                <option value="default">Default</option>
-                                <option value="dark">Dark</option>
-                                <option value="high-contrast">High Contrast</option>
-                            </select>
-                        </div>
-                        <div class="setting-item">
-                            <button id="reset-stats">Reset Statistics</button>
-                        </div>
+                    <div class="modal-footer">
+                        <button id="reset-stats" class="reset-button">Reset Statistics</button>
                     </div>
                 </div>
             </div>
@@ -128,22 +107,39 @@
                             <div class="help-step">
                                 <div class="step-number">3</div>
                                 <div class="step-content">
-                                    <p><strong>Need a hint?</strong> — Request a clue (−5 points). Up to 7 clues total.</p>
+                                    <p><strong>Need a hint?</strong> — Click "Get a Clue" to see available clue types and their costs (2-7 points).</p>
                                 </div>
                             </div>
                             
                             <div class="help-step">
                                 <div class="step-number">4</div>
                                 <div class="step-content">
-                                    <p><strong>Clues include</strong> — Extra definitions, example sentences, or additional letters.</p>
+                                    <p><strong>Clue types</strong> — Definitions, word length, examples, synonyms/antonyms, and letter reveals.</p>
                                 </div>
                             </div>
                             
                             <div class="help-step">
                                 <div class="step-number">5</div>
                                 <div class="step-content">
-                                    <p><strong>Scoring</strong> — You begin with 100 points. After the first free guess, each extra guess costs 1 point plus the number of clues taken.</p>
+                                    <p><strong>Scoring</strong> — You begin with 100 points. Clues cost 2-7 points each. After the first free guess, each extra guess costs 3 points.</p>
                                 </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Settings Section -->
+                        <div class="help-section">
+                            <h3>Game Settings</h3>
+                            <div class="setting-item">
+                                <label for="auto-clue">Auto-reveal clue after wrong guess:</label>
+                                <input type="checkbox" id="auto-clue">
+                            </div>
+                            <div class="setting-item">
+                                <label for="theme-select">Color theme:</label>
+                                <select id="theme-select">
+                                    <option value="default">Default</option>
+                                    <option value="dark">Dark</option>
+                                    <option value="high-contrast">High Contrast</option>
+                                </select>
                             </div>
                         </div>
                     </div>

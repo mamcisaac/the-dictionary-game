@@ -36,10 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const statsButton = document.getElementById("stats-button");
     const statsModal = document.getElementById("stats-modal");
     const closeModal = document.querySelector(".close");
-    const settingsButton = document.getElementById("settings-button");
-    const settingsModal = document.getElementById("settings-modal");
-    const closeSettingsModal = document.querySelector(".close-settings");
-    const showWordLengthSetting = document.getElementById("show-word-length");
+    // Settings now in Help modal
     const autoClueSetting = document.getElementById("auto-clue");
     const resetStatsButton = document.getElementById("reset-stats");
     const helpButton = document.getElementById("help-button");
@@ -48,13 +45,22 @@ document.addEventListener("DOMContentLoaded", function() {
     const progressFill = document.getElementById("progress-fill");
     const clueCounter = document.getElementById("clue-counter");
     const guessCostPreview = document.getElementById("guess-cost-preview");
-    const clueCostPreview = document.getElementById("clue-cost-preview");
     
     // Load word list on startup
     loadWordList();
     
     // Track number of guesses made
     let guessCount = 0;
+    
+    // Track clues given by type for the new menu system
+    let cluesGivenByType = {
+        definitions: 1,      // Start at 1 (primary shown free)
+        wordLength: false,   // Has word length been revealed?
+        examples: 0,         // Number of examples shown
+        synonyms: false,     // Have synonyms been shown?
+        antonyms: false,     // Have antonyms been shown?
+        lettersRevealed: 1   // Start at 1 (first letter shown)
+    };
     
     // Calculate difficulty multiplier based on word length for fairer scoring
     function calculateDifficultyMultiplier(wordLength) {
@@ -69,18 +75,19 @@ document.addEventListener("DOMContentLoaded", function() {
     function updateButtonCosts() {
         if (!gameStarted) {
             guessCostPreview.style.display = "none";
-            clueCostPreview.style.display = "none";
             return;
         }
         
-        // Update clue button cost (5 points per clue)
+        // Update clue button text based on availability
         if (!clueButton.disabled) {
-            clueButton.textContent = "Get Clue";
-            clueCostPreview.textContent = "💰 -5 points";
-            clueCostPreview.className = "cost-preview";
-            clueCostPreview.style.display = "block";
-        } else {
-            clueCostPreview.style.display = "none";
+            const available = getAvailableClues();
+            const hasAnyClues = Object.values(available).some(count => count > 0);
+            if (hasAnyClues && currentScore > 2) {
+                clueButton.textContent = "Get a Clue";
+            } else {
+                clueButton.disabled = true;
+                clueButton.textContent = "No More Clues";
+            }
         }
         
         // Update guess button cost (first guess free, then flat 3 points)
@@ -116,7 +123,6 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Settings object
     let gameSettings = {
-        showWordLength: false,
         autoClue: false,
         theme: 'default'
     };
@@ -137,34 +143,34 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Apply settings to UI
     function applySettings() {
-        showWordLengthSetting.checked = gameSettings.showWordLength;
         autoClueSetting.checked = gameSettings.autoClue;
         
-        // Update word pattern display based on settings if game is active
-        if (gameStarted && puzzleData) {
-            updateWordPatternDisplay();
+        // Apply theme if needed
+        if (gameSettings.theme && themeSelect) {
+            themeSelect.value = gameSettings.theme;
+            applyTheme(gameSettings.theme);
         }
     }
     
-    // Update word pattern display based on current settings
+    // Update word pattern display based on current clues
     function updateWordPatternDisplay() {
         if (!puzzleData) return;
         
-        if (gameSettings.showWordLength) {
-            // Show only revealed letters with consistent spacing: "c o n s t"
-            const revealedPart = puzzleData.word.substring(0, lettersRevealed).toUpperCase();
-            const revealedWithSpacing = revealedPart.split('').join(' ');
-            wordPatternElement.innerHTML = revealedWithSpacing;
-        } else {
-            // Show full pattern with consistent spacing: "c o n s t _ _ _"
-            const revealedPart = puzzleData.word.substring(0, lettersRevealed).toUpperCase();
-            const revealedWithSpacing = revealedPart.split('').join(' ');
+        // Always show revealed letters
+        const revealedPart = puzzleData.word.substring(0, lettersRevealed).toUpperCase();
+        const revealedWithSpacing = revealedPart.split('').join(' ');
+        
+        // Show full pattern if word length has been revealed
+        if (cluesGivenByType.wordLength) {
             const hiddenLetters = '_ '.repeat(puzzleData.word.length - lettersRevealed).trim();
             const pattern = revealedWithSpacing + (hiddenLetters ? ' ' + hiddenLetters : '');
             wordPatternElement.innerHTML = pattern;
+        } else {
+            // Show only revealed letters
+            wordPatternElement.innerHTML = revealedWithSpacing;
         }
         
-        // Always show the element (don't hide it completely)
+        // Always show the element
         wordPatternElement.style.display = 'block';
     }
     
@@ -446,7 +452,7 @@ function startGame() {
     gameStarted = true;
     guessButton.disabled = false;
     clueButton.disabled = false;
-    clueButton.textContent = "Need a Clue?"; // Reset button text
+    clueButton.textContent = "Get a Clue"; // Reset button text
 		giveUpButton.disabled = false; 
 		
     // Reset scoring
@@ -455,6 +461,16 @@ function startGame() {
     guessCount = 0; // Reset guess counter
     currentScoreElement.textContent = currentScore;
     scoreContainer.style.display = "block";
+    
+    // Reset clue tracking for new menu system
+    cluesGivenByType = {
+        definitions: 1,      // Primary definition shown free
+        wordLength: false,
+        examples: 0,
+        synonyms: false,
+        antonyms: false,
+        lettersRevealed: 1   // First letter shown free
+    };
     
     // Clear all previous game UI elements immediately
     clueList.innerHTML = ''; // Clear the list for a new game
@@ -666,15 +682,21 @@ function handleGuess() {
 }
 
 guessButton.addEventListener("click", handleGuess);
+// Add clue menu element reference
+const clueMenu = document.getElementById("clue-menu");
+const clueOptions = document.getElementById("clue-options");
+
+// Show clue menu when clicking the clue button
 clueButton.addEventListener("click", () => {
     if (gameStarted) {
-        const newClue = getNextClue();
-        if (newClue !== "No more clues available." || !cluesGiven.includes('no-more-clues')) {
-            updateClueDisplay(newClue);
-            if (newClue === "No more clues available.") {
-                cluesGiven.push('no-more-clues');
-            }
-        }
+        showClueMenu();
+    }
+});
+
+// Close clue menu when clicking outside
+document.addEventListener("click", (event) => {
+    if (!clueButton.contains(event.target) && !clueMenu.contains(event.target)) {
+        clueMenu.style.display = "none";
     }
 });
 
@@ -708,22 +730,7 @@ window.addEventListener("click", (event) => {
     }
 });
 
-// Settings modal event listeners
-settingsButton.addEventListener("click", () => {
-    settingsModal.style.display = "block";
-});
-
-closeSettingsModal.addEventListener("click", () => {
-    settingsModal.style.display = "none";
-});
-
-// Settings change listeners
-showWordLengthSetting.addEventListener("change", (e) => {
-    gameSettings.showWordLength = e.target.checked;
-    saveSettings();
-    applySettings();
-});
-
+// Settings change listeners (now in Help modal)
 autoClueSetting.addEventListener("change", (e) => {
     gameSettings.autoClue = e.target.checked;
     saveSettings();
@@ -758,9 +765,6 @@ window.addEventListener("click", (event) => {
     if (event.target === helpModal) {
         helpModal.style.display = "none";
     }
-    if (event.target === settingsModal) {
-        settingsModal.style.display = "none";
-    }
     // Phase 1 modals
         const achievementsModal = document.getElementById("achievements-modal"); 
         
@@ -786,9 +790,6 @@ closeHelpModal.addEventListener("click", () => {
 window.addEventListener("click", (event) => {
     if (event.target === helpModal) {
         helpModal.style.display = "none";
-    }
-    if (event.target === settingsModal) {
-        settingsModal.style.display = "none";
     }
     // Phase 1 modals
         const achievementsModal = document.getElementById("achievements-modal"); 
@@ -853,6 +854,168 @@ function addClueWithAnimation(clue) {
     setTimeout(() => {
         clueItem.style.opacity = "1";
     }, 100);
+}
+
+// ========================
+// NEW CLUE MENU SYSTEM
+// ========================
+
+// Calculate available clues for current word
+function getAvailableClues() {
+    if (!puzzleData) return {};
+    
+    const available = {
+        definitions: Math.max(0, puzzleData.definitions.length - cluesGivenByType.definitions),
+        wordLength: !cluesGivenByType.wordLength ? 1 : 0,
+        examples: Math.max(0, puzzleData.examples.length - cluesGivenByType.examples),
+        synonyms: (puzzleData.synonyms && puzzleData.synonyms.length > 0 && !cluesGivenByType.synonyms) ? 1 : 0,
+        antonyms: (puzzleData.antonyms && puzzleData.antonyms.length > 0 && !cluesGivenByType.antonyms) ? 1 : 0,
+        letters: Math.max(0, puzzleData.word.length - cluesGivenByType.lettersRevealed)
+    };
+    
+    return available;
+}
+
+// Check if player can afford a clue
+function canAffordClue(cost) {
+    return currentScore > cost; // Must have more than cost to maintain min score of 1
+}
+
+// Show the clue menu with available options
+function showClueMenu() {
+    const available = getAvailableClues();
+    clueOptions.innerHTML = ''; // Clear previous options
+    
+    // Define clue types with costs and icons
+    const clueTypes = [
+        { type: 'definition', name: 'Another Definition', cost: 2, icon: '📖', count: available.definitions },
+        { type: 'wordLength', name: 'Word Length', cost: 3, icon: '📏', count: available.wordLength },
+        { type: 'example', name: 'Sample Sentence', cost: 4, icon: '📝', count: available.examples },
+        { type: 'synonyms', name: 'Synonyms', cost: 5, icon: '💡', count: available.synonyms },
+        { type: 'antonyms', name: 'Antonyms', cost: 5, icon: '🔄', count: available.antonyms },
+        { type: 'letter', name: 'Reveal Letter', cost: 7, icon: '🔤', count: available.letters }
+    ];
+    
+    // Create menu options
+    clueTypes.forEach(clueType => {
+        if (clueType.count > 0) { // Only show if available
+            const option = document.createElement('div');
+            option.className = 'clue-option';
+            
+            const affordable = canAffordClue(clueType.cost);
+            if (!affordable) {
+                option.classList.add('disabled');
+            }
+            
+            option.innerHTML = `
+                <span class="clue-icon">${clueType.icon}</span>
+                <span class="clue-name">${clueType.name}</span>
+                <span class="clue-info">
+                    <span class="clue-cost">${clueType.cost} pts</span>
+                    <span class="clue-remaining">${clueType.count} left</span>
+                </span>
+            `;
+            
+            if (affordable) {
+                option.addEventListener('click', () => purchaseClue(clueType.type, clueType.cost));
+            }
+            
+            clueOptions.appendChild(option);
+        }
+    });
+    
+    // Show message if no clues available
+    if (clueOptions.children.length === 0) {
+        clueOptions.innerHTML = '<div class="no-clues">No more clues available!</div>';
+    }
+    
+    // Show the menu
+    clueMenu.style.display = 'block';
+}
+
+// Purchase and reveal a specific clue type
+function purchaseClue(type, cost) {
+    // Deduct points
+    currentScore = Math.max(1, currentScore - cost);
+    currentScoreElement.textContent = currentScore;
+    cluesUsed++; // Increment total clues counter
+    updateProgressBar();
+    
+    // Get and display the clue
+    const clueContent = getClueContent(type);
+    if (clueContent) {
+        updateClueDisplay(clueContent);
+        
+        // Update button states
+        updateButtonCosts();
+        
+        // Check if score is too low for more clues
+        if (currentScore <= 2) { // Can't afford cheapest clue
+            clueButton.disabled = true;
+            clueButton.textContent = "No More Clues";
+        }
+    }
+    
+    // Hide the menu
+    clueMenu.style.display = 'none';
+}
+
+// Get the actual clue content based on type
+function getClueContent(type) {
+    let content = '';
+    
+    switch(type) {
+        case 'definition':
+            if (cluesGivenByType.definitions < puzzleData.definitions.length) {
+                const defIndex = cluesGivenByType.definitions;
+                content = `📖 Definition ${defIndex + 1}: ${puzzleData.definitions[defIndex]}`;
+                cluesGivenByType.definitions++;
+            }
+            break;
+            
+        case 'wordLength':
+            if (!cluesGivenByType.wordLength) {
+                // Show full word pattern
+                cluesGivenByType.wordLength = true;
+                updateWordPatternDisplay();
+                content = `📏 The word has ${puzzleData.word.length} letters`;
+            }
+            break;
+            
+        case 'example':
+            if (cluesGivenByType.examples < puzzleData.examples.length) {
+                const exIndex = cluesGivenByType.examples;
+                content = `📝 Example: ${puzzleData.examples[exIndex]}`;
+                cluesGivenByType.examples++;
+            }
+            break;
+            
+        case 'synonyms':
+            if (!cluesGivenByType.synonyms && puzzleData.synonyms && puzzleData.synonyms.length > 0) {
+                content = `💡 Synonyms: ${puzzleData.synonyms.slice(0, 4).join(', ')}`;
+                cluesGivenByType.synonyms = true;
+            }
+            break;
+            
+        case 'antonyms':
+            if (!cluesGivenByType.antonyms && puzzleData.antonyms && puzzleData.antonyms.length > 0) {
+                content = `🔄 Antonyms: ${puzzleData.antonyms.slice(0, 3).join(', ')}`;
+                cluesGivenByType.antonyms = true;
+            }
+            break;
+            
+        case 'letter':
+            if (cluesGivenByType.lettersRevealed < puzzleData.word.length) {
+                cluesGivenByType.lettersRevealed++;
+                lettersRevealed = cluesGivenByType.lettersRevealed;
+                updateWordPatternDisplay();
+                const revealedPart = puzzleData.word.substring(0, lettersRevealed).toUpperCase();
+                content = `🔤 The word starts with: ${revealedPart}`;
+            }
+            break;
+    }
+    
+    return content;
 }
 
 function displayMessageWithAnimation(message, isSuccess) {
