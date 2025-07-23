@@ -160,12 +160,16 @@ async function startGame() {
  * Validates the guess and provides feedback
  */
 function handleGuess() {
-    if (!gameStarted) return;
-    
-    const guessInput = document.getElementById("guess-input");
-    const messageDisplay = document.getElementById("message");
-    
-    if (!guessInput || !puzzleData) return;
+    try {
+        if (!gameStarted) return;
+        
+        const guessInput = document.getElementById("guess-input");
+        const messageDisplay = document.getElementById("message");
+        
+        if (!guessInput || !puzzleData) {
+            console.warn("Missing required elements or puzzle data for guess handling");
+            return;
+        }
     
     const guess = guessInput.value.trim().toLowerCase();
     const targetWord = puzzleData.word.toLowerCase();
@@ -349,23 +353,65 @@ function handleGuess() {
     }
 
     guessInput.value = ""; // Clear the guess input field
+    
+    } catch (error) {
+        console.error("Error handling guess:", error);
+        
+        // Show user-friendly error message
+        if (typeof Components !== 'undefined' && Components.Toast) {
+            Components.Toast.show("An error occurred processing your guess. Please try again.", "error");
+        }
+        
+        // Try to clear the input field safely
+        const guessInput = document.getElementById("guess-input");
+        if (guessInput) {
+            guessInput.value = "";
+        }
+    }
 }
 
 /**
  * Fetch puzzle data from JSON file
  * @param {number|null} specificIndex - Optional specific puzzle index
+ * @throws {Error} When puzzle data cannot be loaded
  */
 async function fetchPuzzle(specificIndex = null) {
-    const response = await fetch("puzzle.json");
-    puzzleDataList = await response.json();
-    
-    if (specificIndex !== null && specificIndex >= 0 && specificIndex < puzzleDataList.length) {
-        currentPuzzleIndex = specificIndex;
-    } else {
-        currentPuzzleIndex = Math.floor(Math.random() * puzzleDataList.length);
-    }
+    try {
+        const response = await fetch("puzzle.json");
+        
+        if (!response.ok) {
+            throw new Error(`Failed to load puzzle data: ${response.status} ${response.statusText}`);
+        }
+        
+        puzzleDataList = await response.json();
+        
+        if (!Array.isArray(puzzleDataList) || puzzleDataList.length === 0) {
+            throw new Error("Invalid puzzle data: expected non-empty array");
+        }
+        
+        if (specificIndex !== null && specificIndex >= 0 && specificIndex < puzzleDataList.length) {
+            currentPuzzleIndex = specificIndex;
+        } else {
+            currentPuzzleIndex = Math.floor(Math.random() * puzzleDataList.length);
+        }
 
-    puzzleData = puzzleDataList[currentPuzzleIndex];
+        puzzleData = puzzleDataList[currentPuzzleIndex];
+        
+        if (!puzzleData || !puzzleData.word) {
+            throw new Error("Invalid puzzle data structure");
+        }
+        
+    } catch (error) {
+        console.error("Error loading puzzle:", error);
+        
+        // Show user-friendly error message
+        if (typeof Components !== 'undefined' && Components.Toast) {
+            Components.Toast.show("Failed to load puzzle. Please check your connection and try again.", "error");
+        }
+        
+        // Re-throw for caller to handle
+        throw new Error(`Puzzle loading failed: ${error.message}`);
+    }
 }
 
 /**

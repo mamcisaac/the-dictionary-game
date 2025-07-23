@@ -149,40 +149,59 @@ function updateUnopenedCluesCount() {
  * @param {number} newScore - The new score value
  */
 function animateScoreUpdate(element, newScore) {
-    if (!element) return;
-    
-    const oldScore = parseInt(element.textContent) || 0;
-    const duration = 600; // 0.6s per spec
-    const startTime = performance.now();
-    
-    // Add updating class for visual feedback
-    element.classList.add('updating');
-    
-    const animate = (currentTime) => {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
+    try {
+        if (!element) return;
         
-        // Ease-out function
-        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const oldScore = parseInt(element.textContent) || 0;
+        const duration = 600; // 0.6s per spec
+        const startTime = performance.now();
         
-        const currentValue = Math.round(oldScore + (newScore - oldScore) * easeOut);
-        element.textContent = currentValue;
+        // Add updating class for visual feedback
+        element.classList.add('updating');
         
-        if (progress < 1) {
-            requestAnimationFrame(animate);
-        } else {
+        const animate = (currentTime) => {
+            try {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Ease-out function
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                
+                const currentValue = Math.round(oldScore + (newScore - oldScore) * easeOut);
+                element.textContent = currentValue;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    element.textContent = newScore;
+                    element.classList.remove('updating');
+                }
+            } catch (error) {
+                console.error("Error in score animation frame:", error);
+                // Fallback: set final value immediately
+                if (element) {
+                    element.textContent = newScore;
+                    element.classList.remove('updating');
+                }
+            }
+        };
+        
+        // Check for reduced motion preference
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             element.textContent = newScore;
-            element.classList.remove('updating');
+            return;
         }
-    };
-    
-    // Check for reduced motion preference
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        element.textContent = newScore;
-        return;
+        
+        requestAnimationFrame(animate);
+        
+    } catch (error) {
+        console.error("Error in score animation setup:", error);
+        
+        // Fallback: set value directly
+        if (element) {
+            element.textContent = newScore;
+        }
     }
-    
-    requestAnimationFrame(animate);
 }
 
 /**
