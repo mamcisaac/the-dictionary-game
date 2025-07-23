@@ -87,14 +87,6 @@ document.addEventListener("DOMContentLoaded", function() {
     let guessedWords = new Set();
     
     
-    // Calculate difficulty multiplier based on word length for fairer scoring
-    function calculateDifficultyMultiplier(wordLength) {
-        // Base multiplier increases with word length to balance difficulty
-        if (wordLength <= 4) return 1.0;      // Short words: no bonus
-        if (wordLength <= 6) return 1.1;      // Medium words: 10% bonus
-        if (wordLength <= 8) return 1.2;      // Long words: 20% bonus
-        return 1.3;                           // Very long words: 30% bonus
-    }
     
     // Update button text and cost previews with current costs
     function updateButtonCosts() {
@@ -293,12 +285,11 @@ function getNextClue() {
     // Build a queue of 7 paid clues (2 were given free at start)
     const clueQueue = [];
     
-    // Intelligent clue distribution based on word difficulty and available content
+    // Intelligent clue distribution based on word content
     const wordLength = puzzleData.word.length;
-    const isHardWord = wordLength > 6;
     
-    // For harder words, prioritize additional definitions first
-    const maxDefinitions = isHardWord ? Math.min(puzzleData.definitions.length - 1, 3) : Math.min(puzzleData.definitions.length - 1, 2);
+    // Add available definitions (up to 2 additional ones)
+    const maxDefinitions = Math.min(puzzleData.definitions.length - 1, 2);
     
     // Add all available definitions (after the primary one shown at start)
     for (let i = 1; i <= maxDefinitions && i < puzzleData.definitions.length; i++) {
@@ -306,7 +297,7 @@ function getNextClue() {
             type: 'definition',
             content: `Definition ${i + 1}: ${puzzleData.definitions[i]}`,
             index: i,
-            priority: isHardWord ? 10 : 8 // Higher priority for hard words
+            priority: 8
         });
     }
     
@@ -316,7 +307,7 @@ function getNextClue() {
             type: 'synonyms',
             content: `💡 Synonyms: ${puzzleData.synonyms.slice(0, 4).join(', ')}`,
             marker: 'synonyms',
-            priority: isHardWord ? 6 : 9 // Lower priority for hard words (comes later)
+            priority: 6
         });
     }
     if (puzzleData.antonyms && puzzleData.antonyms.length > 0 && !cluesGiven.includes('antonyms')) {
@@ -324,12 +315,12 @@ function getNextClue() {
             type: 'antonyms',
             content: `🔄 Antonyms: ${puzzleData.antonyms.slice(0, 3).join(', ')}`,
             marker: 'antonyms',
-            priority: isHardWord ? 5 : 7
+            priority: 5
         });
     }
     
-    // Add examples strategically - more examples for harder words
-    const numExamples = isHardWord ? Math.min(3, puzzleData.examples.length) : Math.min(2, puzzleData.examples.length);
+    // Add examples
+    const numExamples = Math.min(2, puzzleData.examples.length);
     for (let i = 0; i < numExamples; i++) {
         clueQueue.push({
             type: 'example',
@@ -380,7 +371,7 @@ function getNextClue() {
         clueQueue.push({
             type: 'letter',
             letterCount: i + 2, // Starting from 2 since first letter is shown
-            priority: isHardWord ? 8 : 4 // Earlier for hard words, later for easy words
+            priority: 4
         });
     }
     
@@ -614,13 +605,9 @@ function handleGuess() {
         // Reveal the complete word in the pattern display
         wordPatternElement.innerHTML = puzzleData.word.toUpperCase().split('').join(' ');
         
-        // Apply difficulty multiplier for fairer scoring based on word length
-        const difficultyMultiplier = calculateDifficultyMultiplier(puzzleData.word.length);
-        const finalScore = Math.round(currentScore * difficultyMultiplier);
-        const bonusText = difficultyMultiplier > 1.0 ? ` (${Math.round((difficultyMultiplier - 1) * 100)}% difficulty bonus)` : '';
-        messageDisplay.innerHTML = `Congratulations! The word was: ${puzzleData.word}. You scored ${finalScore} points!${bonusText}`;
+        messageDisplay.innerHTML = `Congratulations! The word was: ${puzzleData.word}. You scored ${currentScore} points!`;
         messageDisplay.style.color = "#81b29a"; // Success color
-        recordGameResult(true, finalScore); // Record win with bonus
+        recordGameResult(true, currentScore); // Record win
         gameStarted = false; // Indicate the game has ended
         guessButton.disabled = true; // Disable the Guess button
         guessButton.textContent = "Guess"; // Reset button text
