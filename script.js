@@ -757,20 +757,7 @@ window.addEventListener("click", (event) => {
     }
     });
 
-// Help modal event listeners
-helpButton.addEventListener("click", () => {
-    helpModal.style.display = "block";
-});
-
-closeHelpModal.addEventListener("click", () => {
-    helpModal.style.display = "none";
-});
-
-window.addEventListener("click", (event) => {
-    if (event.target === helpModal) {
-        helpModal.style.display = "none";
-    }
-    // Phase 1 modals
+// Phase 1 modals
         const achievementsModal = document.getElementById("achievements-modal"); 
         
         if (event.target === achievementsModal) {
