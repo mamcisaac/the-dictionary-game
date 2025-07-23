@@ -53,23 +53,71 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-/* High contrast theme colors */
+/* High contrast theme specific adjustments */
 [data-theme="high-contrast"] {
-    --bg-primary: #000000;
-    --bg-secondary: #ffffff;
-    --bg-tertiary: #f0f0f0;
-    --text-primary: #000000;
-    --text-secondary: #333333;
-    --text-muted: #666666;
-    --accent-primary: #0000ff;
-    --accent-secondary: #ff0000;
-    --accent-tertiary: #ffff00;
-    --border-color: #000000;
-    --shadow: rgba(0, 0, 0, 0.8);
-    --shadow-light: rgba(0, 0, 0, 0.5);
-    --success-color: #00ff00;
-    --error-color: #ff0000;
-    --warning-color: #ffff00;
+    /* Ensure all backgrounds are truly black */
+    background-color: #000000;
+}
+
+[data-theme="high-contrast"] .container {
+    background-color: #000000;
+    border: 3px solid #ffffff;
+}
+
+[data-theme="high-contrast"] button {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #ffffff;
+    font-weight: bold;
+}
+
+[data-theme="high-contrast"] button:hover {
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+[data-theme="high-contrast"] button:disabled {
+    background-color: #333333;
+    color: #999999;
+    border: 2px solid #666666;
+}
+
+[data-theme="high-contrast"] input[type="text"] {
+    background-color: #000000;
+    color: #ffffff;
+    border: 3px solid #ffffff;
+}
+
+[data-theme="high-contrast"] .modal-content {
+    background-color: #000000;
+    border: 3px solid #ffffff;
+}
+
+[data-theme="high-contrast"] .cost-preview {
+    background-color: #000000;
+    border: 2px solid #ffffff;
+    color: #ffff00;
+    font-weight: bold;
+}
+
+/* High contrast theme colors - WCAG AAA compliant */
+[data-theme="high-contrast"] {
+    --bg-primary: #000000;          /* Pure black background */
+    --bg-secondary: #000000;        /* Keep consistent black */
+    --bg-tertiary: #1a1a1a;         /* Slightly lighter for subtle distinction */
+    --text-primary: #ffffff;        /* White text on black = maximum contrast */
+    --text-secondary: #f0f0f0;      /* Slightly dimmed white */
+    --text-muted: #cccccc;          /* Still high contrast but clearly muted */
+    --accent-primary: #00ff00;      /* Bright green - excellent on black */
+    --accent-secondary: #ffff00;    /* Yellow - good on black, avoid on white */
+    --accent-tertiary: #00ffff;     /* Cyan - excellent visibility */
+    --border-color: #ffffff;        /* White borders on black background */
+    --shadow: rgba(255, 255, 255, 0.5);  /* Light shadows for visibility */
+    --shadow-light: rgba(255, 255, 255, 0.3);
+    --success-color: #00ff00;       /* Green for success */
+    --error-color: #ff6b6b;         /* Softer red, still high contrast */
+    --warning-color: #ffff00;       /* Yellow for warnings */
 }
 
 /* General styles */
