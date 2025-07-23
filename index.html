@@ -7,23 +7,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="game-shell">
         <header>
             <h1>The Dictionary Game</h1>
         </header>
-        <main>
-            <div id="clue-container">
+        
+        <main class="game-prompt">
+            <!-- GuessCard Component -->
+            <div id="guess-card" class="guess-card" data-variant="default">
                 <p class="intro-text">I am thinking of a word.<br>Can you guess what it is?</p>
                 
                 <div id="my-word" style="display: none;">
-                    <p id="word-pattern" class="word-pattern"></p>
-                    <p class="definition"><strong>Definition:</strong> <span id="primary-definition"></span></p>
+                    <div id="word-pattern" class="guess-card__letter"></div>
+                    <div class="guess-card__definition">
+                        <strong>Definition:</strong> <span id="primary-definition"></span>
+                    </div>
                 </div>
                 
-                <ul id="clue-list"></ul>
-								<ul id="message"></ul> 
+                <!-- ClueStripe Components will be dynamically inserted here -->
+                <div id="clue-list" class="clue-list"></div>
+                <div id="message" class="message-area"></div> 
             </div>
-            <div id="input-container">
+        </main>
+        
+        <section class="game-actions">
+            <div class="input-section">
                 <input type="text" id="guess-input" placeholder="Enter your guess" aria-label="Enter your guess here">
                 <div class="main-buttons">
                     <div class="button-container">
@@ -31,26 +39,20 @@
                         <div id="guess-cost-preview" class="cost-preview" style="display: none;"></div>
                     </div>
                     <div class="button-container">
-                        <button id="clue-button">Get a Clue</button>
-                        <!-- Clue Menu Popup -->
-                        <div id="clue-menu" class="clue-menu" style="display: none;">
-                            <div class="clue-menu-header">Choose a Clue Type</div>
-                            <div id="clue-options" class="clue-options">
-                                <!-- Dynamically populated clue options will go here -->
+                        <div class="clue-button-group">
+                            <button id="clue-button">Get a Clue</button>
+                            <div id="score-badge" class="score-badge">
+                                <span id="current-score-badge">100</span> pts
+                            </div>
+                        </div>
+                        <!-- ClueShop Component -->
+                        <div id="clue-shop" class="clue-shop" data-variant="popover" data-open="false" style="display: none;">
+                            <div class="clue-shop__header">Choose a Clue Type</div>
+                            <div id="clue-options" class="clue-shop__content">
+                                <!-- ClueStripe components will be dynamically populated here -->
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            
-            <div id="score-container" style="display: none;">
-                <p>Score: <span id="current-score">100</span> points</p>
-                <div class="progress-container">
-                    <label>Clues:</label>
-                    <div class="progress-bar">
-                        <div id="progress-fill"></div>
-                    </div>
-                    <span id="clue-counter">0/8</span>
                 </div>
             </div>
             
@@ -59,24 +61,96 @@
                 <button id="give-up-button">Give Up</button>
                 <button id="stats-button">Stats</button>
             </div>
-            <button id="help-button" aria-label="Help">?</button>
-            
-            <!-- Stats Modal -->
-            <div id="stats-modal" class="modal" style="display: none;">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h2>Game Statistics</h2>
-                    <div id="stats-content">
-                        <p>Games Played: <span id="games-played">0</span></p>
-                        <p>Games Won: <span id="games-won">0</span></p>
-                        <p>Win Rate: <span id="win-rate">0%</span></p>
-                        <p>Average Score: <span id="avg-score">0</span></p>
-                        <p>Best Score: <span id="best-score">0</span></p>
-                        <p>Current Streak: <span id="current-streak">0</span></p>
-                        <p>Best Streak: <span id="best-streak">0</span></p>
+        </section>
+        
+        <aside class="game-sidebar">
+            <div class="sidebar-content">
+                <!-- ScoreMeter Component -->
+                <div id="score-container" style="display: none;">
+                    <div class="score-display">
+                        <span class="score-label">Score</span>
+                        <span id="current-score" class="score-value">100</span>
                     </div>
-                    <div class="modal-footer">
-                        <button id="reset-stats" class="reset-button">Reset Statistics</button>
+                    <div id="clue-meter" class="score-meter" data-variant="default">
+                        <div class="score-meter__label">
+                            <span>Clues Used</span>
+                            <span id="clue-counter" class="score-meter__value">0/8</span>
+                        </div>
+                        <div class="score-meter__track">
+                            <div id="progress-fill" class="score-meter__fill" style="width: 0%;"></div>
+                        </div>
+                        <div class="clues-remaining">
+                            <span id="clues-remaining-count">7</span> unopened clues
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="help-button" class="help-button" aria-label="Help">?</button>
+        </aside>
+        
+        <footer class="game-footer">
+            <!-- Footer content if needed -->
+        </footer>
+        
+        <!-- Toast Component Container -->
+        <div id="toast-container" class="toast-container"></div>
+            
+            <!-- StatModal Component -->
+            <div id="stats-modal" class="stat-modal" data-open="false">
+                <div class="stat-modal__content">
+                    <div class="stat-modal__header">Game Statistics</div>
+                    <div class="stat-modal__grid">
+                        <div class="stat-modal__stat">
+                            <div id="games-played" class="stat-modal__value">0</div>
+                            <div class="stat-modal__label">Games Played</div>
+                        </div>
+                        <div class="stat-modal__stat">
+                            <div id="games-won" class="stat-modal__value">0</div>
+                            <div class="stat-modal__label">Games Won</div>
+                        </div>
+                        <div class="stat-modal__stat">
+                            <div id="win-rate" class="stat-modal__value">0%</div>
+                            <div class="stat-modal__label">Win Rate</div>
+                        </div>
+                        <div class="stat-modal__stat">
+                            <div id="avg-score" class="stat-modal__value">0</div>
+                            <div class="stat-modal__label">Average Score</div>
+                        </div>
+                        <div class="stat-modal__stat">
+                            <div id="best-score" class="stat-modal__value">0</div>
+                            <div class="stat-modal__label">Best Score</div>
+                        </div>
+                        <div class="stat-modal__stat">
+                            <div id="current-streak" class="stat-modal__value">0</div>
+                            <div class="stat-modal__label">Current Streak</div>
+                        </div>
+                        <div class="stat-modal__stat">
+                            <div id="best-streak" class="stat-modal__value">0</div>
+                            <div class="stat-modal__label">Best Streak</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Heat-map Calendar -->
+                    <div class="heat-map-calendar">
+                        <div class="heat-map-header">Win History</div>
+                        <div id="heat-map-grid" class="heat-map-grid">
+                            <!-- Calendar grid will be generated here -->
+                        </div>
+                        <div class="heat-map-legend">
+                            <span>Less</span>
+                            <div class="heat-map-legend-squares">
+                                <div class="heat-map-day" data-wins="0"></div>
+                                <div class="heat-map-day" data-wins="1"></div>
+                                <div class="heat-map-day" data-wins="2"></div>
+                                <div class="heat-map-day" data-wins="3"></div>
+                                <div class="heat-map-day" data-wins="4"></div>
+                            </div>
+                            <span>More</span>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: var(--space-6); text-align: center;">
+                        <button id="reset-stats" class="secondary-buttons">Reset Statistics</button>
                     </div>
                 </div>
             </div>

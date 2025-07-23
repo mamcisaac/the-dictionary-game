@@ -19,6 +19,299 @@ let cluesGivenByType = {
 // Global DOM element references for functions used outside DOMContentLoaded
 let clueList, messageDisplay, clueMenu, clueOptions, currentScoreElement, progressFill, clueCounter;
 
+// Component Library Utilities
+const Components = {
+    // GuessCard Component
+    GuessCard: {
+        element: null,
+        init() {
+            this.element = document.getElementById('guess-card');
+        },
+        setVariant(variant) {
+            this.element?.setAttribute('data-variant', variant);
+        },
+        animateSuccess() {
+            // Add performance optimization class
+            this.element?.classList.add('animate-scale');
+            
+            this.setVariant('success');
+            
+            // Clean up after animation
+            setTimeout(() => {
+                this.setVariant('default');
+                this.element?.classList.remove('animate-scale');
+            }, 150); // Match motion duration
+        },
+        setLetter(letter) {
+            const letterEl = document.getElementById('word-pattern');
+            if (letterEl) letterEl.textContent = letter;
+        },
+        setDefinition(definition) {
+            const defEl = document.getElementById('primary-definition');
+            if (defEl) defEl.textContent = definition;
+        }
+    },
+
+    // ClueStripe Component
+    ClueStripe: {
+        create(icon, content, variant = 'hint-taken', cost = null) {
+            const stripe = document.createElement('div');
+            stripe.className = 'clue-stripe';
+            stripe.setAttribute('data-variant', variant);
+            
+            stripe.innerHTML = `
+                <div class="clue-stripe__icon">${icon}</div>
+                <div class="clue-stripe__content">${content}</div>
+                ${cost ? `<div class="clue-stripe__cost">${cost} pts</div>` : ''}
+            `;
+            
+            return stripe;
+        }
+    },
+
+    // ScoreMeter Component
+    ScoreMeter: {
+        element: null,
+        fillElement: null,
+        init() {
+            this.element = document.getElementById('clue-meter');
+            this.fillElement = document.getElementById('progress-fill');
+        },
+        setProgress(current, max, animate = true) {
+            const percentage = Math.min((current / max) * 100, 100);
+            const counter = document.getElementById('clue-counter');
+            
+            if (this.fillElement) {
+                if (animate) {
+                    this.fillElement.classList.add('animate-progress');
+                }
+                
+                // Animate the progress bar
+                requestAnimationFrame(() => {
+                    this.fillElement.style.width = `${percentage}%`;
+                });
+                
+                // Clean up animation class after transition
+                if (animate) {
+                    setTimeout(() => {
+                        this.fillElement?.classList.remove('animate-progress');
+                    }, 500); // Match motion duration
+                }
+            }
+            
+            if (counter) {
+                // Animate counter with number change
+                this.animateNumber(counter, parseInt(counter.textContent), current, 300);
+                counter.textContent = `${current}/${max}`;
+            }
+            
+            // Set variant based on progress
+            const variant = percentage > 75 ? 'danger' : 'default';
+            this.element?.setAttribute('data-variant', variant);
+        },
+        
+        animateNumber(element, from, to, duration) {
+            const start = performance.now();
+            
+            const animate = (timestamp) => {
+                const progress = Math.min((timestamp - start) / duration, 1);
+                const current = Math.floor(from + (to - from) * progress);
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                }
+            };
+            
+            requestAnimationFrame(animate);
+        }
+    },
+
+    // ClueShop Component
+    ClueShop: {
+        element: null,
+        init() {
+            this.element = document.getElementById('clue-shop');
+        },
+        show() {
+            if (!this.element) return;
+            
+            // Add performance optimization class
+            this.element.classList.add('animate-fade');
+            this.element.style.display = 'block';
+            
+            // Trigger animation by setting attribute after display
+            requestAnimationFrame(() => {
+                this.element?.setAttribute('data-open', 'true');
+            });
+        },
+        hide() {
+            if (!this.element) return;
+            
+            this.element.setAttribute('data-open', 'false');
+            
+            // Hide element after animation completes
+            setTimeout(() => {
+                this.element.style.display = 'none';
+                this.element.classList.remove('animate-fade');
+            }, 300); // Match motion duration
+        },
+        setVariant(variant) {
+            this.element?.setAttribute('data-variant', variant);
+        }
+    },
+
+    // Toast Component
+    Toast: {
+        show(message, variant = 'default', duration = 3000) {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.setAttribute('data-variant', variant);
+            toast.innerHTML = `<div class="toast__message">${message}</div>`;
+            
+            container.appendChild(toast);
+            
+            // Trigger animation
+            setTimeout(() => toast.setAttribute('data-visible', 'true'), 100);
+            
+            // Auto-hide after duration
+            setTimeout(() => {
+                toast.setAttribute('data-visible', 'false');
+                setTimeout(() => container.removeChild(toast), 300);
+            }, duration);
+        }
+    },
+
+    // StatModal Component
+    StatModal: {
+        element: null,
+        init() {
+            this.element = document.getElementById('stats-modal');
+        },
+        show() {
+            this.element?.setAttribute('data-open', 'true');
+        },
+        hide() {
+            this.element?.setAttribute('data-open', 'false');
+        }
+    },
+
+    // Victory Component
+    Victory: {
+        confettiLoaded: false,
+        
+        async triggerVictory(score, word) {
+            // Check for reduced motion preference
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            
+            // Show confetti if motion is allowed
+            if (!prefersReducedMotion) {
+                await this.loadConfetti();
+                this.showConfetti();
+            }
+            
+            // Show victory toast
+            Components.Toast.show(
+                `🎉 Victory! You scored ${score} points on "${word}"!`, 
+                'success', 
+                5000
+            );
+            
+            // Animate the GuessCard
+            Components.GuessCard.animateSuccess();
+            
+            // Show stats modal with victory focus
+            setTimeout(() => {
+                Components.StatModal.show();
+            }, 1000);
+        },
+        
+        async loadConfetti() {
+            if (this.confettiLoaded) return;
+            
+            try {
+                // Lazy load confetti library
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js';
+                document.head.appendChild(script);
+                
+                await new Promise((resolve) => {
+                    script.onload = resolve;
+                });
+                
+                this.confettiLoaded = true;
+            } catch (error) {
+                console.log('Failed to load confetti:', error);
+            }
+        },
+        
+        showConfetti() {
+            if (typeof confetti === 'undefined') return;
+            
+            // Fire confetti from multiple points
+            const duration = 3000;
+            const animationEnd = Date.now() + duration;
+            
+            const randomInRange = (min, max) => Math.random() * (max - min) + min;
+            
+            const interval = setInterval(() => {
+                const timeLeft = animationEnd - Date.now();
+                
+                if (timeLeft <= 0) {
+                    clearInterval(interval);
+                    return;
+                }
+                
+                const particleCount = 50 * (timeLeft / duration);
+                
+                // Fire from left side
+                confetti({
+                    particleCount,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0, y: 0.8 },
+                    colors: ['#0F766E', '#12A174', '#D97706', '#F9FAFB']
+                });
+                
+                // Fire from right side
+                confetti({
+                    particleCount,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1, y: 0.8 },
+                    colors: ['#0F766E', '#12A174', '#D97706', '#F9FAFB']
+                });
+            }, 250);
+        }
+    },
+
+    // Motion utilities
+    Motion: {
+        // Check if user prefers reduced motion
+        prefersReducedMotion() {
+            return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        },
+        
+        // Respect motion preferences for animations
+        animate(element, animation, options = {}) {
+            if (this.prefersReducedMotion()) {
+                // Skip animation, just apply final state
+                if (options.onComplete) options.onComplete();
+                return;
+            }
+            
+            // Apply animation normally
+            element.style.animation = animation;
+            
+            if (options.onComplete) {
+                element.addEventListener('animationend', options.onComplete, { once: true });
+            }
+        }
+    }
+};
+
 // Global game statistics
 let gameStats = {
     gamesPlayed: 0,
@@ -76,6 +369,12 @@ document.addEventListener("DOMContentLoaded", function() {
     clueCounter = document.getElementById("clue-counter");
     const guessCostPreview = document.getElementById("guess-cost-preview");
     
+    // Initialize Components
+    Components.GuessCard.init();
+    Components.ScoreMeter.init();
+    Components.ClueShop.init();
+    Components.StatModal.init();
+    
     // Load word list on startup
     loadWordList();
     
@@ -85,17 +384,27 @@ document.addEventListener("DOMContentLoaded", function() {
     // Track guessed words to prevent duplicates
     let guessedWords = new Set();
     
-    // Function to update clue display
+    // Function to update clue display using ClueStripe component
     function updateClueDisplay(newClue) {
-        const clueItem = document.createElement("li");
-        clueItem.textContent = newClue;
-        clueItem.style.opacity = "0";
-        clueItem.style.transition = "opacity 0.5s ease-in-out";
-        clueList.appendChild(clueItem);
+        // Parse clue to get icon and content
+        const icon = newClue.includes('📖') ? '📖' : 
+                    newClue.includes('📏') ? '📏' : 
+                    newClue.includes('📝') ? '📝' : 
+                    newClue.includes('💡') ? '💡' : 
+                    newClue.includes('🔄') ? '🔄' : 
+                    newClue.includes('🔤') ? '🔤' : '💡';
+        
+        // Remove icon from content
+        const content = newClue.replace(/^[📖📏📝💡🔄🔤]\s*/, '');
+        
+        const clueStripe = Components.ClueStripe.create(icon, content, 'hint-taken');
+        clueStripe.style.opacity = "0";
+        clueStripe.style.transition = "opacity 0.5s ease-in-out";
+        clueList.appendChild(clueStripe);
         
         // Animation to fade in the clue
         setTimeout(() => {
-            clueItem.style.opacity = "1";
+            clueStripe.style.opacity = "1";
         }, 100);
     }
     
@@ -186,6 +495,9 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('best-score').textContent = gameStats.bestScore;
         document.getElementById('current-streak').textContent = gameStats.currentStreak;
         document.getElementById('best-streak').textContent = gameStats.bestStreak;
+        
+        // Generate heat-map calendar when stats modal is updated
+        generateHeatMapCalendar();
     }
     
     // Record game result
@@ -251,6 +563,7 @@ function getNextClue() {
     // Prevent score from going below 1 from clues alone (preserve ability to guess)
     currentScore = Math.max(1, currentScore - adjustedPenalty);
     currentScoreElement.textContent = currentScore;
+    updateScoreBadge();
     updateProgressBar();
     
     // If score hits 1, disable clue button but keep guess option
@@ -423,6 +736,7 @@ function startGame() {
     currentScore = 100;
     cluesUsed = 0;
     guessCount = 0; // Reset guess counter
+    updateScoreBadge();
     guessedWords.clear(); // Reset guessed words
     currentScoreElement.textContent = currentScore;
     scoreContainer.style.display = "block";
@@ -561,6 +875,7 @@ function handleGuess() {
         const guessCost = 3; // Flat penalty for balanced gameplay
         currentScore = Math.max(0, currentScore - guessCost);
         currentScoreElement.textContent = currentScore;
+        updateScoreBadge();
         
         // If score hits 0 from guess cost, game over
         if (currentScore === 0) {
@@ -583,7 +898,11 @@ function handleGuess() {
         wordPatternElement.innerHTML = puzzleData.word.toUpperCase().split('').join(' ');
         
         messageDisplay.innerHTML = `Congratulations! The word was: ${puzzleData.word}. You scored ${currentScore} points!`;
-        messageDisplay.style.color = "#81b29a"; // Success color
+        messageDisplay.style.color = "var(--dg-accent)"; // Success color
+        
+        // Trigger victory celebration
+        Components.Victory.triggerVictory(currentScore, puzzleData.word);
+        
         recordGameResult(true, currentScore); // Record win
         gameStarted = false; // Indicate the game has ended
         guessButton.disabled = true; // Disable the Guess button
@@ -640,7 +959,7 @@ function handleGuess() {
 
 guessButton.addEventListener("click", handleGuess);
 // Get clue menu element references
-clueMenu = document.getElementById("clue-menu");
+clueMenu = document.getElementById("clue-shop");
 clueOptions = document.getElementById("clue-options");
 
 // Show clue menu when clicking the clue button
@@ -674,16 +993,16 @@ startGameButton.addEventListener("click", startGame);
 // Stats modal event listeners
 statsButton.addEventListener("click", () => {
     updateStatsDisplay();
-    statsModal.style.display = "block";
+    Components.StatModal.show();
 });
 
 closeModal.addEventListener("click", () => {
-    statsModal.style.display = "none";
+    Components.StatModal.hide();
 });
 
 window.addEventListener("click", (event) => {
     if (event.target === statsModal) {
-        statsModal.style.display = "none";
+        Components.StatModal.hide();
     }
 });
 
@@ -727,6 +1046,7 @@ function purchaseClue(type, cost) {
     // Deduct points
     currentScore = Math.max(1, currentScore - cost);
     currentScoreElement.textContent = currentScore;
+    updateScoreBadge();
     cluesUsed++; // Increment total clues counter
     updateProgressBar();
     
@@ -745,8 +1065,8 @@ function purchaseClue(type, cost) {
         }
     }
     
-    // Hide the menu
-    clueMenu.style.display = 'none';
+    // Hide the menu using component
+    Components.ClueShop.hide();
 }
 
 // Get the actual clue content based on type
@@ -807,7 +1127,7 @@ function getClueContent(type) {
     return content;
 }
 
-// Show the clue menu with available options
+// Show the clue menu with available options using ClueShop component
 function showClueMenu() {
     const available = getAvailableClues();
     clueOptions.innerHTML = ''; // Clear previous options
@@ -822,41 +1142,37 @@ function showClueMenu() {
         { type: 'letter', name: 'Reveal Letter', cost: 7, icon: '🔤', count: available.letters }
     ];
     
-    // Create menu options
+    // Create ClueStripe components for each option
     clueTypes.forEach(clueType => {
         if (clueType.count > 0) { // Only show if available
-            const option = document.createElement('div');
-            option.className = 'clue-option';
-            
             const affordable = canAffordClue(clueType.cost);
-            if (!affordable) {
-                option.classList.add('disabled');
-            }
+            const variant = affordable ? 'available' : 'hint-taken';
             
-            option.innerHTML = `
-                <span class="clue-icon">${clueType.icon}</span>
-                <span class="clue-name">${clueType.name}</span>
-                <span class="clue-info">
-                    <span class="clue-cost">${clueType.cost} pts</span>
-                    <span class="clue-remaining">${clueType.count} left</span>
-                </span>
-            `;
+            const clueStripe = Components.ClueStripe.create(
+                clueType.icon, 
+                `${clueType.name} (${clueType.count} left)`,
+                variant,
+                clueType.cost
+            );
             
             if (affordable) {
-                option.addEventListener('click', () => purchaseClue(clueType.type, clueType.cost));
+                clueStripe.addEventListener('click', () => purchaseClue(clueType.type, clueType.cost));
             }
             
-            clueOptions.appendChild(option);
+            clueOptions.appendChild(clueStripe);
         }
     });
     
     // Show message if no clues available
     if (clueOptions.children.length === 0) {
-        clueOptions.innerHTML = '<div class="no-clues">No more clues available!</div>';
+        const noClues = Components.ClueStripe.create('❌', 'No more clues available!', 'hint-taken');
+        clueOptions.appendChild(noClues);
     }
     
-    // Show the menu
-    clueMenu.style.display = 'block';
+    // Detect mobile and set appropriate variant
+    const isMobile = window.innerWidth <= 768;
+    Components.ClueShop.setVariant(isMobile ? 'drawer' : 'popover');
+    Components.ClueShop.show();
 }
 
 // Check if player can afford a clue
@@ -872,12 +1188,12 @@ function calculateAvailableClues() {
     return 7; // 7 paid clues + 2 free (first definition + first letter) = 9 total
 }
 
-// Global function for updating progress bar
+// Global function for updating progress bar with animation
 function updateProgressBar() {
     const availableClues = calculateAvailableClues();
-    const progressPercentage = availableClues > 0 ? (cluesUsed / availableClues) * 100 : 0;
-    progressFill.style.width = Math.min(progressPercentage, 100) + '%';
-    clueCounter.textContent = `${cluesUsed}/${availableClues} clues`;
+    
+    // Use the animated ScoreMeter component
+    Components.ScoreMeter.setProgress(cluesUsed, availableClues, true);
 }
 
 // ========================
@@ -923,12 +1239,19 @@ function getAvailableClues() {
 }
 
 function displayMessageWithAnimation(message, isSuccess) {
-    messageDisplay.style.color = isSuccess ? "#81b29a" : "#e07a5f";
+    messageDisplay.style.color = isSuccess ? "var(--dg-accent)" : "var(--dg-error)";
     messageDisplay.textContent = message;
-    messageDisplay.style.transform = "scale(1.05)";
-    setTimeout(() => {
-        messageDisplay.style.transform = "scale(1)";
-    }, 150);
+    
+    // Use motion system for animation
+    Components.Motion.animate(messageDisplay, 'scalePulse 150ms ease-out', {
+        onComplete: () => {
+            messageDisplay.style.animation = '';
+        }
+    });
+    
+    // Also show as toast for better UX
+    const variant = isSuccess ? 'success' : 'error';
+    Components.Toast.show(message, variant, 3000);
 }
 
 // ========================
@@ -962,6 +1285,7 @@ function startGameWithSpecificWord(wordIndex) {
     cluesUsed = 0;
     guessCount = 0;
     guessedWords.clear(); // Reset guessed words
+    updateScoreBadge();
     gameStarted = true;
     // Game start time tracking removed
     
@@ -986,6 +1310,54 @@ function startGameWithSpecificWord(wordIndex) {
     clueList.innerHTML = "";
     
     console.log(`Started game with word: ${puzzleData.word}`);
+}
+
+// Heat-map Calendar Generation
+function generateHeatMapCalendar() {
+    const heatMapGrid = document.getElementById('heat-map-grid');
+    if (!heatMapGrid) return;
+    
+    const dailyWins = JSON.parse(localStorage.getItem('dictionaryGameDailyWins') || '{}');
+    const today = new Date();
+    const endDate = new Date(today);
+    const startDate = new Date(today);
+    startDate.setDate(today.getDate() - 364); // Show last 365 days
+    
+    // Clear existing grid
+    heatMapGrid.innerHTML = '';
+    
+    // Generate calendar grid (52 weeks)
+    for (let week = 0; week < 52; week++) {
+        const weekDiv = document.createElement('div');
+        weekDiv.className = 'heat-map-week';
+        
+        for (let day = 0; day < 7; day++) {
+            const currentDate = new Date(startDate);
+            currentDate.setDate(startDate.getDate() + (week * 7) + day);
+            
+            if (currentDate > endDate) break;
+            
+            const dateString = currentDate.toISOString().split('T')[0];
+            const wins = dailyWins[dateString] || 0;
+            
+            const dayDiv = document.createElement('div');
+            dayDiv.className = 'heat-map-day';
+            dayDiv.setAttribute('data-wins', Math.min(wins, 4).toString());
+            dayDiv.title = `${dateString}: ${wins} win${wins !== 1 ? 's' : ''}`;
+            
+            weekDiv.appendChild(dayDiv);
+        }
+        
+        heatMapGrid.appendChild(weekDiv);
+    }
+}
+
+// Update score badge in real-time
+function updateScoreBadge() {
+    const scoreBadge = document.getElementById('current-score-badge');
+    if (scoreBadge) {
+        scoreBadge.textContent = currentScore;
+    }
 }
 
 console.log("Game loaded successfully");
