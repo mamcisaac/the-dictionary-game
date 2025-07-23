@@ -56,14 +56,10 @@
                 </div>
             </div>
             
-            <!-- Mobile Clue Deck -->
-            <div id="mobile-clue-deck" class="mobile-clue-deck" style="display: none;">
-                <!-- Clue cards will be dynamically inserted here -->
-            </div>
-            
             <div class="secondary-buttons">
                 <button id="start-game-button">New Game</button>
                 <button id="give-up-button" class="secondary-style" disabled aria-disabled="true">Reveal Answer</button>
+                <button id="clues-button" class="clues-button" disabled aria-disabled="true">Clues</button>
                 <button id="stats-button" disabled aria-disabled="true">Stats</button>
             </div>
         </section>
@@ -298,6 +294,76 @@
         </main>
     </div>
     
+    <!-- Game Info Modal/Tab for Mobile -->
+    <div id="game-info-modal" class="game-info-modal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="game-info-title">
+        <div class="game-info-content">
+            <div class="game-info-header">
+                <h2 id="game-info-title">Game Info</h2>
+                <button id="close-game-info" class="close-game-info" aria-label="Close game info">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+            <div class="game-info-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="clues">Clues</button>
+                    <button class="tab-button" data-tab="score">Score</button>
+                </div>
+                
+                <div class="tab-content">
+                    <!-- Clues Tab -->
+                    <div id="clues-tab" class="tab-panel active">
+                        <div class="clues-section">
+                            <h3>Available Clues</h3>
+                            <div id="mobile-clue-deck" class="mobile-clue-deck-new">
+                                <!-- Clue cards will be dynamically inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Score Tab -->
+                    <div id="score-tab" class="tab-panel">
+                        <div class="score-info-mobile">
+                            <div class="score-section">
+                                <span class="score-label">SCORE</span>
+                                <span id="current-score-mobile" class="score-number" role="status" aria-live="polite">0</span>
+                            </div>
+                            
+                            <div class="clue-usage-section">
+                                <div class="usage-label">
+                                    <span>Clues Used</span>
+                                    <span id="clue-counter-mobile" class="usage-value">0/0</span>
+                                </div>
+                                <div class="progress-track">
+                                    <div id="progress-fill-mobile" class="progress-fill" style="width: 0%;"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="difficulty-section">
+                                <span class="difficulty-label">Difficulty</span>
+                                <span id="difficulty-score-mobile" class="difficulty-value">0.00</span>
+                                <div class="difficulty-gauge">
+                                    <div id="difficulty-fill-mobile" class="difficulty-gauge-fill" style="width: 0%;"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="details-section-mobile">
+                                <div class="detail-item">
+                                    <span class="detail-label">• Guesses:</span>
+                                    <span id="guess-count-mobile" class="detail-value">0</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">• Time:</span>
+                                    <span id="time-elapsed-mobile" class="detail-value">0:00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- Load JavaScript modules -->
     <script src="src/data/i18n.js"></script>
     <script src="src/js/scoring.js"></script>
@@ -308,6 +374,7 @@
     <script src="src/js/ui-updates.js"></script>
     <script src="src/js/components.js"></script>
     <script src="src/js/modal-manager.js"></script>
+    <script src="src/js/game-info-modal.js"></script>
     <script src="src/js/event-handlers.js"></script>
     <script src="src/js/main.js"></script>
 </body>

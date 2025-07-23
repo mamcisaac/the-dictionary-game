@@ -175,6 +175,11 @@ function animateScoreUpdate(element, newScore) {
                 } else {
                     element.textContent = newScore;
                     element.classList.remove('updating');
+                    
+                    // Update mobile score if game info modal is open
+                    if (typeof GameInfoModal !== 'undefined' && GameInfoModal.isVisible()) {
+                        GameInfoModal.updateScoreTab();
+                    }
                 }
             } catch (error) {
                 console.error("Error in score animation frame:", error);
@@ -189,6 +194,10 @@ function animateScoreUpdate(element, newScore) {
         // Check for reduced motion preference
         if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             element.textContent = newScore;
+            // Update mobile score if game info modal is open
+            if (typeof GameInfoModal !== 'undefined' && GameInfoModal.isVisible()) {
+                GameInfoModal.updateScoreTab();
+            }
             return;
         }
         

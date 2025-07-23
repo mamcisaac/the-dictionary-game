@@ -48,6 +48,11 @@ function prepareGameUI() {
         guessButton.disabled = false;
     }
     
+    // Enable clues button for mobile
+    if (typeof GameInfoModal !== 'undefined') {
+        GameInfoModal.enableCluesButton();
+    }
+    
     // Show score container and clear previous UI
     const scoreContainer = document.getElementById("score-container");
     if (scoreContainer) scoreContainer.style.display = "block";

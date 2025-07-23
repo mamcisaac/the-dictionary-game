@@ -58,7 +58,12 @@ const DOMUtils = {
             inputSection: '.input-section',
             scoreContainer: '#score-container',
             sidebarPlaceholder: '#sidebar-placeholder',
-            toastContainer: '#toast-container'
+            toastContainer: '#toast-container',
+            
+            // Game Info Modal elements
+            gameInfoModal: '#game-info-modal',
+            cluesButton: '#clues-button',
+            closeGameInfo: '#close-game-info'
         };
 
         Object.entries(commonSelectors).forEach(([key, selector]) => {
