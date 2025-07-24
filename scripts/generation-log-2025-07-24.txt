@@ -1,0 +1,4579 @@
+🚀 Starting Word Data Generation
+📊 Processing 874 words
+🔧 Wordnik API: Not configured (examples will use fallback)
+
+[1/874] Processing: home
+[2/874] Processing: about
+[3/874] Processing: page
+[4/874] Processing: search
+[5/874] Processing: free
+[6/874] Processing: other
+[7/874] Processing: information
+[8/874] Processing: time
+[9/874] Processing: news
+[10/874] Processing: contact
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 5 is too short, Definition 6 is too short
+  ✅ Updated definitions (4 total)
+  ⚠️  Definition issues: Definition 3 contains cyclical reference
+  ⚠️  Definition issues: Definition 1 contains cyclical reference
+  ✅ Updated definitions (4 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+[11/874] Processing: business
+[12/874] Processing: help
+[13/874] Processing: view
+[14/874] Processing: online
+[15/874] Processing: first
+[16/874] Processing: service
+[17/874] Processing: click
+[18/874] Processing: like
+[19/874] Processing: find
+[20/874] Processing: price
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[21/874] Processing: back
+[22/874] Processing: people
+[23/874] Processing: list
+[24/874] Processing: name
+[25/874] Processing: over
+[26/874] Processing: state
+[27/874] Processing: into
+[28/874] Processing: health
+[29/874] Processing: world
+[30/874] Processing: next
+  ✅ Updated definitions (6 total)
+🚀 Starting Word Data Generation
+📊 Processing 874 words
+🔧 Wordnik API: Not configured (examples will use fallback)
+
+[1/874] Processing: home
+[2/874] Processing: about
+[3/874] Processing: page
+[4/874] Processing: search
+[5/874] Processing: free
+[6/874] Processing: other
+[7/874] Processing: information
+[8/874] Processing: time
+[9/874] Processing: news
+[10/874] Processing: contact
+  ⚠️  Definition issues: Definition 1 contains cyclical reference
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 5 is too short, Definition 6 is too short
+  ⚠️  Definition issues: Definition 3 contains cyclical reference
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+[11/874] Processing: business
+[12/874] Processing: help
+[13/874] Processing: view
+[14/874] Processing: online
+[15/874] Processing: first
+[16/874] Processing: service
+[17/874] Processing: click
+[18/874] Processing: like
+[19/874] Processing: find
+[20/874] Processing: price
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[21/874] Processing: back
+[22/874] Processing: people
+[23/874] Processing: list
+[24/874] Processing: name
+[25/874] Processing: over
+[26/874] Processing: state
+[27/874] Processing: into
+[28/874] Processing: health
+[29/874] Processing: world
+[30/874] Processing: next
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (1 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[31/874] Processing: work
+[32/874] Processing: law
+[33/874] Processing: last
+[34/874] Processing: product
+[35/874] Processing: music
+[36/874] Processing: datum
+[37/874] Processing: make
+[38/874] Processing: post
+[39/874] Processing: city
+[40/874] Processing: policy
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (5 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[41/874] Processing: numb
+[42/874] Processing: available
+[43/874] Processing: support
+[44/874] Processing: message
+[45/874] Processing: after
+[46/874] Processing: good
+[47/874] Processing: video
+[48/874] Processing: right
+[49/874] Processing: public
+[50/874] Processing: book
+  ⚠️  Definition issues: Definition 1 contains cyclical reference
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 2 contains cyclical reference, Definition 6 is too short
+  ⚠️  Definition issues: Definition 3 contains cyclical reference, Definition 5 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ⚠️  Definition issues: Definition 2 contains cyclical reference, Definition 5 is too short
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+
+📈 Progress: 50/874 (5.7%)
+⏱️  Elapsed: 0.1m | Remaining: 0.9m
+📊 Improved: 50 | Failed: 0
+
+[51/874] Processing: high
+[52/874] Processing: through
+[53/874] Processing: link
+[54/874] Processing: review
+[55/874] Processing: order
+[56/874] Processing: privacy
+[57/874] Processing: item
+[58/874] Processing: company
+[59/874] Processing: read
+[60/874] Processing: group
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[61/874] Processing: user
+[62/874] Processing: under
+[63/874] Processing: general
+[64/874] Processing: research
+[65/874] Processing: mail
+[66/874] Processing: full
+[67/874] Processing: program
+[68/874] Processing: life
+[69/874] Processing: know
+[70/874] Processing: game
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference, Definition 4 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference, Definition 3 contains cyclical reference, Definition 5 contains cyclical reference
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+[71/874] Processing: management
+[72/874] Processing: part
+[73/874] Processing: great
+[74/874] Processing: hotel
+[75/874] Processing: real
+[76/874] Processing: international
+[77/874] Processing: center
+[78/874] Processing: must
+[79/874] Processing: store
+[80/874] Processing: travel
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (3 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[81/874] Processing: comment
+[82/874] Processing: development
+[83/874] Processing: report
+[84/874] Processing: member
+[85/874] Processing: detail
+[86/874] Processing: line
+[87/874] Processing: term
+[88/874] Processing: before
+[89/874] Processing: send
+[90/874] Processing: type
+  ✅ Updated definitions (3 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[91/874] Processing: because
+[92/874] Processing: local
+[93/874] Processing: result
+[94/874] Processing: office
+[95/874] Processing: design
+[96/874] Processing: take
+[97/874] Processing: address
+[98/874] Processing: within
+[99/874] Processing: area
+[100/874] Processing: want
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (2 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ⚠️  Definition issues: Definition 2 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+
+📈 Progress: 100/874 (11.4%)
+⏱️  Elapsed: 0.1m | Remaining: 0.8m
+📊 Improved: 100 | Failed: 0
+
+[101/874] Processing: ship
+[102/874] Processing: reserve
+[103/874] Processing: subject
+[104/874] Processing: between
+[105/874] Processing: forum
+[106/874] Processing: family
+[107/874] Processing: long
+[108/874] Processing: base
+[109/874] Processing: code
+[110/874] Processing: show
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (5 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (1 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[111/874] Processing: black
+[112/874] Processing: check
+[113/874] Processing: special
+[114/874] Processing: index
+[115/874] Processing: woman
+[116/874] Processing: sign
+[117/874] Processing: file
+[118/874] Processing: open
+[119/874] Processing: today
+[120/874] Processing: case
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[121/874] Processing: project
+[122/874] Processing: same
+[123/874] Processing: version
+[124/874] Processing: section
+[125/874] Processing: sport
+[126/874] Processing: house
+[127/874] Processing: relate
+[128/874] Processing: security
+[129/874] Processing: power
+[130/874] Processing: while
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 4 is name-based
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[131/874] Processing: care
+[132/874] Processing: network
+[133/874] Processing: down
+[134/874] Processing: total
+[135/874] Processing: place
+[136/874] Processing: follow
+[137/874] Processing: download
+[138/874] Processing: without
+[139/874] Processing: administration
+[140/874] Processing: access
+  ⚠️  Definition issues: Definition 6 is too short
+  ⚠️  Definition issues: Definition 1 contains cyclical reference, Definition 2 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[141/874] Processing: think
+[142/874] Processing: current
+[143/874] Processing: medium
+[144/874] Processing: control
+[145/874] Processing: water
+[146/874] Processing: history
+[147/874] Processing: picture
+[148/874] Processing: size
+[149/874] Processing: personal
+[150/874] Processing: since
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (1 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+
+📈 Progress: 150/874 (17.2%)
+⏱️  Elapsed: 0.2m | Remaining: 0.8m
+📊 Improved: 150 | Failed: 0
+
+[151/874] Processing: include
+[152/874] Processing: guide
+[153/874] Processing: shop
+[154/874] Processing: board
+[155/874] Processing: location
+[156/874] Processing: change
+[157/874] Processing: white
+[158/874] Processing: text
+[159/874] Processing: small
+[160/874] Processing: rate
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[161/874] Processing: government
+[162/874] Processing: child
+[163/874] Processing: during
+[164/874] Processing: return
+[165/874] Processing: account
+[166/874] Processing: level
+[167/874] Processing: digital
+[168/874] Processing: profile
+[169/874] Processing: previous
+[170/874] Processing: form
+  ✅ Updated definitions (1 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 5 contains cyclical reference
+  ⚠️  Definition issues: Definition 3 contains cyclical reference
+  ✅ Updated definitions (5 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+[171/874] Processing: event
+[172/874] Processing: love
+[173/874] Processing: john
+[174/874] Processing: main
+[175/874] Processing: call
+[176/874] Processing: hour
+[177/874] Processing: image
+[178/874] Processing: department
+[179/874] Processing: title
+[180/874] Processing: description
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference, Definition 3 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[181/874] Processing: insurance
+[182/874] Processing: another
+[183/874] Processing: shall
+[184/874] Processing: property
+[185/874] Processing: class
+[186/874] Processing: still
+[187/874] Processing: money
+[188/874] Processing: quality
+[189/874] Processing: content
+[190/874] Processing: country
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 4 is too short
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 is too short
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 4 contains cyclical reference, Definition 5 contains cyclical reference
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[191/874] Processing: private
+[192/874] Processing: little
+[193/874] Processing: visit
+[194/874] Processing: save
+[195/874] Processing: tool
+[196/874] Processing: reply
+[197/874] Processing: college
+[198/874] Processing: value
+[199/874] Processing: article
+[200/874] Processing: card
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+
+📈 Progress: 200/874 (22.9%)
+⏱️  Elapsed: 0.2m | Remaining: 0.7m
+📊 Improved: 200 | Failed: 0
+
+[201/874] Processing: provide
+[202/874] Processing: source
+[203/874] Processing: different
+[204/874] Processing: press
+[205/874] Processing: learn
+[206/874] Processing: around
+[207/874] Processing: print
+[208/874] Processing: course
+[209/874] Processing: process
+[210/874] Processing: room
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (5 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[211/874] Processing: rule
+[212/874] Processing: stock
+[213/874] Processing: train
+[214/874] Processing: credit
+[215/874] Processing: point
+[216/874] Processing: join
+[217/874] Processing: science
+[218/874] Processing: advance
+[219/874] Processing: leave
+[220/874] Processing: team
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[221/874] Processing: estate
+[222/874] Processing: condition
+[223/874] Processing: select
+[224/874] Processing: window
+[225/874] Processing: thread
+[226/874] Processing: week
+[227/874] Processing: note
+[228/874] Processing: live
+[229/874] Processing: large
+[230/874] Processing: gallery
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (5 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (5 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[231/874] Processing: table
+[232/874] Processing: register
+[233/874] Processing: however
+[234/874] Processing: market
+[235/874] Processing: library
+[236/874] Processing: really
+[237/874] Processing: action
+[238/874] Processing: start
+[239/874] Processing: series
+[240/874] Processing: model
+  ⚠️  Definition issues: Definition 3 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[241/874] Processing: feature
+[242/874] Processing: industry
+[243/874] Processing: plan
+[244/874] Processing: require
+[245/874] Processing: accessory
+[246/874] Processing: cost
+[247/874] Processing: march
+[248/874] Processing: question
+[249/874] Processing: test
+[250/874] Processing: friend
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+
+📈 Progress: 250/874 (28.6%)
+⏱️  Elapsed: 0.3m | Remaining: 0.7m
+📊 Improved: 250 | Failed: 0
+
+[251/874] Processing: come
+[252/874] Processing: study
+[253/874] Processing: application
+[254/874] Processing: cart
+[255/874] Processing: staff
+[256/874] Processing: feedback
+[257/874] Processing: again
+[258/874] Processing: play
+[259/874] Processing: issue
+[260/874] Processing: never
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (3 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 3 contains cyclical reference, Definition 6 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+[261/874] Processing: complete
+[262/874] Processing: street
+[263/874] Processing: topic
+[264/874] Processing: thing
+[265/874] Processing: against
+[266/874] Processing: standard
+[267/874] Processing: person
+[268/874] Processing: below
+[269/874] Processing: mobile
+[270/874] Processing: party
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 5 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[271/874] Processing: official
+[272/874] Processing: offer
+[273/874] Processing: legal
+[274/874] Processing: above
+[275/874] Processing: recent
+[276/874] Processing: park
+[277/874] Processing: side
+[278/874] Processing: problem
+[279/874] Processing: give
+[280/874] Processing: memory
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[281/874] Processing: social
+[282/874] Processing: quote
+[283/874] Processing: language
+[284/874] Processing: story
+[285/874] Processing: sell
+[286/874] Processing: option
+[287/874] Processing: experience
+[288/874] Processing: create
+[289/874] Processing: body
+[290/874] Processing: young
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference, Definition 2 is too long, Definition 3 is too long, Definition 5 contains cyclical reference
+  ⚠️  Definition issues: Definition 2 is too long
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[291/874] Processing: field
+[292/874] Processing: paper
+[293/874] Processing: single
+[294/874] Processing: club
+[295/874] Processing: example
+[296/874] Processing: girl
+[297/874] Processing: late
+[298/874] Processing: something
+[299/874] Processing: road
+[300/874] Processing: gift
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 2 contains cyclical reference
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+
+📈 Progress: 300/874 (34.3%)
+⏱️  Elapsed: 0.3m | Remaining: 0.6m
+📊 Improved: 300 | Failed: 0
+
+[301/874] Processing: night
+[302/874] Processing: hard
+[303/874] Processing: four
+[304/874] Processing: status
+[305/874] Processing: browse
+[306/874] Processing: range
+[307/874] Processing: build
+[308/874] Processing: court
+[309/874] Processing: always
+[310/874] Processing: light
+  ✅ Updated definitions (3 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ⚠️  Definition issues: Definition 3 contains cyclical reference, Definition 4 contains cyclical reference, Definition 6 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[311/874] Processing: write
+[312/874] Processing: blue
+[313/874] Processing: easy
+[314/874] Processing: release
+[315/874] Processing: analysis
+[316/874] Processing: request
+[317/874] Processing: china
+[318/874] Processing: possible
+[319/874] Processing: professional
+[320/874] Processing: month
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (3 total)
+  ⚠️  Definition issues: Definition 5 is name-based
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 5 contains cyclical reference
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+[321/874] Processing: star
+[322/874] Processing: future
+[323/874] Processing: space
+[324/874] Processing: hand
+[325/874] Processing: meet
+[326/874] Processing: become
+[327/874] Processing: interest
+[328/874] Processing: keep
+[329/874] Processing: enter
+[330/874] Processing: share
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (5 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[331/874] Processing: garden
+[332/874] Processing: reference
+[333/874] Processing: baby
+[334/874] Processing: energy
+[335/874] Processing: delivery
+[336/874] Processing: popular
+[337/874] Processing: film
+[338/874] Processing: journal
+[339/874] Processing: welcome
+[340/874] Processing: horse
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 2 is too long
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[341/874] Processing: vote
+[342/874] Processing: forward
+[343/874] Processing: flower
+[344/874] Processing: significant
+[345/874] Processing: retail
+[346/874] Processing: directly
+[347/874] Processing: bring
+[348/874] Processing: catalog
+[349/874] Processing: mother
+[350/874] Processing: authority
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 is name-based, Definition 2 is name-based
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference, Definition 4 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference
+  ⚠️  Definition issues: Definition 3 contains cyclical reference
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+
+📈 Progress: 350/874 (40.0%)
+⏱️  Elapsed: 0.4m | Remaining: 0.6m
+📊 Improved: 350 | Failed: 0
+
+[351/874] Processing: consider
+[352/874] Processing: traffic
+[353/874] Processing: programme
+[354/874] Processing: input
+[355/874] Processing: strategy
+[356/874] Processing: foot
+[357/874] Processing: agent
+[358/874] Processing: valid
+[359/874] Processing: senior
+[360/874] Processing: teach
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 5 is name-based, Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference
+  ✅ Updated definitions (3 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 2 is name-based
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+[361/874] Processing: door
+[362/874] Processing: grand
+[363/874] Processing: trial
+[364/874] Processing: charge
+[365/874] Processing: cool
+[366/874] Processing: normal
+[367/874] Processing: enterprise
+[368/874] Processing: entire
+[369/874] Processing: metal
+[370/874] Processing: positive
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 2 is too long
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[371/874] Processing: fitness
+[372/874] Processing: opinion
+[373/874] Processing: football
+[374/874] Processing: abstract
+[375/874] Processing: output
+[376/874] Processing: likely
+[377/874] Processing: alternative
+[378/874] Processing: resolution
+[379/874] Processing: guest
+[380/874] Processing: pass
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 4 contains cyclical reference
+  ⚠️  Definition issues: Definition 2 contains cyclical reference
+  ⚠️  Definition issues: Definition 6 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[381/874] Processing: relation
+[382/874] Processing: trust
+[383/874] Processing: contain
+[384/874] Processing: session
+[385/874] Processing: republic
+[386/874] Processing: vacation
+[387/874] Processing: century
+[388/874] Processing: academic
+[389/874] Processing: skin
+[390/874] Processing: graphic
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (5 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[391/874] Processing: expect
+[392/874] Processing: ring
+[393/874] Processing: grade
+[394/874] Processing: mountain
+[395/874] Processing: filter
+[396/874] Processing: vehicle
+[397/874] Processing: behind
+[398/874] Processing: panel
+[399/874] Processing: floor
+[400/874] Processing: german
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+
+📈 Progress: 400/874 (45.8%)
+⏱️  Elapsed: 0.4m | Remaining: 0.5m
+📊 Improved: 400 | Failed: 0
+
+[401/874] Processing: match
+[402/874] Processing: propose
+[403/874] Processing: default
+[404/874] Processing: outdoor
+[405/874] Processing: deep
+[406/874] Processing: morning
+[407/874] Processing: rest
+[408/874] Processing: plant
+[409/874] Processing: transportation
+[410/874] Processing: pool
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (3 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[411/874] Processing: politic
+[412/874] Processing: faculty
+[413/874] Processing: fish
+[414/874] Processing: mission
+[415/874] Processing: string
+[416/874] Processing: sense
+[417/874] Processing: modify
+[418/874] Processing: pack
+[419/874] Processing: stage
+[420/874] Processing: internal
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[421/874] Processing: recommend
+[422/874] Processing: bear
+[423/874] Processing: unless
+[424/874] Processing: race
+[425/874] Processing: approve
+[426/874] Processing: background
+[427/874] Processing: target
+[428/874] Processing: character
+[429/874] Processing: maintenance
+[430/874] Processing: ability
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[431/874] Processing: maybe
+[432/874] Processing: pretty
+[433/874] Processing: trademark
+[434/874] Processing: winter
+[435/874] Processing: battery
+[436/874] Processing: youth
+[437/874] Processing: pressure
+[438/874] Processing: debt
+[439/874] Processing: keyword
+[440/874] Processing: core
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (5 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 2 contains cyclical reference, Definition 3 contains cyclical reference, Definition 4 contains cyclical reference, Definition 5 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 5 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[441/874] Processing: break
+[442/874] Processing: dance
+[443/874] Processing: wood
+[444/874] Processing: itself
+[445/874] Processing: define
+[446/874] Processing: studio
+[447/874] Processing: reader
+[448/874] Processing: virtual
+[449/874] Processing: device
+[450/874] Processing: establish
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 5 contains cyclical reference
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 3 contains cyclical reference
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+
+📈 Progress: 450/874 (51.5%)
+⏱️  Elapsed: 0.5m | Remaining: 0.4m
+📊 Improved: 450 | Failed: 0
+
+[451/874] Processing: rend
+[452/874] Processing: remote
+[453/874] Processing: dark
+[454/874] Processing: external
+[455/874] Processing: apple
+[456/874] Processing: regard
+[457/874] Processing: theory
+[458/874] Processing: enjoy
+[459/874] Processing: remove
+[460/874] Processing: surface
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 3 contains cyclical reference, Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 2 is too long, Definition 3 is too long
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[461/874] Processing: minimum
+[462/874] Processing: visual
+[463/874] Processing: variety
+[464/874] Processing: teacher
+[465/874] Processing: manual
+[466/874] Processing: block
+[467/874] Processing: fair
+[468/874] Processing: civil
+[469/874] Processing: steel
+[470/874] Processing: wrong
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 2 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 3 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[471/874] Processing: begin
+[472/874] Processing: finally
+[473/874] Processing: sector
+[474/874] Processing: capacity
+[475/874] Processing: jersey
+[476/874] Processing: father
+[477/874] Processing: instrument
+[478/874] Processing: driver
+[479/874] Processing: dead
+[480/874] Processing: respect
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (3 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[481/874] Processing: unknown
+[482/874] Processing: trip
+[483/874] Processing: worth
+[484/874] Processing: procedure
+[485/874] Processing: poor
+[486/874] Processing: relationship
+[487/874] Processing: worker
+[488/874] Processing: farm
+[489/874] Processing: peace
+[490/874] Processing: creative
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ⚠️  Definition issues: Definition 6 is too short
+  ⚠️  Definition issues: Definition 1 contains cyclical reference, Definition 2 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[491/874] Processing: coast
+[492/874] Processing: progress
+[493/874] Processing: lord
+[494/874] Processing: grant
+[495/874] Processing: agree
+[496/874] Processing: hear
+[497/874] Processing: beyond
+[498/874] Processing: transport
+[499/874] Processing: wife
+[500/874] Processing: evaluation
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 2 contains cyclical reference
+  ✅ Updated definitions (3 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+
+📈 Progress: 500/874 (57.2%)
+⏱️  Elapsed: 0.5m | Remaining: 0.4m
+📊 Improved: 500 | Failed: 0
+
+[501/874] Processing: accept
+[502/874] Processing: zone
+[503/874] Processing: complex
+[504/874] Processing: flat
+[505/874] Processing: flow
+[506/874] Processing: literature
+[507/874] Processing: respective
+[508/874] Processing: scale
+[509/874] Processing: stand
+[510/874] Processing: economy
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference, Definition 5 contains cyclical reference
+  ✅ Updated definitions (5 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[511/874] Processing: critical
+[512/874] Processing: frame
+[513/874] Processing: definition
+[514/874] Processing: secretary
+[515/874] Processing: path
+[516/874] Processing: chief
+[517/874] Processing: bottom
+[518/874] Processing: royal
+[519/874] Processing: clean
+[520/874] Processing: switch
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[521/874] Processing: justice
+[522/874] Processing: connect
+[523/874] Processing: bible
+[524/874] Processing: basket
+[525/874] Processing: describe
+[526/874] Processing: demand
+[527/874] Processing: suite
+[528/874] Processing: square
+[529/874] Processing: attention
+[530/874] Processing: skip
+  ✅ Updated definitions (5 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (5 total)
+  ⚠️  Definition issues: Definition 2 contains cyclical reference
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[531/874] Processing: diet
+[532/874] Processing: army
+[533/874] Processing: gear
+[534/874] Processing: difference
+[535/874] Processing: nation
+[536/874] Processing: piece
+[537/874] Processing: sheet
+[538/874] Processing: firm
+[539/874] Processing: regulation
+[540/874] Processing: element
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[541/874] Processing: species
+[542/874] Processing: jump
+[543/874] Processing: module
+[544/874] Processing: resort
+[545/874] Processing: random
+[546/874] Processing: certificate
+[547/874] Processing: minister
+[548/874] Processing: motion
+[549/874] Processing: fashion
+[550/874] Processing: direction
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 4 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 2 is too long
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+
+📈 Progress: 550/874 (62.9%)
+⏱️  Elapsed: 0.6m | Remaining: 0.3m
+📊 Improved: 550 | Failed: 0
+
+[551/874] Processing: visitor
+[552/874] Processing: monitor
+[553/874] Processing: forest
+[554/874] Processing: coverage
+[555/874] Processing: couple
+[556/874] Processing: chance
+[557/874] Processing: vision
+[558/874] Processing: ball
+[559/874] Processing: listen
+[560/874] Processing: discuss
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (3 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[561/874] Processing: automotive
+[562/874] Processing: naked
+[563/874] Processing: goal
+[564/874] Processing: wind
+[565/874] Processing: clinical
+[566/874] Processing: situation
+[567/874] Processing: appear
+[568/874] Processing: currency
+[569/874] Processing: leather
+[570/874] Processing: determine
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (5 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference, Definition 3 contains cyclical reference, Definition 6 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (3 total)
+  ⚠️  Definition issues: Definition 4 contains cyclical reference
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+[571/874] Processing: actual
+[572/874] Processing: stone
+[573/874] Processing: commerce
+[574/874] Processing: perhaps
+[575/874] Processing: difficult
+[576/874] Processing: satellite
+[577/874] Processing: village
+[578/874] Processing: amateur
+[579/874] Processing: pain
+[580/874] Processing: particularly
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (3 total)
+  ⚠️  Definition issues: Definition 3 contains cyclical reference
+  ⚠️  Definition issues: Definition 2 is too long
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+[581/874] Processing: factor
+[582/874] Processing: setting
+[583/874] Processing: buyer
+[584/874] Processing: easily
+[585/874] Processing: oral
+[586/874] Processing: edge
+[587/874] Processing: root
+[588/874] Processing: balance
+[589/874] Processing: graduate
+[590/874] Processing: shoot
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (3 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[591/874] Processing: architecture
+[592/874] Processing: initial
+[593/874] Processing: label
+[594/874] Processing: canon
+[595/874] Processing: league
+[596/874] Processing: waste
+[597/874] Processing: optional
+[598/874] Processing: cold
+[599/874] Processing: manufacture
+[600/874] Processing: chair
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 5 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (3 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+
+📈 Progress: 600/874 (68.6%)
+⏱️  Elapsed: 0.6m | Remaining: 0.3m
+📊 Improved: 600 | Failed: 0
+
+[601/874] Processing: effort
+[602/874] Processing: fantasy
+[603/874] Processing: motor
+[604/874] Processing: professor
+[605/874] Processing: context
+[606/874] Processing: install
+[607/874] Processing: apparel
+[608/874] Processing: generally
+[609/874] Processing: crime
+[610/874] Processing: count
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 2 is too long
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 2 is too long
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 4 contains cyclical reference
+  ⚠️  Definition issues: Definition 3 contains cyclical reference
+  ⚠️  Definition issues: Definition 5 contains cyclical reference
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+[611/874] Processing: breast
+[612/874] Processing: technique
+[613/874] Processing: religion
+[614/874] Processing: claim
+[615/874] Processing: permission
+[616/874] Processing: surgery
+[617/874] Processing: patch
+[618/874] Processing: heat
+[619/874] Processing: wild
+[620/874] Processing: measure
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (3 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[621/874] Processing: generation
+[622/874] Processing: miss
+[623/874] Processing: chemical
+[624/874] Processing: doctor
+[625/874] Processing: task
+[626/874] Processing: reduce
+[627/874] Processing: himself
+[628/874] Processing: enable
+[629/874] Processing: exercise
+[630/874] Processing: guarantee
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 3 contains cyclical reference, Definition 4 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[631/874] Processing: diamond
+[632/874] Processing: soft
+[633/874] Processing: alone
+[634/874] Processing: meeting
+[635/874] Processing: second
+[636/874] Processing: jones
+[637/874] Processing: flight
+[638/874] Processing: congress
+[639/874] Processing: fuel
+[640/874] Processing: walk
+  ⚠️  Definition issues: Definition 6 is too short
+  ⚠️  Definition issues: Definition 5 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[641/874] Processing: produce
+[642/874] Processing: classified
+[643/874] Processing: wait
+[644/874] Processing: pocket
+[645/874] Processing: saint
+[646/874] Processing: rise
+[647/874] Processing: argument
+[648/874] Processing: joint
+[649/874] Processing: premium
+[650/874] Processing: fresh
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ⚠️  Definition issues: Definition 1 contains cyclical reference, Definition 2 is too long
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+
+📈 Progress: 650/874 (74.4%)
+⏱️  Elapsed: 0.7m | Remaining: 0.2m
+📊 Improved: 650 | Failed: 0
+
+[651/874] Processing: attorney
+[652/874] Processing: upgrade
+[653/874] Processing: grow
+[654/874] Processing: stream
+[655/874] Processing: apartment
+[656/874] Processing: pick
+[657/874] Processing: generate
+[658/874] Processing: upper
+[659/874] Processing: serious
+[660/874] Processing: prime
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 4 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 2 contains cyclical reference
+  ✅ Updated definitions (5 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[661/874] Processing: chicken
+[662/874] Processing: temporary
+[663/874] Processing: attend
+[664/874] Processing: shower
+[665/874] Processing: tonight
+[666/874] Processing: dear
+[667/874] Processing: sufficient
+[668/874] Processing: shell
+[669/874] Processing: province
+[670/874] Processing: catholic
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (3 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[671/874] Processing: governor
+[672/874] Processing: beer
+[673/874] Processing: swim
+[674/874] Processing: formula
+[675/874] Processing: constitution
+[676/874] Processing: solar
+[677/874] Processing: catch
+[678/874] Processing: doubt
+[679/874] Processing: earn
+[680/874] Processing: wallpaper
+  ⚠️  Definition issues: Definition 6 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 2 is too long, Definition 4 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[681/874] Processing: merchandise
+[682/874] Processing: const
+[683/874] Processing: memorial
+[684/874] Processing: twin
+[685/874] Processing: forth
+[686/874] Processing: insert
+[687/874] Processing: gateway
+[688/874] Processing: alumnus
+[689/874] Processing: transition
+[690/874] Processing: preference
+  ✅ Updated definitions (3 total)
+  ⚠️  Definition issues: Definition 3 is name-based
+  ⚠️  Definition issues: Definition 5 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[691/874] Processing: romance
+[692/874] Processing: split
+[693/874] Processing: heaven
+[694/874] Processing: pregnant
+[695/874] Processing: bargain
+[696/874] Processing: normally
+[697/874] Processing: spiritual
+[698/874] Processing: hunt
+[699/874] Processing: suit
+[700/874] Processing: shift
+  ⚠️  Definition issues: Definition 2 is too long
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 2 contains cyclical reference
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+
+📈 Progress: 700/874 (80.1%)
+⏱️  Elapsed: 0.7m | Remaining: 0.2m
+📊 Improved: 700 | Failed: 0
+
+[701/874] Processing: chip
+[702/874] Processing: satisfaction
+[703/874] Processing: superior
+[704/874] Processing: prefer
+[705/874] Processing: cartoon
+[706/874] Processing: shot
+[707/874] Processing: comfortable
+[708/874] Processing: crisis
+[709/874] Processing: outlook
+[710/874] Processing: massive
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (5 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 3 contains cyclical reference
+  ⚠️  Definition issues: Definition 4 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+[711/874] Processing: employ
+[712/874] Processing: bright
+[713/874] Processing: header
+[714/874] Processing: piano
+[715/874] Processing: echo
+[716/874] Processing: grid
+[717/874] Processing: revolution
+[718/874] Processing: plasma
+[719/874] Processing: mystery
+[720/874] Processing: landscape
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 3 contains cyclical reference, Definition 6 contains cyclical reference
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[721/874] Processing: dependent
+[722/874] Processing: mechanical
+[723/874] Processing: journey
+[724/874] Processing: banner
+[725/874] Processing: charter
+[726/874] Processing: recognize
+[727/874] Processing: rapid
+[728/874] Processing: pull
+[729/874] Processing: hairy
+[730/874] Processing: reverse
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference, Definition 4 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+[731/874] Processing: deposit
+[732/874] Processing: sensitive
+[733/874] Processing: concrete
+[734/874] Processing: completion
+[735/874] Processing: pulse
+[736/874] Processing: calculate
+[737/874] Processing: broadcast
+[738/874] Processing: convert
+[739/874] Processing: metro
+[740/874] Processing: strip
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (5 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[741/874] Processing: pearl
+[742/874] Processing: accident
+[743/874] Processing: nick
+[744/874] Processing: accessible
+[745/874] Processing: plot
+[746/874] Processing: representation
+[747/874] Processing: pump
+[748/874] Processing: arrangement
+[749/874] Processing: smooth
+[750/874] Processing: strike
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+
+📈 Progress: 750/874 (85.8%)
+⏱️  Elapsed: 0.8m | Remaining: 0.1m
+📊 Improved: 750 | Failed: 0
+
+[751/874] Processing: consumption
+[752/874] Processing: narrow
+[753/874] Processing: threat
+[754/874] Processing: putting
+[755/874] Processing: controller
+[756/874] Processing: trailer
+[757/874] Processing: castle
+[758/874] Processing: antique
+[759/874] Processing: exam
+[760/874] Processing: residence
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference, Definition 4 contains cyclical reference
+  ✅ Updated definitions (2 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[761/874] Processing: density
+[762/874] Processing: strange
+[763/874] Processing: grey
+[764/874] Processing: parallel
+[765/874] Processing: amend
+[766/874] Processing: stable
+[767/874] Processing: cinema
+[768/874] Processing: scan
+[769/874] Processing: blank
+[770/874] Processing: entitle
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (5 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 4 is name-based, Definition 6 is name-based
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[771/874] Processing: severe
+[772/874] Processing: humor
+[773/874] Processing: duration
+[774/874] Processing: bulk
+[775/874] Processing: fabric
+[776/874] Processing: contrast
+[777/874] Processing: cute
+[778/874] Processing: organize
+[779/874] Processing: adoption
+[780/874] Processing: capture
+  ✅ Updated definitions (4 total)
+  ⚠️  Definition issues: Definition 2 is too long
+  ✅ Updated definitions (2 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (5 total)
+  ⚠️  Definition issues: Definition 2 is too long
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[781/874] Processing: pound
+[782/874] Processing: buffalo
+[783/874] Processing: plane
+[784/874] Processing: seed
+[785/874] Processing: desire
+[786/874] Processing: mechanism
+[787/874] Processing: peer
+[788/874] Processing: bottle
+[789/874] Processing: massage
+[790/874] Processing: rubber
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 4 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[791/874] Processing: conclusion
+[792/874] Processing: meat
+[793/874] Processing: legend
+[794/874] Processing: grace
+[795/874] Processing: monster
+[796/874] Processing: bang
+[797/874] Processing: bone
+[798/874] Processing: disorder
+[799/874] Processing: cookie
+[800/874] Processing: inner
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference, Definition 2 contains cyclical reference, Definition 3 contains cyclical reference, Definition 4 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 is name-based
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+
+📈 Progress: 800/874 (91.5%)
+⏱️  Elapsed: 0.8m | Remaining: 0.1m
+📊 Improved: 800 | Failed: 0
+
+[801/874] Processing: formation
+[802/874] Processing: entity
+[803/874] Processing: gate
+[804/874] Processing: moderator
+[805/874] Processing: settlement
+[806/874] Processing: roman
+[807/874] Processing: tone
+[808/874] Processing: ethic
+[809/874] Processing: forever
+[810/874] Processing: dragon
+  ⚠️  Definition issues: Definition 2 contains cyclical reference, Definition 4 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (3 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[811/874] Processing: busy
+[812/874] Processing: captain
+[813/874] Processing: imagine
+[814/874] Processing: neck
+[815/874] Processing: wing
+[816/874] Processing: appoint
+[817/874] Processing: taste
+[818/874] Processing: tiny
+[819/874] Processing: rail
+[820/874] Processing: liberal
+  ✅ Updated definitions (3 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[821/874] Processing: tube
+[822/874] Processing: correspond
+[823/874] Processing: cache
+[824/874] Processing: belt
+[825/874] Processing: jacket
+[826/874] Processing: determination
+[827/874] Processing: oracle
+[828/874] Processing: lease
+[829/874] Processing: aviation
+[830/874] Processing: proud
+  ⚠️  Definition issues: Definition 1 is name-based, Definition 5 contains cyclical reference, Definition 6 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (5 total)
+  ✅ Updated definitions (3 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+[831/874] Processing: excess
+[832/874] Processing: console
+[833/874] Processing: telecommunication
+[834/874] Processing: giant
+[835/874] Processing: alarm
+[836/874] Processing: usual
+[837/874] Processing: stamp
+[838/874] Processing: angle
+[839/874] Processing: vinyl
+[840/874] Processing: highlight
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (3 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 2 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (2 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[841/874] Processing: ongoing
+[842/874] Processing: liberty
+[843/874] Processing: blackjack
+[844/874] Processing: garage
+[845/874] Processing: excite
+[846/874] Processing: thong
+[847/874] Processing: attachment
+[848/874] Processing: derive
+[849/874] Processing: pleasure
+[850/874] Processing: honor
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (5 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ⚠️  Definition issues: Definition 2 contains cyclical reference
+  ✅ Updated definitions (3 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference, Definition 5 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 2 is too long
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+
+📈 Progress: 850/874 (97.3%)
+⏱️  Elapsed: 0.9m | Remaining: 0.0m
+📊 Improved: 850 | Failed: 0
+
+[851/874] Processing: orient
+[852/874] Processing: eagle
+[853/874] Processing: pant
+[854/874] Processing: prayer
+[855/874] Processing: appointment
+[856/874] Processing: quiet
+[857/874] Processing: luck
+[858/874] Processing: dial
+[859/874] Processing: cheese
+[860/874] Processing: crown
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 6 is too short
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+[861/874] Processing: underground
+[862/874] Processing: diagnosis
+[863/874] Processing: maker
+[864/874] Processing: crack
+[865/874] Processing: appearance
+[866/874] Processing: communication
+[867/874] Processing: media
+[868/874] Processing: publication
+[869/874] Processing: document
+[870/874] Processing: letter
+  ⚠️  Definition issues: Definition 4 is too short, Definition 5 is too short
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (4 total)
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference
+  ✅ Updated definitions (6 total)
+  ✅ Updated definitions (6 total)
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+[871/874] Processing: email
+[872/874] Processing: telephone
+[873/874] Processing: passenger
+[874/874] Processing: destination
+  ✅ Updated definitions (6 total)
+  ⚠️  Definition issues: Definition 1 contains cyclical reference, Definition 2 contains cyclical reference, Definition 4 contains cyclical reference
+  ✅ Updated definitions (3 total)
+  ⚠️  Definition issues: Definition 3 contains cyclical reference, Definition 4 contains cyclical reference, Definition 5 contains cyclical reference, Definition 6 contains cyclical reference
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 1 fields
+  ℹ️  Using fallback examples (Wordnik provided 4)
+  ✅ Updated examples (4 total)
+  ✨ Improved 2 fields
+
+✅ Generation Complete!
+📊 Summary:
+  - Processed: 874 words
+  - Improved: 874 words (100.0%)
+  - Failed: 0 words
+  - Time: 0.9 minutes
+  - Output: /Users/michaelmcisaac/Github/the-dictionary-game/src/data/puzzle.json
+  - Backup: /Users/michaelmcisaac/Github/the-dictionary-game/src/data/puzzle-backup-2025-07-24.json

@@ -1,0 +1,10 @@
+{
+  "wordnik": {
+    "apiKey": "",
+    "note": "Get your free API key from https://developer.wordnik.com/"
+  },
+  "datamuse": {
+    "apiKey": null,
+    "note": "Datamuse API is free and doesn't require a key"
+  }
+}
