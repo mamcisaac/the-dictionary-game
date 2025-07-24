@@ -44,6 +44,11 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# Generation Script Artifacts
+scripts/*-log-*.txt
+scripts/validation-report-*.json
+scripts/check-*.js
+
 # Runtime
 *.pid
 *.seed
