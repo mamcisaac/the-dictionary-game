@@ -104,7 +104,7 @@ body.popup-open {
     font-size: 1.75rem;
     font-weight: bold;
     color: var(--primary-600);
-    letter-spacing: 0.3em;
+    letter-spacing: 0.1em;
     padding: var(--space-2) var(--space-3);
     border: 3px solid var(--primary-600);
     border-radius: var(--radius-m);
@@ -112,6 +112,8 @@ body.popup-open {
     text-align: center;
     margin-bottom: var(--space-2);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 /* Compact primary definition */
@@ -125,9 +127,10 @@ body.popup-open {
 /* Mobile optimizations for header */
 @media (max-width: 480px) {
     .word-pattern-box {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         padding: var(--space-1) var(--space-2);
         margin-bottom: var(--space-1);
+        letter-spacing: 0.05em;
     }
     
     .primary-definition-compact {

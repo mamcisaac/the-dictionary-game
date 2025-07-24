@@ -153,59 +153,9 @@ function filterExamples(examples, word) {
     return unique.slice(0, 5);
 }
 
-/**
- * Generate high-quality fallback examples
- */
-function generateFallbackExamples(word, partOfSpeech = 'general') {
-    const templates = {
-        noun: [
-            `The [blank] caught everyone's attention at the meeting.`,
-            `She wrote an article about the importance of [blank].`,
-            `The museum's new exhibit features a rare [blank].`,
-            `Students learned about [blank] in their science class.`,
-            `The company specializes in manufacturing [blank].`
-        ],
-        verb: [
-            `They decided to [blank] the project after careful consideration.`,
-            `She learned how to [blank] during her apprenticeship.`,
-            `The instructions explain how to [blank] safely.`,
-            `He promised to [blank] the task by Friday.`,
-            `The team will [blank] the new system next month.`
-        ],
-        adjective: [
-            `The [blank] weather made the outdoor event perfect.`,
-            `Her [blank] attitude impressed the interview panel.`,
-            `The [blank] design won the architecture award.`,
-            `Critics praised the film's [blank] cinematography.`,
-            `The [blank] solution solved the problem efficiently.`
-        ],
-        adverb: [
-            `She [blank] completed the marathon despite the rain.`,
-            `The pianist played the sonata [blank].`,
-            `He [blank] agreed to help with the project.`,
-            `The changes were [blank] implemented across all departments.`,
-            `They [blank] discovered the error in the calculations.`
-        ]
-    };
-    
-    const selectedTemplates = templates[partOfSpeech] || templates.noun;
-    
-    // Randomly select 3-4 diverse examples
-    const indices = [];
-    while (indices.length < Math.min(4, selectedTemplates.length)) {
-        const idx = Math.floor(Math.random() * selectedTemplates.length);
-        if (!indices.includes(idx)) {
-            indices.push(idx);
-        }
-    }
-    
-    return indices.map(i => selectedTemplates[i]);
-}
-
 module.exports = {
     validateExample,
     scoreExample,
     standardizeExample,
-    filterExamples,
-    generateFallbackExamples
+    filterExamples
 };

@@ -136,6 +136,54 @@ class WordnikClient {
 }
 
 /**
+ * Free Dictionary API Client
+ * Free API for definitions with example sentences
+ */
+class FreeDictionaryClient {
+    constructor() {
+        this.baseUrl = 'https://api.dictionaryapi.dev/api/v2/entries/en';
+        this.rateLimit = 300; // ms between requests (conservative)
+    }
+
+    async getExamples(word) {
+        await delay(this.rateLimit);
+        const url = `${this.baseUrl}/${encodeURIComponent(word)}`;
+        
+        try {
+            const data = await makeRequest(url);
+            if (!Array.isArray(data) || data.length === 0) {
+                return [];
+            }
+
+            const examples = [];
+            
+            // Extract examples from all meanings and definitions
+            for (const entry of data) {
+                if (entry.meanings) {
+                    for (const meaning of entry.meanings) {
+                        if (meaning.definitions) {
+                            for (const def of meaning.definitions) {
+                                if (def.example) {
+                                    // Replace the word (case-insensitive) with [blank]
+                                    const regex = new RegExp(`\\b${word}\\b`, 'gi');
+                                    const blankedExample = def.example.replace(regex, '[blank]');
+                                    examples.push(blankedExample);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            return examples;
+        } catch (error) {
+            // Silently fail - no examples is better than bad examples
+            return [];
+        }
+    }
+}
+
+/**
  * Fallback example generator using templates
  * Only used when API examples are unavailable or poor quality
  */
@@ -195,6 +243,7 @@ class FallbackExampleGenerator {
 module.exports = {
     DatamuseClient,
     WordnikClient,
+    FreeDictionaryClient,
     FallbackExampleGenerator,
     delay
 };

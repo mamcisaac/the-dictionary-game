@@ -31,6 +31,24 @@ function getWordVariations(word) {
             const root = wordLower.slice(0, -suffix.length);
             variations.add(root);
             
+            // After finding a root, generate common variations of that root
+            // This catches cases like "development" -> "develop" -> "developing"
+            if (suffix === 'ment' || suffix === 'tion' || suffix === 'sion' || 
+                suffix === 'ity' || suffix === 'ness' || suffix === 'ance' || suffix === 'ence') {
+                // Add common verb forms
+                variations.add(root + 'ing');
+                variations.add(root + 'ed');
+                variations.add(root + 's');
+                variations.add(root + 'er');
+                
+                // Handle verbs ending in 'e'
+                if (root.endsWith('e')) {
+                    const rootNoE = root.slice(0, -1);
+                    variations.add(rootNoE + 'ing');
+                    variations.add(rootNoE + 'ed');
+                }
+            }
+            
             // Handle special cases
             // hairy -> hair (y removal)
             if (suffix === 'y' && root.length > 2) {

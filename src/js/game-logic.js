@@ -336,7 +336,7 @@ function handleGuess() {
         // Reveal the complete word in the pattern display
         const wordPatternElement = document.getElementById("word-pattern");
         if (wordPatternElement) {
-            wordPatternElement.innerHTML = puzzleData.word.toUpperCase().split('').join(' ');
+            wordPatternElement.innerHTML = puzzleData.word.toUpperCase();
         }
         
         // Get final score for victory display
@@ -599,7 +599,7 @@ function getClueContent(type) {
             break;
             
         case 'example':
-            if (cluesGivenByType.examples < puzzleData.examples.length) {
+            if (puzzleData.examples && cluesGivenByType.examples < puzzleData.examples.length) {
                 const exIndex = cluesGivenByType.examples;
                 content = `📝 Example: ${puzzleData.examples[exIndex]}`;
                 cluesGivenByType.examples++;
@@ -655,7 +655,7 @@ function getAvailableClues() {
     const available = {
         definitions: Math.max(0, puzzleData.definitions.length - cluesGivenByType.definitionsShown.size),
         wordLength: !cluesGivenByType.wordLength ? 1 : 0,
-        examples: Math.max(0, puzzleData.examples.length - cluesGivenByType.examples),
+        examples: puzzleData.examples ? Math.max(0, puzzleData.examples.length - cluesGivenByType.examples) : 0,
         synonyms: (puzzleData.synonyms && puzzleData.synonyms.length > 0 && !cluesGivenByType.synonyms) ? 1 : 0,
         antonyms: (puzzleData.antonyms && puzzleData.antonyms.length > 0 && !cluesGivenByType.antonyms) ? 1 : 0,
         letters: Math.max(0, Math.max(1, puzzleData.word.length - 2) - cluesGivenByType.lettersRevealed)

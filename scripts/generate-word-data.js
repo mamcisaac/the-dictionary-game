@@ -6,9 +6,9 @@
 
 const fs = require('fs');
 const path = require('path');
-const { DatamuseClient, WordnikClient, delay } = require('./lib/api-clients');
+const { DatamuseClient, WordnikClient, FreeDictionaryClient, delay } = require('./lib/api-clients');
 const { filterDefinitions, orderDefinitionsForGame, validateDefinitions } = require('./lib/definition-filters');
-const { filterExamples, generateFallbackExamples } = require('./lib/example-validators');
+const { filterExamples } = require('./lib/example-validators');
 const { extractPartOfSpeech } = require('./lib/word-utils');
 
 // Load configuration
@@ -18,6 +18,7 @@ const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 // Initialize API clients
 const datamuse = new DatamuseClient();
 const wordnik = new WordnikClient(config.wordnik.apiKey);
+const freeDict = new FreeDictionaryClient();
 
 // Load current puzzle data
 const puzzlePath = path.join(__dirname, '..', 'src', 'data', 'puzzle.json');
@@ -89,21 +90,22 @@ async function processWord(wordEntry, index) {
         // 4. Fetch example sentences
         let examples = [];
         
-        // Try Wordnik first
-        if (config.wordnik.apiKey) {
-            const wordnikExamples = await wordnik.getExamples(word, 10);
-            examples = filterExamples(wordnikExamples, word);
+        // Try Free Dictionary API first
+        const freeDictExamples = await freeDict.getExamples(word);
+        if (freeDictExamples.length > 0) {
+            examples = filterExamples(freeDictExamples, word).slice(0, 5);
         }
         
-        // Use fallback if needed
-        if (examples.length < 3) {
-            const partOfSpeech = extractPartOfSpeech(
-                updates.definitions?.[0] || wordEntry.definitions?.[0] || ''
-            );
-            const fallbackExamples = generateFallbackExamples(word, partOfSpeech);
-            examples = [...examples, ...fallbackExamples].slice(0, 5);
-            log(`  ℹ️  Using fallback examples (Wordnik provided ${examples.length})`);
+        // Try Wordnik if we don't have enough examples and API key is available
+        if (examples.length < 3 && config.wordnik.apiKey) {
+            const wordnikExamples = await wordnik.getExamples(word, 10);
+            const filteredWordnik = filterExamples(wordnikExamples, word);
+            // Combine and deduplicate
+            const combined = [...examples, ...filteredWordnik];
+            examples = [...new Set(combined)].slice(0, 5);
         }
+        
+        // No fallback examples - bad examples are worse than no examples
         
         if (examples.length > 0 && 
             JSON.stringify(examples) !== JSON.stringify(wordEntry.examples)) {
