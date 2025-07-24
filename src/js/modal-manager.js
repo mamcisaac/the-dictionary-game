@@ -203,6 +203,56 @@ const ModalManager = {
      */
     getOpenModalIds() {
         return Array.from(this.openModals);
+    },
+
+    /**
+     * Setup help modal tabs functionality
+     */
+    setupHelpTabs() {
+        // Setup tab click handlers
+        document.querySelectorAll('.help-tab').forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                const tabName = e.target.getAttribute('data-tab');
+                this.switchHelpTab(tabName);
+                
+                // Update aria-selected attributes
+                document.querySelectorAll('.help-tab').forEach(t => {
+                    t.setAttribute('aria-selected', 'false');
+                });
+                e.target.setAttribute('aria-selected', 'true');
+            });
+        });
+        
+        // Setup "Got it!" button
+        const gotItBtn = document.getElementById('help-got-it-btn');
+        if (gotItBtn) {
+            gotItBtn.addEventListener('click', () => {
+                this.closeModal('help-modal');
+            });
+        }
+    },
+
+    /**
+     * Switch between help modal tabs
+     * @param {string} tabName - The name of the tab to switch to
+     */
+    switchHelpTab(tabName) {
+        // Remove active class from all tabs and panes
+        document.querySelectorAll('.help-tab').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        document.querySelectorAll('.help-tab-pane').forEach(pane => {
+            pane.classList.remove('active');
+        });
+        
+        // Add active class to selected tab and pane
+        const selectedTab = document.querySelector(`.help-tab[data-tab="${tabName}"]`);
+        const selectedPane = document.getElementById(`${tabName}-tab`);
+        
+        if (selectedTab && selectedPane) {
+            selectedTab.classList.add('active');
+            selectedPane.classList.add('active');
+        }
     }
 };
 

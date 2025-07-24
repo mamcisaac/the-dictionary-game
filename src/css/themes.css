@@ -79,6 +79,29 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
+/* Dark theme help modal tabs */
+[data-theme="dark"] .help-tab {
+    color: #e5e7eb;
+}
+
+[data-theme="dark"] .help-tab:hover {
+    background: rgba(45, 45, 45, 0.5);
+    color: #f9fafb;
+}
+
+[data-theme="dark"] .help-tab.active {
+    color: #10b981;
+    border-bottom-color: #10b981;
+}
+
+[data-theme="dark"] .got-it-btn {
+    background: #10b981;
+}
+
+[data-theme="dark"] .got-it-btn:hover {
+    background: #fbbf24;
+}
+
 /* High contrast theme specific adjustments */
 [data-theme="high-contrast"] {
     /* Ensure all backgrounds are truly black */

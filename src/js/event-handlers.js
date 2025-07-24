@@ -12,6 +12,12 @@ const EventHandlers = {
         this.setupModalHandlers();
         this.setupKeyboardNavigation();
         this.setupCustomEvents();
+        
+        // Initialize help modal tabs
+        if (typeof ModalManager !== 'undefined' && ModalManager.setupHelpTabs) {
+            ModalManager.setupHelpTabs();
+        }
+        
         console.log('✅ Event handlers initialized');
     },
 
