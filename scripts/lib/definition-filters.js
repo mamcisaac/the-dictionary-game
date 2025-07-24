@@ -68,6 +68,18 @@ const MANUAL_DEFINITIONS = {
         'Having the required qualities; of a high standard.',
         'Morally right; virtuous.',
         'Benefit or advantage to someone or something.'
+    ],
+    'experience': [
+        'Knowledge or skill gained through involvement in or exposure to something.',
+        'A collection of events and activities from which an individual may gather knowledge.',
+        'The knowledge thus gathered.',
+        'An event or occurrence that leaves an impression on someone.'
+    ],
+    'door': [
+        'A hinged barrier used to close off an entrance.',
+        'A means of approach or access.',
+        'An opening in a wall or vehicle that can be closed.',
+        'An opportunity or way of achieving something.'
     ]
 };
 
