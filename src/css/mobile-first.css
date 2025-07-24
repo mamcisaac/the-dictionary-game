@@ -471,3 +471,167 @@ body.popup-open {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
 }
+
+/* Score/Stats Popup Tabbed Interface */
+.score-popup-content {
+    max-width: 500px;
+    width: 90%;
+}
+
+/* Tab navigation */
+.popup-tabs {
+    display: flex;
+    border-bottom: 2px solid var(--zinc-200);
+    margin-bottom: var(--space-4);
+}
+
+.popup-tab {
+    flex: 1;
+    padding: var(--space-3);
+    background: none;
+    border: none;
+    font-size: var(--font-size-base);
+    color: var(--zinc-600);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.popup-tab:hover {
+    color: var(--zinc-900);
+}
+
+.popup-tab.active {
+    color: var(--primary-600);
+    font-weight: 600;
+}
+
+.popup-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--primary-600);
+}
+
+/* Tab content */
+.popup-tab-content {
+    min-height: 300px;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* Current game tab styles */
+.score-display {
+    text-align: center;
+}
+
+.score-section {
+    margin-bottom: var(--space-4);
+}
+
+.score-label {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--zinc-500);
+    margin-bottom: var(--space-1);
+}
+
+.score-number {
+    font-size: var(--font-size-5xl);
+    font-weight: bold;
+    color: var(--primary-600);
+}
+
+.score-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    background: var(--zinc-50);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-sm);
+}
+
+/* Statistics tab styles */
+.stats-grid-full {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+@media (min-width: 768px) {
+    .stats-grid-full {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.stat-item {
+    background: var(--zinc-50);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.stat-value {
+    font-size: var(--font-size-2xl);
+    font-weight: bold;
+    color: var(--zinc-900);
+}
+
+.stat-label {
+    font-size: var(--font-size-xs);
+    color: var(--zinc-600);
+    margin-top: var(--space-1);
+}
+
+/* Heat map calendar in popup */
+.heat-map-calendar-popup {
+    margin-top: var(--space-4);
+    padding: var(--space-3);
+    background: var(--zinc-50);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+}
+
+.heat-map-calendar-popup .heat-map-header {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+    color: var(--zinc-700);
+}
+
+/* Stats actions */
+.stats-actions {
+    margin-top: var(--space-4);
+    text-align: center;
+}
+
+.secondary-button {
+    padding: var(--space-2) var(--space-4);
+    background: var(--zinc-200);
+    color: var(--zinc-700);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.secondary-button:hover {
+    background: var(--zinc-300);
+}

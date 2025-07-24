@@ -141,71 +141,6 @@
         <!-- Toast Component Container -->
         <div id="toast-container" class="toast-container"></div>
             
-            <!-- StatModal Component -->
-            <div id="stats-modal" class="stat-modal" data-open="false" role="dialog" aria-modal="true" aria-labelledby="stats-modal-title">
-                <div class="stat-modal__content">
-                    <div class="stat-modal__header">
-                        <span id="stats-modal-title">Game Statistics</span>
-                        <button class="close" aria-label="Close statistics modal">
-                            <span class="sr-only">Close</span>
-                            &times;
-                        </button>
-                    </div>
-                    <div class="stat-modal__grid">
-                        <div class="stat-modal__stat">
-                            <div id="games-played" class="stat-modal__value">0</div>
-                            <div class="stat-modal__label">Games Played</div>
-                        </div>
-                        <div class="stat-modal__stat">
-                            <div id="games-won" class="stat-modal__value">0</div>
-                            <div class="stat-modal__label">Games Won</div>
-                        </div>
-                        <div class="stat-modal__stat">
-                            <div id="win-rate" class="stat-modal__value">0%</div>
-                            <div class="stat-modal__label">Win Rate</div>
-                        </div>
-                        <div class="stat-modal__stat">
-                            <div id="avg-score" class="stat-modal__value">0</div>
-                            <div class="stat-modal__label">Average Score</div>
-                        </div>
-                        <div class="stat-modal__stat">
-                            <div id="best-score" class="stat-modal__value">0</div>
-                            <div class="stat-modal__label">Best Score</div>
-                        </div>
-                        <div class="stat-modal__stat">
-                            <div id="current-streak" class="stat-modal__value">0</div>
-                            <div class="stat-modal__label">Current Streak</div>
-                        </div>
-                        <div class="stat-modal__stat">
-                            <div id="best-streak" class="stat-modal__value">0</div>
-                            <div class="stat-modal__label">Best Streak</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Heat-map Calendar -->
-                    <div class="heat-map-calendar">
-                        <div class="heat-map-header">Win History</div>
-                        <div id="heat-map-grid" class="heat-map-grid">
-                            <!-- Calendar grid will be generated here -->
-                        </div>
-                        <div class="heat-map-legend">
-                            <span>Less</span>
-                            <div class="heat-map-legend-squares">
-                                <div class="heat-map-day" data-wins="0"></div>
-                                <div class="heat-map-day" data-wins="1"></div>
-                                <div class="heat-map-day" data-wins="2"></div>
-                                <div class="heat-map-day" data-wins="3"></div>
-                                <div class="heat-map-day" data-wins="4"></div>
-                            </div>
-                            <span>More</span>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: var(--space-6); text-align: center;">
-                        <button id="reset-stats" class="secondary-buttons">Reset Statistics</button>
-                    </div>
-                </div>
-            </div>
             
             <!-- Help/Tutorial Modal -->
             <div id="help-modal" class="modal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="help-modal-title">
@@ -315,39 +250,58 @@
                 <h2 id="score-popup-title">Score & Stats</h2>
                 <button class="popup-close" aria-label="Close score view">&times;</button>
             </div>
-            <div class="score-stats-container">
-                <!-- Score section -->
-                <div class="score-display">
-                    <div class="score-section">
-                        <span class="score-label">SCORE</span>
-                        <span id="current-score-popup" class="score-number">0</span>
-                    </div>
-                    <div class="score-details">
-                        <div class="detail-row">
-                            <span>Clues Used:</span>
-                            <span id="clue-counter-popup">0/0</span>
+            <!-- Tab navigation -->
+            <div class="popup-tabs">
+                <button class="popup-tab active" data-tab="current-game">Current Game</button>
+                <button class="popup-tab" data-tab="statistics">Statistics</button>
+            </div>
+            <!-- Tab content -->
+            <div class="popup-tab-content">
+                <!-- Current Game tab -->
+                <div id="current-game-tab" class="tab-pane active">
+                    <div class="score-display">
+                        <div class="score-section">
+                            <span class="score-label">SCORE</span>
+                            <span id="current-score-popup" class="score-number">0</span>
                         </div>
-                        <div class="detail-row">
-                            <span>Guesses:</span>
-                            <span id="guess-count-popup">0</span>
-                        </div>
-                        <div class="detail-row">
-                            <span>Time:</span>
-                            <span id="time-elapsed-popup">0:00</span>
+                        <div class="score-details">
+                            <div class="detail-row">
+                                <span>Clues Used:</span>
+                                <span id="clue-counter-popup">0/0</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Guesses:</span>
+                                <span id="guess-count-popup">0</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Time:</span>
+                                <span id="time-elapsed-popup">0:00</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Difficulty:</span>
+                                <span id="difficulty-popup">0.00</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- Stats section -->
-                <div class="stats-display">
-                    <h3>Overall Statistics</h3>
-                    <div class="stats-grid">
+                <!-- Statistics tab -->
+                <div id="statistics-tab" class="tab-pane">
+                    <div class="stats-grid-full">
                         <div class="stat-item">
                             <div id="games-played-popup" class="stat-value">0</div>
-                            <div class="stat-label">Games</div>
+                            <div class="stat-label">Games Played</div>
+                        </div>
+                        <div class="stat-item">
+                            <div id="games-won-popup" class="stat-value">0</div>
+                            <div class="stat-label">Games Won</div>
                         </div>
                         <div class="stat-item">
                             <div id="win-rate-popup" class="stat-value">0%</div>
                             <div class="stat-label">Win Rate</div>
+                        </div>
+                        <div class="stat-item">
+                            <div id="avg-score-popup" class="stat-value">0</div>
+                            <div class="stat-label">Average Score</div>
                         </div>
                         <div class="stat-item">
                             <div id="best-score-popup" class="stat-value">0</div>
@@ -355,8 +309,33 @@
                         </div>
                         <div class="stat-item">
                             <div id="current-streak-popup" class="stat-value">0</div>
-                            <div class="stat-label">Streak</div>
+                            <div class="stat-label">Current Streak</div>
                         </div>
+                        <div class="stat-item">
+                            <div id="best-streak-popup" class="stat-value">0</div>
+                            <div class="stat-label">Best Streak</div>
+                        </div>
+                    </div>
+                    <!-- Heat-map Calendar -->
+                    <div class="heat-map-calendar-popup">
+                        <div class="heat-map-header">Win History</div>
+                        <div id="heat-map-grid-popup" class="heat-map-grid">
+                            <!-- Calendar grid will be generated here -->
+                        </div>
+                        <div class="heat-map-legend">
+                            <span>Less</span>
+                            <div class="heat-map-legend-squares">
+                                <div class="heat-map-day" data-wins="0"></div>
+                                <div class="heat-map-day" data-wins="1"></div>
+                                <div class="heat-map-day" data-wins="2"></div>
+                                <div class="heat-map-day" data-wins="3"></div>
+                                <div class="heat-map-day" data-wins="4"></div>
+                            </div>
+                            <span>More</span>
+                        </div>
+                    </div>
+                    <div class="stats-actions">
+                        <button id="reset-stats-popup" class="secondary-button">Reset Statistics</button>
                     </div>
                 </div>
             </div>

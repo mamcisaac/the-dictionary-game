@@ -31,6 +31,49 @@ const Popup = {
                 this.close();
             }
         });
+        
+        // Tab switching
+        document.querySelectorAll('.popup-tab').forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                const tabName = e.target.getAttribute('data-tab');
+                this.switchTab(tabName);
+            });
+        });
+        
+        // Reset stats button in popup
+        const resetStatsPopup = document.getElementById('reset-stats-popup');
+        if (resetStatsPopup) {
+            resetStatsPopup.addEventListener('click', () => {
+                if (confirm('Are you sure you want to reset all statistics?')) {
+                    Statistics.resetStats();
+                    this.updateStatsDisplay();
+                }
+            });
+        }
+    },
+    
+    switchTab(tabName) {
+        // Remove active class from all tabs and panes
+        document.querySelectorAll('.popup-tab').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        document.querySelectorAll('.tab-pane').forEach(pane => {
+            pane.classList.remove('active');
+        });
+        
+        // Add active class to selected tab and pane
+        const selectedTab = document.querySelector(`.popup-tab[data-tab="${tabName}"]`);
+        const selectedPane = document.getElementById(`${tabName}-tab`);
+        
+        if (selectedTab && selectedPane) {
+            selectedTab.classList.add('active');
+            selectedPane.classList.add('active');
+        }
+        
+        // If switching to statistics tab, update the heat map
+        if (tabName === 'statistics') {
+            this.generateHeatMapForPopup();
+        }
     },
     
     setupCluePopup() {
@@ -206,7 +249,8 @@ const Popup = {
             score: document.getElementById('current-score-popup'),
             clues: document.getElementById('clue-counter-popup'),
             guesses: document.getElementById('guess-count-popup'),
-            time: document.getElementById('time-elapsed-popup')
+            time: document.getElementById('time-elapsed-popup'),
+            difficulty: document.getElementById('difficulty-popup')
         };
         
         if (elements.score) {
@@ -228,6 +272,11 @@ const Popup = {
             const elapsed = (typeof elapsedTime !== 'undefined') ? elapsedTime : 0;
             elements.time.textContent = formatTime(elapsed);
         }
+        
+        if (elements.difficulty && window.puzzleData) {
+            const difficultyScore = window.puzzleData.difficulty || 0;
+            elements.difficulty.textContent = difficultyScore.toFixed(2);
+        }
     },
     
     updateStatsDisplay() {
@@ -235,17 +284,29 @@ const Popup = {
         
         const elements = {
             gamesPlayed: document.getElementById('games-played-popup'),
+            gamesWon: document.getElementById('games-won-popup'),
             winRate: document.getElementById('win-rate-popup'),
+            avgScore: document.getElementById('avg-score-popup'),
             bestScore: document.getElementById('best-score-popup'),
-            currentStreak: document.getElementById('current-streak-popup')
+            currentStreak: document.getElementById('current-streak-popup'),
+            bestStreak: document.getElementById('best-streak-popup')
         };
         
         if (elements.gamesPlayed) {
             elements.gamesPlayed.textContent = stats.gamesPlayed;
         }
         
+        if (elements.gamesWon) {
+            elements.gamesWon.textContent = stats.gamesWon;
+        }
+        
         if (elements.winRate) {
             elements.winRate.textContent = (stats.winRate !== null && stats.winRate !== undefined) ? `${stats.winRate}%` : '--';
+        }
+        
+        if (elements.avgScore) {
+            const avgScore = Statistics.getAverageScore();
+            elements.avgScore.textContent = avgScore;
         }
         
         if (elements.bestScore) {
@@ -254,6 +315,49 @@ const Popup = {
         
         if (elements.currentStreak) {
             elements.currentStreak.textContent = stats.currentStreak;
+        }
+        
+        if (elements.bestStreak) {
+            elements.bestStreak.textContent = stats.bestStreak;
+        }
+    },
+    
+    generateHeatMapForPopup() {
+        const heatMapGrid = document.getElementById('heat-map-grid-popup');
+        if (!heatMapGrid) return;
+        
+        const dailyWins = Statistics.getDailyWins();
+        const today = new Date();
+        const endDate = new Date(today);
+        const startDate = new Date(today);
+        startDate.setDate(today.getDate() - 364); // Show last 365 days
+        
+        // Clear existing grid
+        heatMapGrid.innerHTML = '';
+        
+        // Generate calendar grid (52 weeks)
+        for (let week = 0; week < 52; week++) {
+            const weekDiv = document.createElement('div');
+            weekDiv.className = 'heat-map-week';
+            
+            for (let day = 0; day < 7; day++) {
+                const currentDate = new Date(startDate);
+                currentDate.setDate(startDate.getDate() + (week * 7) + day);
+                
+                if (currentDate > endDate) break;
+                
+                const dateString = currentDate.toISOString().split('T')[0];
+                const wins = dailyWins[dateString] || 0;
+                
+                const dayDiv = document.createElement('div');
+                dayDiv.className = 'heat-map-day';
+                dayDiv.setAttribute('data-wins', Math.min(wins, 4).toString());
+                dayDiv.title = `${dateString}: ${wins} win${wins !== 1 ? 's' : ''}`;
+                
+                weekDiv.appendChild(dayDiv);
+            }
+            
+            heatMapGrid.appendChild(weekDiv);
         }
     },
     

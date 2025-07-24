@@ -43,7 +43,6 @@ const DOMUtils = {
             helpButton: '#help-button',
             
             // Modal elements
-            statsModal: '#stats-modal',
             helpModal: '#help-modal',
             
             // Timer elements

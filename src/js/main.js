@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
     Components.GuessCard.init();
     Components.ScoreMeter.init();
     Components.ClueDeck.init();
-    Components.StatModal.init();
     
     // UI Updates module - start periodic score updates
     if (typeof startScoreUpdateTimer === 'function') {

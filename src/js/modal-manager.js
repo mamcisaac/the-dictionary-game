@@ -215,21 +215,12 @@ function hideHelpModal() {
     ModalManager.closeModal('help-modal');
 }
 
-function showStatsModal() {
-    ModalManager.openModal('stats-modal');
-}
-
-function hideStatsModal() {
-    ModalManager.closeModal('stats-modal');
-}
 
 // Export for use in other modules
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { ModalManager, showHelpModal, hideHelpModal, showStatsModal, hideStatsModal };
+    module.exports = { ModalManager, showHelpModal, hideHelpModal };
 } else {
     window.ModalManager = ModalManager;
     window.showHelpModal = showHelpModal;
     window.hideHelpModal = hideHelpModal;
-    window.showStatsModal = showStatsModal;
-    window.hideStatsModal = hideStatsModal;
 }

@@ -257,69 +257,6 @@ const Components = {
         }
     },
 
-    // StatModal Component with Focus Trap
-    StatModal: {
-        element: null,
-        previousFocus: null,
-        init() {
-            this.element = document.getElementById('stats-modal');
-        },
-        show() {
-            if (!this.element) return;
-            
-            // Store current focus
-            this.previousFocus = document.activeElement;
-            
-            this.element.setAttribute('data-open', 'true');
-            
-            // Focus the close button
-            const closeButton = this.element.querySelector('.close');
-            if (closeButton) {
-                setTimeout(() => closeButton.focus(), 100);
-            }
-            
-            // Set up focus trap
-            this.trapFocus();
-        },
-        hide() {
-            if (!this.element) return;
-            
-            this.element.setAttribute('data-open', 'false');
-            
-            // Remove focus trap
-            this.element.removeEventListener('keydown', this.handleKeyDown);
-            
-            // Restore focus
-            if (this.previousFocus) {
-                this.previousFocus.focus();
-            }
-        },
-        trapFocus() {
-            const focusableElements = this.element.querySelectorAll(
-                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-            );
-            const firstFocusable = focusableElements[0];
-            const lastFocusable = focusableElements[focusableElements.length - 1];
-            
-            this.handleKeyDown = (e) => {
-                if (e.key === 'Tab') {
-                    if (e.shiftKey) {
-                        if (document.activeElement === firstFocusable) {
-                            lastFocusable.focus();
-                            e.preventDefault();
-                        }
-                    } else {
-                        if (document.activeElement === lastFocusable) {
-                            firstFocusable.focus();
-                            e.preventDefault();
-                        }
-                    }
-                }
-            };
-            
-            this.element.addEventListener('keydown', this.handleKeyDown);
-        }
-    },
 
     // Victory Component
     Victory: {
@@ -345,9 +282,12 @@ const Components = {
             // Animate the GuessCard
             Components.GuessCard.animateSuccess();
             
-            // Show stats modal with victory focus
+            // Show score popup on statistics tab
             setTimeout(() => {
-                Components.StatModal.show();
+                if (window.Popup) {
+                    Popup.showScorePopup();
+                    Popup.switchTab('statistics');
+                }
             }, 1000);
         },
         

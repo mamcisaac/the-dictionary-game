@@ -137,20 +137,13 @@ const EventHandlers = {
         const statsButton = document.getElementById("stats-button");
         const closeModal = DOMUtils.get(".close");
         const resetStatsButton = document.getElementById("reset-stats");
-        const statsModal = document.getElementById("stats-modal");
-
         if (statsButton) {
             statsButton.addEventListener("click", () => {
                 Statistics.updateStatsDisplay();
-                Components.StatModal.show();
+                // Stats button functionality handled by Score button now
             });
         }
 
-        if (closeModal) {
-            closeModal.addEventListener("click", () => {
-                Components.StatModal.hide();
-            });
-        }
 
         if (resetStatsButton) {
             resetStatsButton.addEventListener("click", () => {
@@ -160,14 +153,6 @@ const EventHandlers = {
             });
         }
 
-        // Click outside to close stats modal
-        if (statsModal) {
-            window.addEventListener("click", (event) => {
-                if (event.target === statsModal) {
-                    Components.StatModal.hide();
-                }
-            });
-        }
 
         // Help modal
         const helpButton = document.getElementById("help-button");
@@ -210,12 +195,6 @@ const EventHandlers = {
         // Global escape key handling
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape') {
-                // Close stats modal if open
-                const statsModal = document.getElementById('stats-modal');
-                if (statsModal && statsModal.getAttribute('data-open') === 'true') {
-                    Components.StatModal.hide();
-                    event.preventDefault();
-                }
                 
                 // Close help modal if open
                 const helpModal = document.getElementById('help-modal');
