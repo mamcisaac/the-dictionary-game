@@ -336,7 +336,7 @@ function handleGuess() {
         // Reveal the complete word in the pattern display
         const wordPatternElement = document.getElementById("word-pattern");
         if (wordPatternElement) {
-            wordPatternElement.innerHTML = puzzleData.word.toUpperCase();
+            wordPatternElement.innerHTML = puzzleData.word.toUpperCase().split('').join(' ');
         }
         
         // Get final score for victory display

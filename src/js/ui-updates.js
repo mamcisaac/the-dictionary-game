@@ -99,11 +99,12 @@ function updateWordPatternDisplay() {
     
     // Always show revealed letters
     const revealedPart = puzzleData.word.substring(0, lettersRevealed).toUpperCase();
-    const revealedWithSpacing = revealedPart.split('').join('');
+    const revealedWithSpacing = revealedPart.split('').join(' ');
     
     // Show full pattern if word length has been revealed
     if (cluesGivenByType && cluesGivenByType.wordLength) {
-        const hiddenLetters = '_'.repeat(puzzleData.word.length - lettersRevealed);
+        const hiddenCount = puzzleData.word.length - lettersRevealed;
+        const hiddenLetters = hiddenCount > 0 ? ' ' + Array(hiddenCount).fill('_').join(' ') : '';
         const pattern = revealedWithSpacing + hiddenLetters;
         wordPatternElement.innerHTML = pattern;
     } else {
