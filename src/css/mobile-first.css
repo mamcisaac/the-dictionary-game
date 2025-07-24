@@ -183,18 +183,18 @@ body.popup-open {
 /* Floating Help Button */
 .help-floating {
     position: fixed;
-    top: var(--space-4);
-    right: var(--space-4);
+    top: 16px; /* Fixed distance from viewport top */
+    right: 16px; /* Fixed distance from viewport right */
     width: 48px;
     height: 48px;
     border-radius: 50%;
     background-color: var(--primary-600);
     color: white;
     border: none;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 9999; /* Very high z-index to ensure it floats above everything */
     display: flex;
     align-items: center;
     justify-content: center;
