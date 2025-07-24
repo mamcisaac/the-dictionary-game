@@ -245,7 +245,7 @@ const Popup = {
         }
         
         if (elements.winRate) {
-            elements.winRate.textContent = stats.winRate !== null ? `${stats.winRate}%` : '--';
+            elements.winRate.textContent = (stats.winRate !== null && stats.winRate !== undefined) ? `${stats.winRate}%` : '--';
         }
         
         if (elements.bestScore) {

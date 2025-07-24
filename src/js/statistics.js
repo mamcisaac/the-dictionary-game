@@ -83,8 +83,8 @@ const Statistics = {
         // Calculate and display win rate
         const winRate = gameStats.gamesPlayed > 0 
             ? Math.round((gameStats.gamesWon / gameStats.gamesPlayed) * 100) 
-            : 0;
-        if (winRateEl) winRateEl.textContent = winRate + '%';
+            : null;
+        if (winRateEl) winRateEl.textContent = winRate !== null ? winRate + '%' : '--';
         
         // Calculate and display average score
         const avgScore = gameStats.gamesWon > 0 
