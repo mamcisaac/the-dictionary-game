@@ -86,9 +86,7 @@ function prepareGameUI() {
     if (guessInput) guessInput.value = '';
     
     const actionArea = document.getElementById("action-area");
-    const myword = document.getElementById("my-word");
     if (actionArea) actionArea.style.display = "block";
-    if (myword) myword.style.display = "block";
 }
 
 /**
@@ -144,7 +142,7 @@ function setupGameComponents() {
         // Add primary definition to the sticky header
         const primaryDefElement = document.getElementById('primary-definition');
         if (primaryDefElement) {
-            primaryDefElement.textContent = `📖 Definition: ${definition}`;
+            primaryDefElement.textContent = definition;
         }
         
         // Clear the clue list for additional clues
