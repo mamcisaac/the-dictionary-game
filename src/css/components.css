@@ -64,6 +64,7 @@
 .clue-stripe__content {
     flex-grow: 1;
     font-size: var(--type-body);
+    color: var(--text-default);  /* Use default text color for better contrast */
 }
 
 .clue-stripe__cost {

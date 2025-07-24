@@ -67,7 +67,7 @@ function updateButtonCosts() {
         Components.ClueDeck.renderCards();
     }
     
-    // Update guess button cost (first guess free, then flat 3 points)
+    // Update guess button cost (first guess free, then 1 point each)
     if (guessButton && !guessButton.disabled && guessCostPreview) {
         guessButton.textContent = "Guess";
         const costValueElement = guessCostPreview.querySelector('.cost-preview-value');
@@ -76,7 +76,7 @@ function updateButtonCosts() {
                 costValueElement.textContent = "🆓 First guess free!";
                 guessCostPreview.className = "cost-preview-sidebar free";
             } else {
-                costValueElement.textContent = "💰 -3 points";
+                costValueElement.textContent = "💰 -1 point";
                 guessCostPreview.className = "cost-preview-sidebar";
             }
         }
@@ -218,33 +218,10 @@ function animateScoreUpdate(element, newScore) {
 
 /**
  * Update difficulty indicator display
- * Shows the difficulty level of the current word
+ * No longer used in simple scoring system
  */
 function updateDifficultyIndicator() {
-    if (!gameScoring || !puzzleData) return;
-    
-    const breakdown = gameScoring.getScoreBreakdown();
-    const difficultyElement = DOMUtils.get('difficultyScore');
-    const difficultyFill = DOMUtils.get('difficultyFill');
-    const difficultySection = DOMUtils.get('.difficulty-section');
-    
-    if (difficultyElement && difficultyFill && difficultySection) {
-        const difficulty = breakdown.difficulty;
-        const percentage = Math.round(difficulty * 100);
-        
-        // Set difficulty level per spec: 0-0.3 = low, 0.3-0.6 = medium, >0.6 = high
-        let difficultyLevel = 'low';
-        if (difficulty > 0.6) {
-            difficultyLevel = 'high';
-        } else if (difficulty > 0.3) {
-            difficultyLevel = 'medium';
-        }
-        
-        difficultyElement.textContent = difficulty.toFixed(2);
-        difficultyFill.style.width = `${percentage}%`;
-        difficultyFill.setAttribute('data-difficulty', difficultyLevel);
-        difficultySection.style.display = 'block';
-    }
+    // Deprecated - simple scoring doesn't use difficulty
 }
 
 /**
@@ -281,7 +258,7 @@ function updateScoreBadge() {
  * Initializes the game timer and starts updating it
  */
 function startGameTimer() {
-    gameStartTime = Date.now();
+    window.gameStartTime = Date.now();
     if (gameTimerInterval) clearInterval(gameTimerInterval);
     gameTimerInterval = setInterval(updateGameTimer, 1000);
     updateGameTimer();
@@ -314,22 +291,10 @@ function updateGameTimer() {
 
 /**
  * Start periodic score update timer
- * Handles time-based score decay and updates
+ * No longer needed in simple scoring system
  */
 function startScoreUpdateTimer() {
-    setInterval(() => {
-        if (gameStarted && gameScoring && typeof currentScore !== 'undefined') {
-            const newScore = gameScoring.getCurrentScore();
-            if (newScore !== currentScore) {
-                currentScore = newScore;
-                const currentScoreElement = DOMUtils.get('currentScore');
-                if (currentScoreElement) {
-                    animateScoreUpdate(currentScoreElement, currentScore);
-                }
-                updateScoreBadge();
-            }
-        }
-    }, 5000); // Update every 5 seconds
+    // Deprecated - simple scoring doesn't need periodic updates
 }
 
 // Helper function for calculating available clues (dependency)

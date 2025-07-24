@@ -100,6 +100,7 @@ function resetGameStateForNewGame() {
     // Reset clue tracking
     cluesGivenByType = {
         definitions: 1,      // Primary definition shown free
+        definitionsShown: new Set(), // Track which specific definitions have been shown
         wordLength: false,
         examples: 0,
         synonyms: false,
@@ -117,7 +118,7 @@ async function initializeNewGame() {
     // Initialize new scoring system
     if (gameScoring) {
         gameScoring.initializeGame(puzzleData);
-        currentScore = gameScoring.getCurrentScore();
+        currentScore = 100; // Always start at 100
     } else {
         currentScore = 100; // Fallback
     }
@@ -135,15 +136,20 @@ function setupGameComponents() {
         updateScoreBadge();
     }
     
-    // Display primary definition
-    if (puzzleData && puzzleData.definitions && puzzleData.definitions[0]) {
-        const definition = puzzleData.definitions[0];
+    // Display primary definition (start with 2nd definition for more challenge)
+    if (puzzleData && puzzleData.definitions && puzzleData.definitions.length > 0) {
+        // Use 2nd definition if available, otherwise fallback to 1st
+        const definitionIndex = puzzleData.definitions.length > 1 ? 1 : 0;
+        const definition = puzzleData.definitions[definitionIndex];
         
         // Add primary definition to the sticky header
         const primaryDefElement = document.getElementById('primary-definition');
         if (primaryDefElement) {
             primaryDefElement.textContent = definition;
         }
+        
+        // Mark this definition as already shown
+        cluesGivenByType.definitionsShown.add(definitionIndex);
         
         // Clear the clue list for additional clues
         const clueList = DOMUtils.get('clueList');
@@ -335,16 +341,14 @@ function handleGuess() {
             wordPatternElement.innerHTML = puzzleData.word.toUpperCase().split('').join(' ');
         }
         
-        // Get detailed score breakdown for victory display
+        // Get final score for victory display
         let finalScore = currentScore;
         if (gameScoring) {
-            const scoreBreakdown = gameScoring.getScoreBreakdown();
-            finalScore = scoreBreakdown.finalScore;
-            console.log('Score Breakdown:', scoreBreakdown);
+            finalScore = gameScoring.getFinalScore();
         }
         
         if (messageDisplay) {
-            messageDisplay.innerHTML = `Congratulations! The word was: ${puzzleData.word}. You scored ${finalScore}/1000 points!`;
+            messageDisplay.innerHTML = `Congratulations! The word was: ${puzzleData.word}. You scored ${finalScore}/100 points!`;
             messageDisplay.style.color = "var(--dg-accent)"; // Success color
         }
         
@@ -516,7 +520,7 @@ function purchaseClue(type, cost) {
     }
     
     if (clueResult) {
-        console.log(`Purchased ${type} clue: Cost=${clueResult.cost}, Remaining entropy=${clueResult.remainingEntropy.toFixed(2)} bits`);
+        console.log(`Purchased ${type} clue: Cost=${clueResult.cost}`);
     }
     
     // Get and display the clue
@@ -548,9 +552,39 @@ function getClueContent(type) {
     
     switch(type) {
         case 'definition':
-            if (cluesGivenByType.definitions < puzzleData.definitions.length) {
-                const defIndex = cluesGivenByType.definitions;
-                content = `📖 Definition ${defIndex + 1}: ${puzzleData.definitions[defIndex]}`;
+            // Reordered sequence: 1 (shown free), 2, 0, 3, 4, 5...
+            // Find next definition to show based on priority order
+            const getNextDefinitionIndex = () => {
+                const totalDefs = puzzleData.definitions.length;
+                
+                // Priority order: 2, 0, 3, 4, 5...
+                const priorityOrder = [];
+                
+                // Add index 2 if it exists
+                if (totalDefs > 2) priorityOrder.push(2);
+                
+                // Add index 0 (most common definition)
+                if (totalDefs > 0) priorityOrder.push(0);
+                
+                // Add remaining indices 3, 4, 5...
+                for (let i = 3; i < totalDefs; i++) {
+                    priorityOrder.push(i);
+                }
+                
+                // Find first unshown definition
+                for (const index of priorityOrder) {
+                    if (!cluesGivenByType.definitionsShown.has(index)) {
+                        return index;
+                    }
+                }
+                
+                return -1; // No more definitions available
+            };
+            
+            const nextDefIndex = getNextDefinitionIndex();
+            if (nextDefIndex !== -1) {
+                content = `📖 Definition ${cluesGivenByType.definitions + 1}: ${puzzleData.definitions[nextDefIndex]}`;
+                cluesGivenByType.definitionsShown.add(nextDefIndex);
                 cluesGivenByType.definitions++;
             }
             break;
@@ -589,7 +623,9 @@ function getClueContent(type) {
             break;
             
         case 'letter':
-            if (cluesGivenByType.lettersRevealed < puzzleData.word.length) {
+            // Prevent revealing all letters - leave at least 2 letters hidden
+            const maxRevealable = Math.max(1, puzzleData.word.length - 2);
+            if (cluesGivenByType.lettersRevealed < maxRevealable) {
                 cluesGivenByType.lettersRevealed++;
                 let lettersRevealed = cluesGivenByType.lettersRevealed;
                 if (typeof updateWordPatternDisplay === 'function') {
@@ -619,12 +655,12 @@ function getAvailableClues() {
     };
     
     const available = {
-        definitions: Math.max(0, puzzleData.definitions.length - cluesGivenByType.definitions),
+        definitions: Math.max(0, puzzleData.definitions.length - cluesGivenByType.definitionsShown.size),
         wordLength: !cluesGivenByType.wordLength ? 1 : 0,
         examples: Math.max(0, puzzleData.examples.length - cluesGivenByType.examples),
         synonyms: (puzzleData.synonyms && puzzleData.synonyms.length > 0 && !cluesGivenByType.synonyms) ? 1 : 0,
         antonyms: (puzzleData.antonyms && puzzleData.antonyms.length > 0 && !cluesGivenByType.antonyms) ? 1 : 0,
-        letters: Math.max(0, puzzleData.word.length - cluesGivenByType.lettersRevealed)
+        letters: Math.max(0, Math.max(1, puzzleData.word.length - 2) - cluesGivenByType.lettersRevealed)
     };
     
     return available;

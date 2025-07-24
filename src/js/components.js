@@ -150,7 +150,7 @@ const Components = {
             // Create cards HTML
             const cardsHTML = clueTypes.map(clue => {
                 const disabled = clue.count === 0 || (typeof currentScore !== 'undefined' && currentScore < clue.cost);
-                const costLevel = clue.cost <= 15 ? 'low' : clue.cost <= 30 ? 'medium' : 'high';
+                const costLevel = clue.cost <= 3 ? 'low' : clue.cost <= 5 ? 'medium' : 'high';
                 
                 return `
                     <button class="clue-card ${disabled ? 'disabled' : ''}" 

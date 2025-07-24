@@ -254,25 +254,41 @@ const Popup = {
         }
         
         if (elements.clues) {
+            // Count actual clues used
             const cluesObj = window.cluesGivenByType || {};
-            const usedClues = Object.values(cluesObj).filter(val => val === true || val > 0).length;
-            const totalClues = Object.keys(cluesObj).length;
-            elements.clues.textContent = `${usedClues}/${totalClues}`;
+            let usedClues = 0;
+            
+            // Count each type of clue properly
+            if (cluesObj.definitions > 1) usedClues += cluesObj.definitions - 1; // -1 because first is free
+            if (cluesObj.wordLength) usedClues += 1;
+            if (cluesObj.examples > 0) usedClues += cluesObj.examples;
+            if (cluesObj.synonyms) usedClues += 1;
+            if (cluesObj.antonyms) usedClues += 1;
+            if (cluesObj.lettersRevealed > 1) usedClues += cluesObj.lettersRevealed - 1; // -1 because first is free
+            
+            // Get total available clues
+            const available = window.getAvailableClues ? window.getAvailableClues() : {};
+            const totalAvailable = Object.values(available).reduce((sum, count) => sum + count, 0);
+            
+            elements.clues.textContent = `${usedClues}`;
         }
         
         if (elements.guesses) {
             elements.guesses.textContent = window.guessCount || 0;
         }
         
-        if (elements.time && window.formatTime) {
-            const elapsed = (typeof elapsedTime !== 'undefined') ? elapsedTime : 0;
-            elements.time.textContent = formatTime(elapsed);
+        if (elements.time) {
+            // Calculate elapsed time from game start
+            if (window.gameStartTime) {
+                const elapsed = Math.floor((Date.now() - window.gameStartTime) / 1000);
+                const minutes = Math.floor(elapsed / 60);
+                const seconds = elapsed % 60;
+                elements.time.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            } else {
+                elements.time.textContent = '0:00';
+            }
         }
         
-        if (elements.difficulty && window.puzzleData) {
-            const difficultyScore = window.puzzleData.difficulty || 0;
-            elements.difficulty.textContent = difficultyScore.toFixed(2);
-        }
     },
     
     updateStatsDisplay() {

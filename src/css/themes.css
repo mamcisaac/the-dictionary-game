@@ -8,7 +8,7 @@
     --bg-default: #1a1a1a;
     --bg-card: #2d2d2d;
     --text-default: #f3f4f6;
-    --text-subtle: #9ca3af;
+    --text-subtle: #c3c9d1;  /* Improved contrast for better readability */
     --border-default: #4B5563;
     --shadow: rgba(0, 0, 0, 0.5);
     --shadow-light: rgba(0, 0, 0, 0.3);
