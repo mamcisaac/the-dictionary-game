@@ -98,25 +98,20 @@ body.popup-open {
     border-bottom: 1px solid var(--border-default);
 }
 
-/* Compact header layout */
-.header-content {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-}
-
-/* Compact word pattern display */
-.word-pattern-compact {
+/* Word pattern box - prominent but compact */
+.word-pattern-box {
     font-family: 'Courier New', monospace;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: bold;
     color: var(--primary-600);
-    letter-spacing: 0.2em;
-    padding: var(--space-1) var(--space-2);
-    border: 2px solid var(--primary-600);
+    letter-spacing: 0.3em;
+    padding: var(--space-2) var(--space-3);
+    border: 3px solid var(--primary-600);
     border-radius: var(--radius-m);
-    background: var(--bg-subtle);
-    flex-shrink: 0;
+    background: var(--zinc-50);
+    text-align: center;
+    margin-bottom: var(--space-2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Compact primary definition */
@@ -129,17 +124,19 @@ body.popup-open {
 
 /* Mobile optimizations for header */
 @media (max-width: 480px) {
-    .header-content {
-        gap: var(--space-2);
-    }
-    
-    .word-pattern-compact {
-        font-size: 1.25rem;
-        padding: 2px var(--space-2);
+    .word-pattern-box {
+        font-size: 1.5rem;
+        padding: var(--space-1) var(--space-2);
+        margin-bottom: var(--space-1);
     }
     
     .primary-definition-compact {
         font-size: 0.875rem;
+        line-height: 1.2;
+    }
+    
+    .guess-card-header {
+        padding: var(--space-1) var(--space-2);
     }
 }
 
