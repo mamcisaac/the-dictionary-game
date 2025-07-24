@@ -56,6 +56,7 @@ function prepareGameUI() {
     }
     if (guessButton) {
         guessButton.disabled = false;
+        guessButton.classList.add("primary");
     }
     if (clueButton) {
         clueButton.disabled = false;
@@ -65,6 +66,7 @@ function prepareGameUI() {
     }
     if (newGameButton) {
         newGameButton.disabled = false;
+        newGameButton.classList.remove("primary");
     }
     
     // Enable clues button for mobile
@@ -359,13 +361,19 @@ function handleGuess() {
         
         const guessButton = document.getElementById("guess-button");
         const giveUpButton = document.getElementById("give-up-button");
+        const newGameButton = document.getElementById("new-game-button");
         
         if (guessButton) {
             guessButton.disabled = true;
             guessButton.textContent = "Guess";
+            guessButton.classList.remove("primary");
         }
         if (giveUpButton) {
             giveUpButton.disabled = true;
+        }
+        // Highlight the New Game button
+        if (newGameButton) {
+            newGameButton.classList.add("primary");
         }
         
         if (typeof stopGameTimer === 'function') {

@@ -287,6 +287,7 @@ const EventHandlers = {
     updateUIForGameEnd() {
         const giveUpButton = document.getElementById("give-up-button");
         const guessButton = document.getElementById("guess-button");
+        const newGameButton = document.getElementById("new-game-button");
         const inputSection = DOMUtils.get("inputSection");
 
         if (giveUpButton) {
@@ -296,6 +297,12 @@ const EventHandlers = {
 
         if (guessButton) {
             guessButton.disabled = true;
+            guessButton.classList.remove("primary");
+        }
+        
+        // Highlight the New Game button
+        if (newGameButton) {
+            newGameButton.classList.add("primary");
         }
 
         if (inputSection) {
