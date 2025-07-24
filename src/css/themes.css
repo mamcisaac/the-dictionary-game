@@ -28,6 +28,10 @@
     color: #e5e7eb;  /* Lighter subtle text for dark mode */
 }
 
+[data-theme="dark"] .primary-definition-compact {
+    color: #f9fafb;  /* Very light text for maximum contrast - same as clue-stripe__content */
+}
+
 /* Dark theme specific help adjustments */
 [data-theme="dark"] .help-intro {
     background: linear-gradient(135deg, var(--accent-400), var(--primary-600));
