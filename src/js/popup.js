@@ -70,10 +70,6 @@ const Popup = {
             selectedPane.classList.add('active');
         }
         
-        // If switching to statistics tab, update the heat map
-        if (tabName === 'statistics') {
-            this.generateHeatMapForPopup();
-        }
     },
     
     setupCluePopup() {
@@ -322,44 +318,6 @@ const Popup = {
         }
     },
     
-    generateHeatMapForPopup() {
-        const heatMapGrid = document.getElementById('heat-map-grid-popup');
-        if (!heatMapGrid) return;
-        
-        const dailyWins = Statistics.getDailyWins();
-        const today = new Date();
-        const endDate = new Date(today);
-        const startDate = new Date(today);
-        startDate.setDate(today.getDate() - 364); // Show last 365 days
-        
-        // Clear existing grid
-        heatMapGrid.innerHTML = '';
-        
-        // Generate calendar grid (52 weeks)
-        for (let week = 0; week < 52; week++) {
-            const weekDiv = document.createElement('div');
-            weekDiv.className = 'heat-map-week';
-            
-            for (let day = 0; day < 7; day++) {
-                const currentDate = new Date(startDate);
-                currentDate.setDate(startDate.getDate() + (week * 7) + day);
-                
-                if (currentDate > endDate) break;
-                
-                const dateString = currentDate.toISOString().split('T')[0];
-                const wins = dailyWins[dateString] || 0;
-                
-                const dayDiv = document.createElement('div');
-                dayDiv.className = 'heat-map-day';
-                dayDiv.setAttribute('data-wins', Math.min(wins, 4).toString());
-                dayDiv.title = `${dateString}: ${wins} win${wins !== 1 ? 's' : ''}`;
-                
-                weekDiv.appendChild(dayDiv);
-            }
-            
-            heatMapGrid.appendChild(weekDiv);
-        }
-    },
     
     show(popup) {
         if (!popup) return;

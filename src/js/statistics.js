@@ -95,9 +95,6 @@ const Statistics = {
         if (bestScoreEl) bestScoreEl.textContent = gameStats.bestScore;
         if (currentStreakEl) currentStreakEl.textContent = gameStats.currentStreak;
         if (bestStreakEl) bestStreakEl.textContent = gameStats.bestStreak;
-        
-        // Generate heat-map calendar when stats modal is updated
-        this.generateHeatMapCalendar();
     },
 
     /**
@@ -122,9 +119,6 @@ const Statistics = {
             if (score > gameStats.bestScore) {
                 gameStats.bestScore = score;
             }
-
-            // Record daily win for heat map
-            this.recordDailyWin();
         } else {
             // Reset streak on loss
             gameStats.currentStreak = 0;
@@ -142,64 +136,6 @@ const Statistics = {
         }
     },
 
-    /**
-     * Record a win for today's date (used for heat map calendar)
-     */
-    recordDailyWin() {
-        const today = new Date().toISOString().split('T')[0];
-        const dailyWins = JSON.parse(localStorage.getItem('dictionaryGameDailyWins') || '{}');
-        
-        dailyWins[today] = (dailyWins[today] || 0) + 1;
-        
-        try {
-            localStorage.setItem('dictionaryGameDailyWins', JSON.stringify(dailyWins));
-        } catch (error) {
-            console.error('Failed to save daily wins:', error);
-        }
-    },
-
-    /**
-     * Generate and render the heat map calendar showing daily wins
-     * Creates a 52-week calendar grid showing game activity
-     */
-    generateHeatMapCalendar() {
-        const heatMapGrid = document.getElementById('heat-map-grid');
-        if (!heatMapGrid) return;
-        
-        const dailyWins = JSON.parse(localStorage.getItem('dictionaryGameDailyWins') || '{}');
-        const today = new Date();
-        const endDate = new Date(today);
-        const startDate = new Date(today);
-        startDate.setDate(today.getDate() - 364); // Show last 365 days
-        
-        // Clear existing grid
-        heatMapGrid.innerHTML = '';
-        
-        // Generate calendar grid (52 weeks)
-        for (let week = 0; week < 52; week++) {
-            const weekDiv = document.createElement('div');
-            weekDiv.className = 'heat-map-week';
-            
-            for (let day = 0; day < 7; day++) {
-                const currentDate = new Date(startDate);
-                currentDate.setDate(startDate.getDate() + (week * 7) + day);
-                
-                if (currentDate > endDate) break;
-                
-                const dateString = currentDate.toISOString().split('T')[0];
-                const wins = dailyWins[dateString] || 0;
-                
-                const dayDiv = document.createElement('div');
-                dayDiv.className = 'heat-map-day';
-                dayDiv.setAttribute('data-wins', Math.min(wins, 4).toString());
-                dayDiv.title = `${dateString}: ${wins} win${wins !== 1 ? 's' : ''}`;
-                
-                weekDiv.appendChild(dayDiv);
-            }
-            
-            heatMapGrid.appendChild(weekDiv);
-        }
-    },
 
     /**
      * Get current statistics object
@@ -216,13 +152,6 @@ const Statistics = {
         };
     },
 
-    /**
-     * Get daily wins data
-     * @returns {Object} Daily wins data from localStorage
-     */
-    getDailyWins() {
-        return JSON.parse(localStorage.getItem('dictionaryGameDailyWins') || '{}');
-    },
 
     /**
      * Calculate win percentage
