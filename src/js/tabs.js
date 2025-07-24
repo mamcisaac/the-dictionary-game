@@ -145,7 +145,7 @@ const Tabs = {
                     <div class="stat-label">Games Won</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-value">${stats.winRate}%</div>
+                    <div class="stat-value">${stats.winRate !== null ? stats.winRate + '%' : '--'}</div>
                     <div class="stat-label">Win Rate</div>
                 </div>
                 <div class="stat-item">

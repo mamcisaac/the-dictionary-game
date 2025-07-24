@@ -203,10 +203,17 @@ const Statistics = {
 
     /**
      * Get current statistics object
-     * @returns {Object} Current game statistics
+     * @returns {Object} Current game statistics with calculated values
      */
     getStats() {
-        return { ...gameStats };
+        const winRate = gameStats.gamesPlayed > 0 
+            ? Math.round((gameStats.gamesWon / gameStats.gamesPlayed) * 100) 
+            : null; // Use null to indicate no games played yet
+            
+        return { 
+            ...gameStats,
+            winRate: winRate
+        };
     },
 
     /**
