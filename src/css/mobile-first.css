@@ -364,6 +364,28 @@ body.modal-open .help-floating {
     color: var(--text-subtle);
 }
 
+/* Base disabled clue card styling (applies to both light and dark themes) */
+.clue-card.disabled,
+.clue-card:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.clue-card.disabled .clue-card-title,
+.clue-card:disabled .clue-card-title {
+    color: var(--text-subtle);
+}
+
+.clue-card.disabled .clue-card-icon,
+.clue-card:disabled .clue-card-icon {
+    color: var(--text-subtle);
+}
+
+.clue-card.disabled .clue-card-cost,
+.clue-card:disabled .clue-card-cost {
+    color: var(--text-subtle);
+}
+
 /* Score/Stats Display */
 .score-stats-container {
     padding: var(--space-4);

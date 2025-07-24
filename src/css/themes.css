@@ -32,6 +32,41 @@
     color: #f9fafb;  /* Very light text for maximum contrast - same as clue-stripe__content */
 }
 
+[data-theme="dark"] .clue-card-title {
+    color: #f9fafb;  /* Very light text for clue menu names */
+}
+
+[data-theme="dark"] .clue-card-icon {
+    color: #f9fafb;  /* Very light text for clue menu icons */
+}
+
+[data-theme="dark"] .clue-card-cost {
+    color: #e5e7eb;  /* Light text for clue costs */
+}
+
+/* Disabled clue card styling for dark mode */
+[data-theme="dark"] .clue-card.disabled,
+[data-theme="dark"] .clue-card:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: rgba(45, 45, 45, 0.3);  /* Darker grayed background */
+}
+
+[data-theme="dark"] .clue-card.disabled .clue-card-title,
+[data-theme="dark"] .clue-card:disabled .clue-card-title {
+    color: rgba(249, 250, 251, 0.4);  /* Muted text for disabled items */
+}
+
+[data-theme="dark"] .clue-card.disabled .clue-card-icon,
+[data-theme="dark"] .clue-card:disabled .clue-card-icon {
+    color: rgba(249, 250, 251, 0.4);  /* Muted icons for disabled items */
+}
+
+[data-theme="dark"] .clue-card.disabled .clue-card-cost,
+[data-theme="dark"] .clue-card:disabled .clue-card-cost {
+    color: rgba(229, 231, 235, 0.4);  /* Muted cost text for disabled items */
+}
+
 /* Dark theme specific help adjustments */
 [data-theme="dark"] .help-intro {
     background: linear-gradient(135deg, var(--accent-400), var(--primary-600));
