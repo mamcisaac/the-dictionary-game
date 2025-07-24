@@ -20,6 +20,14 @@
     border-color: var(--primary-600);
 }
 
+[data-theme="dark"] .clue-stripe__content {
+    color: #f9fafb;  /* Very light text for maximum contrast */
+}
+
+[data-theme="dark"] .clue-stripe__cost {
+    color: #e5e7eb;  /* Lighter subtle text for dark mode */
+}
+
 /* Dark theme specific help adjustments */
 [data-theme="dark"] .help-intro {
     background: linear-gradient(135deg, var(--accent-400), var(--primary-600));

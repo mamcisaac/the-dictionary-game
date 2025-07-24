@@ -236,7 +236,7 @@ body.popup-open {
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    z-index: 9999; /* Very high z-index to ensure it floats above everything */
+    z-index: 999; /* Lower z-index to stay below modals */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -252,6 +252,12 @@ body.popup-open {
 
 .help-floating:active {
     transform: scale(0.95);
+}
+
+/* Hide help button when help modal is open */
+.help-floating.modal-open-hidden,
+body.modal-open .help-floating {
+    display: none !important;
 }
 
 /* Popup Overlays */

@@ -84,6 +84,14 @@
         background: rgba(16, 185, 129, 0.15);  /* Semi-transparent primary color */
         border-color: var(--primary-600);
     }
+    
+    .clue-stripe__content {
+        color: #f9fafb;  /* Very light text for maximum contrast */
+    }
+    
+    .clue-stripe__cost {
+        color: #e5e7eb;  /* Lighter subtle text for dark mode */
+    }
 }
 
 /* Accessibility - Reduced Motion */
