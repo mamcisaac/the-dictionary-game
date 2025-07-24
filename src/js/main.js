@@ -4,7 +4,7 @@
  */
 
 // Initialize the game when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     console.log('🎮 The Dictionary Game - Initializing...');
     
     // Initialize core systems in order
@@ -27,6 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize event handling (must be last)
     EventHandlers.init();
+    
+    // Auto-start the first game and show help modal for first-time users
+    const isFirstTime = !localStorage.getItem('dictionaryGameStats');
+    await startGame();
+    if (isFirstTime) {
+        showHelpModal();
+    }
     
     console.log('✅ Game initialized successfully');
     console.log('📊 DOM Cache:', DOMUtils.getCacheStats());

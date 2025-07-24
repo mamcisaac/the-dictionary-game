@@ -17,13 +17,11 @@ function handleGameGiveUp() {
  * Prepare UI for new game by hiding/showing appropriate elements
  */
 function prepareGameUI() {
-    // Hide empty state and show game UI
-    const emptyState = document.getElementById("empty-state");
+    // Show game UI (empty state is already hidden by default)
     const guessCardHeader = document.getElementById("guess-card-header");
     const guessCardScroll = document.getElementById("guess-card-scroll");
     const sidebarPlaceholder = document.getElementById("sidebar-placeholder");
     
-    if (emptyState) emptyState.style.display = "none";
     if (guessCardHeader) guessCardHeader.style.display = "block";
     if (guessCardScroll) guessCardScroll.style.display = "block";
     if (sidebarPlaceholder) sidebarPlaceholder.style.display = "none";

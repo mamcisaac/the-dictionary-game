@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Dictionary Game</title>
     <link rel="stylesheet" href="src/css/main.css">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="src/css/mobile-first.css">
 </head>
 <body>
@@ -24,7 +23,7 @@
             <!-- GuessCard Component -->
             <div id="guess-card" class="guess-card" data-variant="default">
                 <!-- EmptyState Component -->
-                <div id="empty-state" class="empty-state">
+                <div id="empty-state" class="empty-state" style="display: none;">
                     <h2>Ready to play?</h2>
                     <p>Click <strong>New Game</strong> to start, or tap <span class="help-icon">❓</span> for a 15-sec tour.</p>
                     <button id="empty-state-new-game" class="button-primary">New Game</button>
