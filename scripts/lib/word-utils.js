@@ -11,6 +11,44 @@ function getWordVariations(word) {
     const variations = new Set([word.toLowerCase()]);
     const wordLower = word.toLowerCase();
     
+    // CRITICAL: Add common variations of the base word itself
+    // This ensures we catch "printing" when the word is "print"
+    variations.add(wordLower + 'ing');
+    variations.add(wordLower + 'ed');
+    variations.add(wordLower + 's');
+    variations.add(wordLower + 'er');
+    variations.add(wordLower + 'ers');
+    variations.add(wordLower + 'ings');
+    variations.add(wordLower + 'able');
+    variations.add(wordLower + 'ment');
+    
+    // Handle words ending in 'e' - remove 'e' before adding suffix
+    if (wordLower.endsWith('e')) {
+        const rootNoE = wordLower.slice(0, -1);
+        variations.add(rootNoE + 'ing');
+        variations.add(rootNoE + 'ed');
+        variations.add(rootNoE + 'er');
+        variations.add(rootNoE + 'able');
+    }
+    
+    // Handle words ending in 'y' - change 'y' to 'i' before suffix
+    if (wordLower.endsWith('y') && wordLower.length > 2) {
+        const rootNoY = wordLower.slice(0, -1);
+        variations.add(rootNoY + 'ies');
+        variations.add(rootNoY + 'ied');
+        variations.add(rootNoY + 'ier');
+        variations.add(rootNoY + 'iest');
+        variations.add(rootNoY + 'ying');
+    }
+    
+    // Handle words that might double final consonant
+    if (wordLower.match(/[^aeiou][aeiou][^aeiou]$/)) {
+        const lastChar = wordLower[wordLower.length - 1];
+        variations.add(wordLower + lastChar + 'ing');
+        variations.add(wordLower + lastChar + 'ed');
+        variations.add(wordLower + lastChar + 'er');
+    }
+    
     // Common suffixes - comprehensive list
     const suffixes = [
         // Verb forms
